@@ -20,7 +20,12 @@ function Placeholder({
   className?: string;
 }) {
   const Icon = slot.kind === "video" ? Clapperboard : Camera;
-  const label = slot.filename;
+  const label =
+    status === "loading"
+      ? "Loading the frame"
+      : status === "error"
+        ? "This file could not be read"
+        : `Drop in ${slot.filename}`;
 
   return (
     <div className={cn("fur-plate relative flex h-full w-full flex-col items-center justify-center overflow-hidden", className)}>
@@ -39,7 +44,7 @@ function Placeholder({
             )}
             strokeWidth={1.25}
           />
-          <p className="font-heading relative text-2xl tracking-wide text-cream">
+          <p className="font-heading relative text-2xl tracking-wide text-ivory">
             {slot.caption}
           </p>
           <p className="relative mt-2 max-w-[18rem] px-4 text-center text-[11px] tracking-[0.22em] text-champagne/80 uppercase">
@@ -112,8 +117,8 @@ export function MediaFrame({
   const resolved = exists === false ? "empty" : status;
 
   const frameClass = fill
-    ? cn("absolute inset-0 overflow-hidden bg-espresso", className)
-    : cn("relative overflow-hidden bg-espresso", slot.aspect, className);
+    ? cn("absolute inset-0 overflow-hidden bg-mink", className)
+    : cn("relative overflow-hidden bg-mink", slot.aspect, className);
 
   if (resolved === "empty" || resolved === "error") {
     return (
@@ -221,8 +226,8 @@ export function MediaStillOrVideo({
   }
 
   const frameClass = fill
-    ? cn("absolute inset-0 overflow-hidden bg-espresso", className)
-    : cn("relative overflow-hidden bg-espresso", video.aspect, className);
+    ? cn("absolute inset-0 overflow-hidden bg-mink", className)
+    : cn("relative overflow-hidden bg-mink", video.aspect, className);
 
   return (
     <div className={frameClass}>
@@ -284,9 +289,9 @@ export function CaptionedFrame({
   return (
     <figure className="group">
       <MediaFrame slot={slot} controls={controls} />
-      <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-[10px] tracking-[0.22em] text-champagne uppercase">
+      <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-[10px] tracking-[0.22em] text-mink uppercase">
         <span>{slot.caption}</span>
-        <span className="text-gold">{index ?? slot.id}</span>
+        <span className="text-lip">{index ?? slot.id}</span>
       </figcaption>
     </figure>
   );

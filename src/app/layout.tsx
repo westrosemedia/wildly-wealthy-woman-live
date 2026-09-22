@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Outfit } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -7,9 +7,9 @@ import { site } from "@/lib/site";
 
 import "./globals.css";
 
-const bodoni = Bodoni_Moda({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-bodoni",
+  variable: "--font-cormorant",
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
@@ -23,10 +23,33 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: site.name,
-    template: `%s · ${site.name}`,
+    default: `${site.name} · ${site.host.name}`,
+    template: `%s · ${site.shortName}`,
   },
+  description: site.description,
   applicationName: site.name,
+  authors: [{ name: site.host.name, url: site.host.site }],
+  keywords: [
+    "Wildly Wealthy Woman LIVE",
+    "Jackie McDonald",
+    "EFT tapping",
+    "visibility",
+    "podcast",
+    "women entrepreneurs",
+  ],
+  openGraph: {
+    title: site.name,
+    description: site.description,
+    url: site.url,
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.description,
+  },
   icons: {
     icon: "/favicon.svg",
   },
@@ -39,9 +62,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bodoni.variable} ${outfit.variable} h-full antialiased`}
+      className={`dark ${cormorant.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-ivory font-sans text-chocolate">
+      <body className="flex min-h-full flex-col bg-ink font-sans text-cream">
         <div className="grain-overlay" aria-hidden="true" />
         <SiteHeader />
         <div className="flex flex-1 flex-col">{children}</div>
