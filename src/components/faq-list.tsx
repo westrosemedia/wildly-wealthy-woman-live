@@ -10,7 +10,7 @@ import { faqs } from "@/lib/site";
 
 export function FaqList() {
   return (
-    <Accordion className="border-t border-gold/20">
+    <Accordion multiple className="border-t border-gold/20">
       {faqs.map((item) => (
         <AccordionItem
           key={item.q}

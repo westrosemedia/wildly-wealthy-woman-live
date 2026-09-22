@@ -193,5 +193,15 @@
 
 .hairline {
   height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--gold) 55%, transparent),
+    transparent
+  );
+}
+
+.hairline {
+  height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }

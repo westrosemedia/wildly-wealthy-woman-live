@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 export function PageIntro({
   kicker,
@@ -6,7 +7,7 @@ export function PageIntro({
   lede,
 }: {
   kicker: string;
-  title: string;
+  title: ReactNode;
   lede: string;
 }) {
   return (

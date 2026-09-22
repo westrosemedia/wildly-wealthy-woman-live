@@ -6,7 +6,7 @@ import { MediaFrame, MediaStillOrVideo } from "@/components/media-frame";
 import { PromiseMarquee } from "@/components/promise-marquee";
 import { WaitlistSection } from "@/components/waitlist-section";
 import { galleryStills, mediaSlots, recapFilms } from "@/lib/media";
-import { events, pillars, site } from "@/lib/site";
+import { differences, events, pillars, quotes, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${site.name} · ${site.host.name}` },
@@ -58,6 +58,17 @@ export default function Home() {
 
       <PromiseMarquee />
 
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
+        <blockquote className="max-w-4xl">
+          <p className="font-heading text-3xl leading-tight text-cream md:text-5xl">
+            “{quotes[0].text}”
+          </p>
+          <footer className="mt-6 text-[11px] tracking-[0.28em] text-gold uppercase">
+            {quotes[0].by}
+          </footer>
+        </blockquote>
+      </section>
+
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
         <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
           Three movements
@@ -82,6 +93,32 @@ export default function Home() {
               </p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-gold/15 bg-espresso/40">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
+          <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
+            Not a conference
+          </p>
+          <h2 className="font-heading mt-3 max-w-3xl text-4xl text-cream md:text-5xl">
+            {quotes[1].text}
+          </h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {differences.map((item) => (
+              <article key={item.label} className="border-t border-gold/30 pt-6">
+                <p className="text-[11px] tracking-[0.28em] text-champagne uppercase">
+                  {item.label}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-cream/45 line-through decoration-gold/40">
+                  {item.conference}
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-cream">
+                  {item.live}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

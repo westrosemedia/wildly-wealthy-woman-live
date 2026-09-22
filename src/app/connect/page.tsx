@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { FaqSection } from "@/components/faq-section";
+import { PageIntro } from "@/components/page-intro";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { site } from "@/lib/site";
 
@@ -12,23 +13,19 @@ export const metadata: Metadata = {
 
 export default function ConnectPage() {
   return (
-    <main className="pt-32">
-      <section className="mx-auto max-w-7xl px-5 pb-12 md:px-8">
-        <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
-          Get a seat
-        </p>
-        <h1 className="font-heading mt-4 max-w-4xl text-5xl leading-[0.95] text-cream md:text-7xl">
-          The next city finds the list{" "}
-          <span className="italic text-gold">first.</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/75 md:text-lg">
-          Join the waitlist for Wildly Wealthy Woman LIVE. Tell us the city you
-          want. When dates and ticket links open, they land here before they
-          land anywhere else.
-        </p>
-      </section>
+    <main>
+      <PageIntro
+        kicker="Get a seat"
+        title={
+          <>
+            The next city finds the list{" "}
+            <span className="italic text-gold">first.</span>
+          </>
+        }
+        lede="Join the waitlist for Wildly Wealthy Woman LIVE. Tell us the city you want. When dates and ticket links open, they land here before they land anywhere else."
+      />
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 md:grid-cols-[1.2fr_0.8fr] md:px-8">
+      <section className="mx-auto grid max-w-7xl gap-12 px-5 pt-6 pb-20 md:grid-cols-[1.2fr_0.8fr] md:px-8">
         <div className="border border-gold/25 bg-espresso px-6 py-10 md:px-10">
           <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
             Waitlist

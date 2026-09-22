@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { MediaFrame } from "@/components/media-frame";
+import { PageIntro } from "@/components/page-intro";
 import { WaitlistSection } from "@/components/waitlist-section";
 import { mediaSlots, recapFilms } from "@/lib/media";
-import { events, nightFlow, pillars, site } from "@/lib/site";
+import { events, nightFlow, pillars, schedule, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "The Night",
@@ -17,19 +18,17 @@ export default function EventsPage() {
   const past = events.filter((event) => event.status === "past");
 
   return (
-    <main className="pt-32">
-      <section className="mx-auto max-w-7xl px-5 pb-16 md:px-8">
-        <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
-          The night
-        </p>
-        <h1 className="font-heading mt-4 max-w-4xl text-5xl leading-[0.95] text-cream md:text-7xl">
-          Four hours. One room.{" "}
-          <span className="italic text-gold">Then you are her.</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/75 md:text-lg">
-          {site.tagline} {site.description}
-        </p>
-      </section>
+    <main>
+      <PageIntro
+        kicker="The night"
+        title={
+          <>
+            Four hours. One room.{" "}
+            <span className="italic text-gold">Then you are her.</span>
+          </>
+        }
+        lede={`${site.tagline} ${site.description}`}
+      />
 
       <section className="border-y border-gold/15 bg-espresso">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
@@ -79,6 +78,20 @@ export default function EventsPage() {
               <p className="mt-4 text-sm leading-relaxed text-cream/70">
                 {beat.body}
               </p>
+            </li>
+          ))}
+        </ol>
+        <ol className="mt-16 space-y-0 border-t border-gold/20">
+          {schedule.map((beat) => (
+            <li
+              key={beat.title}
+              className="grid gap-3 border-b border-gold/20 py-6 md:grid-cols-[8rem_1fr_2fr] md:items-baseline"
+            >
+              <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
+                {beat.time}
+              </p>
+              <h3 className="font-heading text-2xl text-cream">{beat.title}</h3>
+              <p className="text-sm leading-relaxed text-cream/70">{beat.body}</p>
             </li>
           ))}
         </ol>
