@@ -26,8 +26,6 @@ Copy `.env.example` to `.env.local` if you want a local Stripe Payment Link. Lea
 
 - `/` — pre-sale homepage
 - `/sponsors` — sponsor pitch deck
-- `/events`
-- `/connect`
 - `POST /api/waitlist` — email validation
 
 ## Images and video (not Firebase)
