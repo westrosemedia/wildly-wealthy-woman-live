@@ -3,6 +3,7 @@ export const site = {
   shortName: "WWW LIVE",
   domain: "wildlywealthywomanlive.com",
   url: "https://wildlywealthywomanlive.com",
+  location: "Fairmont Banff Springs Hotel, Banff",
   venue: {
     hotel: "Fairmont Banff Springs Hotel",
     city: "Banff",
@@ -11,7 +12,5 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/events", label: "Events" },
   { href: "/sponsors", label: "Sponsors" },
-  { href: "/connect", label: "Connect" },
 ] as const;
