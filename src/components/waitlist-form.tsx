@@ -45,14 +45,14 @@ export function WaitlistForm({ compact = false }: { compact?: boolean }) {
 
   if (status === "success") {
     return (
-      <div className="border border-gold/40 bg-burgundy/30 px-6 py-8 text-center">
-        <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
+      <div className="border border-mink/25 bg-snow px-6 py-8 text-center">
+        <p className="text-[11px] tracking-[0.28em] text-lip uppercase">
           You are on the list
         </p>
-        <p className="font-heading mt-3 text-3xl text-cream">
+        <p className="font-heading mt-3 text-3xl text-chocolate">
           The next city will find you first.
         </p>
-        <p className="mt-3 text-sm text-cream/70">
+        <p className="mt-3 text-sm text-mink">
           Watch your inbox for dates, ticket links, and the private venue note.
         </p>
       </div>
@@ -63,18 +63,18 @@ export function WaitlistForm({ compact = false }: { compact?: boolean }) {
     <form onSubmit={onSubmit} className="space-y-4">
       <div className={compact ? "grid gap-3" : "grid gap-3 md:grid-cols-3"}>
         <label className="block">
-          <span className="mb-2 block text-[10px] tracking-[0.24em] text-champagne uppercase">
+          <span className="mb-2 block text-[10px] tracking-[0.24em] text-mink uppercase">
             Name
           </span>
           <Input
             required
             name="name"
             placeholder="Your name"
-            className="h-12 rounded-none border-gold/30 bg-transparent px-4 text-cream placeholder:text-cream/35"
+            className="h-12 rounded-none border-mink/25 bg-ivory px-4 text-chocolate placeholder:text-mink/40"
           />
         </label>
         <label className="block">
-          <span className="mb-2 block text-[10px] tracking-[0.24em] text-champagne uppercase">
+          <span className="mb-2 block text-[10px] tracking-[0.24em] text-mink uppercase">
             Email
           </span>
           <Input
@@ -82,31 +82,31 @@ export function WaitlistForm({ compact = false }: { compact?: boolean }) {
             type="email"
             name="email"
             placeholder="you@email.com"
-            className="h-12 rounded-none border-gold/30 bg-transparent px-4 text-cream placeholder:text-cream/35"
+            className="h-12 rounded-none border-mink/25 bg-ivory px-4 text-chocolate placeholder:text-mink/40"
           />
         </label>
         <label className="block">
-          <span className="mb-2 block text-[10px] tracking-[0.24em] text-champagne uppercase">
+          <span className="mb-2 block text-[10px] tracking-[0.24em] text-mink uppercase">
             City you want
           </span>
           <Input
             name="city"
             placeholder="Phoenix, Vancouver…"
-            className="h-12 rounded-none border-gold/30 bg-transparent px-4 text-cream placeholder:text-cream/35"
+            className="h-12 rounded-none border-mink/25 bg-ivory px-4 text-chocolate placeholder:text-mink/40"
           />
         </label>
       </div>
       <Button
         type="submit"
         disabled={status === "loading"}
-        className="h-12 w-full rounded-none bg-gold text-[11px] tracking-[0.28em] text-ink uppercase hover:bg-champagne md:w-auto md:px-10"
+        className="h-12 w-full rounded-none bg-lip text-[11px] tracking-[0.28em] text-ivory uppercase hover:bg-chocolate md:w-auto md:px-10"
       >
         {status === "loading" ? "Holding your seat…" : "Join the waitlist"}
       </Button>
       {status === "error" ? (
-        <p className="text-sm text-rose">{message}</p>
+        <p className="text-sm text-lip">{message}</p>
       ) : (
-        <p className="text-xs leading-relaxed text-cream/50">
+        <p className="text-xs leading-relaxed text-mink/70">
           No spam. Cities, dates, and ticket links only.
         </p>
       )}

@@ -1,9 +1,9 @@
 "use client";
 
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu } from "lucide-react";
 
 import {
   Sheet,
@@ -20,17 +20,30 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const onHero = pathname === "/";
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-6 md:px-8">
+      <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-6 px-5 py-6 md:px-10">
         <Link href="/" className="min-w-0">
-          <p className="text-[10px] tracking-[0.42em] text-champagne uppercase">
+          <p
+            className={cn(
+              "text-[10px] tracking-[0.42em] uppercase",
+              onHero ? "text-champagne" : "text-mink",
+            )}
+          >
             Jackie McDonald
           </p>
-          <p className="font-heading text-[1.35rem] leading-none text-cream sm:text-2xl">
+          <p
+            className={cn(
+              "font-heading text-[1.4rem] leading-none sm:text-[1.75rem]",
+              onHero ? "text-cream" : "text-chocolate",
+            )}
+          >
             Wildly Wealthy Woman{" "}
-            <span className="italic text-gold">LIVE</span>
+            <span className={cn("italic", onHero ? "text-champagne" : "text-lip")}>
+              LIVE
+            </span>
           </p>
         </Link>
 
@@ -42,8 +55,10 @@ export function SiteHeader() {
               className={cn(
                 "text-[11px] tracking-[0.28em] uppercase transition-colors",
                 pathname === item.href
-                  ? "text-gold"
-                  : "text-cream/75 hover:text-cream",
+                  ? "text-lip"
+                  : onHero
+                    ? "text-cream/80 hover:text-cream"
+                    : "text-mink hover:text-chocolate",
               )}
             >
               {item.label}
@@ -53,24 +68,26 @@ export function SiteHeader() {
 
         <Link
           href="/connect"
-          className="hidden h-10 items-center bg-gold px-5 text-[11px] tracking-[0.24em] text-ink uppercase transition-colors hover:bg-champagne lg:inline-flex"
+          className="hidden h-11 items-center bg-lip px-6 text-[11px] tracking-[0.24em] text-ivory uppercase transition-colors hover:bg-chocolate lg:inline-flex"
         >
           Get a seat
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
-            className="inline-flex size-10 items-center justify-center border border-cream/20 text-cream lg:hidden"
+            className={cn(
+              "inline-flex size-11 items-center justify-center border lg:hidden",
+              onHero
+                ? "border-cream/30 text-cream"
+                : "border-mink/30 text-chocolate",
+            )}
             aria-label="Open menu"
           >
             <Menu className="size-5" />
           </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="border-gold/20 bg-ink text-cream"
-          >
+          <SheetContent side="right" className="border-mink/20 bg-ivory text-chocolate">
             <SheetHeader>
-              <SheetTitle className="font-heading text-left text-2xl font-normal text-cream">
+              <SheetTitle className="font-heading text-left text-2xl font-normal text-chocolate">
                 {site.shortName}
               </SheetTitle>
               <SheetDescription className="sr-only">
@@ -85,7 +102,7 @@ export function SiteHeader() {
                   render={<Link href={item.href} />}
                   className={cn(
                     "text-left text-sm tracking-[0.28em] uppercase",
-                    pathname === item.href ? "text-gold" : "text-cream/80",
+                    pathname === item.href ? "text-lip" : "text-mink",
                   )}
                 >
                   {item.label}
@@ -94,7 +111,7 @@ export function SiteHeader() {
               <SheetClose
                 nativeButton={false}
                 render={<Link href="/connect" />}
-                className="mt-4 inline-flex h-11 items-center justify-center bg-gold text-[11px] tracking-[0.24em] text-ink uppercase"
+                className="mt-4 inline-flex h-12 items-center justify-center bg-lip text-[11px] tracking-[0.24em] text-ivory uppercase"
               >
                 Get a seat
               </SheetClose>

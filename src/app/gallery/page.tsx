@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { MediaFrame } from "@/components/media-frame";
+import { CaptionedFrame } from "@/components/media-frame";
 import { PageIntro } from "@/components/page-intro";
 import { WaitlistSection } from "@/components/waitlist-section";
 import { galleryStills, recapFilms } from "@/lib/media";
@@ -13,61 +13,56 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <main>
+    <>
       <PageIntro
         kicker="Gallery"
         title={
           <>
-            The room, as it looked.{" "}
-            <span className="italic text-gold">As it felt.</span>
+            The lookbook is already framed.{" "}
+            <span className="italic text-lip">Add the fur later.</span>
           </>
         }
-        lede="Frames are already cut for your stills and recap films. Until a file lives in public/media, each slot holds a styled placeholder so the layout stays intact. Use the exact filenames listed on every frame."
+        lede="Frames are cut for stills and recap films. Until a file lives in public/media, each plate holds a mink-and-snow placeholder so the site never looks empty."
       />
 
-      <section className="mx-auto max-w-7xl px-5 pt-6 pb-16 md:px-8">
-        <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
+      <section className="mx-auto max-w-[92rem] px-5 pt-6 pb-16 md:px-10">
+        <p className="text-[11px] tracking-[0.28em] text-lip uppercase">
           Recap films
         </p>
-        <h2 className="font-heading mt-3 text-3xl text-cream md:text-4xl">
+        <h2 className="font-heading mt-3 text-3xl text-chocolate md:text-4xl">
           Three movements, on film.
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {recapFilms.map((slot) => (
-            <figure key={slot.id} className="space-y-3">
-              <MediaFrame slot={slot} />
-              <figcaption className="flex items-baseline justify-between gap-3 text-[11px] tracking-[0.2em] text-champagne uppercase">
-                <span>{slot.caption}</span>
-                <span className="text-cream/40">{slot.filename}</span>
-              </figcaption>
-            </figure>
+          {recapFilms.map((slot, index) => (
+            <CaptionedFrame
+              key={slot.id}
+              slot={slot}
+              index={String(index + 1).padStart(2, "0")}
+            />
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-20 md:px-8">
-        <p className="text-[11px] tracking-[0.28em] text-gold uppercase">
-          Stills
-        </p>
-        <h2 className="font-heading mt-3 text-3xl text-cream md:text-4xl">
+      <section className="mx-auto max-w-[92rem] px-5 pb-20 md:px-10">
+        <p className="text-[11px] tracking-[0.28em] text-lip uppercase">Stills</p>
+        <h2 className="font-heading mt-3 text-3xl text-chocolate md:text-4xl">
           Twelve drop-in portraits and details.
         </h2>
         <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {galleryStills.map((slot) => (
-            <figure key={slot.id} className="mb-4 break-inside-avoid">
-              <MediaFrame slot={slot} />
-              <figcaption className="mt-2 flex items-baseline justify-between gap-3 text-[11px] tracking-[0.2em] text-champagne uppercase">
-                <span>{slot.caption}</span>
-                <span className="text-cream/40">{slot.filename}</span>
-              </figcaption>
-            </figure>
+          {galleryStills.map((slot, index) => (
+            <div key={slot.id} className="mb-4 break-inside-avoid">
+              <CaptionedFrame
+                slot={slot}
+                index={String(index + 1).padStart(2, "0")}
+              />
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-20 md:px-8">
+      <section className="mx-auto max-w-[92rem] px-5 pb-20 md:px-10">
         <WaitlistSection compact />
       </section>
-    </main>
+    </>
   );
 }

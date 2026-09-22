@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Bodoni_Moda, Outfit } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -7,9 +7,9 @@ import { site } from "@/lib/site";
 
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-bodoni",
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
@@ -62,9 +62,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`dark ${cormorant.variable} ${outfit.variable} h-full antialiased`}
+      className={`${bodoni.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-ink font-sans text-cream">
+      <body className="flex min-h-full flex-col bg-ivory font-sans text-chocolate">
         <div className="grain-overlay" aria-hidden="true" />
         <SiteHeader />
         <div className="flex flex-1 flex-col">{children}</div>

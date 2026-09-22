@@ -1,18 +1,22 @@
 "use client";
 
 import { Camera, Clapperboard } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { MediaSlot } from "@/lib/media";
 
+type MediaStatus = "loading" | "ready" | "empty" | "error";
+
 function Placeholder({
   slot,
   status = "empty",
+  quiet = false,
   className,
 }: {
   slot: MediaSlot;
   status?: "loading" | "empty" | "error";
+  quiet?: boolean;
   className?: string;
 }) {
   const Icon = slot.kind === "video" ? Clapperboard : Camera;
@@ -24,29 +28,72 @@ function Placeholder({
         : `Drop in ${slot.filename}`;
 
   return (
-    <div
-      className={cn(
-        "relative flex h-full w-full flex-col items-center justify-center overflow-hidden bg-[linear-gradient(160deg,rgba(92,36,51,0.35),rgba(17,12,10,0.9)_45%,rgba(201,164,108,0.18))]",
-        className,
+    <div className={cn("fur-plate relative flex h-full w-full flex-col items-center justify-center overflow-hidden", className)}>
+      <div className="snow-veil pointer-events-none absolute inset-0 opacity-70" />
+      <div className="pointer-events-none absolute inset-5 border border-champagne/40" />
+      {quiet ? (
+        <p className="absolute right-6 bottom-6 text-[10px] tracking-[0.22em] text-champagne/70 uppercase">
+          {label}
+        </p>
+      ) : (
+        <>
+          <Icon
+            className={cn(
+            "mb-4 size-7 text-champagne",
+              status === "loading" && "animate-pulse",
+            )}
+            strokeWidth={1.25}
+          />
+          <p className="font-heading relative text-2xl tracking-wide text-ivory">
+            {slot.caption}
+          </p>
+          <p className="relative mt-2 max-w-[18rem] px-4 text-center text-[11px] tracking-[0.22em] text-champagne/80 uppercase">
+            {label}
+          </p>
+        </>
       )}
-    >
-      <div className="pointer-events-none absolute inset-6 border border-gold/25" />
-      <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_20%_20%,rgba(232,213,163,0.18),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(196,137,123,0.2),transparent_40%)]" />
-      <Icon
-        className={cn(
-          "mb-4 size-7 text-gold/80",
-          status === "loading" && "animate-pulse",
-        )}
-        strokeWidth={1.25}
-      />
-      <p className="font-heading text-2xl tracking-wide text-cream/90">
-        {slot.caption}
-      </p>
-      <p className="mt-2 max-w-[18rem] px-4 text-center text-[11px] tracking-[0.22em] text-champagne/70 uppercase">
-        {label}
-      </p>
     </div>
   );
+}
+
+async function probeMedia(src: string, signal: AbortSignal) {
+  const response = await fetch(src, {
+    method: "GET",
+    headers: { Range: "bytes=0-0" },
+    cache: "no-store",
+    signal,
+  });
+  const type = response.headers.get("content-type") || "";
+  return response.ok && !type.includes("text/html");
+}
+
+function useMediaExists(src: string) {
+  const [exists, setExists] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    let cancelled = false;
+
+    probeMedia(src, controller.signal)
+      .then((ok) => {
+        if (!cancelled) setExists(ok);
+      })
+      .catch(() => {
+        if (!cancelled) setExists(false);
+      });
+
+    const timeout = window.setTimeout(() => {
+      setExists((current) => current ?? false);
+    }, 2500);
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, [src]);
+
+  return exists;
 }
 
 export function MediaFrame({
@@ -55,31 +102,37 @@ export function MediaFrame({
   priority = false,
   controls = true,
   fill = false,
+  quiet = false,
 }: {
   slot: MediaSlot;
   className?: string;
   priority?: boolean;
   controls?: boolean;
   fill?: boolean;
+  quiet?: boolean;
 }) {
-  const [status, setStatus] = useState<"loading" | "ready" | "empty" | "error">(
-    "loading",
-  );
+  const exists = useMediaExists(slot.src);
+  const [status, setStatus] = useState<MediaStatus>("loading");
   const [posterFailed, setPosterFailed] = useState(false);
+  const resolved = exists === false ? "empty" : status;
 
   const frameClass = fill
-    ? cn("absolute inset-0 overflow-hidden bg-ink", className)
-    : cn("relative overflow-hidden bg-ink", slot.aspect, className);
+    ? cn("absolute inset-0 overflow-hidden bg-mink", className)
+    : cn("relative overflow-hidden bg-mink", slot.aspect, className);
+
+  if (resolved === "empty" || resolved === "error") {
+    return (
+      <div className={frameClass}>
+        <Placeholder
+          slot={slot}
+          status={resolved === "error" ? "error" : "empty"}
+          quiet={quiet || fill}
+        />
+      </div>
+    );
+  }
 
   if (slot.kind === "video") {
-    if (status === "empty" || status === "error") {
-      return (
-        <div className={frameClass}>
-          <Placeholder slot={slot} status={status} />
-        </div>
-      );
-    }
-
     return (
       <div className={frameClass}>
         <video
@@ -112,17 +165,13 @@ export function MediaFrame({
         ) : null}
         {status !== "ready" ? (
           <div className="absolute inset-0">
-            <Placeholder slot={slot} status="loading" />
+            <Placeholder
+              slot={slot}
+              status="loading"
+              quiet={quiet || fill}
+            />
           </div>
         ) : null}
-      </div>
-    );
-  }
-
-  if (status === "empty" || status === "error") {
-    return (
-      <div className={frameClass}>
-        <Placeholder slot={slot} status={status} />
       </div>
     );
   }
@@ -142,7 +191,7 @@ export function MediaFrame({
       />
       {status !== "ready" ? (
         <div className="absolute inset-0">
-          <Placeholder slot={slot} status="loading" />
+          <Placeholder slot={slot} status="loading" quiet={quiet || fill} />
         </div>
       ) : null}
     </div>
@@ -160,16 +209,25 @@ export function MediaStillOrVideo({
   className?: string;
   fill?: boolean;
 }) {
-  const [videoFailed, setVideoFailed] = useState(false);
+  const videoExists = useMediaExists(video.src);
   const [ready, setReady] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
 
-  if (videoFailed) {
-    return <MediaFrame slot={still} className={className} priority fill={fill} />;
+  if (videoExists === false || videoFailed) {
+    return (
+      <MediaFrame
+        slot={still}
+        className={className}
+        priority
+        fill={fill}
+        quiet={fill}
+      />
+    );
   }
 
   const frameClass = fill
-    ? cn("absolute inset-0 overflow-hidden bg-ink", className)
-    : cn("relative overflow-hidden bg-ink", video.aspect, className);
+    ? cn("absolute inset-0 overflow-hidden bg-mink", className)
+    : cn("relative overflow-hidden bg-mink", video.aspect, className);
 
   return (
     <div className={frameClass}>
@@ -194,9 +252,47 @@ export function MediaStillOrVideo({
       </video>
       {!ready ? (
         <div className="absolute inset-0">
-          <Placeholder slot={video} status="loading" />
+          <Placeholder
+            slot={video}
+            status={videoExists === null ? "loading" : "empty"}
+            quiet={fill}
+          />
         </div>
       ) : null}
     </div>
+  );
+}
+
+export function HeroCinematic({
+  video,
+  still,
+  className,
+}: {
+  video: MediaSlot;
+  still: MediaSlot;
+  className?: string;
+}) {
+  return (
+    <MediaStillOrVideo video={video} still={still} className={className} fill />
+  );
+}
+
+export function CaptionedFrame({
+  slot,
+  index,
+  controls,
+}: {
+  slot: MediaSlot;
+  index?: string;
+  controls?: boolean;
+}) {
+  return (
+    <figure className="group">
+      <MediaFrame slot={slot} controls={controls} />
+      <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+        <span>{slot.caption}</span>
+        <span className="text-lip">{index ?? slot.id}</span>
+      </figcaption>
+    </figure>
   );
 }
