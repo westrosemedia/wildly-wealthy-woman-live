@@ -7,14 +7,11 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `hero.mp4` — cinematic hero film (autoplays muted on the home page)
 - `hero.jpg` — hero still / poster. Used if the video is missing.
 
-## Jackie
+## Portraits / event
 
-- `jackie-portrait.jpg` — portrait used on Home and About
-- `about-jackie.jpg` — larger editorial portrait on About
-
-## Events
-
-- `event-phoenix.jpg` — Phoenix LIVE recap still
+- `jackie-portrait.jpg`
+- `about-jackie.jpg`
+- `event-phoenix.jpg`
 
 ## Recap films
 
@@ -29,17 +26,11 @@ Each film can include an optional poster still:
 
 ## Gallery stills
 
+Used as visual plates on `/sponsors`:
+
 - `gallery-01.jpg`
 - `gallery-02.jpg`
 - `gallery-03.jpg`
 - `gallery-04.jpg`
 - `gallery-05.jpg`
 - `gallery-06.jpg`
-- `gallery-07.jpg`
-- `gallery-08.jpg`
-- `gallery-09.jpg`
-- `gallery-10.jpg`
-- `gallery-11.jpg`
-- `gallery-12.jpg`
-
-Recommended: JPEG or MP4, color graded warm, and large enough for retina (stills ~2400px on the long edge).

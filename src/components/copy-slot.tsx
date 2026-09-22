@@ -6,7 +6,7 @@ export function CopySlot({
   label,
   as: Tag = "div",
   className,
-  tone = "light",
+  tone = "dark",
 }: {
   label: string;
   as?: SlotTag;
@@ -18,8 +18,8 @@ export function CopySlot({
       className={cn(
         "border border-dashed px-3 py-2",
         tone === "dark"
-          ? "border-ivory/30 text-ivory/45"
-          : "border-mink/25 text-mink/45",
+          ? "border-cream/30 text-cream/50"
+          : "border-cream/20 text-cream/40",
         className,
       )}
     >

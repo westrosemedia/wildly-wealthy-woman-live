@@ -20,34 +20,31 @@ function Placeholder({
   className?: string;
 }) {
   const Icon = slot.kind === "video" ? Clapperboard : Camera;
-  const label =
-    status === "loading"
-      ? "Loading the frame"
-      : status === "error"
-        ? "This file could not be read"
-        : `Drop in ${slot.filename}`;
+  const label = slot.filename;
 
   return (
-    <div className={cn("fur-plate relative flex h-full w-full flex-col items-center justify-center overflow-hidden", className)}>
-      <div className="snow-veil pointer-events-none absolute inset-0 opacity-70" />
-      <div className="pointer-events-none absolute inset-5 border border-champagne/40" />
+    <div className={cn("satin-plate relative flex h-full w-full flex-col items-center justify-center overflow-hidden", className)}>
+      <div className="satin-veil pointer-events-none absolute inset-0 opacity-80" />
+      <div className="pointer-events-none absolute inset-5 border border-cream/30" />
       {quiet ? (
-        <p className="absolute right-6 bottom-6 text-[10px] tracking-[0.22em] text-champagne/70 uppercase">
+        <p className="absolute right-6 bottom-6 text-[10px] tracking-[0.22em] text-cream/70 uppercase">
           {label}
         </p>
       ) : (
         <>
           <Icon
             className={cn(
-            "mb-4 size-7 text-champagne",
+            "mb-4 size-7 text-cream/80",
               status === "loading" && "animate-pulse",
             )}
             strokeWidth={1.25}
           />
-          <p className="font-heading relative text-2xl tracking-wide text-ivory">
-            {slot.caption}
-          </p>
-          <p className="relative mt-2 max-w-[18rem] px-4 text-center text-[11px] tracking-[0.22em] text-champagne/80 uppercase">
+          {slot.caption ? (
+            <p className="font-heading relative text-2xl tracking-wide text-cream">
+              {slot.caption}
+            </p>
+          ) : null}
+          <p className="relative mt-2 max-w-[18rem] px-4 text-center text-[11px] tracking-[0.22em] text-cream/75 uppercase">
             {label}
           </p>
         </>
@@ -117,8 +114,8 @@ export function MediaFrame({
   const resolved = exists === false ? "empty" : status;
 
   const frameClass = fill
-    ? cn("absolute inset-0 overflow-hidden bg-mink", className)
-    : cn("relative overflow-hidden bg-mink", slot.aspect, className);
+    ? cn("absolute inset-0 overflow-hidden bg-espresso", className)
+    : cn("relative overflow-hidden bg-espresso", slot.aspect, className);
 
   if (resolved === "empty" || resolved === "error") {
     return (
@@ -226,8 +223,8 @@ export function MediaStillOrVideo({
   }
 
   const frameClass = fill
-    ? cn("absolute inset-0 overflow-hidden bg-mink", className)
-    : cn("relative overflow-hidden bg-mink", video.aspect, className);
+    ? cn("absolute inset-0 overflow-hidden bg-espresso", className)
+    : cn("relative overflow-hidden bg-espresso", video.aspect, className);
 
   return (
     <div className={frameClass}>
