@@ -23,33 +23,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · ${site.host.name}`,
-    template: `%s · ${site.shortName}`,
+    default: site.name,
+    template: `%s · ${site.name}`,
   },
-  description: site.description,
   applicationName: site.name,
-  authors: [{ name: site.host.name, url: site.host.site }],
-  keywords: [
-    "Wildly Wealthy Woman LIVE",
-    "Jackie McDonald",
-    "EFT tapping",
-    "visibility",
-    "podcast",
-    "women entrepreneurs",
-  ],
-  openGraph: {
-    title: site.name,
-    description: site.description,
-    url: site.url,
-    siteName: site.name,
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.name,
-    description: site.description,
-  },
   icons: {
     icon: "/favicon.svg",
   },
