@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const onDark = true;
+  const onDark = pathname === "/" || pathname === "/sponsors";
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
