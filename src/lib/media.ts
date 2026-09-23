@@ -93,7 +93,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Bridget James Ling and Jackie",
     caption: "Bridget James Ling and Jackie",
     filename: "speakers-bridget-jackie.jpg",
-    aspect: "aspect-[9/16]",
+    aspect: "aspect-[4/5] md:aspect-[9/16]",
   },
   stephanieJackie: {
     id: "stephanieJackie",

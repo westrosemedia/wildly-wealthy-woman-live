@@ -103,13 +103,13 @@ export default function SponsorsPage() {
 
       <Section id="speakers" className="bg-snow">
         <div className="mx-auto grid w-full max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-20 md:px-12 md:py-32">
-          <figure className="w-full md:sticky md:top-10">
+          <figure className="order-2 w-full md:sticky md:top-28">
             <MediaFrame slot={mediaSlots.speakersBridgetJackie} />
             <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
               {mediaSlots.speakersBridgetJackie.caption}
             </figcaption>
           </figure>
-          <div>
+          <div className="order-1 md:order-2">
             <Kicker>{copy.speakers.heading}</Kicker>
             <div className="mt-8 space-y-3 border-t border-mink/15 pt-10">
               {copy.speakers.names.map((name) => (

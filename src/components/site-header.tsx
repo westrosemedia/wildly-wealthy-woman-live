@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Sheet,
@@ -20,12 +20,26 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const onHero = pathname === "/" || pathname === "/sponsors";
+  const darkType = onHero && !scrolled;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 36);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40">
-      <div className="mx-auto flex max-w-[88rem] items-start justify-between gap-8 px-6 py-7 md:px-12 md:py-9">
-        <SiteMark tone={onHero ? "dark" : "light"} />
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter] duration-500",
+        scrolled ? "bg-ivory/90 backdrop-blur-sm" : "bg-transparent",
+      )}
+    >
+      <div className="mx-auto flex max-w-[88rem] items-start justify-between gap-8 px-6 py-6 md:px-12 md:py-8">
+        <SiteMark tone={darkType ? "dark" : "light"} />
 
         <nav className="hidden items-center gap-10 pt-1.5 md:flex">
           {nav.map((item) => (
@@ -35,7 +49,7 @@ export function SiteHeader() {
               className={cn(
                 "text-[10px] tracking-[0.28em] uppercase transition-opacity duration-500",
                 pathname === item.href ? "opacity-100" : "opacity-55 hover:opacity-100",
-                onHero ? "text-cream" : "text-chocolate",
+                darkType ? "text-cream" : "text-chocolate",
               )}
             >
               {item.label}
@@ -47,7 +61,7 @@ export function SiteHeader() {
           <SheetTrigger
             className={cn(
               "pt-1 text-[10px] tracking-[0.3em] uppercase md:hidden",
-              onHero ? "text-cream" : "text-chocolate",
+              darkType ? "text-cream" : "text-chocolate",
             )}
             aria-label="Menu"
           >
