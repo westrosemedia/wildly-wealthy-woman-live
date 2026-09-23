@@ -9,6 +9,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 ## Portraits / event
 
+- `jackie.jpg` — Jackie portrait (Meet the women)
 - `jackie-portrait.jpg`
 - `about-jackie.jpg`
 - `event.jpg` — Banff Springs Hotel (venue / event still)

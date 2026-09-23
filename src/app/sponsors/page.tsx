@@ -143,16 +143,34 @@ export default function SponsorsPage() {
             {copy.founders.heading}
           </h2>
           <div className="mt-16 grid gap-16 md:grid-cols-3 md:gap-12">
-            {founders.map((founder) => (
-              <article key={founder.name} className="space-y-5 border-t border-cream/20 pt-8">
-                <h3 className="font-heading text-3xl font-light text-cream md:text-4xl">
-                  {founder.name}
-                </h3>
-                <p className="text-[15px] leading-[1.75] text-ivory/86">
-                  {founder.body}
-                </p>
-              </article>
-            ))}
+            {founders.map((founder) => {
+              const isJackie = founder.name === copy.founders.jackie.name;
+              return (
+                <article
+                  key={founder.name}
+                  className={cn(
+                    "space-y-5 border-t border-cream/20 pt-8",
+                    isJackie && "md:col-span-2",
+                  )}
+                >
+                  <h3 className="font-heading text-3xl font-light text-cream md:text-4xl">
+                    {founder.name}
+                  </h3>
+                  {isJackie ? (
+                    <div className="grid items-start gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] md:grid-cols-[minmax(0,16rem)_1fr] md:gap-8">
+                      <MediaFrame slot={mediaSlots.jackie} />
+                      <p className="text-[15px] leading-[1.75] text-ivory/86">
+                        {founder.body}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-[15px] leading-[1.75] text-ivory/86">
+                      {founder.body}
+                    </p>
+                  )}
+                </article>
+              );
+            })}
           </div>
           <p className="font-heading mt-20 max-w-4xl text-2xl leading-snug font-light text-cream italic md:text-4xl">
             {copy.founders.closer}
