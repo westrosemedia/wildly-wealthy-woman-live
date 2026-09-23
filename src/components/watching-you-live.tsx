@@ -22,10 +22,10 @@ function groupBeats(beats: readonly Beat[]) {
   return groups;
 }
 
-const groups = groupBeats(copy.watching.beats);
+const groups = groupBeats(copy.watching.beats.slice(3));
 
 /**
- * First scroll after the hero. Short lines at Newsreader display scale.
+ * Type after the high-level band. Opening three lines already live in the split open.
  * Cream field, wine type, no photograph, no wash.
  */
 export function WatchingYouLive() {

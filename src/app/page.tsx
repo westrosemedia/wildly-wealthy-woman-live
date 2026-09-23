@@ -9,6 +9,7 @@ import {
   WhyBanffSection,
 } from "@/components/editorial-sections";
 import { HeroOpen } from "@/components/hero-open";
+import { HighLevelBand } from "@/components/high-level-band";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
@@ -25,6 +26,8 @@ export default function Home() {
   return (
     <>
       <HeroOpen />
+
+      <HighLevelBand />
 
       <WatchingYouLive />
 

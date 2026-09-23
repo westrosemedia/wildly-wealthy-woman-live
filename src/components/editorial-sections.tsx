@@ -46,14 +46,14 @@ export function CopyParagraphs({
 }
 
 /**
- * THE EVENT after the living copy. Same four sentences, four different types.
- * Not four identical body blocks on cream.
+ * Event essay after the high-level modules. Type only — facts and photos
+ * already live in the first two screens.
  */
 export function EventSection() {
   const [lead, wealth, gathering, closer] = copy.event.paragraphs;
 
   return (
-    <section id="the-event" className="bg-[#F2EFEA]">
+    <section id="event-copy" className="bg-[#F2EFEA]">
       <div className="mx-auto max-w-[88rem] px-6 pt-28 md:px-12 md:pt-40">
         <SectionKicker>{copy.event.heading}</SectionKicker>
         <h2 className="font-heading mt-12 max-w-[16ch] text-[clamp(2.6rem,5.8vw,6.2rem)] leading-[0.98] font-light tracking-[-0.035em] text-[#4A1020] md:mt-16">

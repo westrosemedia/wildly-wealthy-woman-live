@@ -146,6 +146,12 @@ export const copy = {
           "based in the US and Canada, with the rest spread across the UK, Australia, Germany, India, and Mexico",
       },
     ] as const,
+    /** Three-up band. Stephanie’s figures only — no invented press. */
+    headline: [
+      { figure: "62k+", label: "community" },
+      { figure: "3M", label: "views / 30 days on avg" },
+      { figure: "93%", label: "women" },
+    ] as const,
   },
   brandPartners: {
     heading: "Why We're Inviting Brand Partners",
