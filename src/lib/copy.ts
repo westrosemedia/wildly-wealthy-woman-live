@@ -78,6 +78,20 @@ export const copy = {
       "Because every woman gets to define what a wealthy life looks like for her.",
     ] as const,
   },
+  /**
+   * Home only. Stephanie, verbatim. After The Event (watching-you-live
+   * sits before Event). Body scale — not display.
+   */
+  whoThisIsFor: {
+    heading: "Who this is for",
+    paragraphs: [
+      "This is for mothers and daughters. It's also for chosen family: the sisters and friends who become the family blood didn't give us.",
+      "It's for women who own a business and want it to become a legacy, something that outlasts them and means something to the people who come after.",
+      "It's for women carrying real wounds around sisterhood: friendships that ended badly, mothers who couldn't show up, family that never felt safe. Women ready to finally heal them.",
+      "It's for women without daughters, and women whose mothers are gone, or were never really there to begin with. Women who found their family in each other instead.",
+      "Wherever you're starting from, there's a place for you in this room.",
+    ] as const,
+  },
   whyBanff: {
     heading: "Why Banff",
     paragraphs: [

@@ -38,6 +38,16 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="who-this-is-for" className="bg-cream">
+        <div className="house-wrap">
+          <SectionKicker>{copy.whoThisIsFor.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-2xl"
+            paragraphs={copy.whoThisIsFor.paragraphs}
+          />
+        </div>
+      </section>
+
       <StorySection />
 
       <WhyBanffSection />
