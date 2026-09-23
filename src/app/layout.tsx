@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Fraunces, Newsreader, Source_Sans_3 } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -13,6 +13,14 @@ const fraunces = Fraunces({
   weight: "variable",
   style: ["normal", "italic"],
   axes: ["SOFT", "opsz"],
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  weight: ["300", "400"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const sourceSans = Source_Sans_3({
@@ -40,7 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${newsreader.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ivory font-sans text-chocolate">
         <div className="grain-overlay" aria-hidden="true" />

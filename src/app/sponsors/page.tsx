@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import type { ComponentProps, ReactNode } from "react";
 
 import {
+  BanffTakeaway,
   CopyParagraphs,
   SectionKicker,
-  Takeaway,
 } from "@/components/editorial-sections";
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
@@ -70,22 +70,15 @@ export default function SponsorsPage() {
         </div>
       </Section>
 
-      <Section className="bg-ivory">
-        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <Takeaway className="rise" />
-        </div>
-      </Section>
+      <BanffTakeaway />
 
       <Section id="why-partners" className="bg-ivory">
-        <div className="mx-auto grid w-full max-w-[88rem] items-center gap-14 px-6 pb-24 md:grid-cols-[0.95fr_1.05fr] md:gap-20 md:px-12 md:pb-32">
-          <MediaFrame slot={mediaSlots.event} />
-          <div>
-            <SectionKicker>{copy.brandPartners.heading}</SectionKicker>
-            <CopyParagraphs
-              className="mt-10 max-w-2xl"
-              paragraphs={copy.brandPartners.paragraphs}
-            />
-          </div>
+        <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <SectionKicker>{copy.brandPartners.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-2xl"
+            paragraphs={copy.brandPartners.paragraphs}
+          />
         </div>
       </Section>
 

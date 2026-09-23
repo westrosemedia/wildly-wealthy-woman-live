@@ -278,6 +278,17 @@
   );
 }
 
+/* Thin ink only — no pink/rose wash over the Banff still. */
+.banff-veil {
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgb(10 7 8 / 28%) 0%,
+    rgb(10 7 8 / 10%) 42%,
+    rgb(10 7 8 / 4%) 100%
+  );
+}
+
 .fur-plate,
 .satin-plate {
   background-color: #0a0708;

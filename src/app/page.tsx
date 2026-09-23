@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 import {
+  BanffTakeaway,
   CopyParagraphs,
   SectionKicker,
   SpeakersSection,
   StorySection,
-  Takeaway,
 } from "@/components/editorial-sections";
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { HeroCinematic, MediaFrame } from "@/components/media-frame";
@@ -45,12 +45,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ivory">
-        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <Takeaway className="rise" />
-        </div>
-      </section>
-
       <StorySection />
 
       <section id="the-event" className="bg-snow">
@@ -64,18 +58,18 @@ export default function Home() {
       </section>
 
       <section id="why-banff" className="bg-ivory">
+        <BanffTakeaway />
         <div className="mx-auto grid max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-2 md:gap-16 md:px-12 md:py-32">
-          <figure className="space-y-6">
-            <MediaFrame slot={mediaSlots.event} />
-            <MediaFrame slot={mediaSlots.eventRoom} />
-          </figure>
-          <div className="md:sticky md:top-28">
+          <div>
             <SectionKicker>{copy.whyBanff.heading}</SectionKicker>
             <CopyParagraphs
               className="mt-10 max-w-xl"
               paragraphs={copy.whyBanff.paragraphs}
             />
           </div>
+          <figure>
+            <MediaFrame slot={mediaSlots.eventRoom} />
+          </figure>
         </div>
       </section>
 

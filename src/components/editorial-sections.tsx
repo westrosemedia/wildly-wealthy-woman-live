@@ -60,13 +60,36 @@ export function Takeaway({
   return (
     <p
       className={cn(
-        "font-heading max-w-4xl text-3xl leading-[1.15] font-light italic md:text-5xl",
+        "font-quote max-w-4xl text-3xl leading-[1.15] font-light italic md:text-5xl",
         tone === "dark" ? "text-cream" : "text-chocolate",
         className,
       )}
     >
       {copy.takeaway}
     </p>
+  );
+}
+
+/** Stephanie's takeaway as a large Newsreader pull quote on the Banff Springs still. */
+export function BanffTakeaway({ className }: { className?: string }) {
+  return (
+    <figure
+      id="takeaway"
+      className={cn("relative min-h-[88svh] overflow-hidden bg-ink", className)}
+    >
+      <MediaFrame
+        slot={mediaSlots.event}
+        fill
+        quiet
+        className="absolute inset-0 aspect-auto min-h-[88svh]"
+      />
+      <div className="banff-veil absolute inset-0" />
+      <blockquote className="relative z-10 mx-auto flex min-h-[88svh] max-w-[88rem] items-center px-6 py-24 md:px-12 md:py-32">
+        <p className="font-quote max-w-5xl text-[1.85rem] leading-[1.12] font-light text-burgundy italic sm:text-4xl md:text-6xl lg:text-[4.35rem]">
+          {copy.takeaway}
+        </p>
+      </blockquote>
+    </figure>
   );
 }
 
