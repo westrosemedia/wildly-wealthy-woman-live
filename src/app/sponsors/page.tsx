@@ -7,7 +7,6 @@ import {
 } from "@/components/editorial-sections";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
-import { StyleGuideSection } from "@/components/style-guide-section";
 import { copy } from "@/lib/copy";
 import { mediaSlots, reachProofStills } from "@/lib/media";
 
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function SponsorsPage() {
   return (
-    <div>
+    <div className="overflow-x-clip">
       <section className="bg-cream">
         <div className="house-wrap pt-36 md:pt-44">
           <SectionKicker>{copy.brandPartners.heading}</SectionKicker>
@@ -30,7 +29,7 @@ export default function SponsorsPage() {
 
       <section
         id="reach"
-        className="relative min-h-[100svh] overflow-hidden bg-ink"
+        className="relative min-h-[100svh] overflow-x-clip overflow-hidden bg-ink"
       >
         <MediaFrame
           slot={mediaSlots.sponsors}
@@ -39,8 +38,8 @@ export default function SponsorsPage() {
           className="absolute inset-0 aspect-auto min-h-[100svh]"
         />
         <div className="pointer-events-none absolute inset-0 bg-ink/38" />
-        <div className="relative z-10 mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <h2 className="font-heading text-6xl leading-[0.92] font-light tracking-[-0.04em] text-cream md:text-8xl lg:text-[6.75rem]">
+        <div className="relative z-10 mx-auto w-full min-w-0 max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <h2 className="font-heading text-5xl leading-[0.96] font-light text-pretty text-cream md:text-7xl">
             {copy.reach.heading}
           </h2>
           <p className="mt-8 max-w-3xl text-base leading-[1.75] font-light text-cream/84 md:text-lg">
@@ -48,8 +47,8 @@ export default function SponsorsPage() {
           </p>
           <div className="mt-16 grid gap-12 sm:grid-cols-2">
             {copy.reach.figures.slice(0, 2).map((stat) => (
-              <article key={stat.figure + stat.label} className="space-y-4">
-                <p className="font-heading text-[clamp(4.2rem,11vw,9rem)] leading-[0.88] font-light tracking-[-0.045em] text-cream">
+              <article key={stat.figure + stat.label} className="min-w-0 space-y-4">
+                <p className="font-heading text-[clamp(3.6rem,10vw,8.5rem)] leading-[0.88] font-light tracking-[-0.045em] text-cream">
                   {stat.figure}
                 </p>
                 <p className="max-w-xs text-sm leading-[1.65] font-light text-cream/68">
@@ -60,8 +59,8 @@ export default function SponsorsPage() {
           </div>
           <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {copy.reach.figures.slice(2).map((stat) => (
-              <article key={stat.figure + stat.label} className="space-y-4">
-                <p className="font-heading text-[clamp(3.1rem,7.5vw,7.25rem)] leading-[0.9] font-light tracking-[-0.04em] text-cream">
+              <article key={stat.figure + stat.label} className="min-w-0 space-y-4">
+                <p className="font-heading text-[clamp(2.6rem,6vw,5.5rem)] leading-[0.9] font-light tracking-[-0.04em] text-cream">
                   {stat.figure}
                 </p>
                 <p className="max-w-xs text-sm leading-[1.65] font-light text-cream/68">
@@ -89,7 +88,7 @@ export default function SponsorsPage() {
       <section id="why-sponsor" className="bg-cream">
         <div className="house-wrap">
           <SectionKicker>{copy.whySponsor.heading}</SectionKicker>
-          <p className="quote-sm mt-8 max-w-xl text-burgundy">
+          <p className="quote-sm mt-8 max-w-xl text-pretty text-burgundy">
             {copy.whySponsor.body}
           </p>
         </div>
@@ -104,13 +103,11 @@ export default function SponsorsPage() {
             className="mt-10 max-w-2xl"
             paragraphs={copy.invitation.paragraphs}
           />
-          <p className="display mt-16 max-w-4xl text-burgundy">
+          <p className="display mt-16 max-w-4xl text-pretty text-burgundy">
             {copy.closing.body}
           </p>
         </div>
       </section>
-
-      <StyleGuideSection />
 
       <section id="waitlist-slide" className="bg-cream">
         <div className="house-wrap">

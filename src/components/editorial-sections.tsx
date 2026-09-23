@@ -152,23 +152,18 @@ export function FoundersSection() {
   return (
     <section id="founders" className="bg-cream">
       <div className="house-wrap">
-        <h2 className="display max-w-3xl text-burgundy">{copy.founders.heading}</h2>
+        <h2 className="display max-w-3xl text-pretty text-burgundy">{copy.founders.heading}</h2>
         <div className="mt-16 grid grid-cols-1 items-start gap-x-16 gap-y-20 lg:grid-cols-3">
           {founderCards.map((founder) => (
             <article key={founder.name} className="min-w-0 space-y-6">
               <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
                 {founder.name}
               </h3>
-              {founder.name === copy.founders.jackie.name ? (
-                <figure className="max-w-[16rem]">
-                  <MediaFrame slot={mediaSlots.jackie} />
-                </figure>
-              ) : null}
               <p className="body-copy text-burgundy/80">{founder.body}</p>
             </article>
           ))}
         </div>
-        <p className="quote-sm mt-20 max-w-4xl text-burgundy">{copy.founders.closer}</p>
+        <p className="quote-sm mt-20 max-w-4xl text-pretty text-burgundy">{copy.founders.closer}</p>
       </div>
     </section>
   );

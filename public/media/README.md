@@ -2,51 +2,45 @@
 
 Place files in this folder using **these exact names**. Until a file exists, the site shows a styled placeholder so the layout stays intact.
 
-## Hero
+**One file, one place.** Do not reuse an image on a second page or section. If a slot is empty, leave the cream gap until a *new* file arrives.
 
-- `hero.mp4` — cinematic hero film (autoplays muted on the home page)
-- `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. This is the home and sponsors first-viewport hero. Do not replace it with the Rolls photo.
-- `hero-rolls.jpg` — previous Rolls still, kept as backup. Not used as the hero.
+## In use (do not reuse)
 
-## Portraits / event
-
-- `jackie.jpg` — Jackie portrait (Meet the women)
-- `jackie-portrait.jpg`
-- `about-jackie.jpg`
-- `event.jpg` — Banff Springs Hotel (venue / event still)
-- `banff-springs.jpg` — same Banff Springs Hotel still
-- `room.jpg` — interior room (Event Overview / tickets / venue)
-- `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
-- `stephanie-jackie.jpg` — Stephanie and Jackie (full-bleed background, Meet the women)
+- `hero.mp4` — optional cinematic hero film. Slot is wired; file not received yet.
+- `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. Home first-viewport hero only. Also the optional poster for `hero.mp4`.
+- `jackie.jpg` — Jackie portrait. Home, The Story, only.
+- `event.jpg` — Banff Springs Hotel. Home, Why Banff, only.
+- `room.jpg` — interior room. Home, Event Details, only.
+- `speakers-bridget-jackie.jpg` — Bridget James Ling and Jackie. Home, Speakers, only.
 - `sponsors.jpg` — panel still behind Our Reach stats on `/sponsors` `#reach` only. Do not repeat.
 - `proof-01.jpg` — Instagram insights screenshot. Under the Our Reach plate only.
 - `proof-02.jpg` — second insights screenshot. Under the Our Reach plate only.
 - `proof-03.jpg` — third insights screenshot. Under the Our Reach plate only.
-- `background-fur.jpg` — hand on white fur, rings (full-bleed background, The Bigger Mission)
-- `background-studio.jpg` — three women, white studio, looking at a phone (full-bleed section background)
+- `background-fur.jpg` — hand on white fur, rings. Home, The Bigger Mission, only.
+- `style-guide-01.jpg` — dress still. Home, Style guide, only.
+- `style-guide-02.jpg` — cream fur elevator. Home, Style guide, only.
+- `style-guide-03.jpg` — dark fur, Banff Springs behind. Home, Style guide, only.
 
-## Style guide
+## On disk, not placed (do not reuse to fill a hole)
 
-Dress stills, including the cream fur elevator photo as 02:
+- `hero-rolls.jpg` — previous Rolls still. Backup only. Not the hero.
+- `banff-springs.jpg` — same still as `event.jpg`. Do not place.
+- `stephanie-jackie.jpg` — Stephanie and Jackie pair. Unused. Hold for one future slot.
+- `background-studio.jpg` — three women, white studio. Unused. Hold for one future slot.
 
-- `style-guide-01.jpg`
-- `style-guide-02.jpg`
-- `style-guide-03.jpg`
+## Needed (new files only — do not reuse anything above)
 
-## Recap films
+- `why-sponsor.jpg` — unique still for Why Sponsor on `/sponsors` (not the panel)
+- `stephanie.jpg` — Stephanie portrait for Meet the women
+- `melissa.jpg` — Melissa portrait for Meet the women
 
-Each film can include an optional poster still:
+## Recap films (unused until sent)
 
-- `recap-01.mp4`
-- `recap-01.jpg`
-- `recap-02.mp4`
-- `recap-02.jpg`
-- `recap-03.mp4`
-- `recap-03.jpg`
+- `recap-01.mp4` / `recap-01.jpg`
+- `recap-02.mp4` / `recap-02.jpg`
+- `recap-03.mp4` / `recap-03.jpg`
 
-## Gallery stills
-
-Used as visual plates on `/sponsors`:
+## Gallery stills (unused until sent; each once)
 
 - `gallery-01.jpg`
 - `gallery-02.jpg`

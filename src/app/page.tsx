@@ -8,7 +8,6 @@ import {
   WhyBanffSection,
 } from "@/components/editorial-sections";
 import { HeroOpen } from "@/components/hero-open";
-import { HighLevelBand } from "@/components/high-level-band";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
@@ -26,11 +25,9 @@ export default function Home() {
     <>
       <HeroOpen />
 
-      <HighLevelBand />
-
       <WatchingYouLive />
 
-      <section id="event-copy" className="bg-cream">
+      <section id="the-event" className="bg-cream">
         <div className="house-wrap">
           <SectionKicker>{copy.event.heading}</SectionKicker>
           <CopyParagraphs
@@ -45,11 +42,11 @@ export default function Home() {
       <WhyBanffSection />
 
       <section id="the-bigger-mission" className="bg-cream">
-        <div className="house-wrap grid items-start gap-12 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-20">
-          <figure className="w-full">
+        <div className="house-wrap grid min-w-0 items-start gap-12 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-20">
+          <figure className="w-full min-w-0">
             <MediaFrame slot={mediaSlots.backgroundFur} />
           </figure>
-          <div>
+          <div className="min-w-0">
             <SectionKicker>{copy.mission.heading}</SectionKicker>
             <CopyParagraphs
               className="mt-10 max-w-2xl"
@@ -62,20 +59,20 @@ export default function Home() {
       <SpeakersSection />
 
       <section id="event-details" className="bg-cream">
-        <div className="house-wrap grid items-start gap-12 md:grid-cols-2 md:gap-20">
-          <div>
+        <div className="house-wrap grid min-w-0 items-start gap-12 md:grid-cols-2 md:gap-20">
+          <div className="min-w-0">
             <SectionKicker>{copy.eventDetails.heading}</SectionKicker>
-            <p className="display mt-8 max-w-xl text-burgundy">
+            <p className="display mt-8 max-w-xl text-pretty text-burgundy">
               {copy.eventDetails.whenWhere}
             </p>
             <p className="body-copy mt-8 max-w-xl text-burgundy/80">
               {copy.eventDetails.body}
             </p>
-            <p className="quote-sm mt-10 max-w-xl text-burgundy">
+            <p className="quote-sm mt-10 max-w-xl text-pretty text-burgundy">
               {copy.eventDetails.ticket}
             </p>
           </div>
-          <figure>
+          <figure className="min-w-0">
             <MediaFrame slot={mediaSlots.eventRoom} />
             {mediaSlots.eventRoom.caption ? (
               <figcaption className="kicker mt-4 text-burgundy">
