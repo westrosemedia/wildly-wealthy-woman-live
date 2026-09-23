@@ -82,27 +82,29 @@ export function StorySection() {
   );
 }
 
-/** Why Banff: wine quote on the hotel still. Bleed, no second image in the frame. */
+/**
+ * Why Banff: hotel still as a photo plate. Body never sits on the snow.
+ * Desktop: cream copy beside the image. Mobile: cream copy below.
+ */
 export function WhyBanffSection() {
-  const [lead, support] = copy.whyBanff.paragraphs;
-
   return (
-    <section
-      id="why-banff"
-      className="relative min-h-[100svh] overflow-hidden bg-cream"
-    >
-      <MediaFrame
-        slot={mediaSlots.event}
-        fill
-        quiet
-        className="absolute inset-0 aspect-auto min-h-[100svh]"
-      />
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-end px-6 py-24 md:px-12 md:py-32">
-        <SectionKicker>{copy.whyBanff.heading}</SectionKicker>
-        <p className="quote-sm mt-8 max-w-4xl text-burgundy md:text-[clamp(2rem,4vw,3.6rem)]">
-          {lead}
-        </p>
-        <p className="body-copy mt-8 max-w-xl text-burgundy/80">{support}</p>
+    <section id="why-banff" className="bg-cream">
+      <div className="grid items-stretch lg:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.8fr)]">
+        <figure className="relative min-h-[62svh] overflow-hidden bg-espresso md:min-h-[78svh] lg:min-h-[88svh]">
+          <MediaFrame
+            slot={mediaSlots.event}
+            fill
+            quiet
+            className="absolute inset-0 aspect-auto h-full min-h-[62svh]"
+          />
+        </figure>
+        <div className="flex flex-col justify-center bg-cream px-6 py-16 md:px-12 md:py-24 lg:px-16 lg:py-28">
+          <SectionKicker>{copy.whyBanff.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-xl"
+            paragraphs={copy.whyBanff.paragraphs}
+          />
+        </div>
       </div>
     </section>
   );
