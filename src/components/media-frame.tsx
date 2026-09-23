@@ -192,12 +192,12 @@ export function MediaFrame({
         className={cn(
           "h-full w-full object-cover transition-opacity duration-500",
           slot.objectClass,
-          status === "ready" ? "opacity-100" : "opacity-0",
+          status === "ready" || exists === true ? "opacity-100" : "opacity-0",
         )}
         onLoad={() => setStatus("ready")}
         onError={() => setStatus("empty")}
       />
-      {status !== "ready" ? (
+      {status !== "ready" && exists !== true ? (
         <div className="absolute inset-0">
           <Placeholder slot={slot} status="loading" quiet={quiet || fill} />
         </div>
