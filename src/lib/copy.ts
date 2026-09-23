@@ -79,6 +79,5 @@ export const copy = {
   },
   styleGuide: {
     heading: "Style guide",
-    body: "We will be sending out a mood board for people to dress from.",
   },
 } as const;

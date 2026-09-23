@@ -19,21 +19,13 @@ export function StyleGuideBoard({
         className,
       )}
     >
-      <p
+      <h2
         className={cn(
           "text-[10px] tracking-[0.32em] uppercase",
           onDark ? "text-cream/55" : "text-mink",
         )}
       >
         {copy.styleGuide.heading}
-      </p>
-      <h2
-        className={cn(
-          "font-heading mt-6 max-w-3xl text-4xl leading-[1.02] font-light md:text-6xl",
-          onDark ? "text-cream" : "text-chocolate",
-        )}
-      >
-        {copy.styleGuide.body}
       </h2>
       <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6 md:mt-16 md:gap-8">
         {styleGuideStills.map((slot) => (
