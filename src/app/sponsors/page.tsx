@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
+import { StyleGuideBoard } from "@/components/style-guide-section";
 import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 import { cn } from "@/lib/utils";
@@ -176,6 +177,10 @@ export default function SponsorsPage() {
             {copy.tickets.range}
           </p>
         </div>
+      </Slide>
+
+      <Slide id="style-guide" className="bg-velvet">
+        <StyleGuideBoard className="py-16 md:py-20" />
       </Slide>
 
       <Slide className="bg-espresso">

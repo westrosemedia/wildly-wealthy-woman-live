@@ -77,4 +77,8 @@ export const copy = {
     body: "Be the first to know when dates and tickets go live. Join the waitlist and we'll reach out as soon as we're ready.",
     cta: "Join the Waitlist",
   },
+  styleGuide: {
+    heading: "Style guide",
+    body: "We will be sending out a mood board for people to dress from.",
+  },
 } as const;

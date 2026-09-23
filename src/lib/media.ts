@@ -75,11 +75,47 @@ export const mediaSlots: Record<string, MediaSlot> = {
     filename: "speakers-bridget-jackie.jpg",
     aspect: "aspect-[9/16]",
   },
+  styleGuide01: {
+    id: "styleGuide01",
+    kind: "image",
+    src: "/media/style-guide-01.jpg",
+    alt: "Woman in a white fur coat on a balcony",
+    caption: "",
+    filename: "style-guide-01.jpg",
+    aspect: "aspect-[2/3]",
+    objectClass: "object-[50%_18%]",
+  },
+  styleGuide02: {
+    id: "styleGuide02",
+    kind: "image",
+    src: "/media/style-guide-02.jpg",
+    alt: "Black glove holding cash",
+    caption: "",
+    filename: "style-guide-02.jpg",
+    aspect: "aspect-[2/3]",
+    objectClass: "object-[50%_88%]",
+  },
+  styleGuide03: {
+    id: "styleGuide03",
+    kind: "image",
+    src: "/media/style-guide-03.jpg",
+    alt: "Woman in a dark fur coat with Banff Springs Hotel behind",
+    caption: "",
+    filename: "style-guide-03.jpg",
+    aspect: "aspect-[2/3]",
+    objectClass: "object-[50%_42%]",
+  },
 };
 
 mediaSlots.portrait = mediaSlots.jackiePortrait;
 mediaSlots.about = mediaSlots.aboutJackie;
 mediaSlots.event = mediaSlots.eventPhoenix;
+
+export const styleGuideStills: MediaSlot[] = [
+  mediaSlots.styleGuide01,
+  mediaSlots.styleGuide02,
+  mediaSlots.styleGuide03,
+];
 
 export const recapFilms: MediaSlot[] = [
   {

@@ -14,6 +14,14 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `event-phoenix.jpg`
 - `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
 
+## Style guide
+
+Mood-board stills for how people dress:
+
+- `style-guide-01.jpg`
+- `style-guide-02.jpg`
+- `style-guide-03.jpg`
+
 ## Recap films
 
 Each film can include an optional poster still:
