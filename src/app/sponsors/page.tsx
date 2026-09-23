@@ -91,21 +91,29 @@ export default function SponsorsPage() {
       </Slide>
 
       <Slide>
-        <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
-          <SlideKicker>{copy.speakers.heading}</SlideKicker>
-          <div className="mt-8 grid gap-8 border-t border-cream/15 pt-10 md:grid-cols-3">
-            {copy.speakers.names.map((name) => (
-              <h3
-                key={name}
-                className="font-heading text-3xl leading-tight text-cream md:text-4xl"
-              >
-                {name}
-              </h3>
-            ))}
+        <div className="mx-auto grid w-full max-w-[92rem] grid-cols-[minmax(0,9.5rem)_1fr] items-center gap-x-6 gap-y-8 px-5 py-20 md:grid-cols-[minmax(0,20rem)_1fr] md:gap-12 md:px-10 md:py-24">
+          <figure className="w-full">
+            <MediaFrame slot={mediaSlots.speakersBridgetJackie} />
+            <figcaption className="mt-3 text-[10px] tracking-[0.22em] text-cream/70 uppercase">
+              {mediaSlots.speakersBridgetJackie.caption}
+            </figcaption>
+          </figure>
+          <div>
+            <SlideKicker>{copy.speakers.heading}</SlideKicker>
+            <div className="mt-6 grid gap-5 border-t border-cream/15 pt-8 md:mt-8 md:grid-cols-3 md:gap-8 md:pt-10">
+              {copy.speakers.names.map((name) => (
+                <h3
+                  key={name}
+                  className="font-heading text-2xl leading-tight text-cream md:text-4xl"
+                >
+                  {name}
+                </h3>
+              ))}
+            </div>
+            <p className="mt-8 max-w-3xl text-base leading-relaxed text-ivory/88 md:mt-10 md:text-xl">
+              {copy.speakers.body}
+            </p>
           </div>
-          <p className="mt-10 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-xl">
-            {copy.speakers.body}
-          </p>
         </div>
       </Slide>
 

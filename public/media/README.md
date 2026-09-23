@@ -12,6 +12,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `jackie-portrait.jpg`
 - `about-jackie.jpg`
 - `event-phoenix.jpg`
+- `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
 
 ## Recap films
 

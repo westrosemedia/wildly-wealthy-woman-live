@@ -62,6 +62,15 @@ export const mediaSlots: Record<string, MediaSlot> = {
     filename: "event-phoenix.jpg",
     aspect: "aspect-[16/10]",
   },
+  speakersBridgetJackie: {
+    id: "speakersBridgetJackie",
+    kind: "image",
+    src: "/media/speakers-bridget-jackie.jpg",
+    alt: "Bridget James Ling and Jackie",
+    caption: "Bridget James Ling and Jackie",
+    filename: "speakers-bridget-jackie.jpg",
+    aspect: "aspect-[9/16]",
+  },
 };
 
 mediaSlots.portrait = mediaSlots.jackiePortrait;
