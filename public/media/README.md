@@ -17,6 +17,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `room.jpg` — interior room (Event Overview / tickets / venue)
 - `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
 - `stephanie-jackie.jpg` — Stephanie and Jackie (full-bleed background, Meet the women)
+- `sponsors.jpg` — panel still (Our Reach / Why Sponsor)
 
 ## Style guide
 

@@ -116,6 +116,16 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[3/2]",
     objectClass: "object-[50%_38%]",
   },
+  sponsors: {
+    id: "sponsors",
+    kind: "image",
+    src: "/media/sponsors.jpg",
+    alt: "A panel",
+    caption: "",
+    filename: "sponsors.jpg",
+    aspect: "aspect-[3/2]",
+    objectClass: "object-[46%_42%]",
+  },
   styleGuide01: {
     id: "styleGuide01",
     kind: "image",
@@ -151,6 +161,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
 mediaSlots.portrait = mediaSlots.jackiePortrait;
 mediaSlots.about = mediaSlots.aboutJackie;
 mediaSlots.eventPhoenix = mediaSlots.event;
+mediaSlots.mediaSponsors = mediaSlots.sponsors;
 
 export const styleGuideStills: MediaSlot[] = [
   mediaSlots.styleGuide01,

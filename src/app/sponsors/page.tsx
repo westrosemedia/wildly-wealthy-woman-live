@@ -178,8 +178,16 @@ export default function SponsorsPage() {
         </div>
       </Section>
 
-      <Section className="bg-ink">
-        <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+      <Section className="min-h-[100svh] bg-ink">
+        <MediaFrame
+          slot={mediaSlots.sponsors}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto min-h-[100svh]"
+        />
+        <div className="absolute inset-0 bg-ink/62" />
+        <div className="slide-veil absolute inset-0" />
+        <div className="relative z-10 mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
           <Kicker tone="dark">{copy.reach.heading}</Kicker>
           <p className="mt-8 max-w-3xl text-base leading-[1.75] font-light text-ivory/84 md:text-lg">
             {copy.reach.combined}
@@ -222,8 +230,13 @@ export default function SponsorsPage() {
       </Section>
 
       <Section className="bg-ivory">
-        <div className="mx-auto flex w-full max-w-[88rem] flex-col justify-center px-6 py-28 md:px-12 md:py-36">
-          <Kicker>{copy.whySponsor.heading}</Kicker>
+        <div className="mx-auto w-full max-w-[88rem] px-6 py-28 md:px-12 md:py-36">
+          <figure>
+            <MediaFrame slot={mediaSlots.sponsors} />
+          </figure>
+          <div className="mt-16 md:mt-24">
+            <Kicker>{copy.whySponsor.heading}</Kicker>
+          </div>
           <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate italic md:text-5xl">
             {copy.whySponsor.body}
           </p>
