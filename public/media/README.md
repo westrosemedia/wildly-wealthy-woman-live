@@ -11,7 +11,8 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 - `jackie-portrait.jpg`
 - `about-jackie.jpg`
-- `event-phoenix.jpg`
+- `event.jpg` — Banff Springs Hotel (venue / event still)
+- `banff-springs.jpg` — same Banff Springs Hotel still
 - `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
 - `stephanie-jackie.jpg` — Stephanie and Jackie (full-bleed background, Meet the women)
 

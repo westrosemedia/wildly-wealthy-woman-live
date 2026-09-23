@@ -82,7 +82,7 @@ export default function SponsorsPage() {
 
       <Section className="bg-ivory">
         <div className="mx-auto grid w-full max-w-[88rem] items-center gap-14 px-6 py-24 md:grid-cols-[0.95fr_1.05fr] md:gap-20 md:px-12 md:py-32">
-          <MediaFrame slot={mediaSlots.eventPhoenix} />
+          <MediaFrame slot={mediaSlots.event} />
           <div className="space-y-8">
             <Kicker>{copy.event.whenWhere}</Kicker>
             <h2 className="font-heading text-4xl leading-[1.02] font-light text-chocolate md:text-6xl">

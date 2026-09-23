@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
-import { HeroCinematic } from "@/components/media-frame";
+import { HeroCinematic, MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
 import { TicketCta } from "@/components/ticket-cta";
 import { VenueAddress } from "@/components/venue-address";
@@ -38,16 +38,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ivory">
-        <div className="mx-auto grid max-w-[88rem] gap-16 px-6 py-24 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-end md:gap-24 md:px-12 md:py-36">
-          <p className="text-[10px] tracking-[0.3em] text-mink uppercase">
+      <section className="relative min-h-[80svh] overflow-hidden bg-ink">
+        <MediaFrame
+          slot={mediaSlots.event}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto min-h-[80svh]"
+        />
+        <div className="hero-veil absolute inset-0" />
+        <div className="relative z-10 mx-auto grid min-h-[80svh] max-w-[88rem] content-end gap-16 px-6 py-24 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-end md:gap-24 md:px-12 md:py-36">
+          <p className="text-[10px] tracking-[0.3em] text-cream/70 uppercase">
             {copy.event.whenWhere}
           </p>
           <div className="space-y-10">
-            <p className="font-heading text-3xl leading-[1.15] font-light text-chocolate md:text-5xl">
+            <p className="font-heading text-3xl leading-[1.15] font-light text-cream md:text-5xl">
               {copy.event.movement}
             </p>
-            <p className="max-w-xl text-[15px] leading-[1.75] text-mink">
+            <p className="max-w-xl text-[15px] leading-[1.75] text-ivory/86">
               {copy.event.tickets}
             </p>
           </div>

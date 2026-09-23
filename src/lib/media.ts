@@ -57,14 +57,25 @@ export const mediaSlots: Record<string, MediaSlot> = {
     filename: "about-jackie.jpg",
     aspect: "aspect-[4/5]",
   },
-  eventPhoenix: {
-    id: "eventPhoenix",
+  event: {
+    id: "event",
     kind: "image",
-    src: "/media/event-phoenix.jpg",
-    alt: "",
+    src: "/media/event.jpg",
+    alt: "Banff Springs Hotel",
     caption: "",
-    filename: "event-phoenix.jpg",
+    filename: "event.jpg",
     aspect: "aspect-[16/10]",
+    objectClass: "object-[52%_48%]",
+  },
+  banffSprings: {
+    id: "banffSprings",
+    kind: "image",
+    src: "/media/banff-springs.jpg",
+    alt: "Banff Springs Hotel",
+    caption: "",
+    filename: "banff-springs.jpg",
+    aspect: "aspect-[16/10]",
+    objectClass: "object-[52%_48%]",
   },
   speakersBridgetJackie: {
     id: "speakersBridgetJackie",
@@ -119,7 +130,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
 
 mediaSlots.portrait = mediaSlots.jackiePortrait;
 mediaSlots.about = mediaSlots.aboutJackie;
-mediaSlots.event = mediaSlots.eventPhoenix;
+mediaSlots.eventPhoenix = mediaSlots.event;
 
 export const styleGuideStills: MediaSlot[] = [
   mediaSlots.styleGuide01,
