@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[100svh] overflow-hidden bg-ink">
+      <section data-hero className="relative min-h-[100svh] overflow-hidden bg-ink">
         <HeroCinematic
           video={mediaSlots.heroVideo}
           still={mediaSlots.heroStill}

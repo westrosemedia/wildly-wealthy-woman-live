@@ -25,11 +25,29 @@ export function SiteHeader() {
   const darkType = onHero && !scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 36);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const hero = document.querySelector("[data-hero]");
+    if (!hero) {
+      setScrolled(true);
+      return;
+    }
+
+    const sync = () => {
+      const top = hero.getBoundingClientRect().bottom;
+      setScrolled(top <= 72);
+    };
+    sync();
+
+    const observer = new IntersectionObserver(sync, {
+      threshold: [0, 0.08, 1],
+      rootMargin: "-72px 0px 0px 0px",
+    });
+    observer.observe(hero);
+    window.addEventListener("scroll", sync, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", sync);
+    };
+  }, [pathname]);
 
   return (
     <header

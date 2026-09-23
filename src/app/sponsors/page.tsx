@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
@@ -16,15 +16,17 @@ function Section({
   children,
   className,
   id,
+  ...props
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
-}) {
+} & ComponentProps<"section">) {
   return (
     <section
       id={id}
       className={cn("relative overflow-hidden", className)}
+      {...props}
     >
       {children}
     </section>
@@ -59,7 +61,7 @@ export default function SponsorsPage() {
 
   return (
     <div>
-      <Section className="min-h-[100svh] bg-ink">
+      <Section data-hero className="min-h-[100svh] bg-ink">
         <MediaFrame
           slot={mediaSlots.heroStill}
           fill
