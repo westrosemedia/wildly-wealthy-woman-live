@@ -9,7 +9,7 @@ import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
 import { copy } from "@/lib/copy";
-import { mediaSlots } from "@/lib/media";
+import { mediaSlots, reachProofStills } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Sponsors",
@@ -40,16 +40,28 @@ export default function SponsorsPage() {
         />
         <div className="pointer-events-none absolute inset-0 bg-ink/38" />
         <div className="relative z-10 mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <h2 className="font-heading text-5xl leading-[0.96] font-light text-cream md:text-7xl">
+          <h2 className="font-heading text-6xl leading-[0.92] font-light tracking-[-0.04em] text-cream md:text-8xl lg:text-[6.75rem]">
             {copy.reach.heading}
           </h2>
           <p className="mt-8 max-w-3xl text-base leading-[1.75] font-light text-cream/84 md:text-lg">
             {copy.reach.combined}
           </p>
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-            {copy.reach.figures.map((stat) => (
+          <div className="mt-16 grid gap-12 sm:grid-cols-2">
+            {copy.reach.figures.slice(0, 2).map((stat) => (
               <article key={stat.figure + stat.label} className="space-y-4">
-                <p className="font-heading text-5xl leading-none font-light text-cream md:text-7xl">
+                <p className="font-heading text-[clamp(4.2rem,11vw,9rem)] leading-[0.88] font-light tracking-[-0.045em] text-cream">
+                  {stat.figure}
+                </p>
+                <p className="max-w-xs text-sm leading-[1.65] font-light text-cream/68">
+                  {stat.label}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            {copy.reach.figures.slice(2).map((stat) => (
+              <article key={stat.figure + stat.label} className="space-y-4">
+                <p className="font-heading text-[clamp(3.1rem,7.5vw,7.25rem)] leading-[0.9] font-light tracking-[-0.04em] text-cream">
                   {stat.figure}
                 </p>
                 <p className="max-w-xs text-sm leading-[1.65] font-light text-cream/68">
@@ -64,17 +76,22 @@ export default function SponsorsPage() {
         </div>
       </section>
 
-      <section id="why-sponsor" className="bg-cream">
-        <div className="house-wrap grid items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-20">
-          <figure>
-            <MediaFrame slot={mediaSlots.sponsors} />
-          </figure>
-          <div>
-            <SectionKicker>{copy.whySponsor.heading}</SectionKicker>
-            <p className="quote-sm mt-8 max-w-xl text-burgundy">
-              {copy.whySponsor.body}
-            </p>
+      <section className="bg-cream" aria-label="Reach proof">
+        <div className="house-wrap">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:gap-8">
+            {reachProofStills.map((slot) => (
+              <MediaFrame key={slot.id} slot={slot} />
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section id="why-sponsor" className="bg-cream">
+        <div className="house-wrap">
+          <SectionKicker>{copy.whySponsor.heading}</SectionKicker>
+          <p className="quote-sm mt-8 max-w-xl text-burgundy">
+            {copy.whySponsor.body}
+          </p>
         </div>
       </section>
 

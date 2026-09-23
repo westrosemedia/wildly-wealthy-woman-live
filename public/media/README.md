@@ -18,7 +18,10 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `room.jpg` — interior room (Event Overview / tickets / venue)
 - `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
 - `stephanie-jackie.jpg` — Stephanie and Jackie (full-bleed background, Meet the women)
-- `sponsors.jpg` — panel still (Our Reach / Why Sponsor)
+- `sponsors.jpg` — panel still behind Our Reach stats on `/sponsors` `#reach` only. Do not repeat.
+- `proof-01.jpg` — Instagram insights screenshot. Under the Our Reach plate only.
+- `proof-02.jpg` — second insights screenshot. Under the Our Reach plate only.
+- `proof-03.jpg` — third insights screenshot. Under the Our Reach plate only.
 - `background-fur.jpg` — hand on white fur, rings (full-bleed background, The Bigger Mission)
 - `background-studio.jpg` — three women, white studio, looking at a phone (full-bleed section background)
 

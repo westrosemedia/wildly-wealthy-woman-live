@@ -178,6 +178,33 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[2/3]",
     objectClass: "object-[50%_42%]",
   },
+  proof01: {
+    id: "proof01",
+    kind: "image",
+    src: "/media/proof-01.jpg",
+    alt: "Instagram insights",
+    caption: "",
+    filename: "proof-01.jpg",
+    aspect: "aspect-[1206/1063]",
+  },
+  proof02: {
+    id: "proof02",
+    kind: "image",
+    src: "/media/proof-02.jpg",
+    alt: "Instagram insights",
+    caption: "",
+    filename: "proof-02.jpg",
+    aspect: "aspect-[1206/1139]",
+  },
+  proof03: {
+    id: "proof03",
+    kind: "image",
+    src: "/media/proof-03.jpg",
+    alt: "Instagram insights",
+    caption: "",
+    filename: "proof-03.jpg",
+    aspect: "aspect-[1206/1101]",
+  },
 };
 
 mediaSlots.portrait = mediaSlots.jackiePortrait;
@@ -189,6 +216,12 @@ export const styleGuideStills: MediaSlot[] = [
   mediaSlots.styleGuide01,
   mediaSlots.styleGuide02,
   mediaSlots.styleGuide03,
+];
+
+export const reachProofStills: MediaSlot[] = [
+  mediaSlots.proof01,
+  mediaSlots.proof02,
+  mediaSlots.proof03,
 ];
 
 export const recapFilms: MediaSlot[] = [
