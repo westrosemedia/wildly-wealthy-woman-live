@@ -28,23 +28,37 @@ export default function SponsorsPage() {
         </div>
       </section>
 
-      <section id="reach" className="bg-cream">
-        <div className="house-wrap">
-          <h2 className="display text-burgundy">{copy.reach.heading}</h2>
-          <p className="body-copy mt-8 max-w-3xl text-burgundy/80">
+      <section
+        id="reach"
+        className="relative min-h-[100svh] overflow-hidden bg-ink"
+      >
+        <MediaFrame
+          slot={mediaSlots.sponsors}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto min-h-[100svh]"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-ink/38" />
+        <div className="relative z-10 mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <h2 className="font-heading text-5xl leading-[0.96] font-light text-cream md:text-7xl">
+            {copy.reach.heading}
+          </h2>
+          <p className="mt-8 max-w-3xl text-base leading-[1.75] font-light text-cream/84 md:text-lg">
             {copy.reach.combined}
           </p>
           <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {copy.reach.figures.map((stat) => (
               <article key={stat.figure + stat.label} className="space-y-4">
-                <p className="stat text-burgundy">{stat.figure}</p>
-                <p className="max-w-xs text-sm leading-[1.65] font-light text-burgundy/70">
+                <p className="font-heading text-5xl leading-none font-light text-cream md:text-7xl">
+                  {stat.figure}
+                </p>
+                <p className="max-w-xs text-sm leading-[1.65] font-light text-cream/68">
                   {stat.label}
                 </p>
               </article>
             ))}
           </div>
-          <p className="body-copy mt-16 max-w-3xl text-burgundy/80 md:text-xl">
+          <p className="mt-16 max-w-3xl text-base leading-[1.75] font-light text-cream/84 md:text-xl">
             {copy.reach.who}
           </p>
         </div>
