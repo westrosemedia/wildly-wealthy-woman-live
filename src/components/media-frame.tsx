@@ -1,7 +1,7 @@
 "use client";
 
 import { Camera, Clapperboard } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { MediaSlot } from "@/lib/media";
@@ -111,15 +111,7 @@ export function MediaFrame({
   const exists = useMediaExists(slot.src);
   const [status, setStatus] = useState<MediaStatus>(priority ? "ready" : "loading");
   const [posterFailed, setPosterFailed] = useState(false);
-  const imageRef = useRef<HTMLImageElement>(null);
   const resolved = exists === false ? "empty" : status;
-
-  useEffect(() => {
-    const image = imageRef.current;
-    if (image?.complete && image.naturalWidth > 0) {
-      setStatus("ready");
-    }
-  }, [slot.src]);
 
   const frameClass = fill
     ? cn("absolute inset-0 overflow-hidden bg-espresso", className)
@@ -186,22 +178,12 @@ export function MediaFrame({
     <div className={frameClass}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        ref={imageRef}
         src={slot.src}
         alt={slot.alt}
-        className={cn(
-          "h-full w-full object-cover transition-opacity duration-500",
-          slot.objectClass,
-          status === "ready" || exists === true ? "opacity-100" : "opacity-0",
-        )}
+        className={cn("h-full w-full object-cover", slot.objectClass)}
         onLoad={() => setStatus("ready")}
         onError={() => setStatus("empty")}
       />
-      {status !== "ready" && exists !== true ? (
-        <div className="absolute inset-0">
-          <Placeholder slot={slot} status="loading" quiet={quiet || fill} />
-        </div>
-      ) : null}
     </div>
   );
 }
