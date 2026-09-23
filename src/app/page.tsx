@@ -30,7 +30,7 @@ export default function Home() {
 
       <WatchingYouLive />
 
-      <section id="the-event" className="bg-cream">
+      <section id="event-copy" className="bg-cream">
         <div className="house-wrap">
           <SectionKicker>{copy.event.heading}</SectionKicker>
           <CopyParagraphs
