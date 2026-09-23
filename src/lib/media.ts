@@ -140,11 +140,11 @@ export const mediaSlots: Record<string, MediaSlot> = {
     id: "styleGuide02",
     kind: "image",
     src: "/media/style-guide-02.jpg",
-    alt: "Black glove holding cash",
+    alt: "Woman in a cream fur coat in an elevator",
     caption: "",
     filename: "style-guide-02.jpg",
     aspect: "aspect-[2/3]",
-    objectClass: "object-[50%_88%]",
+    objectClass: "object-[50%_42%]",
   },
   styleGuide03: {
     id: "styleGuide03",
