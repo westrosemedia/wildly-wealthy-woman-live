@@ -18,7 +18,7 @@ export function HeroOpen() {
         className="hero-living absolute inset-0 aspect-auto min-h-[100svh]"
       />
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-start px-6 pt-32 pb-16 md:justify-center md:px-12 md:pt-36 md:pb-24">
-        <h1 className="quote rise max-w-[18ch] text-burgundy">{copy.takeaway}</h1>
+        <h1 className="quote rise max-w-[14ch] text-burgundy md:max-w-[15ch]">{copy.takeaway}</h1>
         <div className="rise-delay mt-10 md:mt-14">
           <JoinWaitlistLink href="#waitlist" />
         </div>
