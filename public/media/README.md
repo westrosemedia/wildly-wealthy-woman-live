@@ -20,10 +20,11 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `stephanie-jackie.jpg` — Stephanie and Jackie (full-bleed background, Meet the women)
 - `sponsors.jpg` — panel still (Our Reach / Why Sponsor)
 - `background-fur.jpg` — hand on white fur, rings (full-bleed background, The Bigger Mission)
+- `background-studio.jpg` — three women, white studio, looking at a phone (full-bleed section background)
 
 ## Style guide
 
-Mood-board stills for how people dress:
+Dress stills, including the cream fur elevator photo as 02:
 
 - `style-guide-01.jpg`
 - `style-guide-02.jpg`

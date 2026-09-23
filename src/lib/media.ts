@@ -136,6 +136,16 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[4/5]",
     objectClass: "object-[50%_48%]",
   },
+  backgroundStudio: {
+    id: "backgroundStudio",
+    kind: "image",
+    src: "/media/background-studio.jpg",
+    alt: "Three women",
+    caption: "",
+    filename: "background-studio.jpg",
+    aspect: "aspect-[9/16]",
+    objectClass: "object-[50%_68%]",
+  },
   styleGuide01: {
     id: "styleGuide01",
     kind: "image",

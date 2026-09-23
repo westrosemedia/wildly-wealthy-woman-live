@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import type { ComponentProps, ReactNode } from "react";
 
+import {
+  CopyParagraphs,
+  SectionKicker,
+  Takeaway,
+} from "@/components/editorial-sections";
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideBoard } from "@/components/style-guide-section";
@@ -33,31 +38,14 @@ function Section({
   );
 }
 
-function Kicker({
-  children,
-  tone = "light",
-}: {
-  children: ReactNode;
-  tone?: "light" | "dark";
-}) {
-  return (
-    <p
-      className={cn(
-        "text-[10px] tracking-[0.32em] uppercase",
-        tone === "dark" ? "text-cream/55" : "text-mink",
-      )}
-    >
-      {children}
-    </p>
-  );
-}
-
 export default function SponsorsPage() {
   const founders = [
     copy.founders.stephanie,
     copy.founders.jackie,
     copy.founders.melissa,
   ];
+  const leadStats = copy.reach.figures.slice(0, 2);
+  const restStats = copy.reach.figures.slice(2);
 
   return (
     <div>
@@ -83,49 +71,20 @@ export default function SponsorsPage() {
       </Section>
 
       <Section className="bg-ivory">
-        <div className="mx-auto grid w-full max-w-[88rem] items-center gap-14 px-6 py-24 md:grid-cols-[0.95fr_1.05fr] md:gap-20 md:px-12 md:py-32">
-          <MediaFrame slot={mediaSlots.event} />
-          <div className="space-y-8">
-            <Kicker>{copy.event.whenWhere}</Kicker>
-            <h2 className="font-heading text-4xl leading-[1.02] font-light text-chocolate md:text-6xl">
-              {copy.event.title}
-            </h2>
-            <p className="max-w-xl text-base leading-[1.75] text-chocolate/80 md:text-lg">
-              {copy.event.body}
-            </p>
-            <p className="max-w-xl text-base leading-[1.75] text-chocolate/80 md:text-lg">
-              {copy.event.movement}
-            </p>
-            <p className="max-w-xl text-sm leading-[1.7] text-mink md:text-base">
-              {copy.event.tickets}
-            </p>
-          </div>
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <Takeaway className="rise" />
         </div>
       </Section>
 
-      <Section id="speakers" className="bg-snow">
-        <div className="mx-auto grid w-full max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-20 md:px-12 md:py-32">
-          <figure className="order-2 w-full md:sticky md:top-28">
-            <MediaFrame slot={mediaSlots.speakersBridgetJackie} />
-            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
-              {mediaSlots.speakersBridgetJackie.caption}
-            </figcaption>
-          </figure>
-          <div className="order-1 md:order-2">
-            <Kicker>{copy.speakers.heading}</Kicker>
-            <div className="mt-8 space-y-3 border-t border-mink/15 pt-10">
-              {copy.speakers.names.map((name) => (
-                <h3
-                  key={name}
-                  className="font-heading text-4xl leading-[1.05] font-light text-chocolate md:text-6xl"
-                >
-                  {name}
-                </h3>
-              ))}
-            </div>
-            <p className="mt-10 max-w-2xl text-base leading-[1.75] text-chocolate/80 md:text-xl">
-              {copy.speakers.body}
-            </p>
+      <Section id="why-partners" className="bg-ivory">
+        <div className="mx-auto grid w-full max-w-[88rem] items-center gap-14 px-6 pb-24 md:grid-cols-[0.95fr_1.05fr] md:gap-20 md:px-12 md:pb-32">
+          <MediaFrame slot={mediaSlots.event} />
+          <div>
+            <SectionKicker>{copy.brandPartners.heading}</SectionKicker>
+            <CopyParagraphs
+              className="mt-10 max-w-2xl"
+              paragraphs={copy.brandPartners.paragraphs}
+            />
           </div>
         </div>
       </Section>
@@ -188,12 +147,26 @@ export default function SponsorsPage() {
         <div className="absolute inset-0 bg-ink/38" />
         <div className="hero-veil absolute inset-0" />
         <div className="relative z-10 mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <Kicker tone="dark">{copy.reach.heading}</Kicker>
+          <h2 className="font-heading text-5xl leading-[0.96] font-light text-cream md:text-7xl">
+            {copy.reach.heading}
+          </h2>
           <p className="mt-8 max-w-3xl text-base leading-[1.75] font-light text-ivory/84 md:text-lg">
             {copy.reach.combined}
           </p>
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-            {copy.reach.figures.map((stat) => (
+          <div className="mt-16 grid gap-12 sm:grid-cols-2">
+            {leadStats.map((stat) => (
+              <article key={stat.figure + stat.label} className="space-y-4">
+                <p className="font-heading text-5xl leading-none font-light text-ivory md:text-7xl">
+                  {stat.figure}
+                </p>
+                <p className="max-w-xs text-sm leading-[1.65] text-cream/68">
+                  {stat.label}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            {restStats.map((stat) => (
               <article key={stat.figure + stat.label} className="space-y-4">
                 <p className="font-heading text-5xl leading-none font-light text-ivory md:text-7xl">
                   {stat.figure}
@@ -211,16 +184,14 @@ export default function SponsorsPage() {
       </Section>
 
       <Section className="bg-ivory">
-        <div className="mx-auto w-full max-w-[88rem] px-6 py-28 md:px-12 md:py-36">
-          <Kicker>{copy.tickets.heading}</Kicker>
-          <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate md:text-6xl">
-            {copy.tickets.range}
-          </p>
-          <figure className="mt-16 md:mt-24">
+        <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <figure>
             <MediaFrame slot={mediaSlots.eventRoom} />
-            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
-              {mediaSlots.eventRoom.caption}
-            </figcaption>
+            {mediaSlots.eventRoom.caption ? (
+              <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+                {mediaSlots.eventRoom.caption}
+              </figcaption>
+            ) : null}
           </figure>
         </div>
       </Section>
@@ -235,7 +206,7 @@ export default function SponsorsPage() {
             <MediaFrame slot={mediaSlots.sponsors} />
           </figure>
           <div>
-            <Kicker>{copy.whySponsor.heading}</Kicker>
+            <SectionKicker>{copy.whySponsor.heading}</SectionKicker>
             <p className="font-heading mt-8 max-w-xl text-3xl leading-[1.12] font-light text-chocolate italic md:text-5xl">
               {copy.whySponsor.body}
             </p>
@@ -243,7 +214,7 @@ export default function SponsorsPage() {
         </div>
       </Section>
 
-      <Section className="min-h-[80svh] bg-ink">
+      <Section id="the-invitation" className="min-h-[80svh] bg-ink">
         <MediaFrame
           slot={mediaSlots.aboutJackie}
           fill
@@ -252,7 +223,13 @@ export default function SponsorsPage() {
         />
         <div className="slide-veil absolute inset-0" />
         <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-[88rem] flex-col items-start justify-end px-6 py-24 pt-36 md:px-12">
-          <p className="font-heading max-w-4xl text-3xl leading-[1.12] font-light text-cream md:text-6xl">
+          <SectionKicker tone="dark">{copy.invitation.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-3xl"
+            tone="dark"
+            paragraphs={copy.invitation.paragraphs}
+          />
+          <p className="font-heading mt-16 max-w-4xl text-3xl leading-[1.12] font-light text-cream md:text-6xl">
             {copy.closing.body}
           </p>
         </div>
@@ -260,7 +237,10 @@ export default function SponsorsPage() {
 
       <Section id="waitlist-slide" className="bg-ivory">
         <div className="mx-auto flex w-full max-w-[88rem] flex-col items-start justify-center px-6 py-24 md:px-12 md:py-32">
-          <WaitlistSection />
+          <SectionKicker>{copy.waitlist.heading}</SectionKicker>
+          <div className="mt-10">
+            <WaitlistSection />
+          </div>
         </div>
       </Section>
     </div>

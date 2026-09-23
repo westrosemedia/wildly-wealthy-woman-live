@@ -265,6 +265,17 @@
   );
 }
 
+/* Ink / burgundy over the bright studio still so cream type reads. */
+.studio-veil {
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgb(10 7 8 / 58%) 0%,
+    rgb(57 10 22 / 62%) 42%,
+    rgb(10 7 8 / 74%) 100%
+  );
+}
+
 .fur-plate,
 .satin-plate {
   background-color: #390a16;

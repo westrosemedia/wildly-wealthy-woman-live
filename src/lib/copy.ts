@@ -1,19 +1,42 @@
 /** Stephanie’s copy, verbatim. Do not invent tiers, bios, or extra marketing. */
 export const copy = {
   title: "Wildly Wealthy Woman Live",
+  takeaway:
+    "What if the greatest thing we can leave our daughters isn't what we've built for them — but the belief that they can build anything?",
   hero: {
     title: "Wildly Wealthy Woman Live",
-    body: "One day at the Banff Springs Hotel, built around a belief: the greatest wealth a woman can build is the world she hands to the women who come after her.",
+    body: "The greatest thing we can leave our daughters is the belief that they can build anything.",
     cta: "Join the Waitlist",
   },
+  story: {
+    heading: "The Story",
+    paragraphs: [
+      "For more than a decade, Jackie McDonald has built a career helping women change what they believe is possible for their lives.",
+      "As an entrepreneur, EFT practitioner, teacher, and mother, Jackie has built a seven-figure body of work while raising her daughter, Mirra. Somewhere along the way, her definition of wealth changed. Money still mattered. But her definition of wealth grew to include what her success allows her to experience, who she becomes in the process, and what the women around her learn from watching her live.",
+      "That idea became especially meaningful during a deeply personal season in Jackie's own family. As her mother navigates a significant health journey, Jackie has found herself standing in the middle of three generations, looking at the woman who came before her and the daughter coming after her, with a new appreciation for how precious time together really is.",
+      "It raised a question that has become the heartbeat of Wildly Wealthy Woman Live: the greatest thing we can leave our daughters is the belief that they can build anything.",
+      "Jackie is building this event alongside two women who share that belief.",
+      "Stephanie has spent her career teaching women that visibility creates wealth. She took her own Instagram from zero to 16,300 followers and 3 million views in 65 days, then did it again for a client, taking her from 200 followers to 11,000 and turning a single reel into 1.5 million views. Through West Rose Media, she teaches women to be seen, and to turn that visibility into revenue.",
+      "Melissa has spent her career designing experiences people remember for years. As the retreat and event planner behind The Retreat Alchemist, she's the reason every detail of Wildly Wealthy Woman Live, from the biggest moments to the smallest ones, will feel exactly as considered as the belief the event was built on.",
+    ] as const,
+  },
   event: {
+    heading: "The Event",
     title: "Wildly Wealthy Woman Live",
     whenWhere: "Banff Springs Hotel, March 2027",
-    body: "One day, capped at 200 women in the room, built around a simple belief: the greatest wealth a woman can build is the world she hands to the women who come after her.",
-    movement:
-      "This is a mastermind and a movement. A room full of women building real businesses, real wealth, and real legacies, together, with their daughters welcome to be part of it.",
-    tickets:
-      "Tickets range from $450 to $1,500. A VIP upgrade is available for the night before, including dinner.",
+    paragraphs: [
+      "Wildly Wealthy Woman Live is a multi-generational gathering in Banff designed to bring women together to explore a more expansive definition of wealth.",
+      "Financial wealth matters. So do health, relationships, purpose, freedom, confidence, experiences, family, and the courage to create a life that actually feels rich while you're living it.",
+      "The event intentionally brings together mothers and daughters, sisters, friends, entrepreneurs, leaders, and women at different stages of life. Its conversations go beyond business and success to include motherhood, visibility, money, health, grief, loss, identity, and legacy, along with the complicated relationships women can have with the generations before and after them.",
+      "Because every woman gets to define what a wealthy life looks like for her.",
+    ] as const,
+  },
+  whyBanff: {
+    heading: "Why Banff",
+    paragraphs: [
+      "Against the backdrop of the Canadian Rockies, the experience is being designed to feel beautiful, elevated, and unforgettable: winter landscapes, faux fur, fireside conversations, and moments women will want to remember long after they leave.",
+      "This is an experience women share together, often alongside their mother, daughter, sister, or closest friend.",
+    ] as const,
   },
   mission: {
     heading: "The Bigger Mission",
@@ -28,6 +51,11 @@ export const copy = {
     heading: "Speakers",
     names: ["Veena Jetti", "Bridget James Ling", "Becca Luna"] as const,
     body: "Veena Jetti, Bridget James Ling, and Becca Luna are confirmed, with more to be announced. Each brings a following of her own, and each will be sharing this stage with her community too.",
+  },
+  eventDetails: {
+    heading: "Event Details",
+    whenWhere: "Banff Springs Hotel, March 2027",
+    body: "One day, capped at 200 women in the room.",
   },
   founders: {
     heading: "Meet the women behind it",
@@ -56,11 +84,12 @@ export const copy = {
     who: "These are women who already own the room: founders, CEOs, coaches, and industry leaders building real businesses and real wealth. They show up for growth, for community, and for each other.",
     figures: [
       {
-        figure: "62,000+",
+        figure: "62k+",
         label: "A combined community of 62,000+ across Instagram and TikTok",
       },
-      { figure: "24,900+", label: "on Instagram" },
-      { figure: "37,100+", label: "on TikTok" },
+      { figure: "3M", label: "views / 30 days on avg" },
+      { figure: "24.9k+", label: "on Instagram" },
+      { figure: "37.1k+", label: "on TikTok" },
       { figure: "93%", label: "women" },
       { figure: "64%", label: "between the ages of 35 and 54" },
       {
@@ -70,19 +99,31 @@ export const copy = {
       },
     ] as const,
   },
-  tickets: {
-    heading: "Tickets",
-    range:
-      "Tickets range from $450 to $1,500. A VIP upgrade is available for the night before, including dinner.",
+  brandPartners: {
+    heading: "Why We're Inviting Brand Partners",
+    paragraphs: [
+      "We want to partner with brands that want to become part of the memories created inside this room.",
+      "A vehicle that carries a mother and daughter through the mountains. A coat she wears in a photograph she'll keep for decades. A dinner where two generations finally have a conversation they've never had before. A sponsored ticket that lets a mother and daughter who couldn't otherwise attend experience the weekend together.",
+      "The strongest partnerships integrate naturally into the experience, creating genuine moments of connection, content, and storytelling.",
+      "We're especially interested in partners who share our belief that modern wealth is about more than ownership. It's about freedom, possibility, experience, and what we pass forward.",
+    ] as const,
   },
   whySponsor: {
     heading: "Why Sponsor",
     body: "You're aligning with an audience already primed to spend, already building empires, already searching for the next brand, program, or partner worth trusting.",
   },
+  invitation: {
+    heading: "The Invitation",
+    paragraphs: [
+      "Wildly Wealthy Woman Live is for the women who came before us. The women standing beside us. And the women coming after us.",
+      "We're inviting a select group of brands to help us create an experience those women will never forget.",
+    ] as const,
+  },
   closing: {
     body: "We're building Wildly Wealthy Woman Live with a small number of partners who fit this room. If that's you, we'd love to talk.",
   },
   waitlist: {
+    heading: "Waitlist / Contact",
     body: "Be the first to know when dates and tickets go live. Join the waitlist and we'll reach out as soon as we're ready.",
     cta: "Join the Waitlist",
   },

@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 
+import {
+  CopyParagraphs,
+  SectionKicker,
+  SpeakersSection,
+  StorySection,
+  Takeaway,
+} from "@/components/editorial-sections";
 import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { HeroCinematic, MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
@@ -38,37 +45,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative min-h-[80svh] overflow-hidden bg-ink">
-        <MediaFrame
-          slot={mediaSlots.event}
-          fill
-          quiet
-          className="absolute inset-0 aspect-auto min-h-[80svh]"
-        />
-        <div className="hero-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto grid min-h-[80svh] max-w-[88rem] content-end gap-16 px-6 py-24 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-end md:gap-24 md:px-12 md:py-36">
-          <p className="text-[10px] tracking-[0.3em] text-cream/70 uppercase">
-            {copy.event.whenWhere}
-          </p>
-          <div className="space-y-10">
-            <p className="font-heading text-3xl leading-[1.15] font-light text-cream md:text-5xl">
-              {copy.event.movement}
-            </p>
-            <p className="max-w-xl text-[15px] leading-[1.75] text-ivory/86">
-              {copy.event.tickets}
-            </p>
-          </div>
+      <section className="bg-ivory">
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <Takeaway className="rise" />
         </div>
       </section>
 
-      <section className="bg-ivory">
-        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-36">
-          <figure>
+      <StorySection />
+
+      <section id="the-event" className="bg-snow">
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <SectionKicker>{copy.event.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-2xl"
+            paragraphs={copy.event.paragraphs}
+          />
+        </div>
+      </section>
+
+      <section id="why-banff" className="bg-ivory">
+        <div className="mx-auto grid max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-2 md:gap-16 md:px-12 md:py-32">
+          <figure className="space-y-6">
+            <MediaFrame slot={mediaSlots.event} />
             <MediaFrame slot={mediaSlots.eventRoom} />
-            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
-              {mediaSlots.eventRoom.caption}
-            </figcaption>
           </figure>
+          <div className="md:sticky md:top-28">
+            <SectionKicker>{copy.whyBanff.heading}</SectionKicker>
+            <CopyParagraphs
+              className="mt-10 max-w-xl"
+              paragraphs={copy.whyBanff.paragraphs}
+            />
+          </div>
         </div>
       </section>
 
@@ -84,27 +91,44 @@ export default function Home() {
         />
         <div className="fur-veil absolute inset-0" />
         <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-[88rem] flex-col justify-end px-6 py-24 md:px-12 md:py-36">
-          <p className="text-[10px] tracking-[0.32em] text-cream/70 uppercase">
-            {copy.mission.heading}
+          <SectionKicker tone="dark">{copy.mission.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-3xl"
+            tone="dark"
+            paragraphs={copy.mission.paragraphs}
+          />
+        </div>
+      </section>
+
+      <SpeakersSection />
+
+      <section id="event-details" className="bg-ivory">
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <SectionKicker>{copy.eventDetails.heading}</SectionKicker>
+          <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate md:text-6xl">
+            {copy.eventDetails.whenWhere}
           </p>
-          <div className="mt-10 max-w-3xl space-y-6">
-            {copy.mission.paragraphs.map((paragraph) => (
-              <p
-                key={paragraph}
-                className="text-base leading-[1.75] font-light text-ivory/88 md:text-lg"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <p className="mt-8 max-w-2xl text-base leading-[1.75] font-light text-chocolate/80 md:text-lg">
+            {copy.eventDetails.body}
+          </p>
         </div>
       </section>
 
       <StyleGuideSection />
 
-      <section className="bg-ivory">
-        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <WaitlistSection />
+      <section className="relative min-h-[80svh] overflow-hidden bg-ink">
+        <MediaFrame
+          slot={mediaSlots.backgroundStudio}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto min-h-[80svh]"
+        />
+        <div className="studio-veil absolute inset-0" />
+        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-[88rem] flex-col justify-end px-6 py-24 md:px-12 md:py-32">
+          <SectionKicker tone="dark">{copy.waitlist.heading}</SectionKicker>
+          <div className="mt-10">
+            <WaitlistSection tone="dark" />
+          </div>
         </div>
       </section>
     </>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { copy } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 
 export function SiteMark({
@@ -12,22 +13,14 @@ export function SiteMark({
   className?: string;
 }) {
   return (
-    <Link href={href} className={cn("min-w-0", className)}>
+    <Link href={href} className={cn("min-w-0", className)} aria-label={copy.title}>
       <span
         className={cn(
-          "font-heading block text-[1.2rem] leading-none font-light tracking-[-0.02em] sm:text-[1.45rem]",
+          "font-heading block text-[1.05rem] leading-[1.2] font-light tracking-[0.06em] sm:text-[1.2rem] sm:whitespace-nowrap",
           tone === "dark" ? "text-cream" : "text-chocolate",
         )}
       >
-        Wildly Wealthy Woman
-      </span>
-      <span
-        className={cn(
-          "mt-1.5 block text-[9px] tracking-[0.34em] uppercase",
-          tone === "dark" ? "text-cream/62" : "text-mink/80",
-        )}
-      >
-        Live
+        {copy.title}
       </span>
     </Link>
   );
