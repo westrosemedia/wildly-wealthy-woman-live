@@ -87,7 +87,7 @@ export function SiteHeader() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="border-mink/15 bg-ivory text-chocolate"
+            className="border-burgundy/15 bg-ivory text-chocolate"
           >
             <SheetHeader>
               <SheetTitle className="font-heading text-left text-2xl font-light text-chocolate">
@@ -103,7 +103,7 @@ export function SiteHeader() {
                   render={<Link href={item.href} />}
                   className={cn(
                     "text-left text-[12px] tracking-[0.28em] uppercase",
-                    pathname === item.href ? "text-lip" : "text-mink",
+                    pathname === item.href ? "text-burgundy" : "text-burgundy/70",
                   )}
                 >
                   {item.label}

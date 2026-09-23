@@ -188,7 +188,7 @@ export default function SponsorsPage() {
           <figure>
             <MediaFrame slot={mediaSlots.eventRoom} />
             {mediaSlots.eventRoom.caption ? (
-              <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+              <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-burgundy uppercase">
                 {mediaSlots.eventRoom.caption}
               </figcaption>
             ) : null}

@@ -58,7 +58,7 @@ export function WaitlistForm({
       <p
         className={cn(
           "text-sm tracking-[0.18em] uppercase",
-          onDark ? "text-cream/70" : "text-mink",
+          onDark ? "text-cream/70" : "text-burgundy",
         )}
       >
         ✓
@@ -81,7 +81,7 @@ export function WaitlistForm({
           "field-line h-12 w-full rounded-none px-0 text-base shadow-none focus-visible:ring-0",
           onDark
             ? "border-cream/40 text-cream placeholder:text-cream/30"
-            : "border-mink/35 text-chocolate placeholder:text-mink/40",
+            : "border-burgundy/35 text-chocolate placeholder:text-burgundy/40",
         )}
       />
       <Button
@@ -97,7 +97,7 @@ export function WaitlistForm({
         {copy.waitlist.cta}
       </Button>
       {status === "error" ? (
-        <p className={cn("text-sm", onDark ? "text-cream/80" : "text-mink")}>
+        <p className={cn("text-sm", onDark ? "text-cream/80" : "text-burgundy")}>
           {message}
         </p>
       ) : null}

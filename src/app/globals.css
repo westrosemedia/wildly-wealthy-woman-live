@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-fraunces), ui-serif, "Times New Roman", serif;
+  --font-quote: var(--font-newsreader), ui-serif, "Times New Roman", serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -91,21 +92,22 @@
 
   cream grounds: --ivory --cream --snow --champagne
   cinematic black: --ink --chocolate --espresso --velvet
-  burgundy accents: --lip --gold --burgundy --mink --fur --rose --wine
+  pure wine: --burgundy (#390A16). --lip --gold --mink --fur --rose --wine alias it.
+  Never lip/rose #842E44 or mink #5A1828. Photo veils stay ink only.
 */
 :root {
   color-scheme: light;
   --ink: #0a0708;
   --espresso: #120204;
   --velvet: #23040b;
+  --burgundy: #390a16;
   --wine: #390a16;
   --chocolate: #120204;
-  --mink: #5a1828;
+  --mink: #390a16;
   --fur: #390a16;
-  --lip: #842e44;
-  --gold: #842e44;
-  --burgundy: #842e44;
-  --rose: #5a1828;
+  --lip: #390a16;
+  --gold: #390a16;
+  --rose: #390a16;
   --ivory: #f6f0e8;
   --cream: #f6f0e8;
   --snow: #f3ede4;
@@ -116,32 +118,32 @@
   --card-foreground: #120204;
   --popover: #f6f0e8;
   --popover-foreground: #120204;
-  --primary: #842e44;
+  --primary: #390a16;
   --primary-foreground: #f6f0e8;
   --secondary: #f3ede4;
   --secondary-foreground: #120204;
   --muted: #f3ede4;
-  --muted-foreground: #5a1828;
-  --accent: #5a1828;
+  --muted-foreground: #390a16;
+  --accent: #390a16;
   --accent-foreground: #f6f0e8;
-  --destructive: #842e44;
-  --border: rgb(90 24 40 / 18%);
-  --input: rgb(90 24 40 / 24%);
-  --ring: #842e44;
-  --chart-1: #842e44;
-  --chart-2: #5a1828;
+  --destructive: #390a16;
+  --border: rgb(57 10 22 / 18%);
+  --input: rgb(57 10 22 / 24%);
+  --ring: #390a16;
+  --chart-1: #390a16;
+  --chart-2: #23040b;
   --chart-3: #390a16;
   --chart-4: #120204;
   --chart-5: #f3ede4;
   --radius: 0rem;
   --sidebar: #f3ede4;
   --sidebar-foreground: #120204;
-  --sidebar-primary: #842e44;
+  --sidebar-primary: #390a16;
   --sidebar-primary-foreground: #f6f0e8;
   --sidebar-accent: #f3ede4;
   --sidebar-accent-foreground: #120204;
-  --sidebar-border: rgb(90 24 40 / 18%);
-  --sidebar-ring: #842e44;
+  --sidebar-border: rgb(57 10 22 / 18%);
+  --sidebar-ring: #390a16;
 }
 
 @layer base {
@@ -173,7 +175,7 @@
   }
 
   ::selection {
-    background: var(--lip);
+    background: var(--burgundy);
     color: var(--ivory);
   }
 }
@@ -324,7 +326,7 @@
 
 .field-line:focus,
 .field-line:focus-visible {
-  border-bottom-color: var(--lip);
+  border-bottom-color: var(--burgundy);
   box-shadow: none;
   outline: none;
 }

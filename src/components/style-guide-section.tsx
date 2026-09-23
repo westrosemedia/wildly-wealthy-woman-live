@@ -22,7 +22,7 @@ export function StyleGuideBoard({
       <h2
         className={cn(
           "text-[10px] tracking-[0.32em] uppercase",
-          onDark ? "text-cream/55" : "text-mink",
+          onDark ? "text-cream/55" : "text-burgundy",
         )}
       >
         {copy.styleGuide.heading}

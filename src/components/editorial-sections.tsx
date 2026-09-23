@@ -16,7 +16,7 @@ export function SectionKicker({
     <p
       className={cn(
         "text-[10px] tracking-[0.32em] uppercase",
-        tone === "dark" ? "text-cream/55" : "text-mink",
+        tone === "dark" ? "text-cream/55" : "text-burgundy",
       )}
     >
       {children}
@@ -80,14 +80,14 @@ export function SpeakersSection({ className }: { className?: string }) {
         <figure className="order-2 w-full md:sticky md:top-28">
           <MediaFrame slot={mediaSlots.speakersBridgetJackie} />
           {mediaSlots.speakersBridgetJackie.caption ? (
-            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-burgundy uppercase">
               {mediaSlots.speakersBridgetJackie.caption}
             </figcaption>
           ) : null}
         </figure>
         <div className="order-1 md:order-2">
           <SectionKicker>{copy.speakers.heading}</SectionKicker>
-          <div className="mt-8 space-y-3 border-t border-mink/15 pt-10">
+          <div className="mt-8 space-y-3 border-t border-burgundy/15 pt-10">
             {copy.speakers.names.map((name) => (
               <h3
                 key={name}

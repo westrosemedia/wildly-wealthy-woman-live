@@ -284,9 +284,9 @@ export function CaptionedFrame({
   return (
     <figure className="group">
       <MediaFrame slot={slot} controls={controls} />
-      <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+      <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-[10px] tracking-[0.22em] text-burgundy uppercase">
         <span>{slot.caption}</span>
-        <span className="text-lip">{index ?? slot.id}</span>
+        <span className="text-burgundy">{index ?? slot.id}</span>
       </figcaption>
     </figure>
   );
