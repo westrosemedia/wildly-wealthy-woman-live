@@ -11,7 +11,6 @@ import { HeroOpen } from "@/components/hero-open";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
-import { WatchingYouLive } from "@/components/watching-you-live";
 import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 import { site } from "@/lib/site";
@@ -25,9 +24,15 @@ export default function Home() {
     <>
       <HeroOpen />
 
-      <WatchingYouLive />
-
-      <EventSection />
+      <section id="the-event" className="bg-cream">
+        <div className="house-wrap">
+          <SectionKicker>{copy.event.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-2xl"
+            paragraphs={copy.event.paragraphs}
+          />
+        </div>
+      </section>
 
       <StorySection />
 
