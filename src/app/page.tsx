@@ -11,6 +11,7 @@ import { HeroOpen } from "@/components/hero-open";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
+import { WatchingYouLive } from "@/components/watching-you-live";
 import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 import { site } from "@/lib/site";
@@ -23,6 +24,8 @@ export default function Home() {
   return (
     <>
       <HeroOpen />
+
+      <WatchingYouLive />
 
       <section id="the-event" className="bg-cream">
         <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">

@@ -8,6 +8,53 @@ export const copy = {
     body: "The greatest thing we can leave our daughters is the belief that they can build anything.",
     cta: "Join the Waitlist",
   },
+  /**
+   * After-hero lead. Stephanie, verbatim.
+   * Each string is one line; blank separation is the visual rhythm.
+   * role is display only — never extra words.
+   */
+  watching: {
+    beats: [
+      {
+        role: "lead",
+        text: "You can build your daughter a fortune and still miss the inheritance she needs most.",
+      },
+      { role: "key", text: "It’s not the money." },
+      { role: "key", text: "It’s watching you live." },
+      {
+        role: "breath",
+        text: "Maybe you’re sitting at home right now, exhausted from carrying the business, the family, the plans, the pressure… wishing you could show your daughter what a truly vibrant life looks like.",
+      },
+      { role: "key", text: "Not just a successful life." },
+      { role: "key", text: "A full one." },
+      {
+        role: "breath",
+        text: "The kind where there is money in the bank AND laughter around the dinner table.",
+      },
+      { role: "stack", text: "Where she sees you take the trip." },
+      { role: "stack", text: "Build the business." },
+      { role: "stack", text: "Use your voice." },
+      { role: "stack", text: "Take the risk." },
+      { role: "stack", text: "Buy the ticket." },
+      {
+        role: "stack",
+        text: "Say yes to the life you used to think was “too much.”",
+      },
+      {
+        role: "breath",
+        text: "Because one day, she won’t just remember what you left her.",
+      },
+      { role: "key", text: "She’ll remember what you showed her was possible." },
+      {
+        role: "breath",
+        text: "And maybe that is the part of wealth we don't talk about enough.",
+      },
+      {
+        role: "close",
+        text: "A daughter who watches her mother create wealth learns that women can create wealth.",
+      },
+    ] as const,
+  },
   story: {
     heading: "The Story",
     paragraphs: [
