@@ -1,9 +1,11 @@
 import { copy } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 
+const remainder = copy.watching.beats.slice(3);
+
 /**
- * Stephanie’s watching-you-live copy at human paragraph scale.
- * First scroll after the cactus hero — type only, not a second image.
+ * Longer watching-you-live copy at normal paragraph scale.
+ * Opening headlines live in the four-column template after the hero.
  */
 export function WatchingYouLive() {
   return (
@@ -13,7 +15,7 @@ export function WatchingYouLive() {
       className="overflow-x-clip bg-cream"
     >
       <div className="house-wrap max-w-3xl">
-        {copy.watching.beats.map((beat) => {
+        {remainder.map((beat) => {
           const pull =
             beat.role === "lead" || beat.role === "key" || beat.role === "close";
 

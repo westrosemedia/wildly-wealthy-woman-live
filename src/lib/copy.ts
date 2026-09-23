@@ -150,7 +150,7 @@ export const copy = {
     headline: [
       { figure: "62k+", label: "community" },
       { figure: "3M", label: "views / 30 days on avg" },
-      { figure: "93%", label: "women" },
+      { figure: "24.9k+", label: "Instagram" },
     ] as const,
   },
   brandPartners: {
