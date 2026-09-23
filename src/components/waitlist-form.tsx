@@ -1,15 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { copy } from "@/lib/copy";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export function WaitlistForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (window.location.hash !== "#waitlist") return;
+    document.getElementById("waitlist-email")?.focus();
+  }, []);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,26 +54,26 @@ export function WaitlistForm() {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="flex w-full max-w-md flex-col gap-3 sm:flex-row sm:items-stretch"
-    >
-      <Input
-        required
-        type="email"
-        name="email"
-        aria-label="Email"
-        className="h-12 flex-1 rounded-none border-cream/25 bg-cream/5 px-4 text-cream placeholder:text-cream/30"
-      />
-      <Button
-        type="submit"
-        disabled={status === "loading"}
-        className="h-12 rounded-none bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase hover:bg-rose"
-      >
-        →
-      </Button>
+    <form onSubmit={onSubmit} className="flex w-full max-w-xl flex-col gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
+        <Input
+          required
+          type="email"
+          name="email"
+          id="waitlist-email"
+          aria-label="Email"
+          className="h-12 flex-1 rounded-none border-cream/25 bg-cream/5 px-4 text-cream placeholder:text-cream/30"
+        />
+        <Button
+          type="submit"
+          disabled={status === "loading"}
+          className="h-12 rounded-none bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase hover:bg-rose"
+        >
+          {copy.waitlist.cta}
+        </Button>
+      </div>
       {status === "error" ? (
-        <p className="text-sm text-cream/80 sm:hidden">{message}</p>
+        <p className="text-sm text-cream/80">{message}</p>
       ) : null}
     </form>
   );

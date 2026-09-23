@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { CopySlot } from "@/components/copy-slot";
+import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
-import { VenueAddress } from "@/components/venue-address";
-import { galleryStills, mediaSlots, recapFilms } from "@/lib/media";
+import { copy } from "@/lib/copy";
+import { mediaSlots } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -14,12 +14,15 @@ export const metadata: Metadata = {
 function Slide({
   children,
   className,
+  id,
 }: {
   children: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
     <section
+      id={id}
       className={cn(
         "relative flex min-h-[100svh] snap-start flex-col justify-center overflow-hidden bg-ink",
         className,
@@ -30,7 +33,19 @@ function Slide({
   );
 }
 
+function SlideKicker({ children }: { children: ReactNode }) {
+  return (
+    <p className="text-[11px] tracking-[0.42em] text-lip uppercase">{children}</p>
+  );
+}
+
 export default function SponsorsPage() {
+  const founders = [
+    copy.founders.stephanie,
+    copy.founders.jackie,
+    copy.founders.melissa,
+  ];
+
   return (
     <div className="snap-y snap-mandatory">
       <Slide>
@@ -42,130 +57,128 @@ export default function SponsorsPage() {
         />
         <div className="hero-veil absolute inset-0" />
         <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col justify-end gap-6 px-5 py-20 pt-36 md:px-10">
-          <CopySlot
-            tone="dark"
-            label="Kicker"
-            className="w-fit text-[11px] tracking-[0.42em] uppercase"
-          />
-          <CopySlot
-            tone="dark"
-            as="h1"
-            label="H1"
-            className="font-heading max-w-5xl text-5xl leading-[0.92] sm:text-6xl md:text-[6rem]"
-          />
-          <VenueAddress className="text-sm leading-relaxed text-cream/80" />
+          <h1 className="font-heading max-w-5xl text-5xl leading-[0.92] text-cream sm:text-6xl md:text-[6rem]">
+            {copy.hero.title}
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-ivory/90 md:text-xl">
+            {copy.hero.body}
+          </p>
+          <JoinWaitlistLink href="#waitlist" />
         </div>
       </Slide>
 
       <Slide className="bg-espresso">
         <div className="mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 py-24 md:grid-cols-[0.9fr_1.1fr] md:px-10">
-          <MediaFrame slot={mediaSlots.jackiePortrait} />
-          <div className="space-y-5">
-            <CopySlot
-            tone="dark"
-              label="Kicker"
-              className="w-fit text-[11px] tracking-[0.28em] uppercase"
-            />
-            <CopySlot
-            tone="dark"
-              as="h2"
-              label="H2"
-              className="font-heading text-4xl md:text-6xl"
-            />
-            <CopySlot
-            tone="dark" as="p" label="Body" className="max-w-xl text-base" />
-            <CopySlot
-            tone="dark" as="p" label="Body" className="max-w-xl text-base" />
+          <MediaFrame slot={mediaSlots.eventPhoenix} />
+          <div className="space-y-6">
+            <SlideKicker>{copy.event.whenWhere}</SlideKicker>
+            <h2 className="font-heading text-4xl leading-[0.95] text-cream md:text-6xl">
+              {copy.event.title}
+            </h2>
+            <p className="max-w-xl text-base leading-relaxed text-ivory/88 md:text-lg">
+              {copy.event.body}
+            </p>
+            <p className="max-w-xl text-base leading-relaxed text-ivory/88 md:text-lg">
+              {copy.event.movement}
+            </p>
+            <p className="max-w-xl text-sm leading-relaxed text-cream/75 md:text-base">
+              {copy.event.tickets}
+            </p>
           </div>
         </div>
       </Slide>
 
       <Slide>
         <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
-          <CopySlot
-            tone="dark"
-            as="h2"
-            label="H2"
-            className="font-heading mb-12 w-fit text-4xl md:text-6xl"
-          />
-          <div className="grid gap-8 md:grid-cols-3">
-            {["01", "02", "03"].map((n) => (
-              <article key={n} className="space-y-4 border-t border-cream/15 pt-6">
-                <CopySlot
-            tone="dark"
-                  label={`${n} · Title`}
-                  as="h3"
-                  className="font-heading text-3xl"
-                />
-                <CopySlot
-            tone="dark" label="Body" as="p" className="text-sm" />
-                <CopySlot
-            tone="dark" label="Body" as="p" className="text-sm" />
+          <SlideKicker>{copy.speakers.heading}</SlideKicker>
+          <div className="mt-8 grid gap-8 border-t border-cream/15 pt-10 md:grid-cols-3">
+            {copy.speakers.names.map((name) => (
+              <h3
+                key={name}
+                className="font-heading text-3xl leading-tight text-cream md:text-4xl"
+              >
+                {name}
+              </h3>
+            ))}
+          </div>
+          <p className="mt-10 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-xl">
+            {copy.speakers.body}
+          </p>
+        </div>
+      </Slide>
+
+      <Slide className="bg-velvet">
+        <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
+          <h2 className="font-heading max-w-3xl text-4xl leading-[0.95] text-cream md:text-6xl">
+            {copy.founders.heading}
+          </h2>
+          <div className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10">
+            {founders.map((founder) => (
+              <article
+                key={founder.name}
+                className="space-y-4 border-t border-cream/20 pt-6"
+              >
+                <h3 className="font-heading text-3xl text-cream md:text-4xl">
+                  {founder.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-ivory/85 md:text-base">
+                  {founder.body}
+                </p>
               </article>
             ))}
           </div>
+          <p className="font-heading mt-16 max-w-4xl text-2xl leading-snug text-ivory md:text-4xl">
+            {copy.founders.closer}
+          </p>
         </div>
       </Slide>
 
-      <Slide className="bg-burgundy">
-        <div className="mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 py-24 md:grid-cols-2 md:px-10">
-          <div className="space-y-5">
-            <CopySlot
-            tone="dark"
-              label="Kicker"
-              className="w-fit text-[11px] tracking-[0.28em] uppercase"
-            />
-            <CopySlot
-            tone="dark"
-              as="h2"
-              label="H2"
-              className="font-heading text-4xl md:text-6xl"
-            />
-            <VenueAddress className="text-sm leading-relaxed text-cream/80" />
-            <CopySlot
-            tone="dark" as="p" label="Body" className="max-w-md text-base" />
+      <Slide className="bg-wine">
+        <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
+          <h2 className="font-heading text-4xl text-cream md:text-6xl">
+            {copy.reach.heading}
+          </h2>
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-lg">
+            {copy.reach.combined}
+          </p>
+          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {copy.reach.figures.map((stat) => (
+              <article key={stat.figure + stat.label} className="space-y-3">
+                <p className="font-heading text-5xl leading-none text-ivory md:text-7xl">
+                  {stat.figure}
+                </p>
+                <p className="max-w-xs text-sm leading-relaxed text-cream/80">
+                  {stat.label}
+                </p>
+              </article>
+            ))}
           </div>
-          <MediaFrame slot={mediaSlots.eventPhoenix} />
+          <p className="mt-14 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-xl">
+            {copy.reach.who}
+          </p>
         </div>
       </Slide>
 
       <Slide>
         <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
-          <CopySlot
-            tone="dark"
-            as="h2"
-            label="H2"
-            className="font-heading mb-12 w-fit text-4xl md:text-6xl"
-          />
-          <div className="grid gap-6 md:grid-cols-3">
-            {recapFilms.map((slot) => (
-              <MediaFrame key={slot.id} slot={slot} />
-            ))}
-          </div>
+          <SlideKicker>{copy.tickets.heading}</SlideKicker>
+          <p className="font-heading mt-8 max-w-4xl text-3xl leading-tight text-cream md:text-6xl">
+            {copy.tickets.range}
+          </p>
         </div>
       </Slide>
 
       <Slide className="bg-espresso">
-        <div className="mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 py-24 md:grid-cols-[1.1fr_0.9fr] md:px-10">
-          <div className="grid grid-cols-2 gap-4">
-            {galleryStills.slice(0, 4).map((slot) => (
-              <MediaFrame key={slot.id} slot={slot} />
-            ))}
+        <div className="mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 py-24 md:grid-cols-2 md:px-10">
+          <div className="space-y-6">
+            <h2 className="font-heading text-4xl text-cream md:text-6xl">
+              {copy.whySponsor.heading}
+            </h2>
+            <p className="font-heading max-w-xl text-2xl leading-snug text-ivory md:text-4xl">
+              {copy.whySponsor.body}
+            </p>
           </div>
-          <div className="space-y-5">
-            <CopySlot
-            tone="dark"
-              as="h2"
-              label="H2"
-              className="font-heading text-4xl md:text-6xl"
-            />
-            <CopySlot
-            tone="dark" as="p" label="Body" className="text-base" />
-            <CopySlot
-            tone="dark" as="p" label="Body" className="text-base" />
-            <CopySlot
-            tone="dark" as="p" label="Body" className="text-base" />
-          </div>
+          <MediaFrame slot={mediaSlots.jackiePortrait} />
         </div>
       </Slide>
 
@@ -178,15 +191,15 @@ export default function SponsorsPage() {
         />
         <div className="slide-veil absolute inset-0" />
         <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col gap-6 px-5 py-24 pt-36 md:px-10">
-          <CopySlot
-            tone="dark"
-            as="h1"
-            label="H1"
-            className="font-heading max-w-4xl text-5xl md:text-7xl"
-          />
-          <CopySlot
-            tone="dark" as="p" label="Body" className="max-w-xl text-lg" />
-          <VenueAddress className="text-sm leading-relaxed text-cream/80" />
+          <p className="font-heading max-w-4xl text-3xl leading-tight text-cream md:text-6xl">
+            {copy.closing.body}
+          </p>
+        </div>
+      </Slide>
+
+      <Slide id="waitlist-slide" className="bg-chocolate">
+        <div className="mx-auto flex w-full max-w-[92rem] flex-col justify-center gap-8 px-5 py-24 pt-36 md:px-10">
+          <WaitlistSection />
         </div>
       </Slide>
     </div>

@@ -54,4 +54,4 @@ When you have a ticket price:
 4. Add `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` = that URL (Production).
 5. **Redeploy** the production deployment.
 
-The homepage line “Pre-sale tickets will be on sale soon.” becomes a **Tickets** button that opens Stripe in a new tab. No Stripe SDK. Firebase is still unused.
+Once set, a **Tickets** button appears on the homepage and opens Stripe in a new tab. Until then, the waitlist is the CTA. No Stripe SDK. Firebase is still unused.
