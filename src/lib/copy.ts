@@ -55,7 +55,7 @@ export const copy = {
   eventDetails: {
     heading: "Event Details",
     whenWhere: "Banff Springs Hotel, March 2027",
-    body: "One day, capped at 200 women in the room.",
+    body: "Intimate setting, limited tickets available",
     ticket: "Ticket starting at $497 or $777 for a mother daughter duo",
   },
   founders: {
