@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Geist, Newsreader } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -7,18 +7,19 @@ import { site } from "@/lib/site";
 
 import "./globals.css";
 
-const fraunces = Fraunces({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: "variable",
+  variable: "--font-newsreader",
+  weight: ["300", "400"],
   style: ["normal", "italic"],
-  axes: ["SOFT", "opsz"],
+  display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const grotesque = Geist({
   subsets: ["latin"],
-  variable: "--font-source-sans",
-  weight: ["300", "400", "500", "600"],
+  variable: "--font-grotesque",
+  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -40,10 +41,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${sourceSans.variable} h-full antialiased`}
+      className={`${newsreader.variable} ${grotesque.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-ivory font-sans text-chocolate">
-        <div className="grain-overlay" aria-hidden="true" />
+      <body className="flex min-h-full flex-col bg-cream font-sans text-burgundy">
         <SiteHeader />
         <div className="flex flex-1 flex-col">{children}</div>
         <SiteFooter />

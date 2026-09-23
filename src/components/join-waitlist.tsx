@@ -1,29 +1,20 @@
-import { QuietAnchor } from "@/components/quiet-link";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { copy } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 
-export const ctaClassName = "quiet-link text-[13px] leading-none";
-
 export function JoinWaitlistLink({
   href = "#waitlist",
   className,
-  tone = "dark",
+  onWine = false,
 }: {
   href?: string;
   className?: string;
-  tone?: "light" | "dark";
+  onWine?: boolean;
 }) {
   return (
-    <QuietAnchor
-      href={href}
-      className={cn(
-        tone === "dark" ? "text-cream" : "text-chocolate",
-        className,
-      )}
-    >
+    <a href={href} className={cn("wine-fill", onWine && "wine-fill-on-wine", className)}>
       {copy.waitlist.cta}
-    </QuietAnchor>
+    </a>
   );
 }
 
@@ -34,6 +25,8 @@ export function WaitlistSection({
   className?: string;
   tone?: "light" | "dark";
 }) {
+  const onWine = tone === "dark";
+
   return (
     <div
       id="waitlist"
@@ -43,7 +36,7 @@ export function WaitlistSection({
       <p
         className={cn(
           "mb-10 text-[1.05rem] leading-relaxed font-light md:text-xl",
-          tone === "dark" ? "text-ivory/86" : "text-chocolate/80",
+          onWine ? "text-cream/88" : "text-burgundy/80",
         )}
       >
         {copy.waitlist.body}

@@ -5,13 +5,10 @@ import { cn } from "@/lib/utils";
 
 export function StyleGuideBoard({
   className,
-  tone = "light",
 }: {
   className?: string;
   tone?: "light" | "dark";
 }) {
-  const onDark = tone === "dark";
-
   return (
     <div
       className={cn(
@@ -19,15 +16,10 @@ export function StyleGuideBoard({
         className,
       )}
     >
-      <h2
-        className={cn(
-          "text-[10px] tracking-[0.32em] uppercase",
-          onDark ? "text-cream/55" : "text-mink",
-        )}
-      >
+      <h2 className="text-[10px] tracking-[0.32em] text-burgundy uppercase">
         {copy.styleGuide.heading}
       </h2>
-      <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6 md:mt-16 md:gap-8">
+      <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-3 md:mt-16 md:gap-12">
         {styleGuideStills.map((slot) => (
           <MediaFrame key={slot.id} slot={slot} />
         ))}
@@ -38,7 +30,7 @@ export function StyleGuideBoard({
 
 export function StyleGuideSection() {
   return (
-    <section id="style-guide" className="bg-snow">
+    <section id="style-guide" className="bg-cream">
       <StyleGuideBoard />
     </section>
   );

@@ -16,8 +16,8 @@ export function SiteMark({
     <Link href={href} className={cn("min-w-0", className)} aria-label={copy.title}>
       <span
         className={cn(
-          "font-heading block text-[1.05rem] leading-[1.2] font-light tracking-[0.06em] sm:text-[1.2rem] sm:whitespace-nowrap",
-          tone === "dark" ? "text-cream" : "text-chocolate",
+          "font-heading block text-[1.02rem] leading-[1.15] font-light tracking-[0.04em] italic sm:text-[1.2rem] sm:whitespace-nowrap",
+          tone === "dark" ? "text-cream" : "text-burgundy",
         )}
       >
         {copy.title}
