@@ -1,6 +1,5 @@
 "use client";
 
-import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -14,40 +13,29 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SiteMark } from "@/components/site-mark";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const onDark = true;
+  const onHero = pathname === "/" || pathname === "/sponsors";
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
-      <div className="mx-auto flex max-w-[92rem] items-center justify-between gap-6 px-5 py-6 md:px-10">
-        <Link href="/" className="min-w-0">
-          <p
-            className={cn(
-              "font-heading text-[1.35rem] leading-none sm:text-[1.7rem]",
-              onDark ? "text-cream" : "text-chocolate",
-            )}
-          >
-            Wildly Wealthy Woman <span className="italic text-lip">LIVE</span>
-          </p>
-        </Link>
+      <div className="mx-auto flex max-w-[88rem] items-start justify-between gap-8 px-6 py-7 md:px-12 md:py-9">
+        <SiteMark tone={onHero ? "dark" : "light"} />
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-10 pt-1.5 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-[11px] tracking-[0.28em] uppercase transition-colors",
-                pathname === item.href
-                  ? "text-lip"
-                  : onDark
-                    ? "text-cream/75 hover:text-cream"
-                    : "text-mink hover:text-chocolate",
+                "text-[10px] tracking-[0.28em] uppercase transition-opacity duration-500",
+                pathname === item.href ? "opacity-100" : "opacity-55 hover:opacity-100",
+                onHero ? "text-cream" : "text-chocolate",
               )}
             >
               {item.label}
@@ -58,47 +46,32 @@ export function SiteHeader() {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
             className={cn(
-              "inline-flex size-11 items-center justify-center border md:hidden",
-              onDark
-                ? "border-cream/30 text-cream"
-                : "border-mink/30 text-chocolate",
+              "pt-1 text-[10px] tracking-[0.3em] uppercase md:hidden",
+              onHero ? "text-cream" : "text-chocolate",
             )}
             aria-label="Menu"
           >
-            <Menu className="size-5" />
+            Menu
           </SheetTrigger>
           <SheetContent
             side="right"
-            className={
-              onDark
-                ? "border-lip/25 bg-ink text-cream"
-                : "border-mink/20 bg-ivory text-chocolate"
-            }
+            className="border-mink/15 bg-ivory text-chocolate"
           >
             <SheetHeader>
-              <SheetTitle
-                className={cn(
-                  "font-heading text-left text-2xl font-normal",
-                  onDark ? "text-cream" : "text-chocolate",
-                )}
-              >
+              <SheetTitle className="font-heading text-left text-2xl font-light text-chocolate">
                 {site.shortName}
               </SheetTitle>
               <SheetDescription className="sr-only">Menu</SheetDescription>
             </SheetHeader>
-            <nav className="flex flex-col gap-5 px-4 pt-6">
+            <nav className="flex flex-col gap-6 px-4 pt-8">
               {nav.map((item) => (
                 <SheetClose
                   key={item.href}
                   nativeButton={false}
                   render={<Link href={item.href} />}
                   className={cn(
-                    "text-left text-sm tracking-[0.28em] uppercase",
-                    pathname === item.href
-                      ? "text-lip"
-                      : onDark
-                        ? "text-cream/70"
-                        : "text-mink",
+                    "text-left text-[12px] tracking-[0.28em] uppercase",
+                    pathname === item.href ? "text-lip" : "text-mink",
                   )}
                 >
                   {item.label}

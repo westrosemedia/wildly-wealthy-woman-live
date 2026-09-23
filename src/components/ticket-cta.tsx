@@ -1,19 +1,29 @@
-import { ctaClassName } from "@/components/join-waitlist";
+import { QuietAnchor } from "@/components/quiet-link";
 import { stripePaymentLink } from "@/lib/stripe";
+import { cn } from "@/lib/utils";
 
-export function TicketCta() {
+export function TicketCta({
+  className,
+  tone = "dark",
+}: {
+  className?: string;
+  tone?: "light" | "dark";
+}) {
   if (!stripePaymentLink) {
     return null;
   }
 
   return (
-    <a
+    <QuietAnchor
       href={stripePaymentLink}
       target="_blank"
       rel="noopener noreferrer"
-      className={ctaClassName}
+      className={cn(
+        tone === "dark" ? "text-cream" : "text-chocolate",
+        className,
+      )}
     >
       Tickets
-    </a>
+    </QuietAnchor>
   );
 }

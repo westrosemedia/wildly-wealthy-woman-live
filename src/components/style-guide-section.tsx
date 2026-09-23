@@ -3,22 +3,41 @@ import { copy } from "@/lib/copy";
 import { styleGuideStills } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
-export function StyleGuideBoard({ className }: { className?: string }) {
+export function StyleGuideBoard({
+  className,
+  tone = "light",
+}: {
+  className?: string;
+  tone?: "light" | "dark";
+}) {
+  const onDark = tone === "dark";
+
   return (
-    <div className={cn("mx-auto w-full max-w-[92rem] px-5 py-20 md:px-10 md:py-24", className)}>
-      <h2 className="font-heading text-4xl leading-[0.95] text-cream md:text-6xl">
+    <div
+      className={cn(
+        "mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32",
+        className,
+      )}
+    >
+      <p
+        className={cn(
+          "text-[10px] tracking-[0.32em] uppercase",
+          onDark ? "text-cream/55" : "text-mink",
+        )}
+      >
         {copy.styleGuide.heading}
-      </h2>
-      <p className="mt-6 max-w-2xl text-base leading-relaxed text-ivory/88 md:text-lg">
-        {copy.styleGuide.body}
       </p>
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 md:mt-12 md:gap-6">
+      <h2
+        className={cn(
+          "font-heading mt-6 max-w-3xl text-4xl leading-[1.02] font-light md:text-6xl",
+          onDark ? "text-cream" : "text-chocolate",
+        )}
+      >
+        {copy.styleGuide.body}
+      </h2>
+      <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6 md:mt-16 md:gap-8">
         {styleGuideStills.map((slot) => (
-          <MediaFrame
-            key={slot.id}
-            slot={slot}
-            className="border border-cream/15"
-          />
+          <MediaFrame key={slot.id} slot={slot} />
         ))}
       </div>
     </div>
@@ -27,7 +46,7 @@ export function StyleGuideBoard({ className }: { className?: string }) {
 
 export function StyleGuideSection() {
   return (
-    <section id="style-guide" className="bg-velvet">
+    <section id="style-guide" className="bg-snow">
       <StyleGuideBoard />
     </section>
   );

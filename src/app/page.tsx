@@ -16,32 +16,51 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[100svh] overflow-hidden">
+      <section className="relative min-h-[100svh] overflow-hidden bg-ink">
         <HeroCinematic
           video={mediaSlots.heroVideo}
           still={mediaSlots.heroStill}
           className="absolute inset-0 aspect-auto min-h-[100svh]"
         />
         <div className="hero-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[92rem] flex-col justify-end px-5 pb-16 pt-36 md:px-10 md:pb-20">
-          <VenueAddress className="text-[11px] tracking-[0.28em] text-cream/75 uppercase" />
-          <h1 className="font-heading mt-5 max-w-5xl text-5xl leading-[0.92] text-cream sm:text-6xl md:text-[4.8rem]">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-end px-6 pb-16 pt-36 md:px-12 md:pb-24">
+          <VenueAddress className="rise text-[10px] tracking-[0.3em] text-cream/70 uppercase" />
+          <h1 className="font-heading rise-delay mt-7 max-w-5xl text-[3.15rem] leading-[0.96] font-light text-cream sm:text-6xl md:text-[6.4rem]">
             {copy.hero.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-ivory/90 md:text-xl">
+          <p className="rise-late mt-8 max-w-xl text-base leading-[1.7] font-light text-ivory/88 md:text-[1.2rem]">
             {copy.hero.body}
           </p>
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-cream/75 md:text-base">
-            {copy.event.tickets}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="rise-late mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
             <JoinWaitlistLink href="#waitlist" />
             <TicketCta />
           </div>
-          <WaitlistSection className="mt-12" />
         </div>
       </section>
+
+      <section className="bg-ivory">
+        <div className="mx-auto grid max-w-[88rem] gap-16 px-6 py-24 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-end md:gap-24 md:px-12 md:py-36">
+          <p className="text-[10px] tracking-[0.3em] text-mink uppercase">
+            {copy.event.whenWhere}
+          </p>
+          <div className="space-y-10">
+            <p className="font-heading text-3xl leading-[1.15] font-light text-chocolate md:text-5xl">
+              {copy.event.movement}
+            </p>
+            <p className="max-w-xl text-[15px] leading-[1.75] text-mink">
+              {copy.event.tickets}
+            </p>
+          </div>
+        </div>
+      </section>
+
       <StyleGuideSection />
+
+      <section className="bg-ivory">
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <WaitlistSection />
+        </div>
+      </section>
     </>
   );
 }

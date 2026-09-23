@@ -5,12 +5,18 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { copy } from "@/lib/copy";
+import { cn } from "@/lib/utils";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export function WaitlistForm() {
+export function WaitlistForm({
+  tone = "light",
+}: {
+  tone?: "light" | "dark";
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const onDark = tone === "dark";
 
   useEffect(() => {
     if (window.location.hash !== "#waitlist") return;
@@ -49,29 +55,51 @@ export function WaitlistForm() {
 
   if (status === "success") {
     return (
-      <p className="text-sm tracking-[0.2em] text-cream/70 uppercase">✓</p>
+      <p
+        className={cn(
+          "text-sm tracking-[0.18em] uppercase",
+          onDark ? "text-cream/70" : "text-mink",
+        )}
+      >
+        ✓
+      </p>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex w-full max-w-xl flex-col items-stretch gap-3">
+    <form
+      onSubmit={onSubmit}
+      className="flex w-full max-w-xl flex-col items-stretch gap-8"
+    >
       <Input
         required
         type="email"
         name="email"
         id="waitlist-email"
         aria-label="Email"
-        className="h-12 w-full rounded-none border-cream/40 bg-ivory/10 px-4 text-cream placeholder:text-cream/30"
+        className={cn(
+          "field-line h-12 w-full rounded-none px-0 text-base shadow-none focus-visible:ring-0",
+          onDark
+            ? "border-cream/40 text-cream placeholder:text-cream/30"
+            : "border-mink/35 text-chocolate placeholder:text-mink/40",
+        )}
       />
       <Button
         type="submit"
         disabled={status === "loading"}
-        className="h-12 w-full rounded-none bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase hover:bg-rose sm:w-fit"
+        className={cn(
+          "quiet-link h-auto w-fit rounded-none bg-transparent px-0 py-0 text-[13px] font-normal shadow-none hover:bg-transparent",
+          onDark
+            ? "text-cream hover:text-cream"
+            : "text-chocolate hover:text-chocolate",
+        )}
       >
         {copy.waitlist.cta}
       </Button>
       {status === "error" ? (
-        <p className="text-sm text-cream/80">{message}</p>
+        <p className={cn("text-sm", onDark ? "text-cream/80" : "text-mink")}>
+          {message}
+        </p>
       ) : null}
     </form>
   );

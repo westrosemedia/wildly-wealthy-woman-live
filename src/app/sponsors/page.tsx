@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Sponsors",
 };
 
-function Slide({
+function Section({
   children,
   className,
   id,
@@ -24,19 +24,29 @@ function Slide({
   return (
     <section
       id={id}
-      className={cn(
-        "relative flex min-h-[100svh] snap-start flex-col justify-center overflow-hidden bg-ink",
-        className,
-      )}
+      className={cn("relative overflow-hidden", className)}
     >
       {children}
     </section>
   );
 }
 
-function SlideKicker({ children }: { children: ReactNode }) {
+function Kicker({
+  children,
+  tone = "light",
+}: {
+  children: ReactNode;
+  tone?: "light" | "dark";
+}) {
   return (
-    <p className="text-[11px] tracking-[0.42em] text-lip uppercase">{children}</p>
+    <p
+      className={cn(
+        "text-[10px] tracking-[0.32em] uppercase",
+        tone === "dark" ? "text-cream/55" : "text-mink",
+      )}
+    >
+      {children}
+    </p>
   );
 }
 
@@ -48,8 +58,8 @@ export default function SponsorsPage() {
   ];
 
   return (
-    <div className="snap-y snap-mandatory">
-      <Slide>
+    <div>
+      <Section className="min-h-[100svh] bg-ink">
         <MediaFrame
           slot={mediaSlots.heroStill}
           fill
@@ -57,163 +67,156 @@ export default function SponsorsPage() {
           className="absolute inset-0 aspect-auto min-h-[100svh]"
         />
         <div className="hero-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col items-start justify-end gap-6 px-5 py-20 pt-36 md:px-10">
-          <h1 className="font-heading max-w-5xl text-5xl leading-[0.92] text-cream sm:text-6xl md:text-[6rem]">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[88rem] flex-col items-start justify-end px-6 py-20 pt-36 md:px-12 md:pb-24">
+          <h1 className="font-heading rise max-w-5xl text-[3.15rem] leading-[0.96] font-light text-cream sm:text-6xl md:text-[6.6rem]">
             {copy.hero.title}
           </h1>
-          <p className="max-w-2xl text-base leading-relaxed text-ivory/90 md:text-xl">
+          <p className="rise-delay mt-8 max-w-xl text-base leading-[1.7] font-light text-ivory/88 md:text-[1.2rem]">
             {copy.hero.body}
           </p>
-          <div className="w-full">
+          <div className="rise-late mt-10">
             <JoinWaitlistLink href="#waitlist" />
           </div>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide className="bg-espresso">
-        <div className="mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 py-24 md:grid-cols-[0.9fr_1.1fr] md:px-10">
+      <Section className="bg-ivory">
+        <div className="mx-auto grid w-full max-w-[88rem] items-center gap-14 px-6 py-24 md:grid-cols-[0.95fr_1.05fr] md:gap-20 md:px-12 md:py-32">
           <MediaFrame slot={mediaSlots.eventPhoenix} />
-          <div className="space-y-6">
-            <SlideKicker>{copy.event.whenWhere}</SlideKicker>
-            <h2 className="font-heading text-4xl leading-[0.95] text-cream md:text-6xl">
+          <div className="space-y-8">
+            <Kicker>{copy.event.whenWhere}</Kicker>
+            <h2 className="font-heading text-4xl leading-[1.02] font-light text-chocolate md:text-6xl">
               {copy.event.title}
             </h2>
-            <p className="max-w-xl text-base leading-relaxed text-ivory/88 md:text-lg">
+            <p className="max-w-xl text-base leading-[1.75] text-chocolate/80 md:text-lg">
               {copy.event.body}
             </p>
-            <p className="max-w-xl text-base leading-relaxed text-ivory/88 md:text-lg">
+            <p className="max-w-xl text-base leading-[1.75] text-chocolate/80 md:text-lg">
               {copy.event.movement}
             </p>
-            <p className="max-w-xl text-sm leading-relaxed text-cream/75 md:text-base">
+            <p className="max-w-xl text-sm leading-[1.7] text-mink md:text-base">
               {copy.event.tickets}
             </p>
           </div>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide id="speakers">
-        <div className="mx-auto grid w-full max-w-[92rem] grid-cols-[minmax(0,9.5rem)_1fr] items-center gap-x-6 gap-y-8 px-5 py-20 md:grid-cols-[minmax(0,20rem)_1fr] md:gap-12 md:px-10 md:py-24">
-          <figure className="w-full">
+      <Section id="speakers" className="bg-snow">
+        <div className="mx-auto grid w-full max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-20 md:px-12 md:py-32">
+          <figure className="w-full md:sticky md:top-10">
             <MediaFrame slot={mediaSlots.speakersBridgetJackie} />
-            <figcaption className="mt-3 text-[10px] tracking-[0.22em] text-cream/70 uppercase">
+            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
               {mediaSlots.speakersBridgetJackie.caption}
             </figcaption>
           </figure>
           <div>
-            <SlideKicker>{copy.speakers.heading}</SlideKicker>
-            <div className="mt-6 grid gap-5 border-t border-cream/15 pt-8 md:mt-8 md:grid-cols-3 md:gap-8 md:pt-10">
+            <Kicker>{copy.speakers.heading}</Kicker>
+            <div className="mt-8 space-y-3 border-t border-mink/15 pt-10">
               {copy.speakers.names.map((name) => (
                 <h3
                   key={name}
-                  className="font-heading text-2xl leading-tight text-cream md:text-4xl"
+                  className="font-heading text-4xl leading-[1.05] font-light text-chocolate md:text-6xl"
                 >
                   {name}
                 </h3>
               ))}
             </div>
-            <p className="mt-8 max-w-3xl text-base leading-relaxed text-ivory/88 md:mt-10 md:text-xl">
+            <p className="mt-10 max-w-2xl text-base leading-[1.75] text-chocolate/80 md:text-xl">
               {copy.speakers.body}
             </p>
           </div>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide className="bg-velvet">
-        <div className="mx-auto w-full max-w-[92rem] px-5 py-16 md:px-10">
-          <h2 className="font-heading max-w-3xl text-4xl leading-[0.95] text-cream md:text-6xl">
+      <Section className="bg-ivory">
+        <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <h2 className="font-heading max-w-3xl text-4xl leading-[1.02] font-light text-chocolate md:text-6xl">
             {copy.founders.heading}
           </h2>
-          <div className="mt-10 grid gap-12 md:grid-cols-3 md:gap-10">
+          <div className="mt-16 grid gap-16 md:grid-cols-3 md:gap-12">
             {founders.map((founder) => (
-              <article
-                key={founder.name}
-                className="space-y-4 border-t border-cream/20 pt-6"
-              >
-                <h3 className="font-heading text-3xl text-cream md:text-4xl">
+              <article key={founder.name} className="space-y-5 border-t border-mink/15 pt-8">
+                <h3 className="font-heading text-3xl font-light text-chocolate md:text-4xl">
                   {founder.name}
                 </h3>
-                <p className="text-sm leading-relaxed text-ivory/85 md:text-base">
+                <p className="text-[15px] leading-[1.75] text-chocolate/78">
                   {founder.body}
                 </p>
               </article>
             ))}
           </div>
-          <p className="font-heading mt-12 max-w-4xl text-2xl leading-snug text-ivory md:text-3xl">
+          <p className="font-heading mt-20 max-w-4xl text-2xl leading-snug font-light text-chocolate italic md:text-4xl">
             {copy.founders.closer}
           </p>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide className="bg-wine">
-        <div className="mx-auto w-full max-w-[92rem] px-5 py-16 md:px-10">
-          <h2 className="font-heading text-4xl text-cream md:text-6xl">
-            {copy.reach.heading}
-          </h2>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-lg">
+      <Section className="bg-ink">
+        <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <Kicker tone="dark">{copy.reach.heading}</Kicker>
+          <p className="mt-8 max-w-3xl text-base leading-[1.75] font-light text-ivory/84 md:text-lg">
             {copy.reach.combined}
           </p>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {copy.reach.figures.map((stat) => (
-              <article key={stat.figure + stat.label} className="space-y-3">
-                <p className="font-heading text-5xl leading-none text-ivory md:text-7xl">
+              <article key={stat.figure + stat.label} className="space-y-4">
+                <p className="font-heading text-5xl leading-none font-light text-ivory md:text-7xl">
                   {stat.figure}
                 </p>
-                <p className="max-w-xs text-sm leading-relaxed text-cream/80">
+                <p className="max-w-xs text-sm leading-[1.65] text-cream/68">
                   {stat.label}
                 </p>
               </article>
             ))}
           </div>
-          <p className="mt-10 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-xl">
+          <p className="mt-16 max-w-3xl text-base leading-[1.75] font-light text-ivory/84 md:text-xl">
             {copy.reach.who}
           </p>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide>
-        <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
-          <SlideKicker>{copy.tickets.heading}</SlideKicker>
-          <p className="font-heading mt-8 max-w-4xl text-3xl leading-tight text-cream md:text-6xl">
+      <Section className="bg-ivory">
+        <div className="mx-auto w-full max-w-[88rem] px-6 py-28 md:px-12 md:py-36">
+          <Kicker>{copy.tickets.heading}</Kicker>
+          <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate md:text-6xl">
             {copy.tickets.range}
           </p>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide id="style-guide" className="bg-velvet">
-        <StyleGuideBoard className="py-16 md:py-20" />
-      </Slide>
+      <Section id="style-guide" className="bg-snow">
+        <StyleGuideBoard />
+      </Section>
 
-      <Slide className="bg-espresso">
-        <div className="mx-auto flex w-full max-w-[92rem] flex-col justify-center px-5 py-24 md:px-10">
-          <h2 className="font-heading text-4xl text-cream md:text-6xl">
-            {copy.whySponsor.heading}
-          </h2>
-          <p className="font-heading mt-8 max-w-4xl text-2xl leading-snug text-ivory md:text-5xl">
+      <Section className="bg-ivory">
+        <div className="mx-auto flex w-full max-w-[88rem] flex-col justify-center px-6 py-28 md:px-12 md:py-36">
+          <Kicker>{copy.whySponsor.heading}</Kicker>
+          <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate italic md:text-5xl">
             {copy.whySponsor.body}
           </p>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide>
+      <Section className="min-h-[80svh] bg-ink">
         <MediaFrame
           slot={mediaSlots.aboutJackie}
           fill
           quiet
-          className="absolute inset-0 aspect-auto min-h-[100svh]"
+          className="absolute inset-0 aspect-auto min-h-[80svh]"
         />
         <div className="slide-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col items-start gap-6 px-5 py-24 pt-36 md:px-10">
-          <p className="font-heading max-w-4xl text-3xl leading-tight text-cream md:text-6xl">
+        <div className="relative z-10 mx-auto flex min-h-[80svh] w-full max-w-[88rem] flex-col items-start justify-end px-6 py-24 pt-36 md:px-12">
+          <p className="font-heading max-w-4xl text-3xl leading-[1.12] font-light text-cream md:text-6xl">
             {copy.closing.body}
           </p>
         </div>
-      </Slide>
+      </Section>
 
-      <Slide id="waitlist-slide" className="bg-chocolate">
-        <div className="mx-auto flex w-full max-w-[92rem] flex-col items-start justify-center gap-8 px-5 py-24 pt-36 md:px-10">
+      <Section id="waitlist-slide" className="bg-ivory">
+        <div className="mx-auto flex w-full max-w-[88rem] flex-col items-start justify-center px-6 py-24 md:px-12 md:py-32">
           <WaitlistSection />
         </div>
-      </Slide>
+      </Section>
     </div>
   );
 }
