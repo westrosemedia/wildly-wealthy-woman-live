@@ -45,46 +45,6 @@ export function CopyParagraphs({
   );
 }
 
-/**
- * Event essay after the high-level modules. Type only — facts and photos
- * already live in the first two screens.
- */
-export function EventSection() {
-  const [lead, wealth, gathering, closer] = copy.event.paragraphs;
-
-  return (
-    <section id="event-copy" className="bg-[#F2EFEA]">
-      <div className="mx-auto max-w-[88rem] px-6 pt-28 md:px-12 md:pt-40">
-        <SectionKicker>{copy.event.heading}</SectionKicker>
-        <h2 className="font-heading mt-12 max-w-[16ch] text-[clamp(2.6rem,5.8vw,6.2rem)] leading-[0.98] font-light tracking-[-0.035em] text-[#4A1020] md:mt-16">
-          {lead}
-        </h2>
-      </div>
-
-      <div className="mx-auto grid max-w-[88rem] items-end gap-14 px-6 pt-20 pb-8 md:grid-cols-12 md:gap-x-16 md:px-12 md:pt-28 md:pb-12">
-        <p className="max-w-md text-[1.05rem] leading-[2] font-light text-[#4A1020] md:col-span-5 md:pb-8">
-          {wealth}
-        </p>
-        <figure className="md:col-span-7">
-          <MediaFrame slot={mediaSlots.event} />
-        </figure>
-      </div>
-
-      <div className="mx-auto max-w-[88rem] px-6 pt-16 pb-20 md:px-12 md:pt-24 md:pb-28">
-        <p className="ml-auto max-w-xl text-[1.05rem] leading-[2] font-light text-[#4A1020] md:mr-[8%]">
-          {gathering}
-        </p>
-      </div>
-
-      <div className="mx-auto max-w-[88rem] px-6 pb-32 md:px-12 md:pb-44">
-        <blockquote className="font-heading w-full text-[clamp(2.7rem,7.2vw,8rem)] leading-[0.96] font-light tracking-[-0.035em] text-[#4A1020] italic">
-          {closer}
-        </blockquote>
-      </div>
-    </section>
-  );
-}
-
 const jackieStory = copy.story.paragraphs.slice(0, 5);
 const stephanieStory = copy.story.paragraphs[5];
 const melissaStory = copy.story.paragraphs[6];

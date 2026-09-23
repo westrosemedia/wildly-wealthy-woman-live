@@ -1,29 +1,28 @@
-import { SplitCopy, SplitPhoto, SplitRow } from "@/components/split-modules";
+import { JoinWaitlistLink } from "@/components/join-waitlist";
+import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 
-const fortune = copy.watching.beats[0].text;
-const notMoney = copy.watching.beats[1].text;
-const watching = copy.watching.beats[2].text;
-
-/**
- * First screen as split modules — short headline, one line, popping still.
- * Dark + cream + her photographs. If hero.mp4 exists it plays in the cactus panel.
- */
+/** Cactus still, huge What if, Join the Waitlist. Wine type on the light wall. */
 export function HeroOpen() {
   return (
-    <section data-hero className="bg-[#0A0708]">
-      <div className="h-[4.75rem] bg-[#4A1020] md:h-[5.25rem]" aria-hidden />
-      <h1 className="sr-only">{copy.hero.title}</h1>
-      <SplitRow tall>
-        <SplitCopy tone="ink" headline={fortune} as="h2" />
-        <SplitPhoto
-          video={mediaSlots.heroVideo}
-          still={mediaSlots.heroStill}
-        />
-        <SplitCopy tone="cream" headline={notMoney} line={watching} as="h2" />
-        <SplitPhoto slot={mediaSlots.jackie} />
-      </SplitRow>
+    <section
+      data-hero
+      className="relative min-h-[100svh] overflow-hidden bg-cream"
+    >
+      <MediaFrame
+        slot={mediaSlots.heroStill}
+        fill
+        quiet
+        priority
+        className="hero-living absolute inset-0 aspect-auto min-h-[100svh]"
+      />
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-start px-6 pt-32 pb-16 md:justify-center md:px-12 md:pt-36 md:pb-24">
+        <h1 className="quote rise max-w-[18ch] text-burgundy">{copy.takeaway}</h1>
+        <div className="rise-delay mt-10 md:mt-14">
+          <JoinWaitlistLink href="#waitlist" />
+        </div>
+      </div>
     </section>
   );
 }

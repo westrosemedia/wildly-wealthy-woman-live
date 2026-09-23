@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 
 import {
   CopyParagraphs,
-  EventSection,
   SectionKicker,
   SpeakersSection,
   StorySection,
   WhyBanffSection,
 } from "@/components/editorial-sections";
 import { HeroOpen } from "@/components/hero-open";
-import { HighLevelBand } from "@/components/high-level-band";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
@@ -27,11 +25,17 @@ export default function Home() {
     <>
       <HeroOpen />
 
-      <HighLevelBand />
+      <section id="the-event" className="bg-cream">
+        <div className="house-wrap">
+          <SectionKicker>{copy.event.heading}</SectionKicker>
+          <CopyParagraphs
+            className="mt-10 max-w-2xl"
+            paragraphs={copy.event.paragraphs}
+          />
+        </div>
+      </section>
 
       <WatchingYouLive />
-
-      <EventSection />
 
       <StorySection />
 
