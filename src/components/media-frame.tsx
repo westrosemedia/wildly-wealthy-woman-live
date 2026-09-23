@@ -109,7 +109,7 @@ export function MediaFrame({
   quiet?: boolean;
 }) {
   const exists = useMediaExists(slot.src);
-  const [status, setStatus] = useState<MediaStatus>("loading");
+  const [status, setStatus] = useState<MediaStatus>(priority ? "ready" : "loading");
   const [posterFailed, setPosterFailed] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
   const resolved = exists === false ? "empty" : status;
@@ -220,8 +220,10 @@ export function MediaStillOrVideo({
   const videoExists = useMediaExists(video.src);
   const [ready, setReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
+  const useVideo = videoExists === true && !videoFailed;
 
-  if (videoExists === false || videoFailed) {
+  // Image-only until a hero film is confirmed. Missing hero.mp4 is expected.
+  if (!useVideo) {
     return (
       <MediaFrame
         slot={still}
@@ -262,9 +264,10 @@ export function MediaStillOrVideo({
       </video>
       {!ready ? (
         <div className="absolute inset-0">
-          <Placeholder
-            slot={video}
-            status={videoExists === null ? "loading" : "empty"}
+          <MediaFrame
+            slot={still}
+            fill={fill}
+            priority
             quiet={fill}
           />
         </div>
