@@ -128,24 +128,31 @@ export default function SponsorsPage() {
         </div>
       </Section>
 
-      <Section className="bg-ivory">
-        <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <h2 className="font-heading max-w-3xl text-4xl leading-[1.02] font-light text-chocolate md:text-6xl">
+      <Section id="founders" className="bg-ink">
+        <MediaFrame
+          slot={mediaSlots.stephanieJackie}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto min-h-[100svh]"
+        />
+        <div className="founders-veil absolute inset-0" />
+        <div className="relative z-10 mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+          <h2 className="font-heading max-w-3xl text-4xl leading-[1.02] font-light text-cream md:text-6xl">
             {copy.founders.heading}
           </h2>
           <div className="mt-16 grid gap-16 md:grid-cols-3 md:gap-12">
             {founders.map((founder) => (
-              <article key={founder.name} className="space-y-5 border-t border-mink/15 pt-8">
-                <h3 className="font-heading text-3xl font-light text-chocolate md:text-4xl">
+              <article key={founder.name} className="space-y-5 border-t border-cream/20 pt-8">
+                <h3 className="font-heading text-3xl font-light text-cream md:text-4xl">
                   {founder.name}
                 </h3>
-                <p className="text-[15px] leading-[1.75] text-chocolate/78">
+                <p className="text-[15px] leading-[1.75] text-ivory/86">
                   {founder.body}
                 </p>
               </article>
             ))}
           </div>
-          <p className="font-heading mt-20 max-w-4xl text-2xl leading-snug font-light text-chocolate italic md:text-4xl">
+          <p className="font-heading mt-20 max-w-4xl text-2xl leading-snug font-light text-cream italic md:text-4xl">
             {copy.founders.closer}
           </p>
         </div>

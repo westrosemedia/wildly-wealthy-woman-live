@@ -13,6 +13,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `about-jackie.jpg`
 - `event-phoenix.jpg`
 - `speakers-bridget-jackie.jpg` — Speakers slide still (Bridget James Ling and Jackie)
+- `stephanie-jackie.jpg` — Stephanie and Jackie (full-bleed background, Meet the women)
 
 ## Style guide
 
