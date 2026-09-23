@@ -5,7 +5,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 ## Hero
 
 - `hero.mp4` — cinematic hero film (autoplays muted on the home page)
-- `hero.jpg` — hero still / poster (Stephanie and Jackie). Used if the video is missing.
+- `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. This is the home and sponsors first-viewport hero. Do not replace it with the Rolls photo.
 - `hero-rolls.jpg` — previous Rolls still, kept as backup. Not used as the hero.
 
 ## Portraits / event
