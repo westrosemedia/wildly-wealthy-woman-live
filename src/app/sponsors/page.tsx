@@ -90,7 +90,7 @@ export default function SponsorsPage() {
         </div>
       </Slide>
 
-      <Slide>
+      <Slide id="speakers">
         <div className="mx-auto grid w-full max-w-[92rem] grid-cols-[minmax(0,9.5rem)_1fr] items-center gap-x-6 gap-y-8 px-5 py-20 md:grid-cols-[minmax(0,20rem)_1fr] md:gap-12 md:px-10 md:py-24">
           <figure className="w-full">
             <MediaFrame slot={mediaSlots.speakersBridgetJackie} />
