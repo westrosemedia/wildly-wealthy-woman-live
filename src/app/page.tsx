@@ -45,9 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      <StorySection />
-
-      <section id="the-event" className="bg-snow">
+      <section id="the-event" className="bg-ivory">
         <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
           <SectionKicker>{copy.event.heading}</SectionKicker>
           <CopyParagraphs
@@ -56,6 +54,8 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <StorySection />
 
       <section id="why-banff" className="bg-ivory">
         <BanffTakeaway />
