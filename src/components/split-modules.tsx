@@ -53,10 +53,11 @@ export function SplitCopy({
         ink ? "bg-[#0A0708] text-[#F2EFEA]" : "bg-[#F2EFEA] text-[#4A1020]",
       )}
     >
-      <Title className="font-heading max-w-[14ch] text-[1.7rem] leading-[1.12] font-light tracking-[-0.03em] md:text-[1.85rem] lg:text-[2.05rem]">
+      <Title className="font-heading max-w-[20ch] text-[1.7rem] leading-[1.12] font-light tracking-[-0.03em] md:text-[1.85rem] lg:text-[2.05rem]">
         {headline}
+        {"\u00a0"}
         <span
-          className="ml-3 inline-block align-middle text-[0.7em] font-light"
+          className="inline-block align-middle text-[0.7em] font-light"
           aria-hidden
         >
           →
