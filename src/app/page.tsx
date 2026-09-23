@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import {
   CopyParagraphs,
-  EventSection,
   SectionKicker,
   SpeakersSection,
   StorySection,
@@ -28,15 +27,7 @@ export default function Home() {
 
       <WatchingYouLive />
 
-      <section id="the-event" className="bg-cream">
-        <div className="house-wrap">
-          <SectionKicker>{copy.event.heading}</SectionKicker>
-          <CopyParagraphs
-            className="mt-10 max-w-2xl"
-            paragraphs={copy.event.paragraphs}
-          />
-        </div>
-      </section>
+      <EventSection />
 
       <StorySection />
 
