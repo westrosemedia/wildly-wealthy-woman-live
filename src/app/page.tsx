@@ -72,6 +72,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section
+        id="the-bigger-mission"
+        className="relative min-h-[80svh] overflow-hidden bg-ink"
+      >
+        <MediaFrame
+          slot={mediaSlots.backgroundFur}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto min-h-[80svh]"
+        />
+        <div className="fur-veil absolute inset-0" />
+        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-[88rem] flex-col justify-end px-6 py-24 md:px-12 md:py-36">
+          <p className="text-[10px] tracking-[0.32em] text-cream/70 uppercase">
+            {copy.mission.heading}
+          </p>
+          <div className="mt-10 max-w-3xl space-y-6">
+            {copy.mission.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="text-base leading-[1.75] font-light text-ivory/88 md:text-lg"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <StyleGuideSection />
 
       <section className="bg-ivory">

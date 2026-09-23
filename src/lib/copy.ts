@@ -15,6 +15,15 @@ export const copy = {
     tickets:
       "Tickets range from $450 to $1,500. A VIP upgrade is available for the night before, including dinner.",
   },
+  mission: {
+    heading: "The Bigger Mission",
+    paragraphs: [
+      "Jackie's work has always been rooted in helping women change what's possible internally so they can create something different externally. Wildly Wealthy Woman Live takes that work beyond the individual.",
+      "Because when one woman changes what she believes is possible, the women watching her inherit a different starting point.",
+      "A daughter who watches her mother use her voice learns that her voice matters. A daughter who watches her mother build wealth learns that women can create wealth. A daughter who watches her mother take risks learns that she can trust herself. And a woman who sees her own mother differently may finally understand the strength, sacrifice, and dreams of the woman who came before her.",
+      "Wealth becomes generational long before money is inherited. Wildly Wealthy Woman Live exists to celebrate that.",
+    ] as const,
+  },
   speakers: {
     heading: "Speakers",
     names: ["Veena Jetti", "Bridget James Ling", "Becca Luna"] as const,

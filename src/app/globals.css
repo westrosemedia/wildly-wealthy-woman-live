@@ -255,6 +255,16 @@
   );
 }
 
+.fur-veil {
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgb(10 7 8 / 42%) 0%,
+    rgb(57 10 22 / 52%) 44%,
+    rgb(10 7 8 / 68%) 100%
+  );
+}
+
 .fur-plate,
 .satin-plate {
   background-color: #390a16;
