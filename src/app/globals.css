@@ -140,6 +140,17 @@
   --sidebar-accent-foreground: #4a1020;
   --sidebar-border: rgb(74 16 32 / 18%);
   --sidebar-ring: #4a1020;
+
+  --step-kicker: 0.625rem;
+  --step-body: 1.0625rem;
+  --step-body-lg: 1.125rem;
+  --step-display: clamp(2.4rem, 5vw, 5.25rem);
+  --step-quote: clamp(2.05rem, 6.2vw, 6.5rem);
+  --step-quote-sm: clamp(1.7rem, 3.6vw, 3.15rem);
+  --step-stat: clamp(3.1rem, 7.5vw, 7.25rem);
+  --page: 88rem;
+  --gutter: 1.5rem;
+  --section-y: clamp(5.5rem, 10vw, 9rem);
 }
 
 @layer base {
@@ -208,6 +219,74 @@
   will-change: transform;
 }
 
+
+.house-wrap {
+  width: 100%;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: var(--section-y);
+}
+
+@media (min-width: 768px) {
+  .house-wrap {
+    padding-inline: 3rem;
+  }
+}
+
+.kicker {
+  font-size: var(--step-kicker);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.body-copy {
+  font-size: var(--step-body);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .body-copy {
+    font-size: var(--step-body-lg);
+  }
+}
+
+.display {
+  font-family: var(--font-heading);
+  font-size: var(--step-display);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.quote {
+  font-family: var(--font-heading);
+  font-size: var(--step-quote);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.quote-sm {
+  font-family: var(--font-heading);
+  font-size: var(--step-quote-sm);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.stat {
+  font-family: var(--font-heading);
+  font-size: var(--step-stat);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
 .hairline {
   height: 1px;
   background: currentColor;
@@ -224,26 +303,6 @@
   background: transparent;
 }
 
-/* Thin ink only — cream type over darker stills. Never wine on the photograph. */
-.fur-veil {
-  background: linear-gradient(
-    180deg,
-    rgb(10 7 8 / 18%) 0%,
-    rgb(10 7 8 / 28%) 48%,
-    rgb(10 7 8 / 42%) 100%
-  );
-}
-
-.studio-veil,
-.founders-veil,
-.slide-veil {
-  background: linear-gradient(
-    180deg,
-    rgb(10 7 8 / 22%) 0%,
-    rgb(10 7 8 / 30%) 46%,
-    rgb(10 7 8 / 46%) 100%
-  );
-}
 
 .fur-plate,
 .satin-plate {

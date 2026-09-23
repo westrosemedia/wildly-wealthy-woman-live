@@ -50,8 +50,8 @@ export function SiteHeader() {
           </SheetTrigger>
           <SheetContent side="right" className="border-none bg-burgundy text-cream">
             <SheetHeader>
-              <SheetTitle className="font-heading text-left text-2xl font-light text-cream">
-                {site.shortName}
+              <SheetTitle className="font-heading text-left text-2xl font-light text-cream italic">
+                {site.name}
               </SheetTitle>
               <SheetDescription className="sr-only">Menu</SheetDescription>
             </SheetHeader>

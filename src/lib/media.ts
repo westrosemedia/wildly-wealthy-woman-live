@@ -28,7 +28,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     filename: "hero.mp4 (optional poster: hero.jpg)",
     aspect: "aspect-[4/5] md:aspect-[16/10]",
     // Cactus / pink-wall pair. Never swap src/poster to hero-rolls.jpg.
-    objectClass: "object-[62%_42%] md:object-[50%_36%]",
+    objectClass: "object-[36%_62%] md:object-[48%_52%]",
   },
   heroStill: {
     id: "heroStill",
@@ -39,7 +39,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     filename: "hero.jpg",
     aspect: "aspect-[4/5] md:aspect-[16/10]",
     // Cactus / pink-wall Stephanie + Jackie. hero-rolls.jpg is backup only.
-    objectClass: "object-[62%_42%] md:object-[50%_36%]",
+    objectClass: "object-[36%_62%] md:object-[48%_52%]",
   },
   jackie: {
     id: "jackie",
@@ -49,7 +49,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "jackie.jpg",
     aspect: "aspect-[2/3]",
-    objectClass: "object-[50%_18%]",
+    objectClass: "object-[50%_16%]",
   },
   jackiePortrait: {
     id: "jackiePortrait",
@@ -59,7 +59,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "jackie.jpg",
     aspect: "aspect-[2/3]",
-    objectClass: "object-[50%_18%]",
+    objectClass: "object-[50%_16%]",
   },
   aboutJackie: {
     id: "aboutJackie",
@@ -156,7 +156,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "style-guide-01.jpg",
     aspect: "aspect-[2/3]",
-    objectClass: "object-[50%_18%]",
+    objectClass: "object-[50%_16%]",
   },
   styleGuide02: {
     id: "styleGuide02",
