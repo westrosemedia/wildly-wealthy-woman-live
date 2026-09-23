@@ -86,11 +86,16 @@ export default function SponsorsPage() {
       </section>
 
       <section id="why-sponsor" className="bg-cream">
-        <div className="house-wrap">
-          <SectionKicker>{copy.whySponsor.heading}</SectionKicker>
-          <p className="quote-sm mt-8 max-w-xl text-pretty text-burgundy">
-            {copy.whySponsor.body}
-          </p>
+        <div className="house-wrap grid min-w-0 items-start gap-12 md:grid-cols-2 md:gap-20">
+          <div className="min-w-0">
+            <SectionKicker>{copy.whySponsor.heading}</SectionKicker>
+            <p className="quote-sm mt-8 max-w-xl text-pretty text-burgundy">
+              {copy.whySponsor.body}
+            </p>
+          </div>
+          <figure className="min-w-0">
+            <MediaFrame slot={mediaSlots.whySponsorStill} />
+          </figure>
         </div>
       </section>
 

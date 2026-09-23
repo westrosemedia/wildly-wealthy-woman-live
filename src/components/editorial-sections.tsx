@@ -149,7 +149,7 @@ const founderCards = [
   copy.founders.melissa,
 ] as const;
 
-/** Sponsors: three isolated cream columns. Portrait inset, never behind type. */
+/** Sponsors: three isolated cream columns. No shared portraits. Melissa has none. */
 export function FoundersSection() {
   return (
     <section id="founders" className="bg-cream">

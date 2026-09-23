@@ -8,6 +8,8 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 - `hero.mp4` — optional cinematic hero film. Slot is wired; file not received yet.
 - `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. Home first-viewport hero only. Also the optional poster for `hero.mp4`.
+- `high-level-01.jpg` — hands on white fur, gold rings. Home four-column band, first photo cell only.
+- `high-level-02.jpg` — hand on a red steering wheel. Home four-column band, second photo cell only.
 - `jackie.jpg` — Jackie portrait. Home, The Story, only.
 - `event.jpg` — Banff Springs Hotel. Home, Why Banff, only.
 - `room.jpg` — interior room. Home, Event Details, only.
@@ -16,6 +18,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `proof-01.jpg` — Instagram insights screenshot. Under the Our Reach plate only.
 - `proof-02.jpg` — second insights screenshot. Under the Our Reach plate only.
 - `proof-03.jpg` — third insights screenshot. Under the Our Reach plate only.
+- `why-sponsor.jpg` — studio audience, woman in white on a chair. `/sponsors` Why Sponsor only. Not the two-person panel.
 - `background-fur.jpg` — hand on white fur, rings. Home, The Bigger Mission, only.
 - `style-guide-01.jpg` — dress still. Home, Style guide, only.
 - `style-guide-02.jpg` — cream fur elevator. Home, Style guide, only.
@@ -27,11 +30,10 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `banff-springs.jpg` — same still as `event.jpg`. Do not place.
 - `stephanie-jackie.jpg` — Stephanie and Jackie pair. Unused. Hold for one future slot.
 - `background-studio.jpg` — three women, white studio. Unused. Hold for one future slot.
+- `stephanie.jpg` — leopard-fur studio still with a camera in the foreground. Same woman as `jackie.jpg`. Held only; not a second Jackie and not labeled Stephanie on Story / Meet the women.
 
 ## Needed (new files only — do not reuse anything above)
 
-- `why-sponsor.jpg` — unique still for Why Sponsor on `/sponsors` (not the panel)
-- `stephanie.jpg` — Stephanie portrait for Meet the women
 - `melissa.jpg` — Melissa portrait for Meet the women
 
 ## Recap films (unused until sent)

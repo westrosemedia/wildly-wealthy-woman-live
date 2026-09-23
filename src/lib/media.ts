@@ -16,6 +16,7 @@ export type MediaSlot = {
 /**
  * Drop files into /public/media using these exact names.
  * Until a file exists, a styled placeholder holds the layout.
+ * Each image file may appear once on the site — one page, one section.
  */
 export const mediaSlots: Record<string, MediaSlot> = {
   heroVideo: {
@@ -204,6 +205,55 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "proof-03.jpg",
     aspect: "aspect-[1206/1101]",
+  },
+  highLevel01: {
+    id: "highLevel01",
+    kind: "image",
+    src: "/media/high-level-01.jpg",
+    alt: "Hands on white fur with gold rings",
+    caption: "",
+    filename: "high-level-01.jpg",
+    aspect: "aspect-[4/5]",
+    objectClass: "object-[50%_48%]",
+  },
+  highLevel02: {
+    id: "highLevel02",
+    kind: "image",
+    src: "/media/high-level-02.jpg",
+    alt: "Hand on a red steering wheel",
+    caption: "",
+    filename: "high-level-02.jpg",
+    aspect: "aspect-[4/5]",
+    objectClass: "object-[42%_58%]",
+  },
+  whySponsorStill: {
+    id: "whySponsorStill",
+    kind: "image",
+    src: "/media/why-sponsor.jpg",
+    alt: "Woman in white speaking from a chair to a studio audience",
+    caption: "",
+    filename: "why-sponsor.jpg",
+    aspect: "aspect-[3/2]",
+    objectClass: "object-[58%_48%]",
+  },
+  stephanie: {
+    id: "stephanie",
+    kind: "image",
+    src: "/media/stephanie.jpg",
+    alt: "Stephanie",
+    caption: "",
+    filename: "stephanie.jpg",
+    aspect: "aspect-[2/3]",
+    objectClass: "object-[35%_40%]",
+  },
+  melissa: {
+    id: "melissa",
+    kind: "image",
+    src: "/media/melissa.jpg",
+    alt: "Melissa",
+    caption: "",
+    filename: "melissa.jpg",
+    aspect: "aspect-[2/3]",
   },
 };
 
