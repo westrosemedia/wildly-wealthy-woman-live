@@ -135,6 +135,7 @@ export function MediaFrame({
         <video
           className={cn(
             "h-full w-full object-cover transition-opacity duration-500",
+            slot.objectClass,
             status === "ready" ? "opacity-100" : "opacity-0",
           )}
           poster={posterFailed ? undefined : slot.poster}
@@ -181,6 +182,7 @@ export function MediaFrame({
         alt={slot.alt}
         className={cn(
           "h-full w-full object-cover transition-opacity duration-500",
+          slot.objectClass,
           status === "ready" ? "opacity-100" : "opacity-0",
         )}
         onLoad={() => setStatus("ready")}
@@ -231,8 +233,10 @@ export function MediaStillOrVideo({
       <video
         className={cn(
           "h-full w-full object-cover transition-opacity duration-700",
+          video.objectClass ?? still.objectClass,
           ready ? "opacity-100" : "opacity-0",
         )}
+        poster={still.src}
         autoPlay
         muted
         loop

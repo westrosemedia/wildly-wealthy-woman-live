@@ -9,6 +9,8 @@ export type MediaSlot = {
   caption: string;
   filename: string;
   aspect: string;
+  /** object-position classes so object-cover keeps the intended subject in frame */
+  objectClass?: string;
 };
 
 /**
@@ -21,19 +23,21 @@ export const mediaSlots: Record<string, MediaSlot> = {
     kind: "video",
     src: "/media/hero.mp4",
     poster: "/media/hero.jpg",
-    alt: "",
+    alt: "Stephanie",
     caption: "",
     filename: "hero.mp4 (optional poster: hero.jpg)",
     aspect: "aspect-[4/5] md:aspect-[16/10]",
+    objectClass: "object-[36%_40%] md:object-[40%_45%]",
   },
   heroStill: {
     id: "heroStill",
     kind: "image",
     src: "/media/hero.jpg",
-    alt: "",
+    alt: "Stephanie",
     caption: "",
     filename: "hero.jpg",
     aspect: "aspect-[4/5] md:aspect-[16/10]",
+    objectClass: "object-[36%_40%] md:object-[40%_45%]",
   },
   jackiePortrait: {
     id: "jackiePortrait",
