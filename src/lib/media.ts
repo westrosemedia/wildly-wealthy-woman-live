@@ -77,6 +77,15 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[16/10]",
     objectClass: "object-[52%_48%]",
   },
+  eventRoom: {
+    id: "eventRoom",
+    kind: "image",
+    src: "/media/room.jpg",
+    alt: "The room",
+    caption: "The room",
+    filename: "room.jpg",
+    aspect: "aspect-[3/2]",
+  },
   speakersBridgetJackie: {
     id: "speakersBridgetJackie",
     kind: "image",

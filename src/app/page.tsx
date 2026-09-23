@@ -61,6 +61,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-ivory">
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-36">
+          <figure>
+            <MediaFrame slot={mediaSlots.eventRoom} />
+            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+              {mediaSlots.eventRoom.caption}
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <StyleGuideSection />
 
       <section className="bg-ivory">

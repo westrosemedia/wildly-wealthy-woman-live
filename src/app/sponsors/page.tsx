@@ -188,6 +188,12 @@ export default function SponsorsPage() {
           <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate md:text-6xl">
             {copy.tickets.range}
           </p>
+          <figure className="mt-16 md:mt-24">
+            <MediaFrame slot={mediaSlots.eventRoom} />
+            <figcaption className="mt-4 text-[10px] tracking-[0.22em] text-mink uppercase">
+              {mediaSlots.eventRoom.caption}
+            </figcaption>
+          </figure>
         </div>
       </Section>
 
