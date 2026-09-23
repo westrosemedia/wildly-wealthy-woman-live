@@ -54,24 +54,22 @@ export function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex w-full max-w-xl flex-col gap-3">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
-        <Input
-          required
-          type="email"
-          name="email"
-          id="waitlist-email"
-          aria-label="Email"
-          className="h-12 flex-1 rounded-none border-cream/25 bg-cream/5 px-4 text-cream placeholder:text-cream/30"
-        />
-        <Button
-          type="submit"
-          disabled={status === "loading"}
-          className="h-12 rounded-none bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase hover:bg-rose"
-        >
-          {copy.waitlist.cta}
-        </Button>
-      </div>
+    <form onSubmit={onSubmit} className="flex w-full max-w-xl flex-col items-stretch gap-3">
+      <Input
+        required
+        type="email"
+        name="email"
+        id="waitlist-email"
+        aria-label="Email"
+        className="h-12 w-full rounded-none border-cream/40 bg-ivory/10 px-4 text-cream placeholder:text-cream/30"
+      />
+      <Button
+        type="submit"
+        disabled={status === "loading"}
+        className="h-12 w-full rounded-none bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase hover:bg-rose sm:w-fit"
+      >
+        {copy.waitlist.cta}
+      </Button>
       {status === "error" ? (
         <p className="text-sm text-cream/80">{message}</p>
       ) : null}

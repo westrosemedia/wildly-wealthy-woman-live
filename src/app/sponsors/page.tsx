@@ -56,14 +56,16 @@ export default function SponsorsPage() {
           className="absolute inset-0 aspect-auto min-h-[100svh]"
         />
         <div className="hero-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col justify-end gap-6 px-5 py-20 pt-36 md:px-10">
+        <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col items-start justify-end gap-6 px-5 py-20 pt-36 md:px-10">
           <h1 className="font-heading max-w-5xl text-5xl leading-[0.92] text-cream sm:text-6xl md:text-[6rem]">
             {copy.hero.title}
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-ivory/90 md:text-xl">
             {copy.hero.body}
           </p>
-          <JoinWaitlistLink href="#waitlist" />
+          <div className="w-full">
+            <JoinWaitlistLink href="#waitlist" />
+          </div>
         </div>
       </Slide>
 
@@ -108,11 +110,11 @@ export default function SponsorsPage() {
       </Slide>
 
       <Slide className="bg-velvet">
-        <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
+        <div className="mx-auto w-full max-w-[92rem] px-5 py-16 md:px-10">
           <h2 className="font-heading max-w-3xl text-4xl leading-[0.95] text-cream md:text-6xl">
             {copy.founders.heading}
           </h2>
-          <div className="mt-12 grid gap-12 md:grid-cols-3 md:gap-10">
+          <div className="mt-10 grid gap-12 md:grid-cols-3 md:gap-10">
             {founders.map((founder) => (
               <article
                 key={founder.name}
@@ -127,21 +129,21 @@ export default function SponsorsPage() {
               </article>
             ))}
           </div>
-          <p className="font-heading mt-16 max-w-4xl text-2xl leading-snug text-ivory md:text-4xl">
+          <p className="font-heading mt-12 max-w-4xl text-2xl leading-snug text-ivory md:text-3xl">
             {copy.founders.closer}
           </p>
         </div>
       </Slide>
 
       <Slide className="bg-wine">
-        <div className="mx-auto w-full max-w-[92rem] px-5 py-24 md:px-10">
+        <div className="mx-auto w-full max-w-[92rem] px-5 py-16 md:px-10">
           <h2 className="font-heading text-4xl text-cream md:text-6xl">
             {copy.reach.heading}
           </h2>
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-lg">
             {copy.reach.combined}
           </p>
-          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {copy.reach.figures.map((stat) => (
               <article key={stat.figure + stat.label} className="space-y-3">
                 <p className="font-heading text-5xl leading-none text-ivory md:text-7xl">
@@ -153,7 +155,7 @@ export default function SponsorsPage() {
               </article>
             ))}
           </div>
-          <p className="mt-14 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-xl">
+          <p className="mt-10 max-w-3xl text-base leading-relaxed text-ivory/88 md:text-xl">
             {copy.reach.who}
           </p>
         </div>
@@ -169,16 +171,13 @@ export default function SponsorsPage() {
       </Slide>
 
       <Slide className="bg-espresso">
-        <div className="mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 py-24 md:grid-cols-2 md:px-10">
-          <div className="space-y-6">
-            <h2 className="font-heading text-4xl text-cream md:text-6xl">
-              {copy.whySponsor.heading}
-            </h2>
-            <p className="font-heading max-w-xl text-2xl leading-snug text-ivory md:text-4xl">
-              {copy.whySponsor.body}
-            </p>
-          </div>
-          <MediaFrame slot={mediaSlots.jackiePortrait} />
+        <div className="mx-auto flex w-full max-w-[92rem] flex-col justify-center px-5 py-24 md:px-10">
+          <h2 className="font-heading text-4xl text-cream md:text-6xl">
+            {copy.whySponsor.heading}
+          </h2>
+          <p className="font-heading mt-8 max-w-4xl text-2xl leading-snug text-ivory md:text-5xl">
+            {copy.whySponsor.body}
+          </p>
         </div>
       </Slide>
 
@@ -190,7 +189,7 @@ export default function SponsorsPage() {
           className="absolute inset-0 aspect-auto min-h-[100svh]"
         />
         <div className="slide-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col gap-6 px-5 py-24 pt-36 md:px-10">
+        <div className="relative z-10 mx-auto flex w-full max-w-[92rem] flex-col items-start gap-6 px-5 py-24 pt-36 md:px-10">
           <p className="font-heading max-w-4xl text-3xl leading-tight text-cream md:text-6xl">
             {copy.closing.body}
           </p>
@@ -198,7 +197,7 @@ export default function SponsorsPage() {
       </Slide>
 
       <Slide id="waitlist-slide" className="bg-chocolate">
-        <div className="mx-auto flex w-full max-w-[92rem] flex-col justify-center gap-8 px-5 py-24 pt-36 md:px-10">
+        <div className="mx-auto flex w-full max-w-[92rem] flex-col items-start justify-center gap-8 px-5 py-24 pt-36 md:px-10">
           <WaitlistSection />
         </div>
       </Slide>

@@ -3,7 +3,7 @@ import { copy } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 
 export const ctaClassName =
-  "inline-flex h-12 items-center justify-center bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase transition-colors hover:bg-rose sm:px-10";
+  "inline-flex h-12 w-fit shrink-0 self-start items-center justify-center bg-lip px-8 text-[11px] tracking-[0.28em] text-cream uppercase transition-colors hover:bg-rose sm:px-10";
 
 export function JoinWaitlistLink({
   href = "#waitlist",
