@@ -11,6 +11,8 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `high-level-01.jpg` — hands on white fur, gold rings. Home four-column band, first photo cell only.
 - `high-level-02.jpg` — hand on a red steering wheel. Home four-column band, second photo cell only.
 - `jackie.jpg` — Jackie portrait. Home, The Story, only.
+- `stephanie.jpg` — Stephanie, red convertible in the badlands. Home, The Story, Stephanie paragraph only. Not the hero.
+- `melissa.jpg` — Melissa, cream dress at sunset. Home, The Story, Melissa paragraph only.
 - `event.jpg` — Banff Springs Hotel. Home, Why Banff, only.
 - `room.jpg` — interior room. Home, Event Details, only.
 - `speakers-bridget-jackie.jpg` — Bridget James Ling and Jackie. Home, Speakers, only.
@@ -26,15 +28,10 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 ## On disk, not placed (do not reuse to fill a hole)
 
-- `hero-rolls.jpg` — previous Rolls still. Backup only. Not the hero.
+- `hero-rolls.jpg` — same convertible scene as `stephanie.jpg`, wider crop. Unused backup. Do not display. Not the hero.
 - `banff-springs.jpg` — same still as `event.jpg`. Do not place.
 - `stephanie-jackie.jpg` — Stephanie and Jackie pair. Unused. Hold for one future slot.
 - `background-studio.jpg` — three women, white studio. Unused. Hold for one future slot.
-- `stephanie.jpg` — leopard-fur studio still with a camera in the foreground. Same woman as `jackie.jpg`. Held only; not a second Jackie and not labeled Stephanie on Story / Meet the women.
-
-## Needed (new files only — do not reuse anything above)
-
-- `melissa.jpg` — Melissa portrait for Meet the women
 
 ## Recap films (unused until sent)
 

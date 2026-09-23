@@ -65,16 +65,30 @@ export function StorySection() {
 
         <div className="mt-24 grid items-start gap-16 md:mt-28 md:grid-cols-2 md:gap-24">
           <article className="min-w-0">
-            <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
-              {copy.founders.stephanie.name}
-            </h3>
-            <p className="body-copy mt-6 text-burgundy/80">{stephanieStory}</p>
+            <div className="grid items-start gap-8 sm:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] sm:gap-10">
+              <figure className="w-full max-w-[16rem]">
+                <MediaFrame slot={mediaSlots.stephanie} />
+              </figure>
+              <div className="min-w-0">
+                <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
+                  {copy.founders.stephanie.name}
+                </h3>
+                <p className="body-copy mt-6 text-burgundy/80">{stephanieStory}</p>
+              </div>
+            </div>
           </article>
           <article className="min-w-0">
-            <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
-              {copy.founders.melissa.name}
-            </h3>
-            <p className="body-copy mt-6 text-burgundy/80">{melissaStory}</p>
+            <div className="grid items-start gap-8 sm:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] sm:gap-10">
+              <figure className="w-full max-w-[16rem]">
+                <MediaFrame slot={mediaSlots.melissa} />
+              </figure>
+              <div className="min-w-0">
+                <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
+                  {copy.founders.melissa.name}
+                </h3>
+                <p className="body-copy mt-6 text-burgundy/80">{melissaStory}</p>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -149,7 +163,7 @@ const founderCards = [
   copy.founders.melissa,
 ] as const;
 
-/** Sponsors: three isolated cream columns. No shared portraits. Melissa has none. */
+/** Sponsors: three isolated cream columns. Portraits stay on home Story only. */
 export function FoundersSection() {
   return (
     <section id="founders" className="bg-cream">

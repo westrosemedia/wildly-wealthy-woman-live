@@ -243,8 +243,9 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Stephanie",
     caption: "",
     filename: "stephanie.jpg",
+    // Convertible / badlands portrait. Home Story / Stephanie only — not the hero.
     aspect: "aspect-[2/3]",
-    objectClass: "object-[35%_40%]",
+    objectClass: "object-[50%_42%]",
   },
   melissa: {
     id: "melissa",
@@ -253,7 +254,9 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Melissa",
     caption: "",
     filename: "melissa.jpg",
-    aspect: "aspect-[2/3]",
+    // Sunset still is native 4/3. Home Story / Melissa only — do not reuse.
+    aspect: "aspect-[4/3]",
+    objectClass: "object-[50%_48%]",
   },
 };
 
