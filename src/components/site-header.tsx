@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import {
   Sheet,
@@ -20,54 +20,20 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const onHero = pathname === "/" || pathname === "/sponsors";
-  const darkType = onHero && !scrolled;
-
-  useEffect(() => {
-    const hero = document.querySelector("[data-hero]");
-    if (!hero) {
-      setScrolled(true);
-      return;
-    }
-
-    const sync = () => {
-      const top = hero.getBoundingClientRect().bottom;
-      setScrolled(top <= 72);
-    };
-    sync();
-
-    const observer = new IntersectionObserver(sync, {
-      threshold: [0, 0.08, 1],
-      rootMargin: "-72px 0px 0px 0px",
-    });
-    observer.observe(hero);
-    window.addEventListener("scroll", sync, { passive: true });
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", sync);
-    };
-  }, [pathname]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter] duration-500",
-        scrolled ? "bg-ivory/90 backdrop-blur-sm" : "bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex max-w-[88rem] items-start justify-between gap-8 px-6 py-6 md:px-12 md:py-8">
-        <SiteMark tone={darkType ? "dark" : "light"} />
+    <header className="fixed inset-x-0 top-0 z-40 bg-burgundy text-cream">
+      <div className="mx-auto flex max-w-[88rem] items-center justify-between gap-6 px-6 py-5 md:px-12 md:py-6">
+        <SiteMark tone="dark" />
 
-        <nav className="hidden items-center gap-10 pt-1.5 md:flex">
+        <nav className="hidden items-center gap-10 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-[10px] tracking-[0.28em] uppercase transition-opacity duration-500",
-                pathname === item.href ? "opacity-100" : "opacity-55 hover:opacity-100",
-                darkType ? "text-cream" : "text-chocolate",
+                "text-[10px] tracking-[0.28em] text-cream uppercase",
+                pathname === item.href ? "opacity-100" : "opacity-60 hover:opacity-100",
               )}
             >
               {item.label}
@@ -77,20 +43,14 @@ export function SiteHeader() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
-            className={cn(
-              "pt-1 text-[10px] tracking-[0.3em] uppercase md:hidden",
-              darkType ? "text-cream" : "text-chocolate",
-            )}
+            className="text-[10px] tracking-[0.3em] text-cream uppercase md:hidden"
             aria-label="Menu"
           >
             Menu
           </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="border-burgundy/15 bg-ivory text-chocolate"
-          >
+          <SheetContent side="right" className="border-none bg-burgundy text-cream">
             <SheetHeader>
-              <SheetTitle className="font-heading text-left text-2xl font-light text-chocolate">
+              <SheetTitle className="font-heading text-left text-2xl font-light text-cream">
                 {site.shortName}
               </SheetTitle>
               <SheetDescription className="sr-only">Menu</SheetDescription>
@@ -102,8 +62,8 @@ export function SiteHeader() {
                   nativeButton={false}
                   render={<Link href={item.href} />}
                   className={cn(
-                    "text-left text-[12px] tracking-[0.28em] uppercase",
-                    pathname === item.href ? "text-burgundy" : "text-burgundy/70",
+                    "text-left text-[12px] tracking-[0.28em] text-cream uppercase",
+                    pathname === item.href ? "opacity-100" : "opacity-65",
                   )}
                 >
                   {item.label}

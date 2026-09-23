@@ -27,7 +27,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "hero.mp4 (optional poster: hero.jpg)",
     aspect: "aspect-[4/5] md:aspect-[16/10]",
-    objectClass: "object-[58%_60%] md:object-[52%_58%]",
+    objectClass: "object-[62%_42%] md:object-[50%_36%]",
   },
   heroStill: {
     id: "heroStill",
@@ -37,7 +37,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "hero.jpg",
     aspect: "aspect-[4/5] md:aspect-[16/10]",
-    objectClass: "object-[58%_60%] md:object-[52%_58%]",
+    objectClass: "object-[62%_42%] md:object-[50%_36%]",
   },
   jackie: {
     id: "jackie",

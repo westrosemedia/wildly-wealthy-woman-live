@@ -16,7 +16,7 @@ export function SectionKicker({
     <p
       className={cn(
         "text-[10px] tracking-[0.32em] uppercase",
-        tone === "dark" ? "text-cream/55" : "text-burgundy",
+        tone === "dark" ? "text-cream/60" : "text-burgundy",
       )}
     >
       {children}
@@ -40,7 +40,7 @@ export function CopyParagraphs({
           key={paragraph}
           className={cn(
             "text-base leading-[1.75] font-light md:text-lg",
-            tone === "dark" ? "text-ivory/86" : "text-chocolate/80",
+            tone === "dark" ? "text-cream/86" : "text-burgundy/80",
           )}
         >
           {paragraph}
@@ -61,7 +61,7 @@ export function Takeaway({
     <p
       className={cn(
         "font-quote max-w-4xl text-3xl leading-[1.15] font-light italic md:text-5xl",
-        tone === "dark" ? "text-cream" : "text-chocolate",
+        tone === "dark" ? "text-cream" : "text-burgundy",
         className,
       )}
     >
@@ -70,8 +70,21 @@ export function Takeaway({
   );
 }
 
-/** Stephanie's takeaway as a large Newsreader pull quote on the Banff Springs still. */
-export function BanffTakeaway({ className }: { className?: string }) {
+export function BeliefLine({ className }: { className?: string }) {
+  return (
+    <p
+      className={cn(
+        "font-quote max-w-3xl text-2xl leading-[1.2] font-light text-burgundy italic md:text-[2.35rem]",
+        className,
+      )}
+    >
+      {copy.hero.body}
+    </p>
+  );
+}
+
+/** Banff Springs still — photograph only. Quote lives in the hero / cream panels. */
+export function BanffStill({ className }: { className?: string }) {
   return (
     <figure
       id="takeaway"
@@ -83,21 +96,20 @@ export function BanffTakeaway({ className }: { className?: string }) {
         quiet
         className="absolute inset-0 aspect-auto min-h-[88svh]"
       />
-      <div className="banff-veil absolute inset-0" />
-      <blockquote className="relative z-10 mx-auto flex min-h-[88svh] max-w-[88rem] items-center px-6 py-24 md:px-12 md:py-32">
-        <p className="font-quote max-w-5xl text-[1.85rem] leading-[1.12] font-light text-burgundy italic sm:text-4xl md:text-6xl lg:text-[4.35rem]">
-          {copy.takeaway}
-        </p>
-      </blockquote>
     </figure>
   );
+}
+
+/** @deprecated Use BanffStill — quote is no longer set on the photograph. */
+export function BanffTakeaway({ className }: { className?: string }) {
+  return <BanffStill className={className} />;
 }
 
 export function SpeakersSection({ className }: { className?: string }) {
   return (
     <section
       id="speakers"
-      className={cn("relative overflow-hidden bg-snow", className)}
+      className={cn("relative overflow-hidden bg-cream", className)}
     >
       <div className="mx-auto grid w-full max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-20 md:px-12 md:py-32">
         <figure className="order-2 w-full md:sticky md:top-28">
@@ -114,13 +126,13 @@ export function SpeakersSection({ className }: { className?: string }) {
             {copy.speakers.names.map((name) => (
               <h3
                 key={name}
-                className="font-heading text-4xl leading-[1.05] font-light text-chocolate md:text-6xl"
+                className="font-heading text-4xl leading-[1.05] font-light text-burgundy md:text-6xl"
               >
                 {name}
               </h3>
             ))}
           </div>
-          <p className="mt-10 max-w-2xl text-base leading-[1.75] text-chocolate/80 md:text-xl">
+          <p className="mt-10 max-w-2xl text-base leading-[1.75] text-burgundy/80 md:text-xl">
             {copy.speakers.body}
           </p>
         </div>
@@ -134,7 +146,10 @@ const partnerStory = copy.story.paragraphs.slice(5);
 
 export function StorySection() {
   return (
-    <section id="the-story" className="bg-ivory">
+    <section id="the-story" className="scroll-mt-28 bg-cream">
+      <div className="mx-auto max-w-[88rem] px-6 pt-24 md:px-12 md:pt-32">
+        <BeliefLine />
+      </div>
       <div className="mx-auto grid max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] md:gap-20 md:px-12 md:py-32">
         <figure className="w-full max-w-[18rem] md:sticky md:top-28">
           <MediaFrame slot={mediaSlots.jackie} />
@@ -156,6 +171,57 @@ export function StorySection() {
 
       <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
         <CopyParagraphs className="max-w-2xl" paragraphs={partnerStory} />
+      </div>
+    </section>
+  );
+}
+
+export function FoundersSection() {
+  const founders = [
+    copy.founders.stephanie,
+    copy.founders.jackie,
+    copy.founders.melissa,
+  ];
+
+  return (
+    <section id="founders" className="scroll-mt-28 bg-cream">
+      <div className="mx-auto w-full max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
+        <h2 className="font-heading max-w-3xl text-4xl leading-[1.02] font-light text-burgundy md:text-6xl">
+          {copy.founders.heading}
+        </h2>
+        <div className="mt-16 grid gap-16 md:grid-cols-3 md:gap-12">
+          {founders.map((founder) => {
+            const isJackie = founder.name === copy.founders.jackie.name;
+            return (
+              <article
+                key={founder.name}
+                className={cn(
+                  "space-y-5 border-t border-burgundy/20 pt-8",
+                  isJackie && "md:col-span-2",
+                )}
+              >
+                <h3 className="font-heading text-3xl font-light text-burgundy md:text-4xl">
+                  {founder.name}
+                </h3>
+                {isJackie ? (
+                  <div className="grid items-start gap-6 sm:grid-cols-[minmax(0,13rem)_1fr] md:grid-cols-[minmax(0,16rem)_1fr] md:gap-8">
+                    <MediaFrame slot={mediaSlots.jackie} />
+                    <p className="text-[15px] leading-[1.75] text-burgundy/80">
+                      {founder.body}
+                    </p>
+                  </div>
+                ) : (
+                  <p className="text-[15px] leading-[1.75] text-burgundy/80">
+                    {founder.body}
+                  </p>
+                )}
+              </article>
+            );
+          })}
+        </div>
+        <p className="font-heading mt-20 max-w-4xl text-2xl leading-snug font-light text-burgundy italic md:text-4xl">
+          {copy.founders.closer}
+        </p>
       </div>
     </section>
   );

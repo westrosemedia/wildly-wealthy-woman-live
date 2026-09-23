@@ -16,7 +16,7 @@ export function WaitlistForm({
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
-  const onDark = tone === "dark";
+  const onWine = tone === "dark";
 
   useEffect(() => {
     if (window.location.hash !== "#waitlist") return;
@@ -58,7 +58,7 @@ export function WaitlistForm({
       <p
         className={cn(
           "text-sm tracking-[0.18em] uppercase",
-          onDark ? "text-cream/70" : "text-burgundy",
+          onWine ? "text-cream/80" : "text-burgundy",
         )}
       >
         ✓
@@ -79,25 +79,20 @@ export function WaitlistForm({
         aria-label="Email"
         className={cn(
           "field-line h-12 w-full rounded-none px-0 text-base shadow-none focus-visible:ring-0",
-          onDark
-            ? "border-cream/40 text-cream placeholder:text-cream/30"
-            : "border-burgundy/35 text-chocolate placeholder:text-burgundy/40",
+          onWine
+            ? "border-cream/45 text-cream placeholder:text-cream/35"
+            : "border-burgundy/40 text-burgundy placeholder:text-burgundy/40",
         )}
       />
       <Button
         type="submit"
         disabled={status === "loading"}
-        className={cn(
-          "quiet-link h-auto w-fit rounded-none bg-transparent px-0 py-0 text-[13px] font-normal shadow-none hover:bg-transparent",
-          onDark
-            ? "text-cream hover:text-cream"
-            : "text-chocolate hover:text-chocolate",
-        )}
+        className={cn("wine-fill h-auto w-fit", onWine && "wine-fill-on-wine")}
       >
         {copy.waitlist.cta}
       </Button>
       {status === "error" ? (
-        <p className={cn("text-sm", onDark ? "text-cream/80" : "text-burgundy")}>
+        <p className={cn("text-sm", onWine ? "text-cream/80" : "text-burgundy")}>
           {message}
         </p>
       ) : null}

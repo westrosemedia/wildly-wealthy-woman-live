@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-fraunces), ui-serif, "Times New Roman", serif;
+  --font-sans: var(--font-grotesque), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-newsreader), ui-serif, "Times New Roman", serif;
   --font-quote: var(--font-newsreader), ui-serif, "Times New Roman", serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
@@ -62,23 +62,14 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --animate-marquee: marquee 32s linear infinite;
-  --animate-rise: rise 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-33.333%);
-  }
+  --animate-rise: rise 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-living: living 26s ease-out both;
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(1.1rem);
+    transform: translateY(1.6rem);
   }
   to {
     opacity: 1;
@@ -86,64 +77,69 @@
   }
 }
 
-/*
-  Deep burgundy / black / cream.
-  Legacy après-ski names stay so existing utilities keep working.
+@keyframes living {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
-  cream grounds: --ivory --cream --snow --champagne
-  cinematic black: --ink --chocolate --espresso --velvet
-  pure wine: --burgundy (#390A16). --lip --gold --mink --fur --rose --wine alias it.
-  Never lip/rose #842E44 or mink #5A1828. Photo veils stay ink only.
+/*
+  Fashion-house cream + visible wine.
+  Burgundy is #4A1020 only — never near-black #390A16, never pink #842E44.
+  Photo veils stay thin ink. No wine wash on photographs.
 */
 :root {
   color-scheme: light;
   --ink: #0a0708;
-  --espresso: #120204;
-  --velvet: #23040b;
-  --burgundy: #390a16;
-  --wine: #390a16;
-  --chocolate: #120204;
-  --mink: #390a16;
-  --fur: #390a16;
-  --lip: #390a16;
-  --gold: #390a16;
-  --rose: #390a16;
-  --ivory: #f6f0e8;
-  --cream: #f6f0e8;
-  --snow: #f3ede4;
-  --champagne: #f3ede4;
-  --background: #f6f0e8;
-  --foreground: #120204;
-  --card: #f3ede4;
-  --card-foreground: #120204;
-  --popover: #f6f0e8;
-  --popover-foreground: #120204;
-  --primary: #390a16;
-  --primary-foreground: #f6f0e8;
-  --secondary: #f3ede4;
-  --secondary-foreground: #120204;
-  --muted: #f3ede4;
-  --muted-foreground: #390a16;
-  --accent: #390a16;
-  --accent-foreground: #f6f0e8;
-  --destructive: #390a16;
-  --border: rgb(57 10 22 / 18%);
-  --input: rgb(57 10 22 / 24%);
-  --ring: #390a16;
-  --chart-1: #390a16;
-  --chart-2: #23040b;
-  --chart-3: #390a16;
-  --chart-4: #120204;
-  --chart-5: #f3ede4;
+  --espresso: #0a0708;
+  --velvet: #0a0708;
+  --burgundy: #4a1020;
+  --wine: #4a1020;
+  --chocolate: #4a1020;
+  --mink: #4a1020;
+  --fur: #4a1020;
+  --lip: #4a1020;
+  --gold: #4a1020;
+  --rose: #4a1020;
+  --ivory: #f2efea;
+  --cream: #f2efea;
+  --snow: #f2efea;
+  --champagne: #f2efea;
+  --background: #f2efea;
+  --foreground: #4a1020;
+  --card: #f2efea;
+  --card-foreground: #4a1020;
+  --popover: #f2efea;
+  --popover-foreground: #4a1020;
+  --primary: #4a1020;
+  --primary-foreground: #f2efea;
+  --secondary: #f2efea;
+  --secondary-foreground: #4a1020;
+  --muted: #f2efea;
+  --muted-foreground: #4a1020;
+  --accent: #4a1020;
+  --accent-foreground: #f2efea;
+  --destructive: #4a1020;
+  --border: rgb(74 16 32 / 18%);
+  --input: rgb(74 16 32 / 24%);
+  --ring: #4a1020;
+  --chart-1: #4a1020;
+  --chart-2: #0a0708;
+  --chart-3: #4a1020;
+  --chart-4: #4a1020;
+  --chart-5: #f2efea;
   --radius: 0rem;
-  --sidebar: #f3ede4;
-  --sidebar-foreground: #120204;
-  --sidebar-primary: #390a16;
-  --sidebar-primary-foreground: #f6f0e8;
-  --sidebar-accent: #f3ede4;
-  --sidebar-accent-foreground: #120204;
-  --sidebar-border: rgb(57 10 22 / 18%);
-  --sidebar-ring: #390a16;
+  --sidebar: #f2efea;
+  --sidebar-foreground: #4a1020;
+  --sidebar-primary: #4a1020;
+  --sidebar-primary-foreground: #f2efea;
+  --sidebar-accent: #f2efea;
+  --sidebar-accent-foreground: #4a1020;
+  --sidebar-border: rgb(74 16 32 / 18%);
+  --sidebar-ring: #4a1020;
 }
 
 @layer base {
@@ -152,12 +148,12 @@
   }
 
   html {
-    @apply bg-ivory font-sans text-chocolate;
+    @apply bg-cream font-sans text-burgundy;
     scroll-behavior: smooth;
   }
 
   body {
-    @apply min-h-full bg-ivory text-chocolate antialiased;
+    @apply min-h-full bg-cream text-burgundy antialiased;
     font-weight: 300;
     letter-spacing: 0.01em;
   }
@@ -166,17 +162,17 @@
   h2,
   h3,
   h4,
-  .font-heading {
+  .font-heading,
+  .font-quote {
     font-family: var(--font-heading);
     font-weight: 300;
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 40, "opsz" 144;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 
   ::selection {
     background: var(--burgundy);
-    color: var(--ivory);
+    color: var(--cream);
   }
 }
 
@@ -187,39 +183,29 @@
 
   .rise,
   .rise-delay,
-  .rise-late {
+  .rise-late,
+  .hero-living img,
+  .hero-living video {
     animation: none !important;
   }
 }
 
-@utility animate-marquee {
-  animation: marquee 32s linear infinite;
-}
-
 @utility rise {
-  animation: rise 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @utility rise-delay {
-  animation: rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+  animation: rise 1.35s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
 }
 
 @utility rise-late {
-  animation: rise 1.25s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+  animation: rise 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
 }
 
-.grain-overlay {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  opacity: 0.035;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-}
-
-.marquee-track:hover .animate-marquee {
-  animation-play-state: paused;
+.hero-living img,
+.hero-living video {
+  animation: living 26s ease-out both;
+  will-change: transform;
 }
 
 .hairline {
@@ -228,88 +214,45 @@
   opacity: 0.18;
 }
 
-.hero-veil {
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    #0a0708 0%,
-    rgb(10 7 8 / 58%) 42%,
-    rgb(10 7 8 / 18%) 100%
-  );
-}
-
-.slide-veil {
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    #0a0708 0%,
-    rgb(10 7 8 / 48%) 100%
-  );
-}
-
-.founders-veil {
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgb(10 7 8 / 38%) 0%,
-    rgb(10 7 8 / 48%) 46%,
-    rgb(10 7 8 / 58%) 100%
-  );
-}
-
-.fur-veil {
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgb(10 7 8 / 42%) 0%,
-    rgb(10 7 8 / 52%) 44%,
-    rgb(10 7 8 / 68%) 100%
-  );
-}
-
-/* Neutral ink over the bright studio still so cream type reads. */
-.studio-veil {
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgb(10 7 8 / 58%) 0%,
-    rgb(10 7 8 / 62%) 42%,
-    rgb(10 7 8 / 74%) 100%
-  );
-}
-
-/* Thin ink only — no pink/rose wash over the Banff still. */
+.hero-veil,
+.slide-veil,
+.founders-veil,
+.fur-veil,
+.studio-veil,
 .banff-veil {
   pointer-events: none;
+  background: transparent;
+}
+
+/* Thin ink only — cream type over darker stills. Never wine on the photograph. */
+.fur-veil {
   background: linear-gradient(
-    to top,
-    rgb(10 7 8 / 28%) 0%,
-    rgb(10 7 8 / 10%) 42%,
-    rgb(10 7 8 / 4%) 100%
+    180deg,
+    rgb(10 7 8 / 18%) 0%,
+    rgb(10 7 8 / 28%) 48%,
+    rgb(10 7 8 / 42%) 100%
+  );
+}
+
+.studio-veil,
+.founders-veil,
+.slide-veil {
+  background: linear-gradient(
+    180deg,
+    rgb(10 7 8 / 22%) 0%,
+    rgb(10 7 8 / 30%) 46%,
+    rgb(10 7 8 / 46%) 100%
   );
 }
 
 .fur-plate,
 .satin-plate {
   background-color: #0a0708;
-  background-image:
-    radial-gradient(ellipse at 18% 16%, rgb(246 240 232 / 16%) 0 14%, transparent 38%),
-    radial-gradient(ellipse at 78% 24%, rgb(10 7 8 / 40%) 0 20%, transparent 46%),
-    radial-gradient(ellipse at 68% 86%, rgb(10 7 8 / 62%) 0 26%, transparent 52%),
-    linear-gradient(158deg, #0a0708 0%, #120204 100%);
 }
 
 .snow-veil,
 .satin-veil {
-  background-image:
-    linear-gradient(
-      122deg,
-      rgb(246 240 232 / 12%) 0%,
-      transparent 34%,
-      rgb(10 7 8 / 18%) 64%,
-      rgb(10 7 8 / 22%) 100%
-    ),
-    radial-gradient(ellipse at 28% 18%, rgb(246 240 232 / 10%), transparent 42%);
+  background: transparent;
 }
 
 .quiet-link {
@@ -320,11 +263,53 @@
   border-bottom: 1px solid currentColor;
   background: none;
   letter-spacing: 0.04em;
-  transition: opacity 0.45s ease, border-color 0.45s ease;
+  transition: opacity 0.45s ease;
 }
 
 .quiet-link:hover {
   opacity: 0.5;
+}
+
+.wine-fill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: #4a1020;
+  color: #f2efea;
+  padding: 0.95rem 1.55rem;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: none;
+  transition: opacity 0.4s ease;
+}
+
+.wine-fill:hover,
+.wine-fill:focus-visible {
+  opacity: 0.78;
+  background: #4a1020;
+  color: #f2efea;
+}
+
+.wine-fill:disabled {
+  opacity: 0.45;
+}
+
+.wine-fill-on-wine {
+  background: #f2efea;
+  color: #4a1020;
+}
+
+.wine-fill-on-wine:hover,
+.wine-fill-on-wine:focus-visible {
+  background: #f2efea;
+  color: #4a1020;
+  opacity: 0.78;
 }
 
 .field-line {
@@ -337,7 +322,7 @@
 
 .field-line:focus,
 .field-line:focus-visible {
-  border-bottom-color: var(--burgundy);
+  border-bottom-color: currentColor;
   box-shadow: none;
   outline: none;
 }

@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 
 import {
-  BanffTakeaway,
+  BanffStill,
   CopyParagraphs,
   SectionKicker,
   SpeakersSection,
   StorySection,
 } from "@/components/editorial-sections";
-import { JoinWaitlistLink, WaitlistSection } from "@/components/join-waitlist";
-import { HeroCinematic, MediaFrame } from "@/components/media-frame";
+import { HeroOpen } from "@/components/hero-open";
+import { WaitlistSection } from "@/components/join-waitlist";
+import { MediaFrame } from "@/components/media-frame";
 import { StyleGuideSection } from "@/components/style-guide-section";
-import { TicketCta } from "@/components/ticket-cta";
-import { VenueAddress } from "@/components/venue-address";
 import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 import { site } from "@/lib/site";
@@ -23,29 +22,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section data-hero className="relative min-h-[100svh] overflow-hidden bg-ink">
-        <HeroCinematic
-          video={mediaSlots.heroVideo}
-          still={mediaSlots.heroStill}
-          className="absolute inset-0 aspect-auto min-h-[100svh]"
-        />
-        <div className="hero-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-end px-6 pb-16 pt-36 md:px-12 md:pb-24">
-          <VenueAddress className="rise text-[10px] tracking-[0.3em] text-cream/70 uppercase" />
-          <h1 className="font-heading rise-delay mt-7 max-w-5xl text-[3.15rem] leading-[0.96] font-light text-cream sm:text-6xl md:text-[6.4rem]">
-            {copy.hero.title}
-          </h1>
-          <p className="rise-late mt-8 max-w-xl text-base leading-[1.7] font-light text-ivory/88 md:text-[1.2rem]">
-            {copy.hero.body}
-          </p>
-          <div className="rise-late mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
-            <JoinWaitlistLink href="#waitlist" />
-            <TicketCta />
-          </div>
-        </div>
-      </section>
+      <HeroOpen />
 
-      <section id="the-event" className="bg-ivory">
+      <section id="the-event" className="bg-cream">
         <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
           <SectionKicker>{copy.event.heading}</SectionKicker>
           <CopyParagraphs
@@ -57,8 +36,8 @@ export default function Home() {
 
       <StorySection />
 
-      <section id="why-banff" className="bg-ivory">
-        <BanffTakeaway />
+      <section id="why-banff" className="bg-cream">
+        <BanffStill />
         <div className="mx-auto grid max-w-[88rem] items-start gap-12 px-6 py-24 md:grid-cols-2 md:gap-16 md:px-12 md:py-32">
           <div>
             <SectionKicker>{copy.whyBanff.heading}</SectionKicker>
@@ -96,16 +75,16 @@ export default function Home() {
 
       <SpeakersSection />
 
-      <section id="event-details" className="bg-ivory">
+      <section id="event-details" className="bg-burgundy text-cream">
         <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
-          <SectionKicker>{copy.eventDetails.heading}</SectionKicker>
-          <p className="font-heading mt-8 max-w-4xl text-3xl leading-[1.12] font-light text-chocolate md:text-6xl">
+          <SectionKicker tone="dark">{copy.eventDetails.heading}</SectionKicker>
+          <p className="font-heading mt-10 max-w-5xl text-[clamp(2.4rem,5.2vw,6.4rem)] leading-[0.96] font-light text-cream">
             {copy.eventDetails.whenWhere}
           </p>
-          <p className="mt-8 max-w-2xl text-base leading-[1.75] font-light text-chocolate/80 md:text-lg">
+          <p className="mt-10 max-w-2xl text-base leading-[1.75] font-light text-cream/80 md:text-lg">
             {copy.eventDetails.body}
           </p>
-          <p className="mt-8 max-w-2xl text-base leading-[1.75] font-light text-chocolate/80 md:text-lg">
+          <p className="font-heading mt-12 max-w-3xl text-3xl leading-[1.15] font-light text-cream italic md:text-5xl">
             {copy.eventDetails.ticket}
           </p>
         </div>
@@ -113,15 +92,17 @@ export default function Home() {
 
       <StyleGuideSection />
 
-      <section className="relative min-h-[80svh] overflow-hidden bg-ink">
+      <section className="relative min-h-[70svh] overflow-hidden bg-ink">
         <MediaFrame
           slot={mediaSlots.backgroundStudio}
           fill
           quiet
-          className="absolute inset-0 aspect-auto min-h-[80svh]"
+          className="absolute inset-0 aspect-auto min-h-[70svh]"
         />
-        <div className="studio-veil absolute inset-0" />
-        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-[88rem] flex-col justify-end px-6 py-24 md:px-12 md:py-32">
+      </section>
+
+      <section className="bg-burgundy text-cream">
+        <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">
           <SectionKicker tone="dark">{copy.waitlist.heading}</SectionKicker>
           <div className="mt-10">
             <WaitlistSection tone="dark" />
