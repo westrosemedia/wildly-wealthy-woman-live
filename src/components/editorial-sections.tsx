@@ -129,7 +129,6 @@ export function StorySection() {
           quiet
           className="absolute inset-0 aspect-auto min-h-[70svh]"
         />
-        <div className="founders-veil absolute inset-0" />
       </figure>
 
       <div className="mx-auto max-w-[88rem] px-6 py-24 md:px-12 md:py-32">

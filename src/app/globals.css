@@ -231,8 +231,8 @@
   background: linear-gradient(
     to top,
     #0a0708 0%,
-    rgb(18 2 4 / 58%) 42%,
-    rgb(18 2 4 / 18%) 100%
+    rgb(10 7 8 / 58%) 42%,
+    rgb(10 7 8 / 18%) 100%
   );
 }
 
@@ -240,8 +240,8 @@
   pointer-events: none;
   background: linear-gradient(
     to top,
-    #120204 0%,
-    rgb(18 2 4 / 48%) 100%
+    #0a0708 0%,
+    rgb(10 7 8 / 48%) 100%
   );
 }
 
@@ -249,8 +249,8 @@
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgb(18 2 4 / 38%) 0%,
-    rgb(57 10 22 / 48%) 46%,
+    rgb(10 7 8 / 38%) 0%,
+    rgb(10 7 8 / 48%) 46%,
     rgb(10 7 8 / 58%) 100%
   );
 }
@@ -260,30 +260,30 @@
   background: linear-gradient(
     180deg,
     rgb(10 7 8 / 42%) 0%,
-    rgb(57 10 22 / 52%) 44%,
+    rgb(10 7 8 / 52%) 44%,
     rgb(10 7 8 / 68%) 100%
   );
 }
 
-/* Ink / burgundy over the bright studio still so cream type reads. */
+/* Neutral ink over the bright studio still so cream type reads. */
 .studio-veil {
   pointer-events: none;
   background: linear-gradient(
     180deg,
     rgb(10 7 8 / 58%) 0%,
-    rgb(57 10 22 / 62%) 42%,
+    rgb(10 7 8 / 62%) 42%,
     rgb(10 7 8 / 74%) 100%
   );
 }
 
 .fur-plate,
 .satin-plate {
-  background-color: #390a16;
+  background-color: #0a0708;
   background-image:
     radial-gradient(ellipse at 18% 16%, rgb(246 240 232 / 16%) 0 14%, transparent 38%),
-    radial-gradient(ellipse at 78% 24%, rgb(132 46 68 / 58%) 0 20%, transparent 46%),
+    radial-gradient(ellipse at 78% 24%, rgb(10 7 8 / 40%) 0 20%, transparent 46%),
     radial-gradient(ellipse at 68% 86%, rgb(10 7 8 / 62%) 0 26%, transparent 52%),
-    linear-gradient(158deg, #842e44 0%, #5a1828 32%, #390a16 58%, #23040b 82%, #120204 100%);
+    linear-gradient(158deg, #0a0708 0%, #120204 100%);
 }
 
 .snow-veil,
@@ -291,12 +291,12 @@
   background-image:
     linear-gradient(
       122deg,
-      rgb(246 240 232 / 20%) 0%,
+      rgb(246 240 232 / 12%) 0%,
       transparent 34%,
-      rgb(18 2 4 / 18%) 64%,
-      rgb(132 46 68 / 22%) 100%
+      rgb(10 7 8 / 18%) 64%,
+      rgb(10 7 8 / 22%) 100%
     ),
-    radial-gradient(ellipse at 28% 18%, rgb(246 240 232 / 14%), transparent 42%);
+    radial-gradient(ellipse at 28% 18%, rgb(246 240 232 / 10%), transparent 42%);
 }
 
 .quiet-link {
