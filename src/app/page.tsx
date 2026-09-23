@@ -111,6 +111,9 @@ export default function Home() {
           <p className="mt-8 max-w-2xl text-base leading-[1.75] font-light text-chocolate/80 md:text-lg">
             {copy.eventDetails.body}
           </p>
+          <p className="mt-8 max-w-2xl text-base leading-[1.75] font-light text-chocolate/80 md:text-lg">
+            {copy.eventDetails.ticket}
+          </p>
         </div>
       </section>
 
