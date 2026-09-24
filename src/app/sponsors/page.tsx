@@ -22,7 +22,9 @@ export default function SponsorsPage() {
 
       <section className="bg-cream">
         <div className="house-wrap">
-          <SectionKicker>{copy.brandPartners.heading}</SectionKicker>
+          <h2 className="font-heading text-5xl leading-[0.96] font-light text-pretty text-burgundy md:text-7xl">
+            {copy.brandPartners.heading}
+          </h2>
           <CopyParagraphs
             className="mt-10 max-w-2xl"
             paragraphs={copy.brandPartners.paragraphs}
