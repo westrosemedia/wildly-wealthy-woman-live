@@ -58,14 +58,6 @@ export default function Home() {
         </div>
       </section>
 
-      <QuoteBand
-        id="quote-watching"
-        slot={mediaSlots.backgroundStudio}
-        quote={copy.watching.beats[2].text}
-        size="short"
-        position="50% 32%"
-      />
-
       <StorySection />
 
       <WhyBanffSection />

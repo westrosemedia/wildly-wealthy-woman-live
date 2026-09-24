@@ -227,10 +227,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40svh;
-  max-height: 50svh;
+  min-height: 34svh;
   overflow: hidden;
   background: #0a0708;
+}
+
+@media (min-width: 768px) {
+  .quote-band {
+    min-height: 40vh;
+    max-height: 52vh;
+  }
 }
 
 .quote-band-photo {
@@ -252,41 +258,32 @@
 .quote-band-veil {
   position: absolute;
   inset: 0;
-  background: rgb(10 7 8 / 0.64);
+  background: rgb(10 7 8 / 0.58);
 }
 
 .quote-band-copy {
   position: relative;
   z-index: 1;
-  width: min(100%, 58rem);
+  width: min(100%, 54rem);
   margin-inline: auto;
-  padding: 2.75rem 1.5rem;
+  padding: 2.25rem 1.5rem;
 }
 
 @media (min-width: 768px) {
   .quote-band-copy {
-    padding: 3.25rem 3rem;
+    padding: 2.75rem 3rem;
   }
 }
 
-.quote-band-takeaway,
-.quote-band-line {
+.quote-band-takeaway {
   font-family: var(--font-heading);
   font-weight: 300;
   font-style: italic;
   letter-spacing: -0.03em;
   color: #f2efea;
   text-align: center;
-}
-
-.quote-band-takeaway {
-  font-size: clamp(1.4rem, 3.1vw, 2.45rem);
-  line-height: 1.22;
-}
-
-.quote-band-line {
-  font-size: clamp(1.85rem, 4.6vw, 3.4rem);
-  line-height: 1.12;
+  font-size: clamp(1.35rem, 2.8vw, 2.35rem);
+  line-height: 1.24;
 }
 
 
