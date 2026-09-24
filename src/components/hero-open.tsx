@@ -4,8 +4,7 @@ import { mediaSlots } from "@/lib/media";
 /**
  * Hero film (hero.mp4) with cactus still as poster.
  * Footage only — no headline, body, CTA, quote, or lockup on the video.
- * Home: muted autoplay loop. /sponsors: same file, sound if the browser allows,
- * otherwise a muted loop that unmutes on the first page gesture — no play plate.
+ * Home: muted autoplay loop. /sponsors: same file, with sound + controls.
  */
 export function HeroOpen({ sound = false }: { sound?: boolean }) {
   return (
