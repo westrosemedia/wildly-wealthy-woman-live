@@ -259,7 +259,7 @@ export function HeroCinematic({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
-  const [needsGesture, setNeedsGesture] = useState(sound);
+  const [needsGesture, setNeedsGesture] = useState(false);
 
   useEffect(() => {
     if (!sound) return;
@@ -282,7 +282,12 @@ export function HeroCinematic({
       });
     }
 
+    const fallback = window.setTimeout(() => {
+      if (el.paused) setNeedsGesture(true);
+    }, 400);
+
     return () => {
+      window.clearTimeout(fallback);
       el.removeEventListener("play", hidePlay);
       el.removeEventListener("playing", hidePlay);
     };
