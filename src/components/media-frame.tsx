@@ -254,7 +254,7 @@ export function HeroCinematic({
   video: MediaSlot;
   still: MediaSlot;
   className?: string;
-  /** /sponsors: try sound without a play plate. Home stays muted autoplay. */
+  /** Home and /sponsors: try sound without a play plate. */
   sound?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);

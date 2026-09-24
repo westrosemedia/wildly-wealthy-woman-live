@@ -28,7 +28,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "hero.mp4 (optional poster: hero.jpg)",
     // Native 1920×1080. Hero uses contain / width 100% — do not crop.
-    // Same file on home (muted) and /sponsors (with sound). Do not duplicate.
+    // Same file on home and /sponsors (sound on both). Do not duplicate.
     aspect: "aspect-video",
   },
   heroStill: {

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <HeroOpen />
+      <HeroOpen sound />
 
       <HighLevelBand />
 
