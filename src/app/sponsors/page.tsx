@@ -83,7 +83,7 @@ export default function SponsorsPage() {
 
       <section className="bg-cream" aria-label="Reach proof">
         <div className="house-wrap">
-          <p className="body-copy mb-10 max-w-3xl text-pretty text-burgundy md:mb-14 md:text-xl">
+          <p className="mb-10 max-w-3xl text-pretty text-2xl leading-[1.45] font-light text-burgundy md:mb-14 md:text-3xl">
             {copy.reach.proofLead}
           </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:gap-8">
