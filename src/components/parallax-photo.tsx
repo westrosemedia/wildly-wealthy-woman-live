@@ -74,6 +74,7 @@ function bind() {
   reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
   reduceMq.addEventListener("change", requestPaint);
   window.addEventListener("scroll", onScroll, { passive: true });
+  document.addEventListener("scroll", onScroll, { passive: true, capture: true });
   window.addEventListener("resize", requestPaint);
   window.visualViewport?.addEventListener("resize", requestPaint);
   window.visualViewport?.addEventListener("scroll", onScroll);
@@ -85,6 +86,7 @@ function unbind() {
   reduceMq?.removeEventListener("change", requestPaint);
   reduceMq = null;
   window.removeEventListener("scroll", onScroll);
+  document.removeEventListener("scroll", onScroll, { capture: true });
   window.removeEventListener("resize", requestPaint);
   window.visualViewport?.removeEventListener("resize", requestPaint);
   window.visualViewport?.removeEventListener("scroll", onScroll);
