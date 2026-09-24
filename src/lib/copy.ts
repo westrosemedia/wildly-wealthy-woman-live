@@ -156,6 +156,15 @@ export const copy = {
       { figure: "24.9k+", label: "Instagram" },
     ] as const,
   },
+  /**
+   * Named seats only. Stephanie will fill prices and perks later —
+   * do not invent package copy.
+   */
+  packages: {
+    heading: "Sponsorship Packages",
+    empty: "Details to come.",
+    tiers: ["Platinum", "Gold", "Silver", "Bronze"] as const,
+  },
   brandPartners: {
     heading: "Why We're Inviting Brand Partners",
     paragraphs: [

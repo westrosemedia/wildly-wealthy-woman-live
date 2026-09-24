@@ -163,6 +163,50 @@ const founderCards = [
   copy.founders.melissa,
 ] as const;
 
+/**
+ * Sponsors deck: four named seats. Empty until Stephanie fills prices/perks.
+ * Platinum is wine-filled; the rest stay cream with a hairline. Not a pricing grid.
+ */
+export function SponsorshipPackagesSection() {
+  return (
+    <section id="sponsorship-packages" className="bg-cream">
+      <div className="house-wrap">
+        <h2 className="font-heading text-5xl leading-[0.96] font-light text-pretty text-burgundy md:text-7xl">
+          {copy.packages.heading}
+        </h2>
+        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
+          {copy.packages.tiers.map((tier) => {
+            const elevated = tier === "Platinum";
+            return (
+              <article
+                key={tier}
+                className={cn(
+                  "flex min-h-[16.5rem] flex-col justify-between px-7 py-8 md:min-h-[19rem] md:px-8 md:py-10",
+                  elevated
+                    ? "border border-burgundy bg-burgundy text-cream"
+                    : "border border-burgundy/22 bg-cream text-burgundy",
+                )}
+              >
+                <h3 className="font-heading text-3xl leading-none font-light md:text-4xl">
+                  {tier}
+                </h3>
+                <p
+                  className={cn(
+                    "text-sm font-light tracking-[0.04em]",
+                    elevated ? "text-cream/58" : "text-burgundy/42",
+                  )}
+                >
+                  {copy.packages.empty}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Sponsors: three isolated cream columns. Portraits stay on home Story only. */
 export function FoundersSection() {
   return (

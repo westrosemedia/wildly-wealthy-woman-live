@@ -4,6 +4,7 @@ import {
   CopyParagraphs,
   FoundersSection,
   SectionKicker,
+  SponsorshipPackagesSection,
 } from "@/components/editorial-sections";
 import { HeroOpen } from "@/components/hero-open";
 import { WaitlistSection } from "@/components/join-waitlist";
@@ -92,6 +93,8 @@ export default function SponsorsPage() {
           </div>
         </div>
       </section>
+
+      <SponsorshipPackagesSection />
 
       <section id="why-sponsor" className="bg-cream">
         <div className="house-wrap grid min-w-0 items-start gap-12 md:grid-cols-2 md:gap-20">
