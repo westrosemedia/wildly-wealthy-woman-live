@@ -5,23 +5,20 @@ import type { MediaSlot } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
 /**
- * Stephanie’s four-column template: text | photo | text | photo.
- * Equal columns on desktop, stacked on mobile. Medium type — not a billboard.
+ * Home four-column band: text | photo | text | photo.
+ * Four 1:1 tiles — 2×2 on small screens, one full-width row from md up.
  */
 export function SplitRow({
   children,
   className,
-  tall = false,
 }: {
   children: ReactNode;
   className?: string;
-  tall?: boolean;
 }) {
   return (
     <div
       className={cn(
-        "grid grid-cols-1 items-stretch md:grid-cols-4",
-        tall ? "md:min-h-[calc(100svh-5.25rem)]" : "md:min-h-[min(36rem,62svh)]",
+        "grid w-full grid-cols-2 gap-0 md:grid-cols-4",
         className,
       )}
     >
@@ -49,11 +46,11 @@ export function SplitCopy({
   return (
     <div
       className={cn(
-        "flex h-full flex-col justify-center px-8 py-16 md:px-9 md:py-20 lg:px-11",
+        "@container flex aspect-square min-h-0 w-full flex-col justify-center overflow-hidden px-[7%] py-[8%]",
         ink ? "bg-[#0A0708] text-[#F2EFEA]" : "bg-[#F2EFEA] text-[#4A1020]",
       )}
     >
-      <Title className="font-heading max-w-[20ch] text-[1.7rem] leading-[1.12] font-light tracking-[-0.03em] md:text-[1.85rem] lg:text-[2.05rem]">
+      <Title className="font-heading max-w-[16ch] text-[clamp(1.05rem,9.5cqi,1.85rem)] leading-[1.12] font-light tracking-[-0.03em]">
         {headline}
         {"\u00a0"}
         <span
@@ -64,11 +61,11 @@ export function SplitCopy({
         </span>
       </Title>
       {line ? (
-        <p className="mt-6 max-w-[28ch] text-[0.95rem] leading-[1.55] font-light md:text-[1rem]">
+        <p className="mt-[0.55em] max-w-[28ch] text-[clamp(0.68rem,4.4cqi,0.92rem)] leading-[1.35] font-light">
           {line}
         </p>
       ) : null}
-      {action ? <div className="mt-10">{action}</div> : null}
+      {action ? <div className="mt-4">{action}</div> : null}
     </div>
   );
 }
@@ -87,7 +84,7 @@ export function SplitPhoto({
   return (
     <div
       className={cn(
-        "relative min-h-[58vh] overflow-hidden bg-[#0A0708] md:min-h-0 md:h-full",
+        "relative aspect-square min-h-0 w-full overflow-hidden bg-[#0A0708]",
         className,
       )}
     >

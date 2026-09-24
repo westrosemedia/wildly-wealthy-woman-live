@@ -213,8 +213,8 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Hands on white fur with gold rings",
     caption: "",
     filename: "high-level-01.jpg",
-    aspect: "aspect-[4/5]",
-    objectClass: "object-[50%_48%]",
+    aspect: "aspect-square",
+    objectClass: "object-[50%_46%] scale-[1.08] origin-center",
   },
   highLevel02: {
     id: "highLevel02",
@@ -223,8 +223,8 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Hand on a red steering wheel",
     caption: "",
     filename: "high-level-02.jpg",
-    aspect: "aspect-[4/5]",
-    objectClass: "object-[42%_58%]",
+    aspect: "aspect-square",
+    objectClass: "object-[50%_44%] scale-[1.08] origin-center",
   },
   whySponsorStill: {
     id: "whySponsorStill",
