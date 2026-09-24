@@ -14,6 +14,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `stephanie.jpg` — Stephanie, red convertible in the badlands. Home, The Story, Stephanie paragraph only. Not the hero.
 - `melissa.jpg` — Melissa, cream dress at sunset. Home, The Story, Melissa paragraph only.
 - `event.jpg` — Banff Springs Hotel. Home, Why Banff, only.
+- `section-break-mountains.jpg` — Banff Springs / mountains still. Home slim breaker between The Event and Who this is for only. Do not reuse on Why Banff.
 - `room.jpg` — interior room. Home, Event Details, only.
 - `speakers-bridget-jackie.jpg` — Bridget James Ling and Jackie. Home, Speakers, only.
 - `sponsors.jpg` — panel still behind Our Reach stats on `/sponsors` `#reach` only. Do not repeat.

@@ -48,11 +48,20 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="house-rule" role="separator" aria-hidden>
-        <span className="house-rule-line" />
-        <span className="house-rule-mark" />
-        <span className="house-rule-line" />
-      </div>
+      <figure
+        id="section-break"
+        className="section-break"
+        role="separator"
+        aria-label={mediaSlots.sectionBreakMountains.alt}
+      >
+        <MediaFrame
+          slot={mediaSlots.sectionBreakMountains}
+          fill
+          quiet
+          className="absolute inset-0 aspect-auto h-full"
+        />
+        <div className="section-break-veil" aria-hidden />
+      </figure>
 
       <section id="who-this-is-for" className="bg-cream">
         <div className="house-wrap house-wrap-open">

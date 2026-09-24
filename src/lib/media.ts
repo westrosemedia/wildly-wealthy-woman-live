@@ -81,6 +81,17 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[16/10]",
     objectClass: "object-[52%_48%]",
   },
+  sectionBreakMountains: {
+    id: "sectionBreakMountains",
+    kind: "image",
+    src: "/media/section-break-mountains.jpg",
+    alt: "Banff Springs Hotel and mountains",
+    caption: "",
+    filename: "section-break-mountains.jpg",
+    // Slim breaker between The Event and Who this is for only. Not Why Banff.
+    aspect: "aspect-[21/5]",
+    objectClass: "object-[52%_40%]",
+  },
   banffSprings: {
     id: "banffSprings",
     kind: "image",
