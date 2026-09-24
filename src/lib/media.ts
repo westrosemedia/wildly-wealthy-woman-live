@@ -280,9 +280,9 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Melissa",
     caption: "",
     filename: "melissa-sponsors.jpg",
-    // Window still, sunglasses and fur. /sponsors Meet the women / Melissa only.
+    // Window still, sunglasses and fur. /sponsors Meet the women background only.
     aspect: "aspect-[2/3]",
-    objectClass: "object-[50%_42%]",
+    objectClass: "object-[52%_34%]",
   },
   hotelPool: {
     id: "hotelPool",
