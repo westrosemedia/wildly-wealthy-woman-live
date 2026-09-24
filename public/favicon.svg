@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wildly Wealthy Woman LIVE">
   <rect width="64" height="64" fill="#4A1020"/>
-  <text x="32" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#F2EFEA">W</text>
+  <path fill="#F2EFEA" d="M33.1 22.32 25.39 45.84H17.99L11.93 19.74L8.32 18.67V16.7H22.8V18.67L19.4 19.59L24.19 42.25L22.72 42.37L30.67 16.62H37.04L45.58 42.67L43.69 43.07L48.17 19.63L44.82 18.67V16.7H55.68V18.67L52.33 19.59L46.41 45.84H39.32L31.72 22.44Z"/>
 </svg>
