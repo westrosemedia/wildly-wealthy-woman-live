@@ -1,6 +1,6 @@
 "use client";
 
-import { Camera, Clapperboard, Play } from "lucide-react";
+import { Camera, Clapperboard } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -254,53 +254,68 @@ export function HeroCinematic({
   video: MediaSlot;
   still: MediaSlot;
   className?: string;
-  /** /sponsors: unmuted, with controls. Home stays muted autoplay. */
+  /** /sponsors: try sound without a play plate. Home stays muted autoplay. */
   sound?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
-  const [needsGesture, setNeedsGesture] = useState(sound);
 
   useEffect(() => {
     if (!sound) return;
     const el = videoRef.current;
     if (!el) return;
 
-    el.muted = false;
-    el.defaultMuted = false;
-    el.volume = 1;
+    let disposed = false;
+    const gestures = ["pointerdown", "keydown"] as const;
 
-    const hidePlay = () => setNeedsGesture(false);
-    el.addEventListener("play", hidePlay);
-    el.addEventListener("playing", hidePlay);
+    const unmute = () => {
+      if (disposed) return;
+      el.muted = false;
+      el.defaultMuted = false;
+      el.volume = 1;
+      void el.play().catch(() => {});
+      for (const event of gestures) {
+        window.removeEventListener(event, unmute);
+      }
+    };
 
-    if (!el.paused) {
-      hidePlay();
-    } else {
-      void el.play().then(hidePlay).catch(() => {
-        if (el.paused) setNeedsGesture(true);
-      });
+    const listenForUnmute = () => {
+      for (const event of gestures) {
+        window.addEventListener(event, unmute);
+      }
+    };
+
+    // Muted autoplay so the loop always starts. Listen for the first
+    // click/key anywhere to unmute — no overlay. Also try sound immediately
+    // in case this document already has a user gesture.
+    listenForUnmute();
+    el.muted = true;
+    const start = el.play();
+    const trySound = () => {
+      if (disposed) return;
+      el.muted = false;
+      el.defaultMuted = false;
+      el.volume = 1;
+      const attempt = el.play();
+      if (attempt) {
+        void attempt.catch(() => {
+          if (disposed) return;
+          el.muted = true;
+          void el.play().catch(() => {});
+        });
+      }
+    };
+    if (start) {
+      void start.then(trySound).catch(() => {});
     }
 
     return () => {
-      el.removeEventListener("play", hidePlay);
-      el.removeEventListener("playing", hidePlay);
+      disposed = true;
+      for (const event of gestures) {
+        window.removeEventListener(event, unmute);
+      }
     };
   }, [sound]);
-
-  function startWithSound() {
-    const el = videoRef.current;
-    if (!el) return;
-    el.muted = false;
-    el.defaultMuted = false;
-    el.volume = 1;
-    void el
-      .play()
-      .then(() => setNeedsGesture(false))
-      .catch(() => {
-        if (el.paused) setNeedsGesture(true);
-      });
-  }
 
   // Full-width 16:9 contain — never fill/cover. Native poster uses the same box.
   if (videoFailed) {
@@ -314,59 +329,24 @@ export function HeroCinematic({
     );
   }
 
-  if (!sound) {
-    return (
-      <video
-        className={cn("hero-film-media", className)}
-        poster={still.src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        onError={() => setVideoFailed(true)}
-      >
-        <source
-          src={video.src}
-          type="video/mp4"
-          onError={() => setVideoFailed(true)}
-        />
-      </video>
-    );
-  }
-
   return (
-    <div className="hero-film-sound">
-      <video
-        ref={videoRef}
-        className={cn("hero-film-media", className)}
-        poster={still.src}
-        autoPlay
-        playsInline
-        controls
-        preload="auto"
-        onPlay={() => setNeedsGesture(false)}
-        onPlaying={() => setNeedsGesture(false)}
+    <video
+      ref={sound ? videoRef : undefined}
+      className={cn("hero-film-media", className)}
+      poster={still.src}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      onError={() => setVideoFailed(true)}
+    >
+      <source
+        src={video.src}
+        type="video/mp4"
         onError={() => setVideoFailed(true)}
-      >
-        <source
-          src={video.src}
-          type="video/mp4"
-          onError={() => setVideoFailed(true)}
-        />
-      </video>
-      {needsGesture ? (
-        <button
-          type="button"
-          className="hero-film-play"
-          onClick={startWithSound}
-          aria-label="Play with sound"
-        >
-          <Play className="size-4" strokeWidth={1.5} fill="currentColor" />
-          <span>Play</span>
-        </button>
-      ) : null}
-    </div>
+      />
+    </video>
   );
 }
 
