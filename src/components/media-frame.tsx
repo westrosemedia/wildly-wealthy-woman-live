@@ -285,19 +285,33 @@ export function HeroCinematic({
       }
     };
 
-    // Prefer unmuted autoplay. If the browser blocks it, keep a seamless
-    // muted loop and unmute on the first click/key anywhere — no overlay.
-    el.muted = false;
-    el.defaultMuted = false;
-    el.volume = 1;
-    const attempt = el.play();
-    if (attempt) {
-      void attempt.catch(() => {
+    // Muted autoplay so the loop always starts. Then try sound. If the
+    // browser blocks unmuted playback, stay looping and unmute on the
+    // first click/key anywhere — no overlay.
+    el.muted = true;
+    const start = el.play();
+    const trySound = () => {
+      if (disposed) return;
+      el.muted = false;
+      el.defaultMuted = false;
+      el.volume = 1;
+      const attempt = el.play();
+      if (attempt) {
+        void attempt.catch(() => {
+          if (disposed) return;
+          el.muted = true;
+          void el.play().catch(() => {});
+          listenForUnmute();
+        });
+      }
+    };
+    if (start) {
+      void start.then(trySound).catch(() => {
         if (disposed) return;
-        el.muted = true;
-        void el.play().catch(() => {});
         listenForUnmute();
       });
+    } else {
+      listenForUnmute();
     }
 
     return () => {
@@ -326,7 +340,7 @@ export function HeroCinematic({
       className={cn("hero-film-media", className)}
       poster={still.src}
       autoPlay
-      muted={!sound}
+      muted
       loop
       playsInline
       preload="auto"
