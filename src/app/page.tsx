@@ -11,6 +11,7 @@ import { HeroOpen } from "@/components/hero-open";
 import { HighLevelBand } from "@/components/high-level-band";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
+import { QuoteBand } from "@/components/quote-band";
 import { StyleGuideSection } from "@/components/style-guide-section";
 import { WatchingYouLive } from "@/components/watching-you-live";
 import { copy } from "@/lib/copy";
@@ -29,6 +30,13 @@ export default function Home() {
       <HighLevelBand />
 
       <WatchingYouLive />
+
+      <QuoteBand
+        id="quote-takeaway"
+        slot={mediaSlots.stephanieJackie}
+        quote={copy.takeaway}
+        position="50% 40%"
+      />
 
       <section id="the-event" className="bg-cream">
         <div className="house-wrap">
@@ -49,6 +57,14 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <QuoteBand
+        id="quote-watching"
+        slot={mediaSlots.backgroundStudio}
+        quote={copy.watching.beats[2].text}
+        size="short"
+        position="50% 32%"
+      />
 
       <StorySection />
 

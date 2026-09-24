@@ -221,6 +221,74 @@
   will-change: transform;
 }
 
+.quote-band {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40svh;
+  max-height: 50svh;
+  overflow: hidden;
+  background: #0a0708;
+}
+
+.quote-band-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+@media (min-width: 768px) {
+  @media (prefers-reduced-motion: no-preference) {
+    .quote-band-photo {
+      background-attachment: fixed;
+    }
+  }
+}
+
+.quote-band-veil {
+  position: absolute;
+  inset: 0;
+  background: rgb(10 7 8 / 0.64);
+}
+
+.quote-band-copy {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 58rem);
+  margin-inline: auto;
+  padding: 2.75rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .quote-band-copy {
+    padding: 3.25rem 3rem;
+  }
+}
+
+.quote-band-takeaway,
+.quote-band-line {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  color: #f2efea;
+  text-align: center;
+}
+
+.quote-band-takeaway {
+  font-size: clamp(1.4rem, 3.1vw, 2.45rem);
+  line-height: 1.22;
+}
+
+.quote-band-line {
+  font-size: clamp(1.85rem, 4.6vw, 3.4rem);
+  line-height: 1.12;
+}
+
 
 .house-wrap {
   width: 100%;

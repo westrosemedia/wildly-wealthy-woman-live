@@ -22,6 +22,8 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `proof-03.jpg` — third insights screenshot. Under the Our Reach plate only.
 - `why-sponsor.jpg` — studio audience, woman in white on a chair. `/sponsors` Why Sponsor only. Not the two-person panel.
 - `background-fur.jpg` — hand on white fur, rings. Home, The Bigger Mission, only.
+- `stephanie-jackie.jpg` — Stephanie and Jackie, cactus / pale wall. Home takeaway quote band only, after watching-you-live.
+- `background-studio.jpg` — three women, white studio. Home quote band only, after Who this is for.
 - `style-guide-01.jpg` — dress still. Home, Style guide, only.
 - `style-guide-02.jpg` — cream fur elevator. Home, Style guide, only.
 - `style-guide-03.jpg` — dark fur, Banff Springs behind. Home, Style guide, only.
@@ -30,8 +32,6 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 - `hero-rolls.jpg` — same convertible scene as `stephanie.jpg`, wider crop. Unused backup. Do not display. Not the hero.
 - `banff-springs.jpg` — same still as `event.jpg`. Do not place.
-- `stephanie-jackie.jpg` — Stephanie and Jackie pair. Unused. Hold for one future slot.
-- `background-studio.jpg` — three women, white studio. Unused. Hold for one future slot.
 
 ## Recap films (unused until sent)
 
