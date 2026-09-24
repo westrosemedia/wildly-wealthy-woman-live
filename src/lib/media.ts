@@ -273,6 +273,17 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[2/3]",
     objectClass: "object-[50%_32%]",
   },
+  melissaSponsors: {
+    id: "melissaSponsors",
+    kind: "image",
+    src: "/media/melissa-sponsors.jpg",
+    alt: "Melissa",
+    caption: "",
+    filename: "melissa-sponsors.jpg",
+    // Window still, sunglasses and fur. /sponsors Meet the women / Melissa only.
+    aspect: "aspect-[2/3]",
+    objectClass: "object-[50%_42%]",
+  },
 };
 
 mediaSlots.portrait = mediaSlots.jackiePortrait;

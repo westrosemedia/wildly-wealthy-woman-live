@@ -227,21 +227,41 @@ export function SponsorshipPackagesSection() {
   );
 }
 
-/** Sponsors: three isolated cream columns. Portraits stay on home Story only. */
+/** Sponsors: three cream columns. Melissa’s window portrait only — Stephanie and Jackie stay text. */
 export function FoundersSection() {
   return (
     <section id="founders" className="bg-cream">
       <div className="house-wrap">
         <h2 className="display max-w-3xl text-pretty text-burgundy">{copy.founders.heading}</h2>
         <div className="mt-16 grid grid-cols-1 items-start gap-x-16 gap-y-20 lg:grid-cols-3">
-          {founderCards.map((founder) => (
-            <article key={founder.name} className="min-w-0 space-y-6">
-              <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
-                {founder.name}
-              </h3>
-              <p className="body-copy text-burgundy/80">{founder.body}</p>
-            </article>
-          ))}
+          {founderCards.map((founder) => {
+            const portrait =
+              founder.name === "Melissa" ? mediaSlots.melissaSponsors : undefined;
+            return (
+              <article key={founder.name} className="min-w-0">
+                <div
+                  className={cn(
+                    "grid items-start",
+                    portrait
+                      ? "gap-8 sm:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] sm:gap-10 lg:grid-cols-1 lg:gap-6"
+                      : "gap-6",
+                  )}
+                >
+                  {portrait ? (
+                    <figure className="w-full max-w-[16rem]">
+                      <MediaFrame slot={portrait} />
+                    </figure>
+                  ) : null}
+                  <div className="min-w-0 space-y-6">
+                    <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
+                      {founder.name}
+                    </h3>
+                    <p className="body-copy text-burgundy/80">{founder.body}</p>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
         <p className="quote-sm mt-20 max-w-4xl text-pretty text-burgundy">{copy.founders.closer}</p>
       </div>
