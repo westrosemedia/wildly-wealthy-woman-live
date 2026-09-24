@@ -275,15 +275,24 @@
   }
 }
 
-.quote-band-takeaway {
+.quote-band-takeaway,
+.quote-band-line {
   font-family: var(--font-heading);
   font-weight: 300;
   font-style: italic;
   letter-spacing: -0.03em;
   color: #f2efea;
   text-align: center;
+}
+
+.quote-band-takeaway {
   font-size: clamp(1.35rem, 2.8vw, 2.35rem);
   line-height: 1.24;
+}
+
+.quote-band-line {
+  font-size: clamp(1.85rem, 4.6vw, 3.4rem);
+  line-height: 1.12;
 }
 
 

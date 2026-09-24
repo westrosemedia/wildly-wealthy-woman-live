@@ -1,4 +1,5 @@
 import type { MediaSlot } from "@/lib/media";
+import { cn } from "@/lib/utils";
 
 /**
  * Thin full-bleed photo quote strip.
@@ -8,11 +9,13 @@ export function QuoteBand({
   slot,
   quote,
   id,
+  size = "long",
   position = "50% 42%",
 }: {
   slot: MediaSlot;
   quote: string;
   id?: string;
+  size?: "long" | "short";
   position?: string;
 }) {
   return (
@@ -28,7 +31,14 @@ export function QuoteBand({
       />
       <div className="quote-band-veil" aria-hidden />
       <blockquote className="quote-band-copy">
-        <p className="quote-band-takeaway text-pretty">{quote}</p>
+        <p
+          className={cn(
+            "text-pretty",
+            size === "short" ? "quote-band-line" : "quote-band-takeaway",
+          )}
+        >
+          {quote}
+        </p>
       </blockquote>
     </section>
   );

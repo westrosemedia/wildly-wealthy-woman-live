@@ -148,7 +148,7 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "background-studio.jpg",
     aspect: "aspect-[9/16]",
-    // On disk, unused. Do not place — keep one file, one section.
+    // Home watching-you-live quote band only.
     objectClass: "object-[50%_68%]",
   },
   styleGuide01: {
