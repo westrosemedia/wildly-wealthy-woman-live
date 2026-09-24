@@ -27,9 +27,8 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Stephanie and Jackie",
     caption: "",
     filename: "hero.mp4 (optional poster: hero.jpg)",
-    aspect: "aspect-[4/5] md:aspect-[16/10]",
-    // Cactus / pink-wall pair. Never swap src/poster to hero-rolls.jpg.
-    objectClass: "object-[36%_62%] md:object-[48%_52%]",
+    // Native 1920×1080. Hero uses contain / width 100% — do not crop.
+    aspect: "aspect-video",
   },
   heroStill: {
     id: "heroStill",
@@ -38,9 +37,8 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Stephanie and Jackie",
     caption: "",
     filename: "hero.jpg",
-    aspect: "aspect-[4/5] md:aspect-[16/10]",
-    // Cactus / pink-wall Stephanie + Jackie. hero-rolls.jpg is backup only.
-    objectClass: "object-[36%_62%] md:object-[48%_52%]",
+    // Same 16:9 box as the film so the poster is not cropped either.
+    aspect: "aspect-video",
   },
   jackie: {
     id: "jackie",

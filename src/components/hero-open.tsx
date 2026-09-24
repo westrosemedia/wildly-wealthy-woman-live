@@ -7,14 +7,10 @@ import { mediaSlots } from "@/lib/media";
  */
 export function HeroOpen() {
   return (
-    <section
-      data-hero
-      className="relative min-h-[100svh] overflow-x-clip overflow-hidden bg-cream"
-    >
+    <section data-hero className="hero-film">
       <HeroCinematic
         video={mediaSlots.heroVideo}
         still={mediaSlots.heroStill}
-        className="absolute inset-0 aspect-auto min-h-[100svh] w-full"
       />
     </section>
   );

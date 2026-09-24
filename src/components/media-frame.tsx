@@ -254,8 +254,37 @@ export function HeroCinematic({
   still: MediaSlot;
   className?: string;
 }) {
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  // Full-width 16:9 contain — never fill/cover. Native poster uses the same box.
+  if (videoFailed) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={still.src}
+        alt={still.alt}
+        className={cn("hero-film-media", className)}
+      />
+    );
+  }
+
   return (
-    <MediaStillOrVideo video={video} still={still} className={className} fill />
+    <video
+      className={cn("hero-film-media", className)}
+      poster={still.src}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      onError={() => setVideoFailed(true)}
+    >
+      <source
+        src={video.src}
+        type="video/mp4"
+        onError={() => setVideoFailed(true)}
+      />
+    </video>
   );
 }
 

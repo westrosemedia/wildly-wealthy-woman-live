@@ -221,6 +221,38 @@
   will-change: transform;
 }
 
+/*
+  Home hero film: the entire 16:9 frame, full viewport width, no crop.
+  Height follows aspect ratio. Do not use object-fit:cover or a 100vh clip box.
+*/
+.hero-film {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  /* Sit below the fixed header so the top of the frame is not covered */
+  padding-top: 4.5rem;
+  background: #0a0708;
+}
+
+@media (min-width: 768px) {
+  .hero-film {
+    padding-top: 5.25rem;
+  }
+}
+
+.hero-film-media {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  background: #0a0708;
+}
+
 .quote-band {
   position: relative;
   isolation: isolate;
