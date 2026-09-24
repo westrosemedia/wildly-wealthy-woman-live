@@ -105,6 +105,32 @@ export const copy = {
     body: "Intimate setting, limited tickets available",
     ticket: "Ticket starting at $497 or $777 for a mother daughter duo",
   },
+  /**
+   * /tickets. Types split from her Event Details line — do not invent a third price.
+   */
+  tickets: {
+    heading: "Tickets",
+    note: "Intimate setting, limited tickets available",
+    types: [
+      {
+        name: "Ticket",
+        price: "Starting at $497",
+        detail: "Ticket starting at $497",
+      },
+      {
+        name: "Mother daughter duo",
+        price: "$777",
+        detail: "$777 for a mother daughter duo",
+      },
+    ],
+    rooms: {
+      heading: "Rooms",
+      hotel: "Fairmont Banff Springs Hotel",
+      when: "Banff Springs Hotel, March 2027",
+      body: "A room block is being arranged. The booking code will be posted here as soon as we have it. Use that code when you book through the hotel.",
+      cta: "Book the hotel",
+    },
+  },
   founders: {
     heading: "Meet the women behind it",
     stephanie: {

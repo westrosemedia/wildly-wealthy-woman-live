@@ -7,10 +7,13 @@ export const site = {
   venue: {
     hotel: "Fairmont Banff Springs Hotel",
     city: "Banff",
+    bookingUrl:
+      "https://www.fairmont.com/en/hotels/banff/fairmont-banff-springs.html",
   },
 } as const;
 
 export const nav = [
   { href: "/", label: "Home" },
+  { href: "/tickets", label: "Tickets" },
   { href: "/sponsors", label: "Sponsors" },
 ] as const;
