@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import {
   CopyParagraphs,
@@ -100,9 +101,9 @@ export default function Home() {
             <p className="body-copy mt-8 max-w-xl text-burgundy/80">
               {copy.eventDetails.body}
             </p>
-            <p className="quote-sm mt-10 max-w-xl text-pretty text-burgundy">
-              {copy.eventDetails.ticket}
-            </p>
+            <Link href="/tickets" className="wine-fill mt-10 inline-flex">
+              {copy.tickets.heading}
+            </Link>
           </div>
           <figure className="min-w-0">
             <MediaFrame slot={mediaSlots.eventRoom} />
