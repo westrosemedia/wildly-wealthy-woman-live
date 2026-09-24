@@ -199,14 +199,16 @@ export function SponsorshipPackagesSection() {
                   >
                     {tier.price}
                   </p>
-                  <p
-                    className={cn(
-                      "mt-5 text-sm leading-[1.65] font-light",
-                      elevated ? "text-cream/86" : "text-burgundy/80",
-                    )}
-                  >
-                    {tier.description}
-                  </p>
+                  {tier.description ? (
+                    <p
+                      className={cn(
+                        "mt-5 text-sm leading-[1.65] font-light",
+                        elevated ? "text-cream/86" : "text-burgundy/80",
+                      )}
+                    >
+                      {tier.description}
+                    </p>
+                  ) : null}
                 </div>
                 <ul
                   className={cn(
