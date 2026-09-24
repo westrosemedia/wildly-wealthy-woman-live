@@ -139,7 +139,9 @@ export const mediaSlots: Record<string, MediaSlot> = {
     caption: "",
     filename: "sponsors.jpg",
     aspect: "aspect-[3/2]",
-    objectClass: "object-[46%_42%]",
+    // Mobile cover crop is a tall strip — pin to the right of the panel.
+    // Desktop keeps the existing 46/42 frame.
+    objectClass: "object-[88%_50%] md:object-[46%_42%]",
   },
   backgroundFur: {
     id: "backgroundFur",
