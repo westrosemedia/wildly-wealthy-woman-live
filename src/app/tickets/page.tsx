@@ -21,9 +21,9 @@ export default function TicketsPage() {
           <p className="mt-8 max-w-xl text-base leading-[1.75] font-light text-burgundy/70 md:text-lg">
             {copy.tickets.note}
           </p>
-          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:gap-5">
-            {copy.tickets.types.map((ticket, index) => {
-              const elevated = index === 0;
+          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-5">
+            {copy.tickets.types.map((ticket) => {
+              const elevated = ticket.name === "VIP ticket";
               return (
                 <article
                   key={ticket.name}

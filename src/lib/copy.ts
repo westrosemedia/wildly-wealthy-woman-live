@@ -103,10 +103,11 @@ export const copy = {
     heading: "Event Details",
     whenWhere: "Banff Springs Hotel, March 2027",
     body: "Intimate setting, limited tickets available",
-    ticket: "Ticket starting at $497 or $777 for a mother daughter duo",
+    ticket:
+      "Ticket starting at $497 or $777 for a mother daughter duo. $997 for a VIP ticket.",
   },
   /**
-   * /tickets. Types split from her Event Details line — do not invent a third price.
+   * /tickets. Types from her Event Details line plus VIP at $997.
    */
   tickets: {
     heading: "Tickets",
@@ -121,6 +122,11 @@ export const copy = {
         name: "Mother daughter duo",
         price: "$777",
         detail: "$777 for a mother daughter duo",
+      },
+      {
+        name: "VIP ticket",
+        price: "$997",
+        detail: "$997 for a VIP ticket",
       },
     ],
     rooms: {
