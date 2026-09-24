@@ -54,11 +54,14 @@ export default function Home() {
         role="separator"
         aria-label={mediaSlots.sectionBreakMountains.alt}
       >
-        <MediaFrame
-          slot={mediaSlots.sectionBreakMountains}
-          fill
-          quiet
-          className="absolute inset-0 aspect-auto h-full"
+        <div
+          className="section-break-photo"
+          style={{
+            backgroundImage: `url(${mediaSlots.sectionBreakMountains.src})`,
+            backgroundPosition: "52% 40%",
+          }}
+          role="img"
+          aria-label={mediaSlots.sectionBreakMountains.alt}
         />
         <div className="section-break-veil" aria-hidden />
       </figure>
