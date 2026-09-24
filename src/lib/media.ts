@@ -269,9 +269,9 @@ export const mediaSlots: Record<string, MediaSlot> = {
     alt: "Melissa",
     caption: "",
     filename: "melissa.jpg",
-    // Sunset still is native 4/3. Home Story / Melissa only — do not reuse.
-    aspect: "aspect-[4/3]",
-    objectClass: "object-[50%_48%]",
+    // Garage / Bronco full-body still. Home Story / Melissa only — do not reuse.
+    aspect: "aspect-[2/3]",
+    objectClass: "object-[50%_32%]",
   },
 };
 

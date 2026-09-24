@@ -12,7 +12,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 - `high-level-02.jpg` — hand on a red steering wheel. Home four-column band, second photo cell only.
 - `jackie.jpg` — Jackie portrait. Home, The Story, only.
 - `stephanie.jpg` — Stephanie, red convertible in the badlands. Home, The Story, Stephanie paragraph only. Not the hero.
-- `melissa.jpg` — Melissa, cream dress at sunset. Home, The Story, Melissa paragraph only.
+- `melissa.jpg` — Melissa, fur coat and black Bronco in a parking garage. Home, The Story, Melissa paragraph only.
 - `event.jpg` — Banff Springs Hotel. Home, Why Banff, only.
 - `section-break-mountains.jpg` — Banff Springs / mountains still. Home slim breaker between The Event and Who this is for only. Do not reuse on Why Banff.
 - `room.jpg` — interior room. Home, Event Details, only.
