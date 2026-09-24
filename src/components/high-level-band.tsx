@@ -5,7 +5,6 @@ import { mediaSlots } from "@/lib/media";
 const notMoney = copy.watching.beats[1].text;
 const watching = copy.watching.beats[2].text;
 const fortune = copy.watching.beats[0].text;
-const support = `${copy.watching.beats[4].text} ${copy.watching.beats[5].text}`;
 
 /**
  * Home four-column band: text | photo | text | photo.
@@ -15,7 +14,7 @@ export function HighLevelBand() {
   return (
     <section id="high-level" className="bg-[#F2EFEA]">
       <SplitRow>
-        <SplitCopy tone="ink" headline={notMoney} line={support} as="h2" />
+        <SplitCopy tone="ink" headline={notMoney} as="h2" />
         <SplitPhoto slot={mediaSlots.highLevel01} />
         <SplitCopy tone="cream" headline={watching} line={fortune} as="h2" />
         <SplitPhoto slot={mediaSlots.highLevel02} />
