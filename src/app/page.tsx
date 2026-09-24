@@ -39,7 +39,7 @@ export default function Home() {
       />
 
       <section id="the-event" className="bg-cream">
-        <div className="house-wrap">
+        <div className="house-wrap house-wrap-close">
           <SectionKicker>{copy.event.heading}</SectionKicker>
           <CopyParagraphs
             className="mt-10 max-w-2xl"
@@ -48,8 +48,14 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="house-rule" role="separator" aria-hidden>
+        <span className="house-rule-line" />
+        <span className="house-rule-mark" />
+        <span className="house-rule-line" />
+      </div>
+
       <section id="who-this-is-for" className="bg-cream">
-        <div className="house-wrap">
+        <div className="house-wrap house-wrap-open">
           <SectionKicker>{copy.whoThisIsFor.heading}</SectionKicker>
           <CopyParagraphs
             className="mt-10 max-w-2xl"
