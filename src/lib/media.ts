@@ -284,7 +284,34 @@ export const mediaSlots: Record<string, MediaSlot> = {
     aspect: "aspect-[2/3]",
     objectClass: "object-[50%_42%]",
   },
+  hotelPool: {
+    id: "hotelPool",
+    kind: "image",
+    src: "/media/hotel-pool.jpg",
+    alt: "Fairmont Banff Springs pool",
+    caption: "",
+    filename: "hotel-pool.jpg",
+    // /tickets Rooms only.
+    aspect: "aspect-[4/5]",
+    objectClass: "object-[50%_55%]",
+  },
+  hotelSuite: {
+    id: "hotelSuite",
+    kind: "image",
+    src: "/media/hotel-suite.jpg",
+    alt: "Fairmont Banff Springs suite",
+    caption: "",
+    filename: "hotel-suite.jpg",
+    // /tickets Rooms only.
+    aspect: "aspect-[3/2]",
+    objectClass: "object-[50%_48%]",
+  },
 };
+
+export const hotelRoomStills: MediaSlot[] = [
+  mediaSlots.hotelPool,
+  mediaSlots.hotelSuite,
+];
 
 mediaSlots.portrait = mediaSlots.jackiePortrait;
 mediaSlots.about = mediaSlots.aboutJackie;

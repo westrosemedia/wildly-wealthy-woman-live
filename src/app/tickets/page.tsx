@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 
 import { SectionKicker } from "@/components/editorial-sections";
 import { WaitlistSection } from "@/components/join-waitlist";
+import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
+import { hotelRoomStills } from "@/lib/media";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -63,23 +65,32 @@ export default function TicketsPage() {
       </section>
 
       <section id="rooms" className="bg-cream">
-        <div className="house-wrap max-w-3xl">
-          <SectionKicker>{copy.tickets.rooms.heading}</SectionKicker>
-          <h2 className="font-heading mt-8 text-4xl leading-[1.05] font-light text-pretty text-burgundy md:text-5xl">
-            {copy.tickets.rooms.hotel}
-          </h2>
-          <p className="mt-4 text-sm font-light tracking-[0.04em] text-burgundy/42">
-            {copy.tickets.rooms.when}
-          </p>
-          <p className="body-copy mt-8 text-burgundy/80">{copy.tickets.rooms.body}</p>
-          <a
-            href={site.venue.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="wine-fill mt-10 inline-flex"
-          >
-            {copy.tickets.rooms.cta}
-          </a>
+        <div className="house-wrap">
+          <div className="max-w-3xl">
+            <SectionKicker>{copy.tickets.rooms.heading}</SectionKicker>
+            <h2 className="font-heading mt-8 text-4xl leading-[1.05] font-light text-pretty text-burgundy md:text-5xl">
+              {copy.tickets.rooms.hotel}
+            </h2>
+            <p className="mt-4 text-sm font-light tracking-[0.04em] text-burgundy/42">
+              {copy.tickets.rooms.when}
+            </p>
+            <p className="body-copy mt-8 text-burgundy/80">{copy.tickets.rooms.body}</p>
+            <a
+              href={site.venue.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wine-fill mt-10 inline-flex"
+            >
+              {copy.tickets.rooms.cta}
+            </a>
+          </div>
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+            {hotelRoomStills.map((slot) => (
+              <figure key={slot.id} className="min-w-0">
+                <MediaFrame slot={slot} />
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
