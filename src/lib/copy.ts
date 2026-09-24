@@ -130,6 +130,9 @@ export const copy = {
     ages: "64% between the ages of 35 and 54",
     geo: "75% based in the US and Canada, with the rest spread across the UK, Australia, Germany, India, and Mexico",
     who: "These are women who already own the room: founders, CEOs, coaches, and industry leaders building real businesses and real wealth. They show up for growth, for community, and for each other.",
+    /** Stephanie, verbatim. Introduces the three proof stills under Our Reach. */
+    proofLead:
+      "The core of the sponsorship partnerships will be collaborative marketing online before, during and after the event.",
     figures: [
       {
         figure: "62k+",
