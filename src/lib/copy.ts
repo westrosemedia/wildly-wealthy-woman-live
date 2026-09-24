@@ -157,13 +157,60 @@ export const copy = {
     ] as const,
   },
   /**
-   * Named seats only. Stephanie will fill prices and perks later —
-   * do not invent package copy.
+   * Named partnership seats. Stephanie, verbatim — do not invent copy.
+   * Legacy Partner keeps the elevated (wine-filled) card.
    */
   packages: {
     heading: "Sponsorship Packages",
-    empty: "Details to come.",
-    tiers: ["Platinum", "Gold", "Silver", "Bronze"] as const,
+    tiers: [
+      {
+        name: "Legacy Partner",
+        price: "$30,000 — one available",
+        description:
+          "The most integrated partnership available. Your brand becomes part of one signature moment of the weekend: the VIP dinner, the welcome experience, or a moment created specifically around your product or service.",
+        bullets: [
+          "Presenting-level integration into one signature moment of the event",
+          "One fully sponsored ticket, gifted to a mother and daughter experiencing the weekend together",
+          "Recognition from the stage",
+          "Collaborative content across the full 62,000+ community before, during, and after the event",
+          "First right of renewal for 2028",
+        ],
+      },
+      {
+        name: "Heritage Partner",
+        price: "$15,000",
+        description:
+          "A featured presence woven directly into the day, positioned as an integrated moment guests remember.",
+        bullets: [
+          "Integration into one part of the event: welcome experience, breakout, or gift moment",
+          "Featured product or service placement in the room",
+          "Collaborative content before, during, and after",
+          "On-site presence and recognition throughout the day",
+        ],
+      },
+      {
+        name: "Generational Partner",
+        price: "$10,000",
+        description:
+          "A visible presence built around content and connection throughout the weekend.",
+        bullets: [
+          "Product or service featured in the welcome experience",
+          "Collaborative content before, during, and after",
+          "On-site presence throughout the day",
+        ],
+      },
+      {
+        name: "Community Partner",
+        price: "$5,000",
+        description:
+          "An entry point for brands ready to become part of this community and grow the relationship from here.",
+        bullets: [
+          "Featured in event content and marketing",
+          "Included in the welcome experience for every attendee",
+          "Logo presence on-site and online",
+        ],
+      },
+    ] as const,
   },
   brandPartners: {
     heading: "Why We're Inviting Brand Partners",
@@ -176,7 +223,7 @@ export const copy = {
   },
   whySponsor: {
     heading: "Why Sponsor",
-    body: "You're aligning with an audience already primed to spend, already building empires, already searching for the next brand, program, or partner worth trusting.",
+    body: "You're reaching women who already invest in their growth, already build what they believe in, and already trust the people they follow to point them toward what's next.",
   },
   invitation: {
     heading: "The Invitation",

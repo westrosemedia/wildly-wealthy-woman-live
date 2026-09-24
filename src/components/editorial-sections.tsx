@@ -164,8 +164,8 @@ const founderCards = [
 ] as const;
 
 /**
- * Sponsors deck: four named seats. Empty until Stephanie fills prices/perks.
- * Platinum is wine-filled; the rest stay cream with a hairline. Not a pricing grid.
+ * Sponsors deck: four named seats. Same grid and card chrome.
+ * Legacy Partner is wine-filled; the rest stay cream with a hairline.
  */
 export function SponsorshipPackagesSection() {
   return (
@@ -176,10 +176,10 @@ export function SponsorshipPackagesSection() {
         </h2>
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
           {copy.packages.tiers.map((tier) => {
-            const elevated = tier === "Platinum";
+            const elevated = tier.name === "Legacy Partner";
             return (
               <article
-                key={tier}
+                key={tier.name}
                 className={cn(
                   "flex min-h-[16.5rem] flex-col justify-between px-7 py-8 md:min-h-[19rem] md:px-8 md:py-10",
                   elevated
@@ -187,17 +187,37 @@ export function SponsorshipPackagesSection() {
                     : "border border-burgundy/22 bg-cream text-burgundy",
                 )}
               >
-                <h3 className="font-heading text-3xl leading-none font-light md:text-4xl">
-                  {tier}
-                </h3>
-                <p
+                <div>
+                  <h3 className="font-heading text-3xl leading-none font-light md:text-4xl">
+                    {tier.name}
+                  </h3>
+                  <p
+                    className={cn(
+                      "mt-4 text-sm font-light tracking-[0.04em]",
+                      elevated ? "text-cream/58" : "text-burgundy/42",
+                    )}
+                  >
+                    {tier.price}
+                  </p>
+                  <p
+                    className={cn(
+                      "mt-5 text-sm leading-[1.65] font-light",
+                      elevated ? "text-cream/86" : "text-burgundy/80",
+                    )}
+                  >
+                    {tier.description}
+                  </p>
+                </div>
+                <ul
                   className={cn(
-                    "text-sm font-light tracking-[0.04em]",
-                    elevated ? "text-cream/58" : "text-burgundy/42",
+                    "mt-8 list-disc space-y-2.5 pl-4 text-sm leading-[1.55] font-light",
+                    elevated ? "text-cream/78" : "text-burgundy/70",
                   )}
                 >
-                  {copy.packages.empty}
-                </p>
+                  {tier.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
               </article>
             );
           })}
