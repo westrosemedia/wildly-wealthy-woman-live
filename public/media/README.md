@@ -6,8 +6,8 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 ## In use (do not reuse)
 
-- `hero.mp4` — Stephanie's WWW_Event_Promo film. Home first-viewport hero. Muted autoplay loop; `hero.jpg` is the poster.
-- `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. Home first-viewport hero only. Also the optional poster for `hero.mp4`.
+- `hero.mp4` — Stephanie's WWW_Event_Promo film. Same file on home (muted autoplay loop) and `/sponsors` (with sound + controls). Do not duplicate on disk. `hero.jpg` is the poster.
+- `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. Poster for `hero.mp4` on home and `/sponsors` only — not a second still placement.
 - `high-level-01.jpg` — hands on white fur, gold rings. Home four-column band, first photo cell only.
 - `high-level-02.jpg` — hand on a red steering wheel. Home four-column band, second photo cell only.
 - `jackie.jpg` — Jackie portrait. Home, The Story, only.

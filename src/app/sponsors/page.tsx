@@ -5,6 +5,7 @@ import {
   FoundersSection,
   SectionKicker,
 } from "@/components/editorial-sections";
+import { HeroOpen } from "@/components/hero-open";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
@@ -17,8 +18,10 @@ export const metadata: Metadata = {
 export default function SponsorsPage() {
   return (
     <div className="overflow-x-clip">
+      <HeroOpen sound />
+
       <section className="bg-cream">
-        <div className="house-wrap pt-36 md:pt-44">
+        <div className="house-wrap">
           <SectionKicker>{copy.brandPartners.heading}</SectionKicker>
           <CopyParagraphs
             className="mt-10 max-w-2xl"
@@ -77,6 +80,9 @@ export default function SponsorsPage() {
 
       <section className="bg-cream" aria-label="Reach proof">
         <div className="house-wrap">
+          <p className="body-copy mb-10 max-w-3xl text-pretty text-burgundy md:mb-14 md:text-xl">
+            {copy.reach.proofLead}
+          </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:gap-8">
             {reachProofStills.map((slot) => (
               <MediaFrame key={slot.id} slot={slot} />

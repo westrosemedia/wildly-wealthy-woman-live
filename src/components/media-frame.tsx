@@ -1,7 +1,7 @@
 "use client";
 
-import { Camera, Clapperboard } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Camera, Clapperboard, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { MediaSlot } from "@/lib/media";
@@ -249,12 +249,42 @@ export function HeroCinematic({
   video,
   still,
   className,
+  sound = false,
 }: {
   video: MediaSlot;
   still: MediaSlot;
   className?: string;
+  /** /sponsors: unmuted, with controls. Home stays muted autoplay. */
+  sound?: boolean;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
+  const [needsGesture, setNeedsGesture] = useState(sound);
+
+  useEffect(() => {
+    if (!sound) return;
+    const el = videoRef.current;
+    if (!el) return;
+    el.muted = false;
+    el.defaultMuted = false;
+    el.volume = 1;
+    const attempt = el.play();
+    if (attempt) {
+      attempt.then(() => setNeedsGesture(false)).catch(() => setNeedsGesture(true));
+    }
+  }, [sound]);
+
+  function startWithSound() {
+    const el = videoRef.current;
+    if (!el) return;
+    el.muted = false;
+    el.defaultMuted = false;
+    el.volume = 1;
+    void el
+      .play()
+      .then(() => setNeedsGesture(false))
+      .catch(() => setNeedsGesture(true));
+  }
 
   // Full-width 16:9 contain — never fill/cover. Native poster uses the same box.
   if (videoFailed) {
@@ -268,23 +298,59 @@ export function HeroCinematic({
     );
   }
 
-  return (
-    <video
-      className={cn("hero-film-media", className)}
-      poster={still.src}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      onError={() => setVideoFailed(true)}
-    >
-      <source
-        src={video.src}
-        type="video/mp4"
+  if (!sound) {
+    return (
+      <video
+        className={cn("hero-film-media", className)}
+        poster={still.src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
         onError={() => setVideoFailed(true)}
-      />
-    </video>
+      >
+        <source
+          src={video.src}
+          type="video/mp4"
+          onError={() => setVideoFailed(true)}
+        />
+      </video>
+    );
+  }
+
+  return (
+    <div className="hero-film-sound">
+      <video
+        ref={videoRef}
+        className={cn("hero-film-media", className)}
+        poster={still.src}
+        autoPlay
+        playsInline
+        controls
+        preload="auto"
+        onPlay={() => setNeedsGesture(false)}
+        onPlaying={() => setNeedsGesture(false)}
+        onError={() => setVideoFailed(true)}
+      >
+        <source
+          src={video.src}
+          type="video/mp4"
+          onError={() => setVideoFailed(true)}
+        />
+      </video>
+      {needsGesture ? (
+        <button
+          type="button"
+          className="hero-film-play"
+          onClick={startWithSound}
+          aria-label="Play with sound"
+        >
+          <Play className="size-4" strokeWidth={1.5} fill="currentColor" />
+          <span>Play</span>
+        </button>
+      ) : null}
+    </div>
   );
 }
 
