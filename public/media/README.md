@@ -6,7 +6,7 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 ## In use (do not reuse)
 
-- `hero.mp4` — optional cinematic hero film. Slot is wired; file not received yet.
+- `hero.mp4` — Stephanie's WWW_Event_Promo film. Home first-viewport hero. Muted autoplay loop; `hero.jpg` is the poster.
 - `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. Home first-viewport hero only. Also the optional poster for `hero.mp4`.
 - `high-level-01.jpg` — hands on white fur, gold rings. Home four-column band, first photo cell only.
 - `high-level-02.jpg` — hand on a red steering wheel. Home four-column band, second photo cell only.

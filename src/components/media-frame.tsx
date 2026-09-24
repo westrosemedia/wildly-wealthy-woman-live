@@ -199,13 +199,12 @@ export function MediaStillOrVideo({
   className?: string;
   fill?: boolean;
 }) {
-  const videoExists = useMediaExists(video.src);
-  const [ready, setReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
-  const useVideo = videoExists === true && !videoFailed;
-
-  // Image-only until a hero film is confirmed. Missing hero.mp4 is expected.
-  if (!useVideo) {
+  // Native poster holds hero.jpg until the first frame. Do not overlay the
+  // still or start at opacity-0 — loadeddata can fire before hydration and
+  // leave the cactus still covering a playing film. Skip the Range probe;
+  // a large hero.mp4 can miss that timeout.
+  if (videoFailed) {
     return (
       <MediaFrame
         slot={still}
@@ -225,9 +224,8 @@ export function MediaStillOrVideo({
     <div className={frameClass}>
       <video
         className={cn(
-          "h-full w-full object-cover transition-opacity duration-700",
+          "h-full w-full object-cover",
           video.objectClass ?? still.objectClass,
-          ready ? "opacity-100" : "opacity-0",
         )}
         poster={still.src}
         autoPlay
@@ -235,7 +233,6 @@ export function MediaStillOrVideo({
         loop
         playsInline
         preload="auto"
-        onLoadedData={() => setReady(true)}
         onError={() => setVideoFailed(true)}
       >
         <source
@@ -244,16 +241,6 @@ export function MediaStillOrVideo({
           onError={() => setVideoFailed(true)}
         />
       </video>
-      {!ready ? (
-        <div className="absolute inset-0">
-          <MediaFrame
-            slot={still}
-            fill={fill}
-            priority
-            quiet={fill}
-          />
-        </div>
-      ) : null}
     </div>
   );
 }

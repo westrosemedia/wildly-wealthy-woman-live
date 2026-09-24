@@ -4,8 +4,8 @@ import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 
 /**
- * Locked cactus still. Optional hero.mp4 when the file arrives.
- * No giant What if on the photo. Video not received yet.
+ * Hero film (hero.mp4) with cactus still as poster.
+ * No giant What if on the photo.
  */
 export function HeroOpen() {
   return (
