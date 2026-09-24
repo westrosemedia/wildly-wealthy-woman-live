@@ -251,6 +251,8 @@ export const copy = {
   },
   brandPartners: {
     heading: "Why We're Inviting Brand Partners",
+    opening:
+      "We don't sell stage time. Our partners are part of the experience, not an interruption to it.",
     paragraphs: [
       "We want to partner with brands that want to become part of the memories created inside this room.",
       "A vehicle that carries a mother and daughter through the mountains. A coat she wears in a photograph she'll keep for decades. A dinner where two generations finally have a conversation they've never had before. A sponsored ticket that lets a mother and daughter who couldn't otherwise attend experience the weekend together.",

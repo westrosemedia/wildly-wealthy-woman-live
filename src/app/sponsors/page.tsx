@@ -26,6 +26,9 @@ export default function SponsorsPage() {
           <h2 className="font-heading text-5xl leading-[0.96] font-light text-pretty text-burgundy md:text-7xl">
             {copy.brandPartners.heading}
           </h2>
+          <p className="mt-10 max-w-3xl text-pretty text-2xl leading-[1.45] font-light text-burgundy md:text-3xl">
+            {copy.brandPartners.opening}
+          </p>
           <CopyParagraphs
             className="mt-10 max-w-2xl"
             paragraphs={copy.brandPartners.paragraphs}
