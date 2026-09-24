@@ -285,9 +285,10 @@ export function HeroCinematic({
       }
     };
 
-    // Muted autoplay so the loop always starts. Then try sound. If the
-    // browser blocks unmuted playback, stay looping and unmute on the
-    // first click/key anywhere — no overlay.
+    // Muted autoplay so the loop always starts. Listen for the first
+    // click/key anywhere to unmute — no overlay. Also try sound immediately
+    // in case this document already has a user gesture.
+    listenForUnmute();
     el.muted = true;
     const start = el.play();
     const trySound = () => {
@@ -301,17 +302,11 @@ export function HeroCinematic({
           if (disposed) return;
           el.muted = true;
           void el.play().catch(() => {});
-          listenForUnmute();
         });
       }
     };
     if (start) {
-      void start.then(trySound).catch(() => {
-        if (disposed) return;
-        listenForUnmute();
-      });
-    } else {
-      listenForUnmute();
+      void start.then(trySound).catch(() => {});
     }
 
     return () => {
