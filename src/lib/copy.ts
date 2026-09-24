@@ -3,6 +3,8 @@ export const copy = {
   title: "Wildly Wealthy Woman Live",
   takeaway:
     "What if the greatest thing we can leave our daughters isn't what we've built for them — but the belief that they can build anything?",
+  /** Home studio quote band only (background-studio.jpg), after Who this is for. */
+  studioQuote: "Wealth is about more than money.",
   hero: {
     title: "Wildly Wealthy Woman Live",
     body: "The greatest thing we can leave our daughters is the belief that they can build anything.",

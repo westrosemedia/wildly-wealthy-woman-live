@@ -61,7 +61,7 @@ export default function Home() {
       <QuoteBand
         id="quote-watching"
         slot={mediaSlots.backgroundStudio}
-        quote={copy.watching.beats[2].text}
+        quote={copy.studioQuote}
         size="short"
         position="50% 32%"
       />
