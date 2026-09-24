@@ -6,14 +6,14 @@ Place files in this folder using **these exact names**. Until a file exists, the
 
 ## In use (do not reuse)
 
-- `hero.mp4` — WWW_Event_Promo_jackieopener film. Same file on home (muted autoplay loop) and `/sponsors` (sound). Do not duplicate on disk. `hero.jpg` is the poster.
+- `hero.mp4` — WWW_Event_Promo_jackieopener film. Same file on home and `/sponsors` (sound on both). Do not duplicate on disk. `hero.jpg` is the poster.
 - `hero.jpg` — cactus / pink-wall still of Stephanie and Jackie. Poster for `hero.mp4` on home and `/sponsors` only — not a second still placement.
 - `high-level-01.jpg` — hands on white fur, gold rings. Home four-column band, first photo cell only.
 - `high-level-02.jpg` — hand on a red steering wheel. Home four-column band, second photo cell only.
 - `jackie.jpg` — Jackie portrait. Home, The Story, only.
 - `stephanie.jpg` — Stephanie, red convertible in the badlands. Home, The Story, Stephanie paragraph only. Not the hero.
 - `melissa.jpg` — Melissa, fur coat and black Bronco in a parking garage. Home, The Story, Melissa paragraph only. Do not reuse on `/sponsors`.
-- `melissa-sponsors.jpg` — Melissa, sunglasses and fur, shot through a vehicle window. `/sponsors` Meet the women, Melissa only. Not home Story.
+- `melissa-sponsors.jpg` — Melissa, sunglasses and fur, shot through a vehicle window. `/sponsors` Meet the women background only. Not home Story.
 - `event.jpg` — Banff Springs Hotel. Home, Why Banff, only.
 - `section-break-mountains.jpg` — Banff Springs / mountains still. Home slim breaker between The Event and Who this is for only. Do not reuse on Why Banff.
 - `room.jpg` — interior room. Home, Event Details, only.

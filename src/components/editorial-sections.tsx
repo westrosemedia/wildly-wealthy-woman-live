@@ -229,43 +229,32 @@ export function SponsorshipPackagesSection() {
   );
 }
 
-/** Sponsors: three cream columns. Melissa’s window portrait only — Stephanie and Jackie stay text. */
+/** Sponsors: Meet the women over Melissa’s window still as the section background. */
 export function FoundersSection() {
   return (
-    <section id="founders" className="bg-cream">
-      <div className="house-wrap">
-        <h2 className="display max-w-3xl text-pretty text-burgundy">{copy.founders.heading}</h2>
-        <div className="mt-16 grid grid-cols-1 items-start gap-x-16 gap-y-20 lg:grid-cols-3">
-          {founderCards.map((founder) => {
-            const portrait =
-              founder.name === "Melissa" ? mediaSlots.melissaSponsors : undefined;
-            return (
-              <article key={founder.name} className="min-w-0">
-                <div
-                  className={cn(
-                    "grid items-start",
-                    portrait
-                      ? "gap-8 sm:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] sm:gap-10 lg:grid-cols-1 lg:gap-6"
-                      : "gap-6",
-                  )}
-                >
-                  {portrait ? (
-                    <figure className="w-full max-w-[16rem]">
-                      <MediaFrame slot={portrait} />
-                    </figure>
-                  ) : null}
-                  <div className="min-w-0 space-y-6">
-                    <h3 className="font-heading text-3xl leading-none font-light text-burgundy md:text-4xl">
-                      {founder.name}
-                    </h3>
-                    <p className="body-copy text-burgundy/80">{founder.body}</p>
-                  </div>
-                </div>
+    <section id="founders" className="relative overflow-x-clip overflow-hidden bg-ink">
+      <MediaFrame
+        slot={mediaSlots.melissaSponsors}
+        fill
+        quiet
+        className="absolute inset-0 aspect-auto min-h-full"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-ink/55" />
+      <div className="relative z-10">
+        <div className="house-wrap">
+          <h2 className="display max-w-3xl text-pretty text-cream">{copy.founders.heading}</h2>
+          <div className="mt-16 grid grid-cols-1 items-start gap-x-16 gap-y-20 lg:grid-cols-3">
+            {founderCards.map((founder) => (
+              <article key={founder.name} className="min-w-0 space-y-6">
+                <h3 className="font-heading text-3xl leading-none font-light text-cream md:text-4xl">
+                  {founder.name}
+                </h3>
+                <p className="body-copy text-cream/84">{founder.body}</p>
               </article>
-            );
-          })}
+            ))}
+          </div>
+          <p className="quote-sm mt-20 max-w-4xl text-pretty text-cream">{copy.founders.closer}</p>
         </div>
-        <p className="quote-sm mt-20 max-w-4xl text-pretty text-burgundy">{copy.founders.closer}</p>
       </div>
     </section>
   );
