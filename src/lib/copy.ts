@@ -173,6 +173,8 @@ export const copy = {
           "One fully sponsored ticket, gifted to a mother and daughter experiencing the weekend together",
           "Recognition from the stage",
           "Collaborative content across the full 62,000+ community before, during, and after the event",
+          "A table at the event to speak with attendees",
+          "A full cinematic commercial, displayed across all social media platforms and on the main website for the event",
           "First right of renewal for 2028",
         ],
       },
@@ -186,6 +188,7 @@ export const copy = {
           "Featured product or service placement in the room",
           "Collaborative content before, during, and after",
           "On-site presence and recognition throughout the day",
+          "A table at the event to speak with attendees",
         ],
       },
       {
@@ -197,6 +200,7 @@ export const copy = {
           "Product or service featured in the welcome experience",
           "Collaborative content before, during, and after",
           "On-site presence throughout the day",
+          "A table at the event to speak with attendees",
         ],
       },
       {
@@ -208,6 +212,7 @@ export const copy = {
           "Featured in event content and marketing",
           "Included in the welcome experience for every attendee",
           "Logo presence on-site and online",
+          "A table at the event to speak with attendees",
         ],
       },
     ] as const,
