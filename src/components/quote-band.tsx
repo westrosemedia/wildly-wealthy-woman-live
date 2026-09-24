@@ -1,9 +1,11 @@
 import type { MediaSlot } from "@/lib/media";
 import { cn } from "@/lib/utils";
+import { ParallaxPhoto } from "@/components/parallax-photo";
 
 /**
  * Thin full-bleed photo quote strip.
- * Desktop: background-attachment fixed. Mobile / reduced motion: static cover.
+ * Scroll-driven transform parallax (no background-attachment:fixed).
+ * Reduced motion: static cover.
  */
 export function QuoteBand({
   slot,
@@ -20,14 +22,11 @@ export function QuoteBand({
 }) {
   return (
     <section id={id} className="quote-band" aria-label="Quote">
-      <div
+      <ParallaxPhoto
         className="quote-band-photo"
-        style={{
-          backgroundImage: `url(${slot.src})`,
-          backgroundPosition: position,
-        }}
-        role="img"
-        aria-label={slot.alt}
+        src={slot.src}
+        alt={slot.alt}
+        position={position}
       />
       <div className="quote-band-veil" aria-hidden />
       <blockquote className="quote-band-copy">

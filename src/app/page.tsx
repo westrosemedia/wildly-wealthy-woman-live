@@ -11,6 +11,7 @@ import { HeroOpen } from "@/components/hero-open";
 import { HighLevelBand } from "@/components/high-level-band";
 import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
+import { MountainBreak } from "@/components/mountain-break";
 import { QuoteBand } from "@/components/quote-band";
 import { StyleGuideSection } from "@/components/style-guide-section";
 import { WatchingYouLive } from "@/components/watching-you-live";
@@ -48,23 +49,7 @@ export default function Home() {
         </div>
       </section>
 
-      <figure
-        id="section-break"
-        className="section-break"
-        role="separator"
-        aria-label={mediaSlots.sectionBreakMountains.alt}
-      >
-        <div
-          className="section-break-photo"
-          style={{
-            backgroundImage: `url(${mediaSlots.sectionBreakMountains.src})`,
-            backgroundPosition: "52% 40%",
-          }}
-          role="img"
-          aria-label={mediaSlots.sectionBreakMountains.alt}
-        />
-        <div className="section-break-veil" aria-hidden />
-      </figure>
+      <MountainBreak />
 
       <section id="who-this-is-for" className="bg-cream">
         <div className="house-wrap house-wrap-open">

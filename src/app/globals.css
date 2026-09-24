@@ -274,17 +274,7 @@
 .quote-band-photo {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
-
-@media (min-width: 768px) {
-  @media (prefers-reduced-motion: no-preference) {
-    .quote-band-photo {
-      background-attachment: fixed;
-    }
-  }
+  overflow: hidden;
 }
 
 .quote-band-veil {
@@ -353,7 +343,7 @@
 }
 
 /* Slim full-bleed mountain band. Desktop ~26vh; shorter on mobile. Not a hero.
-   Same parallax pattern as quote bands: fixed on desktop, static cover on mobile. */
+   Same transform parallax as quote bands — no background-attachment:fixed. */
 .section-break {
   position: relative;
   width: 100%;
@@ -376,16 +366,30 @@
 .section-break-photo {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  @media (prefers-reduced-motion: no-preference) {
-    .section-break-photo {
-      background-attachment: fixed;
-    }
+/* Taller than the slim clip so translate3d can lag without showing edges.
+   iOS: compositing via translate3d + will-change; clip overflow hidden. */
+.parallax-layer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -40%;
+  height: 180%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer {
+    top: 0;
+    height: 100%;
+    transform: none;
+    will-change: auto;
   }
 }
 
