@@ -261,56 +261,61 @@ export function HeroCinematic({
   const [videoFailed, setVideoFailed] = useState(false);
 
   useEffect(() => {
-    if (!sound) return;
     const el = videoRef.current;
     if (!el) return;
 
     let disposed = false;
-    const gestures = ["pointerdown", "keydown"] as const;
+    const gestures = ["pointerdown", "touchstart", "keydown"] as const;
+
+    const playMuted = () => {
+      if (disposed) return;
+      el.muted = true;
+      el.defaultMuted = true;
+      el.playsInline = true;
+      void el.play().catch(() => {});
+    };
+
+    // Always start muted so autoplay is allowed. Do not unmute until a
+    // gesture — unmuting immediately is what stops the film in Safari.
+    playMuted();
+    el.addEventListener("loadeddata", playMuted);
+    el.addEventListener("canplay", playMuted);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) playMuted();
+      },
+      { threshold: 0.1 },
+    );
+    io.observe(el);
+
+    const onVisible = () => {
+      if (document.visibilityState === "visible") playMuted();
+    };
+    document.addEventListener("visibilitychange", onVisible);
 
     const unmute = () => {
-      if (disposed) return;
+      if (!sound || disposed) return;
       el.muted = false;
       el.defaultMuted = false;
       el.volume = 1;
-      void el.play().catch(() => {});
+      void el.play().catch(() => playMuted());
       for (const event of gestures) {
         window.removeEventListener(event, unmute);
       }
     };
-
-    const listenForUnmute = () => {
+    if (sound) {
       for (const event of gestures) {
         window.addEventListener(event, unmute);
       }
-    };
-
-    // Muted autoplay so the loop always starts. Listen for the first
-    // click/key anywhere to unmute — no overlay. Also try sound immediately
-    // in case this document already has a user gesture.
-    listenForUnmute();
-    el.muted = true;
-    const start = el.play();
-    const trySound = () => {
-      if (disposed) return;
-      el.muted = false;
-      el.defaultMuted = false;
-      el.volume = 1;
-      const attempt = el.play();
-      if (attempt) {
-        void attempt.catch(() => {
-          if (disposed) return;
-          el.muted = true;
-          void el.play().catch(() => {});
-        });
-      }
-    };
-    if (start) {
-      void start.then(trySound).catch(() => {});
     }
 
     return () => {
       disposed = true;
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVisible);
+      el.removeEventListener("loadeddata", playMuted);
+      el.removeEventListener("canplay", playMuted);
       for (const event of gestures) {
         window.removeEventListener(event, unmute);
       }
@@ -331,11 +336,12 @@ export function HeroCinematic({
 
   return (
     <video
-      ref={sound ? videoRef : undefined}
+      ref={videoRef}
       className={cn("hero-film-media", className)}
       poster={still.src}
       autoPlay
       muted
+      defaultMuted
       loop
       playsInline
       preload="auto"
