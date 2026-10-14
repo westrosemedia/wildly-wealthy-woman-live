@@ -104,29 +104,29 @@ export const copy = {
     whenWhere: "Banff Springs Hotel, March 2027",
     body: "Intimate setting, limited tickets available",
     ticket:
-      "Ticket starting at $497 or $777 for a mother daughter duo. $997 for a VIP ticket.",
+      "$697 USD solo early bird. $777 USD mother and daughter. $997 USD VIP.",
   },
   /**
-   * /tickets. Types from her Event Details line plus VIP at $997.
+   * /tickets. Stephanie, verbatim: solo early bird, mother and daughter, VIP.
    */
   tickets: {
     heading: "Tickets",
     note: "Intimate setting, limited tickets available",
     types: [
       {
-        name: "Ticket",
-        price: "Starting at $497",
-        detail: "Ticket starting at $497",
+        name: "Solo early bird",
+        price: "$697 USD",
+        detail: "First 20 tickets at early bird, then the price goes up",
       },
       {
-        name: "Mother daughter duo",
-        price: "$777",
-        detail: "$777 for a mother daughter duo",
+        name: "Mother & Daughter",
+        price: "$777 USD",
+        detail: "",
       },
       {
-        name: "VIP ticket",
-        price: "$997",
-        detail: "$997 for a VIP ticket",
+        name: "VIP",
+        price: "$997 USD",
+        detail: "First 5",
       },
     ],
     rooms: {
