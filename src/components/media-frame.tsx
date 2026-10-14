@@ -341,7 +341,6 @@ export function HeroCinematic({
       poster={still.src}
       autoPlay
       muted
-      defaultMuted
       loop
       playsInline
       preload="auto"
