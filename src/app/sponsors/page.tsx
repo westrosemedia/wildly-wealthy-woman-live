@@ -7,7 +7,6 @@ import {
   SponsorshipPackagesSection,
 } from "@/components/editorial-sections";
 import { HeroOpen } from "@/components/hero-open";
-import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
 import { mediaSlots, reachProofStills } from "@/lib/media";
@@ -128,14 +127,6 @@ export default function SponsorsPage() {
         </div>
       </section>
 
-      <section id="waitlist-slide" className="bg-cream">
-        <div className="house-wrap">
-          <SectionKicker>{copy.waitlist.heading}</SectionKicker>
-          <div className="mt-10">
-            <WaitlistSection />
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

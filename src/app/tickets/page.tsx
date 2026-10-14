@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 
 import { SectionKicker } from "@/components/editorial-sections";
-import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
 import { hotelRoomStills } from "@/lib/media";
-import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -77,14 +75,9 @@ export default function TicketsPage() {
               {copy.tickets.rooms.when}
             </p>
             <p className="body-copy mt-8 text-burgundy/80">{copy.tickets.rooms.body}</p>
-            <a
-              href={site.venue.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wine-fill mt-10 inline-flex"
-            >
+            <p className="wine-fill pointer-events-none mt-10 max-w-full text-center leading-relaxed whitespace-normal">
               {copy.tickets.rooms.cta}
-            </a>
+            </p>
           </div>
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
             {hotelRoomStills.map((slot) => (
@@ -96,14 +89,6 @@ export default function TicketsPage() {
         </div>
       </section>
 
-      <section id="waitlist-slide" className="bg-cream">
-        <div className="house-wrap">
-          <SectionKicker>{copy.waitlist.heading}</SectionKicker>
-          <div className="mt-10">
-            <WaitlistSection />
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

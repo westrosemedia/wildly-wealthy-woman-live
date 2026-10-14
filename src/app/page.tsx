@@ -10,7 +10,6 @@ import {
 } from "@/components/editorial-sections";
 import { HeroOpen } from "@/components/hero-open";
 import { HighLevelBand } from "@/components/high-level-band";
-import { WaitlistSection } from "@/components/join-waitlist";
 import { MediaFrame } from "@/components/media-frame";
 import { MountainBreak } from "@/components/mountain-break";
 import { QuoteBand } from "@/components/quote-band";
@@ -117,15 +116,6 @@ export default function Home() {
       </section>
 
       <StyleGuideSection />
-
-      <section className="bg-cream">
-        <div className="house-wrap">
-          <SectionKicker>{copy.waitlist.heading}</SectionKicker>
-          <div className="mt-10">
-            <WaitlistSection />
-          </div>
-        </div>
-      </section>
     </>
   );
 }

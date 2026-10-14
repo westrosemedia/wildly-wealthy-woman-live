@@ -134,7 +134,7 @@ export const copy = {
       hotel: "Fairmont Banff Springs Hotel",
       when: "Banff Springs Hotel, March 2027",
       body: "A room block is being arranged. The booking code will be posted here as soon as we have it. Use that code when you book through the hotel.",
-      cta: "Book the hotel",
+      cta: "Hotel discount and room block coming soon",
     },
   },
   founders: {
