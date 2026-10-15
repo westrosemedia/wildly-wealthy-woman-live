@@ -138,6 +138,16 @@ export const copy = {
       body: "A room block is being arranged. The booking code will be posted here as soon as we have it. Use that code when you book through the hotel.",
       cta: "Hotel discount and room block coming soon",
     },
+    gettingHere: {
+      heading: "Getting here",
+      lead: "Fly into Calgary International Airport (YYC). From there, Banff is about an hour and a half west, straight into the mountains.",
+      soon: "We’re putting together everything you’ll need for the rest of the trip, and we’ll post it here soon:",
+      items: [
+        "The best ways to travel once you land",
+        "How to get to the Fairmont Banff Springs",
+        "Our favourite things to do in Banff while you’re here",
+      ],
+    },
   },
   founders: {
     heading: "Meet the women behind it",

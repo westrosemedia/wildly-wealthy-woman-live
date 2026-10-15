@@ -114,6 +114,20 @@ export default function TicketsPage() {
               </figure>
             ))}
           </div>
+          <div id="getting-here" className="mt-16 max-w-3xl md:mt-24">
+            <SectionKicker>{copy.tickets.gettingHere.heading}</SectionKicker>
+            <p className="body-copy mt-8 text-burgundy/80">
+              {copy.tickets.gettingHere.lead}
+            </p>
+            <p className="body-copy mt-8 text-burgundy/80">
+              {copy.tickets.gettingHere.soon}
+            </p>
+            <ul className="body-copy mt-6 list-disc space-y-3 pl-5 text-burgundy/80">
+              {copy.tickets.gettingHere.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
