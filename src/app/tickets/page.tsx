@@ -4,6 +4,7 @@ import { SectionKicker } from "@/components/editorial-sections";
 import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
 import { hotelRoomStills } from "@/lib/media";
+import { ticketPaymentLinks } from "@/lib/stripe";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -24,16 +25,15 @@ export default function TicketsPage() {
           <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-5">
             {copy.tickets.types.map((ticket) => {
               const elevated = ticket.name === "VIP";
-              return (
-                <article
-                  key={ticket.name}
-                  className={cn(
-                    "flex flex-col justify-between px-7 py-8 md:min-h-[16rem] md:px-8 md:py-10",
-                    elevated
-                      ? "border border-burgundy bg-burgundy text-cream"
-                      : "border border-burgundy/22 bg-cream text-burgundy",
-                  )}
-                >
+              const href = ticketPaymentLinks[ticket.name];
+              const cardClass = cn(
+                "flex flex-col items-start justify-between px-7 py-8 md:min-h-[16rem] md:px-8 md:py-10",
+                elevated
+                  ? "border border-burgundy bg-burgundy text-cream"
+                  : "border border-burgundy/22 bg-cream text-burgundy",
+              );
+              const card = (
+                <>
                   <div>
                     <h2 className="font-heading text-3xl leading-none font-light md:text-4xl">
                       {ticket.name}
@@ -57,7 +57,35 @@ export default function TicketsPage() {
                       </p>
                     ) : null}
                   </div>
-                </article>
+                  {href ? (
+                    <span
+                      className={cn(
+                        "wine-fill mt-10 inline-flex",
+                        elevated && "wine-fill-on-wine",
+                      )}
+                    >
+                      {copy.tickets.buy}
+                    </span>
+                  ) : null}
+                </>
+              );
+              if (!href) {
+                return (
+                  <article key={ticket.name} className={cardClass}>
+                    {card}
+                  </article>
+                );
+              }
+              return (
+                <a
+                  key={ticket.name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(cardClass, "cursor-pointer no-underline")}
+                >
+                  {card}
+                </a>
               );
             })}
           </div>
