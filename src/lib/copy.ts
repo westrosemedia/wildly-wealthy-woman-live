@@ -101,7 +101,7 @@ export const copy = {
   },
   eventDetails: {
     heading: "Event Details",
-    whenWhere: "Banff Springs Hotel, March 2027",
+    whenWhere: "Banff Springs Hotel, March 4-6, 2027",
     body: "Intimate setting, limited tickets available",
     ticket:
       "$697 USD general admission early bird. $777 USD mother and daughter. $1497 USD VIP.",
@@ -134,7 +134,7 @@ export const copy = {
     rooms: {
       heading: "Rooms",
       hotel: "Fairmont Banff Springs Hotel",
-      when: "Banff Springs Hotel, March 2027",
+      when: "Banff Springs Hotel, March 4-6, 2027",
       body: "A room block is being arranged. The booking code will be posted here as soon as we have it. Use that code when you book through the hotel.",
       cta: "Hotel discount and room block coming soon",
     },
