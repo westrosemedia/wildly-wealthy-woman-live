@@ -245,6 +245,26 @@ export function MediaStillOrVideo({
   );
 }
 
+const soundChoiceKey = "www-hero-sound";
+
+function readSoundChoice(): "muted" | "on" | null {
+  try {
+    const value = sessionStorage.getItem(soundChoiceKey);
+    if (value === "muted" || value === "on") return value;
+  } catch {
+    /* Private browsing can block storage. */
+  }
+  return null;
+}
+
+function writeSoundChoice(choice: "muted" | "on") {
+  try {
+    sessionStorage.setItem(soundChoiceKey, choice);
+  } catch {
+    /* Private browsing can block storage. */
+  }
+}
+
 export function HeroCinematic({
   video,
   still,
@@ -259,6 +279,9 @@ export function HeroCinematic({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const mutedRef = useRef(true);
+  const userChoseRef = useRef(false);
 
   useEffect(() => {
     const el = videoRef.current;
@@ -266,47 +289,73 @@ export function HeroCinematic({
 
     let disposed = false;
     const gestures = ["pointerdown", "touchstart", "keydown"] as const;
+    const saved = sound ? readSoundChoice() : null;
+    if (saved === "muted") {
+      userChoseRef.current = true;
+      mutedRef.current = true;
+    } else if (saved === "on") {
+      userChoseRef.current = true;
+      mutedRef.current = false;
+      queueMicrotask(() => {
+        if (!disposed) setMuted(false);
+      });
+    }
 
-    const playMuted = () => {
+    const apply = () => {
       if (disposed) return;
-      el.muted = true;
-      el.defaultMuted = true;
+      const shouldMute = !sound || mutedRef.current;
+      el.muted = shouldMute;
+      el.defaultMuted = shouldMute;
       el.playsInline = true;
-      void el.play().catch(() => {});
+      if (!shouldMute) el.volume = 1;
+      void el.play().catch(() => {
+        if (disposed || shouldMute) return;
+        // Autoplay with sound was blocked. Keep the film moving, muted.
+        el.muted = true;
+        el.defaultMuted = true;
+        mutedRef.current = true;
+        setMuted(true);
+        void el.play().catch(() => {});
+      });
     };
 
-    // Always start muted so autoplay is allowed. Do not unmute until a
-    // gesture — unmuting immediately is what stops the film in Safari.
-    playMuted();
-    el.addEventListener("loadeddata", playMuted);
-    el.addEventListener("canplay", playMuted);
+    // Always start from the saved or muted state. Unmuting immediately is
+    // what stops the film in Safari.
+    apply();
+    el.addEventListener("loadeddata", apply);
+    el.addEventListener("canplay", apply);
 
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) playMuted();
+        if (entries.some((entry) => entry.isIntersecting)) apply();
       },
       { threshold: 0.1 },
     );
     io.observe(el);
 
     const onVisible = () => {
-      if (document.visibilityState === "visible") playMuted();
+      if (document.visibilityState === "visible") apply();
     };
     document.addEventListener("visibilitychange", onVisible);
 
-    const unmute = () => {
-      if (!sound || disposed) return;
-      el.muted = false;
-      el.defaultMuted = false;
-      el.volume = 1;
-      void el.play().catch(() => playMuted());
-      for (const event of gestures) {
-        window.removeEventListener(event, unmute);
+    const unmute = (event: Event) => {
+      if (!sound || disposed || userChoseRef.current) return;
+      const target = event.target;
+      if (target instanceof Element && target.closest("[data-sound-toggle]")) {
+        return;
+      }
+      userChoseRef.current = true;
+      mutedRef.current = false;
+      setMuted(false);
+      writeSoundChoice("on");
+      apply();
+      for (const eventName of gestures) {
+        window.removeEventListener(eventName, unmute);
       }
     };
-    if (sound) {
-      for (const event of gestures) {
-        window.addEventListener(event, unmute);
+    if (sound && !userChoseRef.current) {
+      for (const eventName of gestures) {
+        window.addEventListener(eventName, unmute);
       }
     }
 
@@ -314,13 +363,34 @@ export function HeroCinematic({
       disposed = true;
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisible);
-      el.removeEventListener("loadeddata", playMuted);
-      el.removeEventListener("canplay", playMuted);
-      for (const event of gestures) {
-        window.removeEventListener(event, unmute);
+      el.removeEventListener("loadeddata", apply);
+      el.removeEventListener("canplay", apply);
+      for (const eventName of gestures) {
+        window.removeEventListener(eventName, unmute);
       }
     };
   }, [sound]);
+
+  function toggleSound(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    userChoseRef.current = true;
+    setMuted((current) => {
+      const next = !current;
+      mutedRef.current = next;
+      writeSoundChoice(next ? "muted" : "on");
+      const el = videoRef.current;
+      if (el) {
+        el.muted = next || !sound;
+        el.defaultMuted = el.muted;
+        if (!el.muted) {
+          el.volume = 1;
+          void el.play().catch(() => {});
+        }
+      }
+      return next;
+    });
+  }
 
   // Full-width 16:9 contain — never fill/cover. Native poster uses the same box.
   if (videoFailed) {
@@ -335,23 +405,39 @@ export function HeroCinematic({
   }
 
   return (
-    <video
-      ref={videoRef}
-      className={cn("hero-film-media", className)}
-      poster={still.src}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      onError={() => setVideoFailed(true)}
-    >
-      <source
-        src={video.src}
-        type="video/mp4"
+    <>
+      <video
+        ref={videoRef}
+        className={cn("hero-film-media", className)}
+        poster={still.src}
+        autoPlay
+        muted={muted || !sound}
+        loop
+        playsInline
+        preload="auto"
         onError={() => setVideoFailed(true)}
-      />
-    </video>
+      >
+        <source
+          src={video.src}
+          type="video/mp4"
+          onError={() => setVideoFailed(true)}
+        />
+      </video>
+      {sound ? (
+        <button
+          type="button"
+          data-sound-toggle
+          className="fixed right-5 bottom-5 z-40 bg-burgundy px-4 py-3 text-[10px] tracking-[0.28em] text-cream uppercase transition-opacity duration-500 hover:opacity-60 md:right-8 md:bottom-8"
+          aria-pressed={!muted}
+          aria-label={muted ? "Play music" : "Mute music"}
+          onPointerDown={(event) => event.stopPropagation()}
+          onTouchStart={(event) => event.stopPropagation()}
+          onClick={toggleSound}
+        >
+          {muted ? "Sound" : "Mute"}
+        </button>
+      ) : null}
+    </>
   );
 }
 
