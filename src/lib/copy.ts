@@ -160,6 +160,7 @@ export const copy = {
       name: "Stephanie",
       body: "Stephanie took her own Instagram from zero to 16,300 followers and 3 million views in 65 days. Today she’s at 30,000+ followers on Instagram and 46,000+ on TikTok, reaching more than 4 million views every month. One of her clients went from 200 followers and 200 views to 11,000 followers and 1.5 million views on a single reel, in three months. She’s spent her career helping women turn their expertise into visibility, and visibility into revenue, through West Rose Media.",
       instagram: "https://www.instagram.com/stephanie.the.rose/",
+      tiktok: "https://www.tiktok.com/@westrosemedia",
     },
     jackie: {
       name: "Jackie",

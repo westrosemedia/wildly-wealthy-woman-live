@@ -121,6 +121,7 @@ export function StorySection() {
                 <p className="body-copy mt-6 text-burgundy/80">{stephanieStory}</p>
                 <BioSocialLinks
                   instagram={copy.founders.stephanie.instagram}
+                  tiktok={copy.founders.stephanie.tiktok}
                   className="mt-6"
                 />
               </div>
