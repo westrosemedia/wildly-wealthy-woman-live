@@ -22,9 +22,10 @@ export default function TicketsPage() {
           <p className="mt-8 max-w-xl text-base leading-[1.75] font-light text-burgundy/70 md:text-lg">
             {copy.tickets.note}
           </p>
-          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-5">
+          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:gap-5">
             {copy.tickets.types.map((ticket) => {
-              const elevated = ticket.name === "VIP";
+              const elevated =
+                ticket.name === "VIP" || ticket.name === "Mother & Daughter VIP";
               const href = ticketPaymentLinks[ticket.name];
               const cardClass = cn(
                 "flex flex-col items-start justify-between px-7 py-8 md:min-h-[16rem] md:px-8 md:py-10",

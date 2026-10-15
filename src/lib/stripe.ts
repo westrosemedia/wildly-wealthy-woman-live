@@ -11,4 +11,5 @@ export const ticketPaymentLinks = {
   "General admission": "https://buy.stripe.com/bJefZgcyS0pYfvMch7dEs00",
   "Mother & Daughter": "https://buy.stripe.com/5kQ3cu42mgoW6Zg2GxdEs02",
   VIP: "https://buy.stripe.com/dRm00i42mdcKgzQ80RdEs01",
+  "Mother & Daughter VIP": "https://buy.stripe.com/fZu8wO7eyfkS83k94VdEs03",
 } as const;

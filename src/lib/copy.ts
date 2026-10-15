@@ -107,7 +107,7 @@ export const copy = {
       "$697 USD general admission early bird. $777 USD mother and daughter. $1497 USD VIP.",
   },
   /**
-   * /tickets. General admission, mother and daughter, VIP.
+   * /tickets. General admission, mother and daughter, VIP, mother and daughter VIP.
    */
   tickets: {
     heading: "Tickets",
@@ -129,6 +129,11 @@ export const copy = {
         name: "VIP",
         price: "$1497 USD",
         detail: "First 10",
+      },
+      {
+        name: "Mother & Daughter VIP",
+        price: "$1997 USD",
+        detail: "Early bird",
       },
     ],
     rooms: {
