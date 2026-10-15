@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import { MediaFrame } from "@/components/media-frame";
+import { QuietAnchor } from "@/components/quiet-link";
 import { copy } from "@/lib/copy";
 import { mediaSlots } from "@/lib/media";
 import { cn } from "@/lib/utils";
@@ -49,6 +50,28 @@ const jackieStory = copy.story.paragraphs.slice(0, 5);
 const stephanieStory = copy.story.paragraphs[5];
 const melissaStory = copy.story.paragraphs[6];
 
+/** Quiet text link under a biography. Not a wine-fill button. */
+function InstagramLink({
+  href,
+  tone = "light",
+  className,
+}: {
+  href: string;
+  tone?: "light" | "dark";
+  className?: string;
+}) {
+  return (
+    <QuietAnchor
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(tone === "dark" ? "text-cream" : "text-burgundy", className)}
+    >
+      Instagram
+    </QuietAnchor>
+  );
+}
+
 /** Cream Story: Jackie essay + isolated portrait, then Stephanie / Melissa columns. */
 export function StorySection() {
   return (
@@ -60,7 +83,13 @@ export function StorySection() {
           <figure className="w-full max-w-[16rem]">
             <MediaFrame slot={mediaSlots.jackie} />
           </figure>
-          <CopyParagraphs className="max-w-2xl" paragraphs={jackieStory} />
+          <div className="min-w-0 max-w-2xl">
+            <CopyParagraphs paragraphs={jackieStory} />
+            <InstagramLink
+              href={copy.founders.jackie.instagram}
+              className="mt-6"
+            />
+          </div>
         </div>
 
         <div className="mt-24 grid items-start gap-16 md:mt-28 md:grid-cols-2 md:gap-24">
@@ -74,6 +103,10 @@ export function StorySection() {
                   {copy.founders.stephanie.name}
                 </h3>
                 <p className="body-copy mt-6 text-burgundy/80">{stephanieStory}</p>
+                <InstagramLink
+                  href={copy.founders.stephanie.instagram}
+                  className="mt-6"
+                />
               </div>
             </div>
           </article>
@@ -87,6 +120,10 @@ export function StorySection() {
                   {copy.founders.melissa.name}
                 </h3>
                 <p className="body-copy mt-6 text-burgundy/80">{melissaStory}</p>
+                <InstagramLink
+                  href={copy.founders.melissa.instagram}
+                  className="mt-6"
+                />
               </div>
             </div>
           </article>
@@ -250,6 +287,7 @@ export function FoundersSection() {
                   {founder.name}
                 </h3>
                 <p className="body-copy text-cream/84">{founder.body}</p>
+                <InstagramLink href={founder.instagram} tone="dark" />
               </article>
             ))}
           </div>
