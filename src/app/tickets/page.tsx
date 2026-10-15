@@ -26,16 +26,14 @@ export default function TicketsPage() {
             {copy.tickets.types.map((ticket) => {
               const elevated = ticket.name === "VIP";
               const href = ticketPaymentLinks[ticket.name];
-              return (
-                <article
-                  key={ticket.name}
-                  className={cn(
-                    "flex flex-col justify-between px-7 py-8 md:min-h-[16rem] md:px-8 md:py-10",
-                    elevated
-                      ? "border border-burgundy bg-burgundy text-cream"
-                      : "border border-burgundy/22 bg-cream text-burgundy",
-                  )}
-                >
+              const cardClass = cn(
+                "flex flex-col items-start justify-between px-7 py-8 md:min-h-[16rem] md:px-8 md:py-10",
+                elevated
+                  ? "border border-burgundy bg-burgundy text-cream"
+                  : "border border-burgundy/22 bg-cream text-burgundy",
+              );
+              const card = (
+                <>
                   <div>
                     <h2 className="font-heading text-3xl leading-none font-light md:text-4xl">
                       {ticket.name}
@@ -60,19 +58,34 @@ export default function TicketsPage() {
                     ) : null}
                   </div>
                   {href ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <span
                       className={cn(
                         "wine-fill mt-10 inline-flex",
                         elevated && "wine-fill-on-wine",
                       )}
                     >
                       {copy.tickets.buy}
-                    </a>
+                    </span>
                   ) : null}
-                </article>
+                </>
+              );
+              if (!href) {
+                return (
+                  <article key={ticket.name} className={cardClass}>
+                    {card}
+                  </article>
+                );
+              }
+              return (
+                <a
+                  key={ticket.name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(cardClass, "cursor-pointer no-underline")}
+                >
+                  {card}
+                </a>
               );
             })}
           </div>
