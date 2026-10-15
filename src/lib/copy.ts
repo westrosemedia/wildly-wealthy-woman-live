@@ -159,35 +159,35 @@ export const copy = {
   reach: {
     heading: "Our Reach",
     combined:
-      "A combined community of 62,000+ across Instagram and TikTok: 24,900+ on Instagram, 37,100+ on TikTok.",
-    women: "93% women",
-    ages: "64% between the ages of 35 and 54",
-    geo: "75% based in the US and Canada, with the rest spread across the UK, Australia, Germany, India, and Mexico",
+      "A combined community of 86,000+ across Instagram and TikTok: 38,900+ on Instagram, 47,900+ on TikTok.",
+    women: "94% women",
+    ages: "63% between the ages of 35 and 54",
+    geo: "75% based in the US and Canada, with the rest spread across the UK, Australia, and Mexico",
     who: "These are women who already own the room: founders, CEOs, coaches, and industry leaders building real businesses and real wealth. They show up for growth, for community, and for each other.",
     /** Stephanie, verbatim. Introduces the three proof stills under Our Reach. */
     proofLead:
       "The core of the sponsorship partnerships will be collaborative marketing online before, during and after the event.",
     figures: [
       {
-        figure: "62k+",
-        label: "A combined community of 62,000+ across Instagram and TikTok",
+        figure: "86k+",
+        label: "A combined community of 86,000+ across Instagram and TikTok",
       },
-      { figure: "3M", label: "views / 30 days on avg" },
-      { figure: "24.9k+", label: "on Instagram" },
-      { figure: "37.1k+", label: "on TikTok" },
-      { figure: "93%", label: "women" },
-      { figure: "64%", label: "between the ages of 35 and 54" },
+      { figure: "4.2M+", label: "views / 30 days" },
+      { figure: "38.9k+", label: "on Instagram" },
+      { figure: "47.9k+", label: "on TikTok" },
+      { figure: "94%", label: "women" },
+      { figure: "63%", label: "between the ages of 35 and 54" },
       {
         figure: "75%",
         label:
-          "based in the US and Canada, with the rest spread across the UK, Australia, Germany, India, and Mexico",
+          "based in the US and Canada, with the rest spread across the UK, Australia, and Mexico",
       },
     ] as const,
     /** Three-up band. Stephanie’s figures only — no invented press. */
     headline: [
-      { figure: "62k+", label: "community" },
-      { figure: "3M", label: "views / 30 days on avg" },
-      { figure: "24.9k+", label: "Instagram" },
+      { figure: "86k+", label: "community" },
+      { figure: "4.2M+", label: "views / 30 days" },
+      { figure: "38.9k+", label: "Instagram" },
     ] as const,
   },
   /**
@@ -206,7 +206,7 @@ export const copy = {
           "Presenting-level integration into one signature moment of the event",
           "One fully sponsored ticket, gifted to a mother and daughter experiencing the weekend together",
           "Recognition from the stage",
-          "Collaborative content across the full 62,000+ community before, during, and after the event",
+          "Collaborative content across the full 86,000+ community before, during, and after the event",
           "A table at the event to speak with attendees",
           "A full cinematic commercial, displayed across all social media platforms and on the main website for the event",
           "First right of renewal for 2028",
