@@ -49,7 +49,7 @@ export const copy = {
       "That idea became especially meaningful during a deeply personal season in Jackie's own family. As her mother navigates a significant health journey, Jackie has found herself standing in the middle of three generations, looking at the woman who came before her and the daughter coming after her, with a new appreciation for how precious time together really is.",
       "It raised a question that has become the heartbeat of Wildly Wealthy Woman Live: the greatest thing we can leave our daughters is the belief that they can build anything.",
       "Jackie is building this event alongside two women who share that belief.",
-      "Stephanie has spent her career teaching women that visibility creates wealth. She took her own Instagram from zero to 16,300 followers and 3 million views in 65 days, then did it again for a client, taking her from 200 followers to 11,000 and turning a single reel into 1.5 million views. Through West Rose Media, she teaches women to be seen, and to turn that visibility into revenue.",
+      "Stephanie has spent her career teaching women that visibility creates wealth. She took her own Instagram from zero to 16,300 followers and 3 million views in 65 days, and today she’s at 30,000+ on Instagram and 46,000+ on TikTok, reaching more than 4 million views every month. She did it again for a client, taking her from 200 followers to 11,000 and turning a single reel into 1.5 million views. Through West Rose Media, she teaches women to be seen, and to turn that visibility into revenue.",
       "Melissa has spent her career designing experiences people remember for years. As the retreat and event planner behind The Retreat Alchemist, she's the reason every detail of Wildly Wealthy Woman Live, from the biggest moments to the smallest ones, will feel exactly as considered as the belief the event was built on.",
     ] as const,
   },
@@ -143,7 +143,7 @@ export const copy = {
     heading: "Meet the women behind it",
     stephanie: {
       name: "Stephanie",
-      body: "Stephanie took her own Instagram from zero to 16,300 followers and 3 million views in 65 days. One of her clients went from 200 followers and 200 views to 11,000 followers and 1.5 million views on a single reel, in three months. She's spent her career helping women turn their expertise into visibility, and visibility into revenue, through West Rose Media.",
+      body: "Stephanie took her own Instagram from zero to 16,300 followers and 3 million views in 65 days. Today she’s at 30,000+ followers on Instagram and 46,000+ on TikTok, reaching more than 4 million views every month. One of her clients went from 200 followers and 200 views to 11,000 followers and 1.5 million views on a single reel, in three months. She’s spent her career helping women turn their expertise into visibility, and visibility into revenue, through West Rose Media.",
     },
     jackie: {
       name: "Jackie",
