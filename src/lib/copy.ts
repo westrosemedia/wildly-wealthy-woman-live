@@ -159,18 +159,14 @@ export const copy = {
     stephanie: {
       name: "Stephanie",
       body: "Stephanie took her own Instagram from zero to 16,300 followers and 3 million views in 65 days. Today she’s at 30,000+ followers on Instagram and 46,000+ on TikTok, reaching more than 4 million views every month. One of her clients went from 200 followers and 200 views to 11,000 followers and 1.5 million views on a single reel, in three months. She’s spent her career helping women turn their expertise into visibility, and visibility into revenue, through West Rose Media.",
-      instagram: "https://www.instagram.com/stephanie.the.rose/",
     },
     jackie: {
       name: "Jackie",
       body: "Jackie grew up watching her parents build something from nothing. Her mother and father, Susan and Dan McDonald, founded Island Lake Lodge in Fernie and Mica Heli Skiing in Revelstoke, two of the most respected names in the Canadian backcountry, and the kind of places the Calgary crowd has loved for generations. Jackie's father passed away in 2015. He left her the belief that she could build anything.",
-      instagram: "https://www.instagram.com/thejackiemcdonald/",
-      tiktok: "https://www.tiktok.com/@thejackiemcdonald",
     },
     melissa: {
       name: "Melissa",
       body: "Melissa is the retreat and event planner behind The Retreat Alchemist. She's the one making sure every detail of Wildly Wealthy Woman Live feels as considered as everything else about this event.",
-      instagram: "https://www.instagram.com/theretreatalchemist/",
     },
     closer:
       "The greatest wealth a woman can build is the world she hands to the women who come after her. That's what Jackie's father left her. It's what every woman in this room is here to pass on too.",
