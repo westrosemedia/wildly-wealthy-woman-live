@@ -4,6 +4,7 @@ import { SectionKicker } from "@/components/editorial-sections";
 import { MediaFrame } from "@/components/media-frame";
 import { copy } from "@/lib/copy";
 import { hotelRoomStills } from "@/lib/media";
+import { ticketPaymentLinks } from "@/lib/stripe";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function TicketsPage() {
           <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-5">
             {copy.tickets.types.map((ticket) => {
               const elevated = ticket.name === "VIP";
+              const href = ticketPaymentLinks[ticket.name];
               return (
                 <article
                   key={ticket.name}
@@ -57,6 +59,19 @@ export default function TicketsPage() {
                       </p>
                     ) : null}
                   </div>
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "wine-fill mt-10 inline-flex",
+                        elevated && "wine-fill-on-wine",
+                      )}
+                    >
+                      {copy.tickets.buy}
+                    </a>
+                  ) : null}
                 </article>
               );
             })}
