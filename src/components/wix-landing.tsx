@@ -642,7 +642,7 @@ export function WixLanding() {
       </section>
 
       <section className="mx-auto grid max-w-[1100px] items-center gap-12 px-6 py-20 md:grid-cols-2">
-        <div>
+        <div className="order-2 md:order-1">
           <h2 className="wix-display text-[28px] tracking-[0.08em]">Meet Stephanie</h2>
           <p className="mt-2 text-[13px] tracking-[0.14em] uppercase">
             The woman behind the content &amp; creativity
@@ -676,7 +676,11 @@ export function WixLanding() {
             </SocialLink>
           </div>
         </div>
-        <img src="/wix/stephanie.jpg" alt="Stephanie Rose" className="w-full object-cover" />
+        <img
+          src="/wix/stephanie.jpg"
+          alt="Stephanie Rose"
+          className="order-1 -mx-6 aspect-[16/11] w-[calc(100%+3rem)] max-w-none object-cover object-center md:order-2 md:mx-0 md:aspect-auto md:w-full"
+        />
       </section>
 
       <section className="mx-auto grid max-w-[1100px] items-center gap-12 px-6 pb-20 md:grid-cols-2">
