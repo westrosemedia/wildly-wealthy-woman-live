@@ -553,6 +553,14 @@
   outline: none;
 }
 
+@font-face {
+  font-family: "Abramo Script";
+  src: url("/wix/fonts/abramo.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Homepage rebuilt from the Wix event page. */
 .wix {
   --wix-ink: #242323;
@@ -561,7 +569,9 @@
   background: #fff;
   color: var(--wix-ink);
   font-family: var(--font-wix-sans), "Lato", sans-serif;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.55;
 }
 
 .wix-display {
@@ -572,10 +582,12 @@
 }
 
 .wix-script {
-  font-family: var(--font-wix-script), cursive;
+  font-family: "Abramo Script", cursive;
   font-weight: 400;
+  font-style: normal;
   letter-spacing: 0;
-  line-height: 1;
+  line-height: 0.8;
+  text-transform: none;
 }
 
 .wix-serif {
@@ -590,9 +602,12 @@
   justify-content: center;
   background: var(--wix-ink);
   color: #fff;
-  padding: 0.9rem 1.35rem;
+  padding: 0.85rem 1.15rem;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
-  letter-spacing: 0.16em;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
 }
