@@ -1,21 +1,38 @@
 import type { Metadata } from "next";
 
 import { WixLanding } from "@/components/wix-landing";
+import { eventJsonLd, eventSeo } from "@/lib/event";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Wildly Wealthy Woman Live" },
-  description:
-    "March 4–6, 2027 at the Fairmont Banff Springs. A luxury, multi-generational weekend for women. Honour the past. Celebrate the present. Inspire the future.",
+  title: { absolute: eventSeo.title },
+  description: eventSeo.description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Wildly Wealthy Woman Live",
-    description:
-      "One extraordinary destination. Three unforgettable days. Fairmont Banff Springs, March 4–6, 2027.",
+    title: eventSeo.title,
+    description: eventSeo.description,
     url: site.url,
-    images: [{ url: "/wix/hero-poster.jpg" }],
+    type: "website",
+    images: [{ url: "/wix/hero-poster.jpg", alt: "Wildly Wealthy Woman Live at the Fairmont Banff Springs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: eventSeo.title,
+    description: eventSeo.description,
+    images: ["/wix/hero-poster.jpg"],
   },
 };
 
 export default function Home() {
-  return <WixLanding />;
+  const jsonLd = eventJsonLd();
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <WixLanding />
+    </>
+  );
 }

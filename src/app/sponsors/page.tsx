@@ -13,6 +13,9 @@ import { mediaSlots, reachProofStills } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Sponsors",
+  description:
+    "Sponsor Wildly Wealthy Woman Live and help single mothers and daughters attend the March 4–6, 2027 weekend at the Fairmont Banff Springs.",
+  alternates: { canonical: "/sponsors" },
 };
 
 export default function SponsorsPage() {

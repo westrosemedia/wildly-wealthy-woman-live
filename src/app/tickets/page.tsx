@@ -9,6 +9,9 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Tickets",
+  description:
+    "General admission, duo, and VIP tickets for Wildly Wealthy Woman Live, March 4–6, 2027 at the Fairmont Banff Springs. Rooms are booked separately.",
+  alternates: { canonical: "/tickets" },
 };
 
 export default function TicketsPage() {

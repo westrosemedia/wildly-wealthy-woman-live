@@ -72,9 +72,6 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
-  alternates: {
-    canonical: site.url,
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
