@@ -24,7 +24,7 @@ const offers = [
   },
 ] as const;
 
-/** Search title and description. Correct spelling, even where the page design matches the Wix wording. */
+/** Search title and description. */
 export const eventSeo = {
   title: "Wildly Wealthy Woman Live | Banff, March 4–6, 2027",
   description:

@@ -77,7 +77,7 @@ const days = [
   },
   {
     when: "Friday, March 5",
-    name: "Recieve",
+    name: "Receive",
     lead: "The Main Wildly Wealthy Woman LIVE Experience",
     body: "A full day of inspiring speakers, meaningful panels, interactive workshops, EFT tapping, new friendships, and conversations that open your mind to what's possible. Expect moments that move you, practical tools you'll actually use, and plenty of opportunities to laugh, celebrate, and connect.",
   },
@@ -625,7 +625,7 @@ export function WixLanding() {
             className="mx-auto mb-10 w-full max-w-[420px] object-cover"
           />
           <h2 className="wix-display text-center text-[28px] leading-tight tracking-[0.06em] md:text-[34px]">
-            A personal inviation from Jackie
+            A personal invitation from Jackie
           </h2>
           <div className="mt-8 space-y-4 text-[16px] leading-relaxed text-black/80">
             {letter.map((paragraph) => (
