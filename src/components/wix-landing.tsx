@@ -257,18 +257,35 @@ export function WixLanding() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1100px] px-6 py-20 text-center md:py-24">
-        <h2 className="wix-display text-[26px] leading-[1.25] md:text-[32px]">
+      <section className="mx-auto max-w-[1180px] px-5 py-14 text-center md:px-8 md:py-20">
+        <h2 className="wix-display mx-auto max-w-[280px] text-[22px] leading-[1.3] tracking-[0.05em] sm:max-w-[1000px] sm:text-[26px] lg:text-[32px]">
           What if the greatest thing we leave
           <br />
           the next generation isn&apos;t what we&apos;ve built,
           <br />
-          <span className={`${gold} md:whitespace-nowrap text-[28px] md:text-[34px]`}>
+          <span className={`${gold} text-[24px] sm:text-[28px] lg:text-[36px] lg:whitespace-nowrap`}>
             but the belief that they can build anything?
           </span>
         </h2>
-        <div className="mx-auto mt-16 grid max-w-[860px] items-start gap-8 text-left md:grid-cols-[280px_1px_1fr] md:gap-10">
-          <p className="wix-display text-center text-[18px] leading-[1.35] font-semibold tracking-[0.04em] md:text-left md:text-[20px]">
+        <div className="mx-auto mt-10 flex max-w-[1080px] flex-col items-center gap-8 lg:mt-14 lg:flex-row lg:items-center lg:justify-center lg:gap-6 xl:gap-8">
+          <div className="relative h-[268px] w-[min(100%,320px)] shrink-0 sm:h-[300px] sm:w-[360px] lg:h-[340px] lg:w-[380px] xl:h-[370px] xl:w-[410px]">
+            <img
+              src="/wix/invite-tapping.jpg"
+              alt="Women in a tapping circle"
+              className="absolute top-[7%] left-0 z-[1] w-[46%] -rotate-[3.2deg] border-[5px] border-white bg-white shadow-[0_1px_4px_rgba(0,0,0,0.4)]"
+            />
+            <img
+              src="/wix/invite-selfie.jpg"
+              alt="Jackie taking a selfie with a guest"
+              className="absolute top-0 right-0 z-[2] w-[52%] rotate-[3.45deg] border-[5px] border-white bg-white shadow-[0_1px_4px_rgba(0,0,0,0.4)]"
+            />
+            <img
+              src="/wix/invite-group.jpg"
+              alt="Women gathered together"
+              className="absolute bottom-[1%] left-[7%] z-[3] w-[76%] rotate-[5.2deg] border-[5px] border-white bg-white shadow-[0_1px_4px_rgba(0,0,0,0.4)]"
+            />
+          </div>
+          <p className="wix-display w-[240px] text-center text-[17px] leading-[1.35] font-semibold lg:w-[250px] lg:shrink-0 lg:text-left lg:text-[18px] xl:w-[260px] xl:text-[20px]">
             One extraordinary
             <br />
             destination.
@@ -287,22 +304,26 @@ export function WixLanding() {
             <br />
             in what&apos;s possible.
           </p>
-          <span className="hidden w-px self-stretch bg-[#A27D50] md:block" />
-          <div className="space-y-5 text-[18px] leading-[1.55] font-light text-black/80">
-            <p>
-              Welcome to <strong>Wildly Wealthy Woman LIVE</strong>, a luxury, multi-generational
-              experience bringing women together to celebrate life, wealth, motherhood, ambition,
-              friendship, and the extraordinary things that become possible when women believe in
-              one another.
-            </p>
-            <p>
-              Bring your mother. Bring your daughter. Bring your sister, your best friend, or the
-              woman who has always believed in you.
-            </p>
-            <p>Or come on your own and meet women who just might change your life.</p>
+          <div className="flex w-full max-w-[280px] flex-col items-center gap-5 lg:max-w-none lg:w-auto lg:shrink-0 lg:flex-row lg:items-stretch lg:gap-6">
+            <span className="block h-[3px] w-[200px] shrink-0 bg-[#A27D50] lg:h-auto lg:min-h-[240px] lg:w-[5px]" />
+            <div className="space-y-4 text-center text-[16px] leading-[1.35] font-light text-black/85 lg:w-[320px] lg:text-left lg:text-[17px] lg:leading-[1.25] xl:w-[370px] xl:text-[18px]">
+              <p>
+                Welcome to <strong className="font-bold">Wildly Wealthy Woman LIVE</strong>, a
+                luxury, multi-generational experience bringing women together to celebrate life,
+                wealth, motherhood, ambition, friendship, and the extraordinary things that become
+                possible when women believe in one another.
+              </p>
+              <p>
+                Bring your mother. Bring your daughter. Bring your sister, your best friend, or the
+                woman who has always believed in you.
+              </p>
+              <p>Or come on your own and meet women who just might change your life.</p>
+            </div>
           </div>
         </div>
-        <p className={`wix-display mt-16 text-[20px] tracking-[0.12em] md:text-[28px] ${gold}`}>
+        <p
+          className={`wix-display mx-auto mt-12 max-w-[15rem] text-[18px] leading-snug tracking-[0.1em] sm:max-w-none sm:text-[22px] lg:mt-16 lg:text-[24px] xl:text-[28px] ${gold}`}
+        >
           This is your invitation to be part of something extraordinary
         </p>
         <Link href="#tickets" className="wix-btn mt-8">
