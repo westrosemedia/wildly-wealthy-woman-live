@@ -374,7 +374,7 @@ export function WixLanding() {
       </section>
 
       <section className="bg-[#242323] px-6 py-16 text-white md:py-20">
-        <div className="mx-auto grid max-w-[1100px] items-center gap-10 md:grid-cols-[1fr_280px_1fr]">
+        <div className="mx-auto grid max-w-[1100px] items-center gap-10 md:grid-cols-[1fr_319px_1fr]">
           <div className="text-center">
             <span className="wix-rule mx-auto" />
             <h2 className="wix-display mt-6 text-[34px] leading-tight md:text-[40px]">
@@ -386,16 +386,17 @@ export function WixLanding() {
             </h2>
             <span className="wix-rule mx-auto mt-6" />
           </div>
-          <video
-            className="mx-auto aspect-[9/16] w-full max-w-[280px] object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/wix/intro-poster.jpg"
-          >
-            <source src="/wix/intro.mp4" type="video/mp4" />
-          </video>
+          <div className="mx-auto aspect-[9/16] w-full max-w-[240px] overflow-hidden md:max-w-[319px]">
+            <iframe
+              className="h-full w-full border-0"
+              src="https://www.youtube.com/embed/lpcnxzOrHeY?autoplay=0&controls=1&loop=0&playsinline=1&rel=0"
+              title="Introducing Wildly Wealthy Woman Live 2027"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
           <div className="text-center">
             <span className="wix-rule mx-auto" />
             <p className="mx-auto mt-6 max-w-xs text-[18px] leading-relaxed font-light">
