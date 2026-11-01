@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Newsreader } from "next/font/google";
+import {
+  Geist,
+  Great_Vibes,
+  Instrument_Serif,
+  Lato,
+  Newsreader,
+  Nunito_Sans,
+} from "next/font/google";
 
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteFrame } from "@/components/site-frame";
 import { site } from "@/lib/site";
 
 import "./globals.css";
@@ -19,6 +25,35 @@ const grotesque = Geist({
   subsets: ["latin"],
   variable: "--font-grotesque",
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const wixSans = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-wix-sans",
+  display: "swap",
+});
+
+const wixDisplay = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-wix-display",
+  display: "swap",
+});
+
+const wixScript = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-wix-script",
+  display: "swap",
+});
+
+const wixSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-wix-serif",
   display: "swap",
 });
 
@@ -46,12 +81,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${grotesque.variable} h-full antialiased`}
+      className={`${newsreader.variable} ${grotesque.variable} ${wixSans.variable} ${wixDisplay.variable} ${wixScript.variable} ${wixSerif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-cream font-sans text-burgundy">
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">{children}</div>
-        <SiteFooter />
+        <SiteFrame>{children}</SiteFrame>
       </body>
     </html>
   );

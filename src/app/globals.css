@@ -552,3 +552,63 @@
   box-shadow: none;
   outline: none;
 }
+
+/* Homepage rebuilt from the Wix event page. */
+.wix {
+  --wix-ink: #242323;
+  --wix-gold: #a27d50;
+  --wix-cream: #f3efe6;
+  background: #fff;
+  color: var(--wix-ink);
+  font-family: var(--font-wix-sans), "Lato", sans-serif;
+  font-weight: 400;
+}
+
+.wix-display {
+  font-family: var(--font-wix-display), "Nunito Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.wix-script {
+  font-family: var(--font-wix-script), cursive;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.wix-serif {
+  font-family: var(--font-wix-serif), "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.wix-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wix-ink);
+  color: #fff;
+  padding: 0.9rem 1.35rem;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.wix-btn:hover {
+  opacity: 0.86;
+}
+
+.wix-btn-gold {
+  background: var(--wix-gold);
+  color: #fff;
+}
+
+.wix-rule {
+  display: block;
+  height: 1px;
+  width: 4.5rem;
+  background: var(--wix-gold);
+}
