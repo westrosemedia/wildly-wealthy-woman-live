@@ -73,19 +73,28 @@ const days = [
     when: "Thursday, March 4",
     name: "Release",
     lead: "An exclusive VIP evening.",
-    body: "An intimate opening experience to connect, reflect, and release what you're ready to leave behind. Think meaningful conversations, beautiful surroundings, powerful tapping, and an unforgettable beginning to your weekend.",
+    body: [
+      "An intimate opening experience to connect, reflect, and release what you're ready to leave behind.",
+      "Think meaningful conversations, beautiful surroundings, powerful tapping, and an unforgettable beginning to your weekend.",
+    ],
   },
   {
     when: "Friday, March 5",
     name: "Receive",
     lead: "The Main Wildly Wealthy Woman LIVE Experience",
-    body: "A full day of inspiring speakers, meaningful panels, interactive workshops, EFT tapping, new friendships, and conversations that open your mind to what's possible. Expect moments that move you, practical tools you'll actually use, and plenty of opportunities to laugh, celebrate, and connect.",
+    body: [
+      "A full day of inspiring speakers, meaningful panels, interactive workshops, EFT tapping, new friendships, and conversations that open your mind to what's possible.",
+      "Expect moments that move you, practical tools you'll actually use, and plenty of opportunities to laugh, celebrate, and connect.",
+    ],
   },
   {
     when: "Saturday, March 6",
     name: "Become",
     lead: "Our Closing Celebration",
-    body: "We bring everything together with a powerful morning focused on the woman you're becoming and the legacy you're creating. You'll leave with new connections, beautiful memories, practical tools, and a bigger vision for what's next.",
+    body: [
+      "We bring everything together with a powerful morning focused on the woman you're becoming and the legacy you're creating.",
+      "You'll leave with new connections, beautiful memories, practical tools, and a bigger vision for what's next.",
+    ],
   },
 ] as const;
 
@@ -217,7 +226,9 @@ const letter = [
 function Pillar({ title, body }: { title: string; body: readonly string[] }) {
   return (
     <div className="border-t border-[#A27D50]/70 pt-5">
-      <h3 className="text-[15px] tracking-[0.12em] uppercase">{title}</h3>
+      <h3 className="text-[18px] font-bold tracking-[0.04em] text-black uppercase md:text-[15px] md:font-normal md:tracking-[0.12em]">
+        {title}
+      </h3>
       {body.map((paragraph) => (
         <p key={paragraph} className="mt-3 text-[16px] leading-relaxed text-black/75">
           {paragraph}
@@ -227,12 +238,32 @@ function Pillar({ title, body }: { title: string; body: readonly string[] }) {
   );
 }
 
+function Polaroid({ src, alt = "", className = "" }: { src: string; alt?: string; className?: string }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`border-[7px] border-white bg-white shadow-[0_14px_30px_rgba(0,0,0,0.18)] ${className}`}
+    />
+  );
+}
+
 export function WixLanding() {
   return (
     <div className="wix">
-      <section className="relative h-[88vh] min-h-[560px] overflow-hidden bg-[#1c1c1c] text-white md:h-[788px]">
+      <section className="relative aspect-[608/1080] overflow-hidden bg-[#1c1c1c] text-white md:aspect-auto md:h-[788px]">
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover md:hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/wix/intro-poster.jpg"
+        >
+          <source src="/wix/intro.mp4" type="video/mp4" />
+        </video>
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover md:block"
           autoPlay
           muted
           loop
@@ -242,18 +273,29 @@ export function WixLanding() {
           <source src="/wix/hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/20" />
-        <div className="relative flex h-full flex-col items-center justify-center px-6 py-16 text-center">
-          <p className="text-[15px] tracking-[0.18em] uppercase md:text-[18px]">
+        <div className="relative flex h-full flex-col items-center px-6 pt-7 pb-8 text-center md:justify-center md:py-16">
+          <p className="text-[13px] leading-relaxed tracking-[0.18em] uppercase md:text-[18px]">
             Honour the past. Celebrate the present. Inspire the future.
           </p>
-          <img
-            src="/wix/logo.png"
-            alt="Wildly Wealthy Woman Live"
-            className="mt-8 w-[min(461px,86vw)]"
-          />
-          <p className="mt-5 text-[14px] tracking-[0.14em] uppercase md:text-[18px]">
-            March 4-6, 2027 &nbsp;|&nbsp; Fairmont Banff Springs &nbsp;|&nbsp; Banff, Canada
-          </p>
+          <div className="mt-auto flex flex-col items-center md:mt-8">
+            <img
+              src="/wix/logo.png"
+              alt="Wildly Wealthy Woman Live"
+              className="w-[min(280px,74vw)] md:w-[min(461px,86vw)]"
+            />
+            <p className="mt-4 text-[13px] leading-[1.45] tracking-[0.16em] uppercase md:mt-5 md:text-[18px] md:tracking-[0.14em]">
+              <span className="md:hidden">
+                March 4-6, 2027
+                <br />
+                Fairmont Banff Springs
+                <br />
+                Banff, Canada
+              </span>
+              <span className="hidden md:inline">
+                March 4-6, 2027 &nbsp;|&nbsp; Fairmont Banff Springs &nbsp;|&nbsp; Banff, Canada
+              </span>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -267,8 +309,8 @@ export function WixLanding() {
             but the belief that they can build anything?
           </span>
         </h2>
-        <div className="mx-auto mt-10 flex max-w-[1080px] flex-col items-center gap-8 lg:mt-14 lg:flex-row lg:items-center lg:justify-center lg:gap-6 xl:gap-8">
-          <div className="relative h-[268px] w-[min(100%,320px)] shrink-0 sm:h-[300px] sm:w-[360px] lg:h-[340px] lg:w-[380px] xl:h-[370px] xl:w-[410px]">
+        <div className="mx-auto mt-10 flex max-w-[1080px] flex-col items-center gap-8 md:mt-16 md:flex-row md:items-start md:justify-center md:gap-10">
+          <div className="relative h-[268px] w-[min(100%,320px)] shrink-0 md:hidden">
             <img
               src="/wix/invite-tapping.jpg"
               alt="Women in a tapping circle"
@@ -285,7 +327,7 @@ export function WixLanding() {
               className="absolute bottom-[1%] left-[7%] z-[3] w-[76%] rotate-[5.2deg] border-[5px] border-white bg-white shadow-[0_1px_4px_rgba(0,0,0,0.4)]"
             />
           </div>
-          <p className="wix-display w-[240px] text-center text-[17px] leading-[1.35] font-semibold lg:w-[250px] lg:shrink-0 lg:text-left lg:text-[18px] xl:w-[260px] xl:text-[20px]">
+          <p className="wix-display w-[240px] text-center text-[17px] leading-[1.35] font-semibold md:w-[270px] md:shrink-0 md:text-left md:text-[20px]">
             One extraordinary
             <br />
             destination.
@@ -304,9 +346,9 @@ export function WixLanding() {
             <br />
             in what&apos;s possible.
           </p>
-          <div className="flex w-full max-w-[280px] flex-col items-center gap-5 lg:max-w-none lg:w-auto lg:shrink-0 lg:flex-row lg:items-stretch lg:gap-6">
-            <span className="block h-[3px] w-[200px] shrink-0 bg-[#A27D50] lg:h-auto lg:min-h-[240px] lg:w-[5px]" />
-            <div className="space-y-4 text-center text-[16px] leading-[1.35] font-light text-black/85 lg:w-[320px] lg:text-left lg:text-[17px] lg:leading-[1.25] xl:w-[370px] xl:text-[18px]">
+          <div className="flex w-full max-w-[280px] flex-col items-center gap-5 md:max-w-none md:w-auto md:flex-row md:items-stretch md:gap-8">
+            <span className="block h-px w-28 shrink-0 bg-[#A27D50] md:h-auto md:min-h-[260px] md:w-px" />
+            <div className="space-y-5 text-center text-[16px] leading-[1.5] font-light text-black/80 md:w-[420px] md:text-left md:text-[18px] md:leading-[1.55]">
               <p>
                 Welcome to <strong className="font-bold">Wildly Wealthy Woman LIVE</strong>, a
                 luxury, multi-generational experience bringing women together to celebrate life,
@@ -322,7 +364,7 @@ export function WixLanding() {
           </div>
         </div>
         <p
-          className={`wix-display mx-auto mt-12 max-w-[15rem] text-[18px] leading-snug tracking-[0.1em] sm:max-w-none sm:text-[22px] lg:mt-16 lg:text-[24px] xl:text-[28px] ${gold}`}
+          className={`wix-display mx-auto mt-12 max-w-[16rem] text-[22px] leading-[1.35] tracking-[0.08em] md:mt-16 md:max-w-none md:text-[28px] md:tracking-[0.12em] ${gold}`}
         >
           This is your invitation to be part of something extraordinary
         </p>
@@ -365,8 +407,8 @@ export function WixLanding() {
       </section>
 
       <section className="mx-auto max-w-[1080px] space-y-20 px-6 py-20 md:space-y-28 md:py-28">
-        <article className="grid items-center gap-10 md:grid-cols-2">
-          <div className="text-center md:px-10">
+        <article className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+          <div className="order-2 text-center md:order-1 md:px-10">
             <h3 className="wix-display text-[22px] tracking-[0.12em]">Honour the past</h3>
             <span className="wix-rule mx-auto mt-3" />
             <p className="mt-4 text-[16px] leading-relaxed text-black/70">
@@ -377,16 +419,16 @@ export function WixLanding() {
           <img
             src="/wix/family.jpg"
             alt="Jackie with her mother, daughter, and grandmother"
-            className="w-full rotate-1 border-[10px] border-white shadow-[0_18px_40px_rgba(0,0,0,0.16)]"
+            className="order-1 mx-auto w-[88%] rotate-1 border-[10px] border-white shadow-[0_18px_40px_rgba(0,0,0,0.16)] md:order-2 md:w-full"
           />
         </article>
-        <article className="grid items-center gap-10 md:grid-cols-2">
+        <article className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
           <img
             src="/wix/banff-jackie.jpg"
             alt="Jackie in Banff"
-            className="order-2 w-full -rotate-1 border-[10px] border-white shadow-[0_18px_40px_rgba(0,0,0,0.16)] md:order-1"
+            className="mx-auto w-[88%] -rotate-1 border-[10px] border-white shadow-[0_18px_40px_rgba(0,0,0,0.16)] md:w-full"
           />
-          <div className="order-1 text-center md:order-2 md:px-10">
+          <div className="text-center md:px-10">
             <h3 className="wix-display text-[22px] tracking-[0.12em]">Celebrate the present</h3>
             <span className="wix-rule mx-auto mt-3" />
             <p className="mt-4 text-[16px] leading-relaxed text-black/70">
@@ -396,8 +438,8 @@ export function WixLanding() {
             </p>
           </div>
         </article>
-        <article className="grid items-center gap-10 md:grid-cols-2">
-          <div className="text-center md:px-10">
+        <article className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+          <div className="order-2 text-center md:order-1 md:px-10">
             <h3 className="wix-display text-[22px] tracking-[0.12em]">Inspire the future</h3>
             <span className="wix-rule mx-auto mt-3" />
             <p className="mt-4 text-[16px] leading-relaxed text-black/70">
@@ -408,7 +450,7 @@ export function WixLanding() {
           <img
             src="/wix/girls.jpg"
             alt="Young women together"
-            className="w-full rotate-1 border-[10px] border-white shadow-[0_18px_40px_rgba(0,0,0,0.16)]"
+            className="order-1 mx-auto w-[88%] rotate-1 border-[10px] border-white shadow-[0_18px_40px_rgba(0,0,0,0.16)] md:order-2 md:w-full"
           />
         </article>
       </section>
@@ -419,14 +461,14 @@ export function WixLanding() {
         </p>
       </section>
 
-      <section className="relative bg-[#8ea4b8]">
+      <section className="relative bg-white md:bg-[#8ea4b8]">
         <img
           src="/wix/mountains.jpg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="h-[210px] w-full object-cover object-[center_45%] md:absolute md:inset-0 md:h-full md:object-center"
         />
-        <div className="relative mx-auto max-w-[1180px] px-4 py-10 md:px-8 md:py-16">
-          <div className="max-w-[560px] bg-white px-7 py-10 md:px-12 md:py-14">
+        <div className="relative mx-auto max-w-[1180px] md:px-8 md:py-16">
+          <div className="bg-white px-6 py-10 md:max-w-[560px] md:px-12 md:py-14">
             <h2 className="text-[16px] leading-snug tracking-[0.04em] uppercase">
               Imagine spending a weekend in one of the most beautiful places in the world.
             </h2>
@@ -472,20 +514,22 @@ export function WixLanding() {
                 And now you get to be a part of it.
               </p>
             </div>
-            <Link href="#tickets" className="wix-btn mt-8">
-              I want to be there
-            </Link>
+            <div className="mt-8 text-center md:text-left">
+              <Link href="#tickets" className="wix-btn">
+                I want to be there
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1180px] items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
+      <section className="mx-auto grid max-w-[1180px] items-center gap-8 md:grid-cols-2 md:gap-12 md:px-6 md:py-28">
         <img
           src="/wix/portrait.png"
           alt="A woman in a white fur coat in the snow"
-          className="h-full max-h-[820px] w-full object-cover"
+          className="aspect-[4/5] w-full object-cover object-[center_22%] md:aspect-auto md:h-full md:max-h-[820px] md:object-center"
         />
-        <div>
+        <div className="px-6 py-4 md:px-0 md:py-16">
           <h2 className="wix-display text-[36px] leading-[1.05] md:text-[46px]">
             What does it mean to be a Wildly Wealthy Woman?
           </h2>
@@ -519,9 +563,14 @@ export function WixLanding() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1180px] gap-12 px-6 pb-8 md:grid-cols-2 md:pb-0">
+      <img
+        src="/wix/pillars.jpg"
+        alt="Two women in fur coats with the Fairmont Banff Springs behind them"
+        className="h-[520px] w-full object-cover object-[center_28%] md:hidden"
+      />
+      <section className="mx-auto grid max-w-[1180px] gap-12 px-6 pt-8 pb-8 md:grid-cols-2 md:pt-0 md:pb-0">
         <div>
-          <p className="text-[15px] tracking-[0.08em] uppercase">
+          <p className="text-[16px] font-semibold tracking-[0.06em] uppercase md:text-[15px] md:font-normal md:tracking-[0.08em]">
             Come for the experience.
             <br />
             Leave with so much more.
@@ -535,7 +584,7 @@ export function WixLanding() {
         <img
           src="/wix/pillars.jpg"
           alt="Two women in fur coats with the Fairmont Banff Springs behind them"
-          className="h-full max-h-[860px] w-full object-cover"
+          className="hidden h-full max-h-[860px] w-full object-cover md:block"
         />
       </section>
       <section className="mx-auto grid max-w-[1180px] px-6 py-12 md:grid-cols-2">
@@ -555,8 +604,8 @@ export function WixLanding() {
       </section>
 
       <section id="experience" className="relative scroll-mt-20 overflow-hidden text-white">
-        <img src="/wix/experience.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/45" />
+        <img src="/wix/experience.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-[center_15%] md:object-center" />
+        <div className="absolute inset-0 bg-black/20 md:bg-black/45" />
         <div className="relative px-6 pt-16 pb-10 text-center">
           <h2 className="wix-display text-[36px] tracking-[0.18em] md:text-[44px]">The Experience</h2>
           <p className="mt-3 text-[14px] tracking-[0.16em] uppercase md:text-[16px]">
@@ -565,11 +614,15 @@ export function WixLanding() {
         </div>
         <div className="relative mx-auto grid max-w-[1100px] gap-5 px-6 pb-16 md:grid-cols-3">
           {days.map((day) => (
-            <article key={day.name} className="bg-white/82 px-6 py-8 text-center text-[#242323] backdrop-blur-sm">
+            <article key={day.name} className="bg-white/58 px-6 py-8 text-center text-[#242323] backdrop-blur-[1px] md:bg-white/82 md:backdrop-blur-sm">
               <p className="text-[13px] tracking-[0.14em] uppercase">{day.when}</p>
               <h3 className={`wix-display mt-2 text-[30px] tracking-[0.08em] ${gold}`}>{day.name}</h3>
               <p className="mt-3 text-[16px] font-bold">{day.lead}</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-black/75">{day.body}</p>
+              {day.body.map((paragraph) => (
+                <p key={paragraph} className="mt-3 text-[15px] leading-relaxed text-black/75">
+                  {paragraph}
+                </p>
+              ))}
             </article>
           ))}
         </div>
@@ -601,20 +654,27 @@ export function WixLanding() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[980px] items-start gap-10 px-6 py-24 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-28">
-        <h2 className="wix-display relative pb-8 text-[40px] leading-[0.9] md:text-[46px]">
-          A weekend
-          <br />
-          you&apos;ll
-          <br />
-          want to
-          <br />
-          remember
-          <span className="wix-script pointer-events-none absolute top-[58%] -left-2 text-[120px] text-[#242323] md:text-[150px]">
-            Forever
-          </span>
-        </h2>
-        <div className="space-y-4 text-[18px] leading-[1.55] font-light text-black/75">
+      <section className="relative mx-auto grid max-w-[980px] items-start gap-10 px-6 py-16 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-28">
+        <div className="grid grid-cols-[1fr_132px] items-start gap-3 md:block">
+          <h2 className="wix-display relative pb-16 text-[30px] leading-[0.95] md:pb-8 md:text-[46px]">
+            A weekend
+            <br />
+            you&apos;ll
+            <br />
+            want to
+            <br />
+            remember
+            <span className="wix-script pointer-events-none absolute top-[78%] left-0 text-[72px] text-[#242323] md:top-[58%] md:-left-2 md:text-[150px]">
+              Forever
+            </span>
+          </h2>
+          <Polaroid
+            src="/wix/weekend-tall.jpg"
+            alt="Two women in the mountains above Banff"
+            className="mt-1 w-full rotate-2 object-cover md:hidden"
+          />
+        </div>
+        <div className="mt-6 space-y-4 text-[16px] leading-[1.55] font-light text-black/75 md:mt-0 md:text-[18px]">
           <p>There&apos;s something magical about Banff in the winter.</p>
           <p>And there&apos;s a reason the Fairmont Banff Springs is one of Canada&apos;s most iconic destinations.</p>
           <p>We&apos;ve chosen a setting as extraordinary as the women gathering inside it.</p>
@@ -629,6 +689,11 @@ export function WixLanding() {
           <p>New friendships.</p>
           <p>New ideas.</p>
           <p>And memories that become part of your family&apos;s story.</p>
+          <Polaroid
+            src="/wix/weekend-wide.jpg"
+            alt="Two women inside the Fairmont Banff Springs"
+            className="mx-auto my-2 w-[88%] rotate-1 object-cover md:hidden"
+          />
           <p className="font-bold tracking-[0.03em] uppercase">
             Because one day, the photographs and conversations may become some of the most valuable
             things you own.
@@ -636,14 +701,14 @@ export function WixLanding() {
         </div>
       </section>
 
-      <section className="relative px-4 py-16 md:py-24">
-        <img src="/wix/letter-bg.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/25" />
-        <article className="relative mx-auto max-w-[720px] bg-[#f7f7f7] px-7 py-12 md:px-14 md:py-16">
+      <section className="relative bg-[#f7f7f7] md:bg-transparent md:px-4 md:py-24">
+        <img src="/wix/letter-bg.jpg" alt="" className="absolute inset-0 hidden h-full w-full object-cover md:block" />
+        <div className="absolute inset-0 hidden bg-black/25 md:block" />
+        <article className="relative mx-auto max-w-[720px] bg-[#f7f7f7] px-6 py-10 md:px-14 md:py-16">
           <img
             src="/wix/generations.jpg"
             alt="Jackie with her mother and daughter"
-            className="mx-auto mb-10 w-full max-w-[420px] object-cover"
+            className="mx-auto mb-8 aspect-[5/4] w-full max-w-[420px] object-cover object-[center_18%] md:mb-10 md:aspect-auto"
           />
           <h2 className="wix-display text-center text-[28px] leading-tight tracking-[0.06em] md:text-[34px]">
             A personal invitation from Jackie
@@ -662,10 +727,10 @@ export function WixLanding() {
         </article>
       </section>
 
-      <section className="mx-auto grid max-w-[1100px] items-center gap-12 px-6 py-20 md:grid-cols-2">
-        <div className="order-2 md:order-1">
-          <h2 className="wix-display text-[28px] tracking-[0.08em]">Meet Stephanie</h2>
-          <p className="mt-2 text-[13px] tracking-[0.14em] uppercase">
+      <section className="mx-auto flex max-w-[1100px] flex-col items-stretch gap-0 md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-6 md:py-20">
+        <div className="order-2 px-6 py-8 md:order-1 md:px-0 md:py-0">
+          <h2 className="wix-display text-[28px] tracking-[0.04em] md:tracking-[0.08em]">Meet Stephanie</h2>
+          <p className="mt-1 text-[15px] font-bold tracking-[0.04em] text-black uppercase md:mt-2 md:text-[13px] md:font-normal md:tracking-[0.14em]">
             The woman behind the content &amp; creativity
           </p>
           <div className="mt-5 space-y-4 text-[16px] leading-relaxed text-black/75">
@@ -687,8 +752,8 @@ export function WixLanding() {
             </p>
             <p>Because your story matters. And you never know who needs to hear it.</p>
           </div>
-          <span className="mt-6 block h-px w-full bg-black/20" />
-          <div className="mt-5 flex gap-4">
+          <span className="mx-auto mt-6 block h-px w-14 bg-black/70 md:mx-0 md:w-full md:bg-black/20" />
+          <div className="mt-5 flex justify-center gap-5 md:justify-start">
             <SocialLink href="https://www.instagram.com/stephanie.the.rose/" label="Stephanie on Instagram">
               <InstagramIcon />
             </SocialLink>
@@ -700,15 +765,15 @@ export function WixLanding() {
         <img
           src="/wix/stephanie.jpg"
           alt="Stephanie Rose"
-          className="order-1 -mx-6 aspect-[16/11] w-[calc(100%+3rem)] max-w-none object-cover object-center md:order-2 md:mx-0 md:aspect-auto md:w-full"
+          className="order-1 w-full object-cover md:order-2"
         />
       </section>
 
-      <section className="mx-auto grid max-w-[1100px] items-center gap-12 px-6 pb-20 md:grid-cols-2">
+      <section className="mx-auto max-w-[1100px] items-center gap-12 md:grid md:grid-cols-2 md:px-6 md:pb-20">
         <img src="/wix/melissa.jpg" alt="Melissa" className="w-full object-cover" />
-        <div>
-          <h2 className="wix-display text-[28px] tracking-[0.08em]">Meet Melissa</h2>
-          <p className="mt-2 text-[13px] tracking-[0.14em] uppercase">
+        <div className="px-6 py-8 md:px-0 md:py-0">
+          <h2 className="wix-display text-[28px] tracking-[0.04em] md:tracking-[0.08em]">Meet Melissa</h2>
+          <p className="mt-1 text-[15px] font-bold tracking-[0.04em] text-black uppercase md:mt-2 md:text-[13px] md:font-normal md:tracking-[0.14em]">
             The woman helping bring the vision to life
           </p>
           <div className="mt-5 space-y-4 text-[16px] leading-relaxed text-black/75">
@@ -729,8 +794,8 @@ export function WixLanding() {
             <p>Because the magic isn&apos;t just in what happens on stage.</p>
             <p>It&apos;s in how you feel while you&apos;re here.</p>
           </div>
-          <span className="mt-6 block h-px w-full bg-black/20" />
-          <div className="mt-5">
+          <span className="mx-auto mt-6 block h-px w-14 bg-black/70 md:mx-0 md:w-full md:bg-black/20" />
+          <div className="mt-5 flex justify-center md:justify-start">
             <SocialLink href="https://www.instagram.com/theretreatalchemist/" label="Melissa on Instagram">
               <InstagramIcon />
             </SocialLink>
@@ -749,11 +814,16 @@ export function WixLanding() {
           alt=""
           className="pointer-events-none absolute top-24 right-0 hidden w-[190px] object-cover opacity-90 lg:block"
         />
-        <div className="relative mx-auto max-w-[760px] text-center">
-          <h2 className="wix-display text-[30px] leading-tight tracking-[0.08em] md:text-[40px]">
-            Every woman deserves someone who believes in her
-          </h2>
-          <p className="mt-4 text-[14px] tracking-[0.18em] uppercase">Our give-back mission</p>
+        <div className="relative mx-auto max-w-[760px] text-left md:text-center">
+          <div className="grid grid-cols-[1fr_128px] items-start gap-3 md:block">
+            <h2 className="wix-display text-[28px] leading-[0.95] tracking-[0.04em] md:text-[40px] md:tracking-[0.08em]">
+              Every woman deserves someone who believes in her
+            </h2>
+            <Polaroid src="/wix/give-right.jpg" className="w-full rotate-2 object-cover md:hidden" />
+          </div>
+          <p className="mt-5 text-[15px] font-semibold tracking-[0.14em] uppercase md:mt-4 md:text-[14px] md:font-normal md:tracking-[0.18em]">
+            Our give-back mission
+          </p>
           <div className="mt-8 bg-white px-6 py-10 text-left text-[16px] leading-relaxed text-[#242323] md:px-12">
             <p>One of the most meaningful parts of this event is creating opportunities for single mothers and their daughters to attend.</p>
             <p className="mt-4">Years ago, I won an opportunity to speak on a stage that helped change the direction of my life.</p>
@@ -777,6 +847,7 @@ export function WixLanding() {
               </Link>
             </div>
           </div>
+          <Polaroid src="/wix/give-left.jpg" className="mx-auto mt-8 w-[52%] -rotate-2 object-cover md:hidden" />
         </div>
       </section>
 
@@ -793,7 +864,16 @@ export function WixLanding() {
                 <h3 className="text-[14px] tracking-[0.12em] uppercase">{ticket.name}</h3>
                 <span className="mx-auto mt-3 h-px w-full bg-[#A27D50]" />
                 <p className="wix-serif mt-4 text-[42px]">{ticket.price}</p>
-                <p className="text-[13px] tracking-[0.14em] text-white/80 uppercase">{ticket.note}</p>
+                <p className="text-[13px] tracking-[0.14em] text-white/80 uppercase">
+                  {ticket.note.toLowerCase().endsWith("two") ? (
+                    <>
+                      {ticket.note.slice(0, -3)}
+                      <span className="underline">two</span>
+                    </>
+                  ) : (
+                    ticket.note
+                  )}
+                </p>
                 <p className="mt-4 text-[15px] leading-snug font-bold">{ticket.intro}</p>
                 {"detail" in ticket && ticket.detail ? (
                   <p className="mt-3 text-[14px] leading-relaxed text-white/85">{ticket.detail}</p>
@@ -801,11 +881,18 @@ export function WixLanding() {
                 {"plus" in ticket && ticket.plus ? (
                   <p className="mt-3 text-[14px] font-bold">{ticket.plus}</p>
                 ) : null}
-                <ul className="mt-4 space-y-2 text-left text-[14px] leading-snug text-white/90">
+                <ul className="mt-4 space-y-2 text-center text-[14px] leading-snug text-white/90 md:text-left">
                   {ticket.items.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span aria-hidden="true">•</span>
-                      <span>{item}</span>
+                    <li key={item} className="md:flex md:gap-2">
+                      <span aria-hidden="true">• </span>
+                      {item.startsWith("Two ") ? (
+                        <span>
+                          <span className="underline">Two</span>
+                          {item.slice(3)}
+                        </span>
+                      ) : (
+                        <span>{item}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -821,7 +908,12 @@ export function WixLanding() {
       </section>
 
       <section id="faq" className="scroll-mt-20 bg-white">
-        <div className="mx-auto grid max-w-[1100px] items-start gap-12 px-6 py-20 md:grid-cols-[1.2fr_0.8fr]">
+        <img
+          src="/wix/faq-photo.jpg"
+          alt=""
+          className="h-[260px] w-full object-cover object-[center_82%] md:hidden"
+        />
+        <div className="mx-auto grid max-w-[1100px] items-start gap-12 px-6 py-12 md:grid-cols-[1.2fr_0.8fr] md:py-20">
           <div>
             <h2 className="wix-display text-[40px] leading-[0.95] md:text-[52px]">
               Frequently
@@ -847,44 +939,78 @@ export function WixLanding() {
         </div>
       </section>
 
-      <section className="relative z-10 bg-white px-6 pt-20 pb-8 text-center">
-        <h2 className="flex flex-wrap items-end justify-center gap-x-3">
-          <span className="wix-display text-[28px] tracking-[0.16em] md:text-[40px]">
+      <section className="relative z-10 bg-white px-5 pt-10 pb-8 text-center md:px-6 md:pt-20">
+        <span className="mx-auto mb-5 block h-px w-24 bg-[#A27D50] md:hidden" />
+        <h2 className="flex flex-col items-center md:flex-row md:flex-wrap md:items-end md:justify-center md:gap-x-3">
+          <span className="wix-display text-[26px] leading-tight tracking-[0.12em] md:text-[40px] md:tracking-[0.16em]">
             The next generation is
           </span>
-          <span className="wix-script text-[88px] text-[#242323] md:text-[140px]">watching</span>
+          <span className="wix-script -mt-1 text-[78px] text-[#242323] md:mt-0 md:text-[140px]">watching</span>
         </h2>
-        <div className="mx-auto mt-10 max-w-[720px] space-y-3 text-[18px] leading-relaxed font-light">
+        <div className="mt-6 text-left md:hidden">
+          <div className="grid grid-cols-[128px_1fr] items-center gap-3">
+            <Polaroid src="/wix/close-left.jpg" className="w-full -rotate-2 object-cover" />
+            <div className="space-y-3 text-[15px] leading-snug">
+              <p>They&apos;re watching what we believe about ourselves.</p>
+              <p>They&apos;re watching the risks we&apos;re willing to take.</p>
+              <p>They&apos;re watching how we treat other women.</p>
+            </div>
+          </div>
+          <div className="mt-4 grid grid-cols-[1fr_136px] items-end gap-3">
+            <div className="space-y-3 text-[15px] leading-snug">
+              <p>They&apos;re watching what we celebrate, what we create, and what we believe is possible.</p>
+              <p>And maybe the most powerful thing we can give them isn&apos;t a perfect example.</p>
+            </div>
+            <Polaroid src="/wix/close-right.jpg" className="w-full rotate-2 object-cover" />
+          </div>
+        </div>
+        <div className="mx-auto mt-10 hidden max-w-[720px] space-y-3 text-[18px] leading-relaxed font-light md:block">
           <p>They&apos;re watching what we believe about ourselves.</p>
           <p>They&apos;re watching the risks we&apos;re willing to take.</p>
           <p>They&apos;re watching how we treat other women.</p>
           <p>They&apos;re watching what we celebrate, what we create, and what we believe is possible.</p>
           <p>And maybe the most powerful thing we can give them isn&apos;t a perfect example.</p>
-          <p className="pt-4 text-[18px] font-semibold tracking-[0.04em] uppercase md:text-[22px]">
-            Maybe it&apos;s the courage to live a life that shows them they can build anything
-          </p>
         </div>
-        <div className="relative mx-auto mt-16 h-16 max-w-[1180px]">
+        <p className="mx-auto mt-8 max-w-[22rem] text-[16px] font-semibold tracking-[0.03em] uppercase md:max-w-[720px] md:text-[22px]">
+          Maybe it&apos;s the courage to live a life that shows them they can build anything
+        </p>
+        <div className="relative mx-auto mt-16 hidden h-16 max-w-[1180px] md:block">
           <img
             src="/wix/close-left.jpg"
             alt=""
-            className="absolute bottom-[-120px] left-2 w-[180px] -rotate-3 border-[10px] border-white shadow-[0_16px_30px_rgba(0,0,0,0.18)] md:w-[230px]"
+            className="absolute bottom-[-120px] left-2 w-[230px] -rotate-3 border-[10px] border-white shadow-[0_16px_30px_rgba(0,0,0,0.18)]"
           />
           <img
             src="/wix/close-right.jpg"
             alt=""
-            className="absolute right-2 bottom-[-90px] w-[170px] rotate-2 border-[10px] border-white shadow-[0_16px_30px_rgba(0,0,0,0.18)] md:w-[220px]"
+            className="absolute right-2 bottom-[-90px] w-[220px] rotate-2 border-[10px] border-white shadow-[0_16px_30px_rgba(0,0,0,0.18)]"
           />
         </div>
       </section>
 
-      <footer className="bg-[#242323] px-6 pt-28 pb-20 text-center text-white">
-        <img src="/wix/logo.png" alt="" className="mx-auto w-[min(420px,80vw)]" />
-        <p className="mt-6 text-[14px] tracking-[0.16em] uppercase">
-          March 4-6, 2027 &nbsp;|&nbsp; Fairmont Banff Springs &nbsp;|&nbsp; Banff, Canada
+      <footer className="bg-[#242323] px-6 pt-12 pb-16 text-center text-[#9a9898] md:pt-28 md:pb-20 md:text-white">
+        <img src="/wix/logo.png" alt="" className="mx-auto w-[min(300px,74vw)] opacity-50 md:w-[min(420px,80vw)] md:opacity-100" />
+        <p className="mt-6 text-[13px] leading-[1.55] tracking-[0.16em] uppercase md:text-[14px]">
+          <span className="md:hidden">
+            March 4-6, 2027
+            <br />
+            Fairmont Banff Springs
+            <br />
+            Banff, Canada
+          </span>
+          <span className="hidden md:inline">
+            March 4-6, 2027 &nbsp;|&nbsp; Fairmont Banff Springs &nbsp;|&nbsp; Banff, Canada
+          </span>
         </p>
-        <p className="wix-display mt-5 text-[22px] tracking-[0.22em] md:text-[28px]">
-          Honour. Celebrate. Inspire.
+        <p className="wix-display mt-5 text-[20px] leading-snug tracking-[0.18em] md:text-[28px] md:tracking-[0.22em]">
+          <span className="md:hidden">
+            Honour.
+            <br />
+            Celebrate.
+            <br />
+            Inspire.
+          </span>
+          <span className="hidden md:inline">Honour. Celebrate. Inspire.</span>
         </p>
         <Link href="#tickets" className="wix-btn wix-btn-gold mt-8">
           Save your seat
