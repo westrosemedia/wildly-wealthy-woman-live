@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
+const wixEventPage = "https://www.jackiemcdonald.ca/wildly-wealthy-woman-live";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        destination: wixEventPage,
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
