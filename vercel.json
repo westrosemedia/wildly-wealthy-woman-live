@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "next build"
+  "buildCommand": "next build",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.jackiemcdonald.ca/wildly-wealthy-woman-live",
+      "permanent": true
+    }
+  ]
 }

@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         destination: wixEventPage,
-        permanent: false,
+        permanent: true,
       },
     ];
   },

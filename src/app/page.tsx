@@ -1,38 +1,7 @@
-import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
 
-import { WixLanding } from "@/components/wix-landing";
-import { eventJsonLd, eventSeo } from "@/lib/event";
-import { site } from "@/lib/site";
+const wixEventPage = "https://www.jackiemcdonald.ca/wildly-wealthy-woman-live";
 
-export const metadata: Metadata = {
-  title: { absolute: eventSeo.title },
-  description: eventSeo.description,
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: eventSeo.title,
-    description: eventSeo.description,
-    url: site.url,
-    type: "website",
-    images: [{ url: "/wix/hero-poster.jpg", alt: "Wildly Wealthy Woman Live at the Fairmont Banff Springs" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: eventSeo.title,
-    description: eventSeo.description,
-    images: ["/wix/hero-poster.jpg"],
-  },
-};
-
-export default function Home() {
-  const jsonLd = eventJsonLd();
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <WixLanding />
-    </>
-  );
+export default function Page() {
+  permanentRedirect(wixEventPage);
 }
