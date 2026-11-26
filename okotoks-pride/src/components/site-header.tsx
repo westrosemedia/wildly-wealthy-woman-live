@@ -12,21 +12,14 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <div className="stripes" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
       <div className="wrap header-bar">
-        <Link href="/" className="brand">
+        <Link href="/" className="brand" onClick={() => setOpen(false)}>
           <Image
-            src="/brand/logo-light.png"
-            alt="Okotoks Pride, since 2024"
+            src="/brand/logo-dark.png"
+            alt="Okotoks Pride"
             width={1200}
-            height={503}
+            height={492}
             priority
-            style={{ width: "auto", height: "58px" }}
           />
         </Link>
         <nav className="nav-desktop" aria-label="Primary">
@@ -40,9 +33,6 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link href="/contact" className="button header-cta">
-          Contact us
-        </Link>
         <button
           className="menu-button"
           type="button"

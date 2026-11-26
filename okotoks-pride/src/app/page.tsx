@@ -7,9 +7,9 @@ import { about, landAcknowledgement, org, pastEvents, questions } from "@/lib/co
 export default function HomePage() {
   return (
     <>
-      <section className="wrap hero">
-        <div>
-          <p className="eyebrow">Okotoks Pride</p>
+      <section className="cover">
+        <div className="cover-copy">
+          <p className="kicker">Okotoks Pride</p>
           <h1>Your place in the community is valid.</h1>
           <p className="lede">
             Everyone experiences life and queerness differently. You are welcome
@@ -20,7 +20,7 @@ export default function HomePage() {
             <Link className="button" href="/events">
               Events
             </Link>
-            <Link className="button secondary" href="/past-events">
+            <Link className="button" href="/past-events">
               Past events
             </Link>
           </div>
@@ -28,9 +28,9 @@ export default function HomePage() {
         <HeroVideo />
       </section>
 
-      <section className="section" id="acknowledgement">
-        <div className="wrap panel ack">
-          <p className="eyebrow">Land acknowledgement</p>
+      <section className="band band-cream" id="acknowledgement">
+        <div className="wrap ack">
+          <p className="kicker">Land acknowledgement</p>
           <h2>Treaty 7 Territory</h2>
           {landAcknowledgement.map((paragraph) => (
             <p key={paragraph.slice(0, 24)}>{paragraph}</p>
@@ -44,26 +44,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="band">
         <div className="wrap split">
-          <div>
-            <p className="eyebrow">{org.legalName}</p>
+          <div className="prose">
+            <p className="kicker">{org.legalName}</p>
             <h2>About us</h2>
             <p>{about.intro}</p>
             <p>{about.objectives}</p>
             <p>{about.funding}</p>
           </div>
-          <dl className="fact-list panel">
+          <dl className="facts">
             <div>
               <dt>Contact</dt>
               <dd>
                 <a href={`mailto:${org.email}`}>{org.email}</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>
-                <a href={org.mapsUrl}>{org.address}</a>
               </dd>
             </div>
             <div>
@@ -74,26 +68,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap">
-          <p className="eyebrow">From the festival</p>
+      <section className="band">
+        <div className="wrap band-intro">
+          <p className="kicker">From the festival</p>
           <h2>The real thing</h2>
           <p className="lede">
             Photos from an Okotoks Pride festival. More can be added in the
             empty frames.
           </p>
-          <FestivalPhotos />
-          <div className="slot-row">
-            <MediaSlot kind="photo" label="Another festival photo goes here." />
-            <MediaSlot kind="photo" label="Another festival photo goes here." />
-            <MediaSlot kind="video" label="A festival video goes here." />
-          </div>
+        </div>
+        <FestivalPhotos />
+        <div className="slot-row">
+          <MediaSlot kind="photo" label="Another festival photo goes here." />
+          <MediaSlot kind="photo" label="Another festival photo goes here." />
+          <MediaSlot kind="video" label="A festival video goes here." />
         </div>
       </section>
 
-      <section className="section">
+      <section className="band band-cream">
         <div className="wrap">
-          <p className="eyebrow">Some things to remember</p>
+          <p className="kicker">Some things to remember</p>
           <h2>Questions</h2>
           <div className="qa">
             {questions.map((item, index) => (
@@ -106,21 +100,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="band">
         <div className="wrap">
-          <p className="eyebrow">Already on the calendar</p>
+          <p className="kicker">Already on the calendar</p>
           <h2>Past gatherings</h2>
-          <div className="cards">
+          <div className="index">
             {pastEvents.map((event) => (
-              <article className="card" key={event.slug}>
-                <p className="eyebrow">{event.kicker}</p>
-                <h3>{event.title}</h3>
-                <p>
-                  {event.when}
-                  <br />
-                  {event.where}
-                </p>
-                <Link href="/past-events">See past events</Link>
+              <article className="index-item" key={event.slug}>
+                <p className="kicker">{event.kicker}</p>
+                <div>
+                  <h3>{event.title}</h3>
+                  <p className="meta">
+                    {event.when}
+                    <br />
+                    {event.where}
+                  </p>
+                </div>
+                <Link href={`/past-events#${event.slug}`}>See past events</Link>
               </article>
             ))}
           </div>

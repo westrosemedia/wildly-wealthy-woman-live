@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function PastEventsPage() {
   return (
-    <div className="wrap">
-      <header className="page-intro">
-        <p className="eyebrow">Past events</p>
+    <>
+      <header className="wrap page-hero">
+        <p className="kicker">Past events</p>
         <h1>Look what we made</h1>
         <p className="lede">
           Festival photos, then the two gatherings written up on the last site.
@@ -21,18 +21,20 @@ export default function PastEventsPage() {
         </p>
       </header>
 
-      <section className="section">
-        <h2>Festival photos</h2>
+      <section className="band">
+        <div className="wrap band-intro">
+          <h2>Festival photos</h2>
+        </div>
         <FestivalPhotos />
       </section>
 
-      {pastEvents.map((event) => (
-        <section className="section event-block" key={event.slug} id={event.slug}>
-          <article className="panel">
-            <p className="eyebrow">{event.kicker}</p>
+      <div className="wrap">
+        {pastEvents.map((event) => (
+          <section className="band event-block" key={event.slug} id={event.slug}>
+            <p className="kicker">{event.kicker}</p>
             <h2>{event.title}</h2>
-            <p>
-              <strong>{event.when}</strong>
+            <p className="event-meta">
+              {event.when}
               <br />
               {event.where}
             </p>
@@ -44,9 +46,9 @@ export default function PastEventsPage() {
               <MediaSlot kind="photo" label={`Another photo from ${event.title}.`} />
               <MediaSlot kind="video" label={`A video from ${event.title}.`} />
             </div>
-          </article>
-        </section>
-      ))}
-    </div>
+          </section>
+        ))}
+      </div>
+    </>
   );
 }

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <div className="wrap">
-      <header className="page-intro">
-        <p className="eyebrow">Events</p>
+      <header className="page-hero">
+        <p className="kicker">Events</p>
         <h1>What&apos;s on</h1>
         <p className="lede">
           The next dated gathering will show up here when Okotoks Pride posts
@@ -20,24 +20,22 @@ export default function EventsPage() {
         </p>
       </header>
 
-      <section className="section">
-        <article className="panel">
-          <p className="eyebrow">Monthly</p>
-          <h2>Be Gay Do Crafts</h2>
-          <p>
-            Be Gay Do Crafts are normally the first Wednesday of every month at
-            7 PM - 9 PM. Join us any time!
-          </p>
-          <p>
-            The Pride Edition was June 10 at 7 PM. That night, and the June 17
-            book club, are on <Link href="/past-events">Past events</Link>.
-          </p>
-          <div className="slot-row">
-            <MediaSlot kind="photo" label="A photo for the next craft night." />
-            <MediaSlot kind="photo" label="Another photo for an upcoming event." />
-            <MediaSlot kind="video" label="A video for an upcoming event." />
-          </div>
-        </article>
+      <section className="band event-block">
+        <p className="kicker">Monthly</p>
+        <h2>Be Gay Do Crafts</h2>
+        <p>
+          Be Gay Do Crafts are normally the first Wednesday of every month at
+          7 PM - 9 PM. Join us any time!
+        </p>
+        <p>
+          The Pride Edition was June 10 at 7 PM. That night, and the June 17
+          book club, are on <Link href="/past-events">Past events</Link>.
+        </p>
+        <div className="slot-row">
+          <MediaSlot kind="photo" label="A photo for the next craft night." />
+          <MediaSlot kind="photo" label="Another photo for an upcoming event." />
+          <MediaSlot kind="video" label="A video for an upcoming event." />
+        </div>
       </section>
     </div>
   );

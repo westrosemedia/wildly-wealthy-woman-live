@@ -3,16 +3,22 @@ import { festivalPhotos } from "@/lib/copy";
 
 export function FestivalPhotos() {
   return (
-    <div className="photo-bento">
+    <div className="gallery">
       {festivalPhotos.map((photo) => (
-        <figure key={photo.src} className={photo.wide ? "shot wide" : "shot"}>
+        <figure key={photo.src} className={`shot shot-${photo.crop}`}>
           <Image
             src={photo.src}
             alt={photo.alt}
-            width={photo.width}
-            height={photo.height}
-            sizes={photo.wide ? "100vw" : "(max-width: 860px) 100vw, 360px"}
-            style={{ width: "100%", height: "auto" }}
+            fill
+            sizes={
+              photo.crop === "wide"
+                ? "100vw"
+                : photo.crop === "third"
+                  ? "(max-width: 980px) 100vw, 34vw"
+                  : photo.crop === "major"
+                    ? "(max-width: 980px) 100vw, 58vw"
+                    : "(max-width: 980px) 100vw, 42vw"
+            }
           />
           <figcaption>{photo.caption}</figcaption>
         </figure>

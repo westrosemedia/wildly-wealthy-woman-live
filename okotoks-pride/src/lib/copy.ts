@@ -2,10 +2,7 @@ export const org = {
   publicName: "Okotoks Pride",
   legalName: "Okotoks Pride Collective Ltd.",
   email: "admin@okotokspride.ca",
-  address: "30 Robinson Dr, Okotoks, Alberta, T1S1C4",
   corporateAccessNumber: "5128382131",
-  mapsUrl:
-    "https://maps.google.com/?q=30+Robinson+Dr,+Okotoks,+Alberta+T1S1C4",
   callsForJusticeUrl:
     "https://www.mmiwg-ffada.ca/wp-content/uploads/2019/06/Calls_for_Justice.pdf",
   callsToActionUrl:
@@ -40,7 +37,7 @@ export const festivalPhotos = [
     height: 1373,
     alt: "Seven people from Okotoks Pride posing under a tent in front of a rainbow-striped wall, wearing lanyards and smiling.",
     caption: "The team",
-    wide: true,
+    crop: "wide",
   },
   {
     src: "/photos/stage-performance.jpg",
@@ -48,7 +45,7 @@ export const festivalPhotos = [
     height: 926,
     alt: "Performers on an outdoor stage at an Okotoks Pride festival, with a crowd sitting on the grass and a trans pride flag beside the stage.",
     caption: "On stage",
-    wide: false,
+    crop: "third",
   },
   {
     src: "/photos/lawn-crowd.jpg",
@@ -56,7 +53,7 @@ export const festivalPhotos = [
     height: 864,
     alt: "Aerial view of an Okotoks Pride festival lawn, with people sitting in small groups, an orange canopy, a white tent, and a small stage.",
     caption: "On the lawn",
-    wide: false,
+    crop: "third",
   },
   {
     src: "/photos/market-tents.jpg",
@@ -64,7 +61,7 @@ export const festivalPhotos = [
     height: 1010,
     alt: "Aerial view of Okotoks Pride market tents along a paved walk, with a lawn gathering on the grass behind them.",
     caption: "Market tents",
-    wide: false,
+    crop: "third",
   },
   {
     src: "/photos/bubble-performer.jpg",
@@ -72,7 +69,7 @@ export const festivalPhotos = [
     height: 1600,
     alt: "A performer in a blue top hat, white shirt, and suspenders making a giant soap bubble for children at an Okotoks Pride festival.",
     caption: "Bubbles",
-    wide: false,
+    crop: "minor",
   },
   {
     src: "/photos/butterfly-wings.jpg",
@@ -80,7 +77,7 @@ export const festivalPhotos = [
     height: 1067,
     alt: "A performer on red stilts with arms spread, wearing large rainbow butterfly wings at an Okotoks Pride festival.",
     caption: "Butterfly wings",
-    wide: false,
+    crop: "major",
   },
   {
     src: "/photos/disco-heads.jpg",
@@ -88,7 +85,7 @@ export const festivalPhotos = [
     height: 1067,
     alt: "Two performers in silver sequined outfits with mirrored disco-ball heads, holding a boombox beside a flower arch.",
     caption: "Disco heads",
-    wide: false,
+    crop: "major",
   },
   {
     src: "/photos/performer-in-white.jpg",
@@ -96,7 +93,7 @@ export const festivalPhotos = [
     height: 1067,
     alt: "A performer in a white suit and white sunglasses dancing above a crowd at an Okotoks Pride festival.",
     caption: "In white",
-    wide: false,
+    crop: "minor",
   },
   {
     src: "/photos/group-photo.jpg",
@@ -104,7 +101,7 @@ export const festivalPhotos = [
     height: 1066,
     alt: "A group of people posing together at an Okotoks Pride festival in front of a black backdrop and a flower arch.",
     caption: "Group photo",
-    wide: false,
+    crop: "major",
   },
   {
     src: "/photos/stage-fur.jpg",
@@ -112,7 +109,7 @@ export const festivalPhotos = [
     height: 1067,
     alt: "A performer in a long grey fur coat kneeling on an outdoor stage, with a rainbow brick wall and pride flags behind them.",
     caption: "Fur on stage",
-    wide: false,
+    crop: "minor",
   },
 ] as const;
 
@@ -122,7 +119,7 @@ export const pastEvents = [
     title: "Be Gay Do Crafts",
     kicker: "Pride Edition",
     when: "June 10, 7:00 pm",
-    where: "McMan Family Resource Network, 72 N Railway Street, Okotoks",
+    where: "McMan Family Resource Network, Okotoks",
     paragraphs: [
       "This monthly event is a crowd favourite. Join us June 10th at 7 PM for a special pride month night.",
       "Be Gay Do Crafts are normally the first Wednesday of every month at 7 PM - 9 PM. Join us any time!",
@@ -133,7 +130,7 @@ export const pastEvents = [
     title: "Okotoks Pride Book Club",
     kicker: "Loveless by Alice Oseman",
     when: "June 17, 7:00 pm",
-    where: "McMan Family Resource Network, 72 N Railway Street, Okotoks",
+    where: "McMan Family Resource Network, Okotoks",
     paragraphs: [
       "Reading banned books have never been more important. Join us June 17th at the Okotoks McMan Centre for a discussion about the book. Get your copy from Yooneek in Okotoks!",
       "10% discount on physical copies ordered through Yooneek Books.",

@@ -5,21 +5,14 @@ import { nav, org } from "@/lib/copy";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="stripes" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
       <div className="wrap footer-grid">
         <div>
           <Image
             className="footer-logo"
-            src="/brand/logo-dark.png"
+            src="/brand/logo-light.png"
             alt="Okotoks Pride"
             width={1200}
             height={492}
-            style={{ width: "auto", height: "78px" }}
           />
           <p>
             {org.legalName}
@@ -27,8 +20,6 @@ export function SiteFooter() {
             Corporate access number {org.corporateAccessNumber}
           </p>
           <p className="fine">
-            <a href={org.mapsUrl}>{org.address}</a>
-            <br />
             <a href={`mailto:${org.email}`}>{org.email}</a>
           </p>
         </div>
