@@ -28,7 +28,7 @@ export default function HomePage() {
         <HeroVideo />
       </section>
 
-      <section className="band band-cream" id="acknowledgement">
+      <section className="band ground-black" id="acknowledgement">
         <div className="wrap ack">
           <p className="kicker">Land acknowledgement</p>
           <h2>Treaty 7 Territory</h2>
@@ -44,7 +44,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="band">
+      <section className="band ground-blush">
         <div className="wrap split">
           <div className="prose">
             <p className="kicker">{org.legalName}</p>
@@ -85,7 +85,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="band band-cream">
+      <section className="band ground-black">
         <div className="wrap">
           <p className="kicker">Some things to remember</p>
           <h2>Questions</h2>
@@ -100,7 +100,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="band">
+      <section className="band ground-coral">
         <div className="wrap">
           <p className="kicker">Already on the calendar</p>
           <h2>Past gatherings</h2>

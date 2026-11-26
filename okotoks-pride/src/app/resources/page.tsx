@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 export default function ResourcesPage() {
   return (
+    <>
     <div className="wrap">
       <header className="page-hero">
         <p className="kicker">Resources</p>
@@ -43,7 +44,9 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="band">
+    </div>
+    <section className="band ground-coral">
+      <div className="wrap">
         <p className="kicker">How this work is funded</p>
         <h2>Grants, tickets, and fundraising</h2>
         <p>{about.funding}</p>
@@ -57,7 +60,8 @@ export default function ResourcesPage() {
             label="A resource guide or poster can be placed here later."
           />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+    </>
   );
 }

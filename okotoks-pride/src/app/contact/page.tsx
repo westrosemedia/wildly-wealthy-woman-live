@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
+    <div className="ground-blush">
     <div className="wrap">
       <header className="page-hero">
         <p className="kicker">Contact us</p>
@@ -36,6 +37,7 @@ export default function ContactPage() {
           </div>
         </dl>
       </section>
+    </div>
     </div>
   );
 }

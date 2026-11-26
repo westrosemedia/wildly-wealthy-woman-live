@@ -18,12 +18,12 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
-  background: var(--blush);
+  background: var(--cream);
 }
 
 body {
   margin: 0;
-  background: var(--blush);
+  background: var(--cream);
   color: var(--ink);
   font-family: var(--font-serif), "Iowan Old Style", "Palatino Linotype", Palatino, serif;
   font-size: 1.125rem;
@@ -296,10 +296,6 @@ h3 {
   padding: 5.5rem 0;
 }
 
-.band + .band {
-  padding-top: 0;
-}
-
 .band-cream,
 .band + .band.band-cream {
   background: var(--cream);
@@ -411,7 +407,7 @@ h3 {
   min-width: 0;
   aspect-ratio: 16 / 10;
   margin: 0;
-  background: var(--cream);
+  background: var(--blush);
   display: flex;
   align-items: flex-end;
   padding: 0.9rem 1rem;
@@ -581,9 +577,9 @@ h3 {
 }
 
 .site-footer {
-  background: var(--cream);
-  border-top: 1px solid var(--line);
-  color: var(--ink);
+  background: #232323;
+  border-top: 0;
+  color: #f3efe8;
   padding-bottom: 1rem;
 }
 
@@ -611,7 +607,7 @@ h3 {
 }
 
 .site-footer nav a {
-  color: var(--ink);
+  color: #f3efe8;
   font-family: var(--font-sans), "Avenir Next", sans-serif;
   font-size: 0.74rem;
   font-weight: 500;
@@ -621,11 +617,19 @@ h3 {
 }
 
 .site-footer nav a:hover {
-  color: var(--coral);
+  color: #f3a0c8;
+}
+
+.site-footer a {
+  color: #f8a800;
+}
+
+.site-footer a:hover {
+  color: #fff6f1;
 }
 
 .fine {
-  color: var(--muted);
+  color: rgba(243, 239, 232, 0.72);
   font-size: 1rem;
 }
 
@@ -759,12 +763,157 @@ textarea {
   }
 
   .band,
-  .band + .band.band-cream {
+  .band + .band.band-cream,
+  .band + .band.ground-black,
+  .band + .band.ground-blush,
+  .band + .band.ground-coral {
     padding: 3.6rem 0;
   }
 
   .wrap {
     width: min(var(--max), calc(100% - 2rem));
+  }
+}
+
+.ground-blush {
+  background: var(--blush);
+}
+
+.ground-blush .media-slot {
+  background: var(--cream);
+}
+
+.ground-black {
+  background: #232323;
+  color: #f3efe8;
+}
+
+.ground-black h1,
+.ground-black h2,
+.ground-black h3,
+.ground-black .qa summary {
+  color: #fff6f1;
+}
+
+.ground-black .kicker,
+.ground-black .facts dt,
+.ground-black .qa summary::after {
+  color: #f3a0c8;
+}
+
+.ground-black .kicker::before {
+  background: #f3a0c8;
+}
+
+.ground-black .lede,
+.ground-black .prose p,
+.ground-black .ack p,
+.ground-black .qa details p,
+.ground-black .meta,
+.ground-black .event-meta,
+.ground-black .form > p {
+  color: rgba(243, 239, 232, 0.84);
+}
+
+.ground-black a {
+  color: #f8a800;
+}
+
+.ground-black a:hover {
+  color: #fff6f1;
+}
+
+.ground-black .facts div,
+.ground-black .qa details,
+.ground-black .index-item,
+.ground-black .resource {
+  border-color: rgba(243, 239, 232, 0.22);
+}
+
+.ground-black .media-slot {
+  background: #1a1a1a;
+}
+
+.ground-black .media-slot strong {
+  color: #f3a0c8;
+}
+
+.ground-black .media-slot span {
+  color: rgba(243, 239, 232, 0.75);
+}
+
+.ground-coral {
+  background: var(--coral);
+  color: #fff6f1;
+}
+
+.ground-coral h1,
+.ground-coral h2,
+.ground-coral h3,
+.ground-coral .kicker,
+.ground-coral .facts dt,
+.ground-coral .qa summary,
+.ground-coral .qa summary::after {
+  color: #fff6f1;
+}
+
+.ground-coral .kicker::before {
+  background: #fff6f1;
+}
+
+.ground-coral .lede,
+.ground-coral p,
+.ground-coral .meta,
+.ground-coral .event-meta {
+  color: rgba(255, 246, 241, 0.92);
+}
+
+.ground-coral a,
+.ground-coral .index-item > a,
+.ground-coral .resource-link {
+  color: #fff6f1;
+}
+
+.ground-coral a:hover {
+  color: #2a1816;
+}
+
+.ground-coral .facts div,
+.ground-coral .index-item,
+.ground-coral .qa details {
+  border-color: rgba(255, 246, 241, 0.38);
+}
+
+.ground-coral .button {
+  background: #fff6f1;
+  color: var(--coral);
+}
+
+.ground-coral .button:hover {
+  background: #2a1816;
+  color: #fff6f1;
+}
+
+.ground-coral .media-slot {
+  background: rgba(255, 246, 241, 0.16);
+}
+
+.ground-coral .media-slot strong,
+.ground-coral .media-slot span {
+  color: #fff6f1;
+}
+
+.band + .band.ground-black,
+.band + .band.ground-blush,
+.band + .band.ground-coral {
+  padding-top: 5.5rem;
+}
+
+@media (max-width: 980px) {
+  .band + .band.ground-black,
+  .band + .band.ground-blush,
+  .band + .band.ground-coral {
+    padding-top: 3.6rem;
   }
 }
 

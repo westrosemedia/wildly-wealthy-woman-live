@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div>
           <Image
             className="footer-logo"
-            src="/brand/logo-light.png"
+            src="/brand/logo-dark.png"
             alt="Okotoks Pride"
             width={1200}
             height={492}
